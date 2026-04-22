@@ -12,7 +12,13 @@
 <div class="container">
 <div class="row">
 <header>
-<p>IFC 4.3.2.20260422 (IFC4X3_ADD2)
+<img class="logo" src="https://raw.githubusercontent.com/buildingSMART/IFC4.3.x-development/master/docs/assets/img/IFC4x3-logo1.1-wide.png" style="
+                        display: inline-flex;
+                        padding-bottom: 0px;
+                        padding-top: 0px;
+                        float: left;
+                    " width="100"/>
+<p style="display: inline-block; vertical-align: top;">IFC 4.3.2.20260422 (IFC4X3_ADD2)
                             <small>under development</small>
 </p>
 <ul>
@@ -517,15 +523,17 @@
 <p>The map conversion deals with transforming the local engineering coordinate system, often called world coordinate system, into the coordinate reference system of the underlying map.</p>
 <!-- end of short definition -->
 <aside class="aside-note"><mark>NOTE</mark> The <em><a href="IfcMapConversion.html">IfcMapConversion</a></em> does not handle the projection of a map from the geodetic coordinate reference system.</aside>
-<p>For this transformation, <em><a href="IfcMapConversion.html">IfcMapConversion</a></em> data are used for:
-1. a scaling of the three axes (x,y,z), by the same <em><a href="IfcMapConversion.html">IfcMapConversion</a>.Scale</em>
-2. followed by an <strong>anti-clockwise</strong> rotation about the z-axis of <em>θ</em>, where:</p>
+<p>For this transformation, <em><a href="IfcMapConversion.html">IfcMapConversion</a></em> data are used for:</p>
+<ul>
+<li>a scaling of the three axes (x,y,z), by the same <em><a href="IfcMapConversion.html">IfcMapConversion</a>.Scale</em></li>
+<li>followed by an <strong>anti-clockwise</strong> rotation about the z-axis of <em>θ</em>, where:</li>
+</ul>
 <p>$$
 \theta=arctan\left(\frac{XAxisOrdinate}{XAxisAbscissa}\right)
 $$</p>
-<ol>
+<ul>
 <li>and then a translation in (x,y,z) of <em><a href="IfcMapConversion.html">IfcMapConversion</a>.Eastings</em>, <em><a href="IfcMapConversion.html">IfcMapConversion</a>.Northings</em>, <em><a href="IfcMapConversion.html">IfcMapConversion</a>.OrthogonalHeight</em></li>
-</ol>
+</ul>
 <p>With <em><a href="IfcMapConversion.html">IfcMapConversion</a></em>, <strong>one scale</strong> is applied equally to x, y and z, <strong>to convert units</strong>.
 With <em><a href="IfcMapConversionScaled.html">IfcMapConversionScaled</a></em>, additional <strong>different factors</strong> multiply x, y and z, to <strong>scale coordinates</strong> - not units.</p>
 <aside class="aside-note"><mark>NOTE</mark> The z-axis of the local engineering coordinate system is always parallel to the z-axis of the map coordinate system.</aside><aside class="aside-note"><mark>NOTE</mark> The <em>Scale</em> can be used when the length unit for the 3 axes of the map coordinate system are not identical with the length unit established for this project (see <em><a href="IfcProject.html">IfcProject</a>.UnitsInContext</em>) - for example to convert feet into metres. If omitted, the scale factor 1.0 is assumed.</aside><aside class="aside-history"><mark>HISTORY</mark> New entity in IFC4</aside>

@@ -12,7 +12,13 @@
 <div class="container">
 <div class="row">
 <header>
-<p>IFC 4.3.2.20260422 (IFC4X3_ADD2)
+<img class="logo" src="https://raw.githubusercontent.com/buildingSMART/IFC4.3.x-development/master/docs/assets/img/IFC4x3-logo1.1-wide.png" style="
+                        display: inline-flex;
+                        padding-bottom: 0px;
+                        padding-top: 0px;
+                        float: left;
+                    " width="100"/>
+<p style="display: inline-block; vertical-align: top;">IFC 4.3.2.20260422 (IFC4X3_ADD2)
                             <small>under development</small>
 </p>
 <ul>
@@ -519,9 +525,9 @@
 <p>The vertical alignment is defined by segments that connects end-to-start. The vertical alignment curve geometry is defined in a plane with x = distance along horizontal, the y = height (or elevation). The transition at the segment connection is not enforced to be tangential, The <em><a href="IfcSegment.html">IfcSegment</a></em> <em>Transition</em> enumeration specifies the type of transition explicitly.</p>
 <p>The following vertical segment types are defined:</p>
 <ul>
-<li>line segment - <em><a href="IfcAlignmentVerticalSegmentTypeEnum.html">IfcAlignmentVerticalSegmentTypeEnum</a></em> .LINE.</li>
-<li>circular arc segment - <em><a href="IfcAlignmentVerticalSegmentTypeEnum.html">IfcAlignmentVerticalSegmentTypeEnum</a></em> .ARC.</li>
-<li>parabolic arc segment - <em><a href="IfcAlignmentVerticalSegmentTypeEnum.html">IfcAlignmentVerticalSegmentTypeEnum</a></em> .PARABOLICARC. which can describe symmetric parabolas, unsymmetric parabolas can be created by defining two symmetric parabolas segments</li>
+<li>line segment - <em><a href="IfcAlignmentVerticalSegmentTypeEnum.html">IfcAlignmentVerticalSegmentTypeEnum</a></em> .CONSTANTGRADIENT.</li>
+<li>circular arc segment - <em><a href="IfcAlignmentVerticalSegmentTypeEnum.html">IfcAlignmentVerticalSegmentTypeEnum</a></em> .CIRCULARARC.</li>
+<li>parabolic arc segment - <em><a href="IfcAlignmentVerticalSegmentTypeEnum.html">IfcAlignmentVerticalSegmentTypeEnum</a></em> .PARABOLICARC. which can describe symmetric parabolas. Unsymmetric parabolas can be created by defining two symmetric parabolas segments</li>
 <li>transition segment with linear curvature variation - <em><a href="IfcAlignmentVerticalSegmentTypeEnum.html">IfcAlignmentVerticalSegmentTypeEnum</a></em> .CLOTHOID.</li>
 </ul>
 <p>For each vertical segment, the following non-redundant information is provided:</p>
@@ -689,9 +695,9 @@
 <td data-label="Type">OPTIONAL <a href="IfcLengthMeasure.html">IfcLengthMeasure</a></td>
 <td data-label="Description">
 <p>Radius of parabola or arc. Positive values imply a CCW direction whereas negative CW.</p>
-<aside class="aside-note1"><mark>NOTE1</mark> For <em>PredefinedType</em> is ARC. The radius of the basis circle for the arc.
+<aside class="aside-note1"><mark>NOTE1</mark> For <em>PredefinedType</em> is CIRCULARARC. The radius of the basis circle for the arc.
 NOTE2 For <em>PredefinedType</em> is PARABOLICARC. Parabola constant (determining the “steepness” of the parabola). The parabola constant is provided by the “minimum parabola radius”, the true radius of a parabola at its vertical axis (the zero-gradient point of the parabola). The minimum radius is twice the focal length of the parabola (the distance between the focal point and the vertex).
-NOTE3 For <em>PredefinedType</em> that is not either ARC or PARABOLICARC the value should be empty.</aside>
+NOTE3 For <em>PredefinedType</em> that is not either CIRCULARARC or PARABOLICARC the value should be empty.</aside>
 </td>
 </tr>
 <tr>
