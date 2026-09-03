@@ -1,0 +1,619 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcSpace</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 2 index3 3 index4 29 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.2.3.30");
+//-->
+</script>
+
+<h4 class="num">IfcSpace</h4>
+<a href="../../views/reference-view/index.htm" ><img src="../../../img/view-reference-view.png" title="Reference View"/></a>
+<details open="open"><summary>Natural language names</summary><table>
+<table class="gridtable">
+<tr><td><img src="../../../img/locale-de.png" /></td><td><b>Raum</b></td></tr>
+<tr><td><img src="../../../img/locale-en.png" /></td><td><b>Space</b></td></tr>
+<tr><td><img src="../../../img/locale-fr.png" /></td><td><b>Local</b></td></tr>
+</table>
+</details>
+<details open="open"><summary>Change log</summary><table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/4000/index.htm">4.0.0.0</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CompositionType</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PredefinedType</td><td></td><td></td><td>MODIFIED</td><td>Name changed from <i>InteriorOrExteriorSpace</i> to <i>PredefinedType</i>. <br/>Type changed from <i>IfcInternalOrExternalEnum</i> to <i>IfcSpaceTypeEnum</i>. <br/>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+</table>
+</details>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<details open="open"><summary>Entity definition</summary><p>A space represents an area or volume bounded actually or theoretically. Spaces are areas or volumes that provide for certain functions within a building.</p>
+<p>A space is associated to a building storey (or in case of exterior spaces to a site). A space may span over several connected spaces. Therefore a space group provides for a collection of spaces included in a storey. A space can also be decomposed in parts, where each part defines a partial space. This is defined by the <i>CompositionType</i> attribute of the supertype <a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a> which is interpreted as
+follow:</p>
+<ul>
+<li>COMPLEX = space group</li>
+<li>ELEMENT = space</li>
+<li>PARTIAL = partial space</li>
+</ul>
+<blockquote class="note">
+NOTE&nbsp; View definitions and implementation agreements may restrict spaces with <i>CompositionType</i>=ELEMENT to be non-overlapping.</blockquote>
+<p>The <span class="self-ref">IfcSpace</span> is used to build the spatial structure of a
+building (that serves as the primary project breakdown and is
+required to be hierarchical). The spatial structure elements are
+linked together by using the objectified relationship
+<a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>.</p>
+<p>Figure 124 shows the <span class="self-ref">IfcSpace</span> as part of the spatial structure. It also serves as the spatial container for space related elements.</p>
+
+<blockquote class="note">NOTE&nbsp; Detailed requirements on mandatory element containment and placement structure relationships are given in view definitions and implementer agreements.</blockquote>
+
+
+
+<table summary="spatial structure" cellpadding="2" cellspacing="2">
+
+<tr><td align="left" valign="top"><img src="../../../figures/ifcspace-spatialstructure.png" alt="spatial structure" border="0" height="350" width="800"></td></tr>
+
+<tr><td><p class="figure">Figure 124 &mdash; Space composition</p></td></tr>
+
+</table>
+
+
+
+<p>The following guidelines should apply for using the <i>Name</i>, <i>Description</i>, <i>LongName</i> and <i>ObjectType</i> attributes.</p>
+<ul>
+<li><i>Name</i> holds the unique name (or space number) from the plan.</li>
+<li><i>Description</i> holds any additional information field the user may have specified, there are no further recommendations.</li>
+<li><i>LongName</i> holds the full name of the space, it is often used in addition to the <i>Name</i>, if a number is assigned to the room, then the descriptive name is exchanged as <i>LongName</i>.</li>
+<li><i>ObjectType</i> holds the space type, i.e. usually the functional category of the space .</li>
+</ul>
+<blockquote class="note">NOTE&nbsp; In cases of inconsistency between the geometric representation of the <span class="self-ref">IfcSpace</span> and the combined geometric representations of the surrounding <i>IfcRelSpaceBoundary</i>, the geometric representation of the space should take priority over the geometric representation of the surrounding space boundaries.</blockquote>
+
+<p>Figure 125 describes the heights and elevations of the <span class="self-ref">IfcSpace</span>.</p>
+<ul>
+ <li>elevation of the space (top of construction slab) equals elevation of storey: provided by <i>IfcBuildingStorey.Elevation</i> relative to em>IfcBuilding.ElevationOfRefHeight</i></li>
+<li>elevation of the space flooring (top of flooring on top of slab): provided by <i>IfcSpace.ElevationWithFlooring</i> relative to <i>IfcBuilding.ElevationOfRefHeight</i></li>
+<li>height of space (top of slab below to bottom of slab above): provided by BaseQuantity with Name="Height"</li>
+<li>floor height of space (top of slab below to top of flooring): provided by BaseQuantity with Name="FinishFloorHeight"</li>
+<li>net height of space (top of flooring to bottom of suspended ceiling): provided by BaseQuantity with Name="FinishCeilingHeight"</li>
+</ul>
+
+<table summary="attributes" cellpadding="2" cellspacing="2">
+<tr><td align="left" valign="top"><img src="../../../figures/ifcspace_heights.png" alt="space heights" border="0"
+height="400" width="450"></td></tr>
+<tr><td><p class="figure">Figure 125 &mdash; Space elevations</p></td></tr>
+</table>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC1.0
+</blockquote>
+</details>
+<details open="open"><summary>Attribute definitions</summary><table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>R</th></tr>
+<tr><td>10</td><td>PredefinedType</td><td><a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a></td><td>? </td><td>
+Predefined generic types for a space that are specified in an enumeration. There might be property sets defined specifically for each predefined type.
+
+<blockquote class="note">NOTE&nbsp; Previous use had been to indicates whether the <span class="self-ref">IfcSpace</span> is an interior space by value INTERNAL, or an exterior space by value EXTERNAL. This use is now deprecated, the property 'IsExternal' at 'Pset_SpaceCommon' should be used instead.</blockquote>
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attribute has been renamed from <i>ExteriorOrInteriorSpace</i> with upward compatibility for file based exchange.</blockquote></td><td>X</td></tr>
+<tr><td>11</td><td>ElevationWithFlooring</td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a></td><td>? </td><td>
+Level of flooring of this space; the average shall be taken, if the space ground surface is sloping or if there are level differences within this space. </td><td>X</td></tr>
+</table>
+</details>
+<details open="open"><summary>Formal Propositions</summary><table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>CorrectPredefinedType</td><td>Either the <i>PredefinedType</i> attribute is unset (e.g. because an <a href="../../ifcproductextension/lexical/ifcspacetype.htm">IfcSpaceType</a> is associated), or the inherited attribute <i>ObjectType</i> shall be provided, if the <i>PredefinedType</i> is set to USERDEFINED. </td></tr>
+<tr><td>CorrectTypeAssigned</td><td>Either there is no space type object associated, i.e. the <i>IsTypedBy</i> inverse relationship is not provided, or the associated type object has to be of type <a href="../../ifcproductextension/lexical/ifcspacetype.htm">IfcSpaceType</a>. </td></tr>
+</table>
+
+</details>
+</section>
+<section>
+<h5 class="num">Inherited definitions from supertypes</h5>
+<details open="open"><summary>Entity inheritance</summary><img src="../../../diagrams/ifcspace.png" usemap="#f"/>
+<map name="f">
+<area shape="rect" coords="66,126,278,138" href="../../../schema/ifcproductextension/lexical/ifcspatialstructureelement.htm" alt="IfcSpatialStructureElement" />
+<area shape="rect" coords="54,102,290,114" href="../../../schema/ifcproductextension/lexical/ifcspatialelement.htm" alt="IfcSpatialElement" />
+<area shape="rect" coords="42,78,302,90" href="../../../schema/ifckernel/lexical/ifcproduct.htm" alt="IfcProduct" />
+<area shape="rect" coords="30,54,314,66" href="../../../schema/ifckernel/lexical/ifcobject.htm" alt="IfcObject" />
+<area shape="rect" coords="18,30,326,42" href="../../../schema/ifckernel/lexical/ifcobjectdefinition.htm" alt="IfcObjectDefinition" />
+<area shape="rect" coords="6,6,338,18" href="../../../schema/ifckernel/lexical/ifcroot.htm" alt="IfcRoot" />
+</map>
+</details>
+<details><summary>Attribute inheritance</summary><table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th><th>R</th></tr>
+<tr><td colspan="6"><i><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a></i></td></tr>
+<tr><td>1</td><td>GlobalId</td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a></td><td></td><td>
+Assignment of a globally unique identifier within the entire software world.
+</td><td>X</td></tr>
+<tr><td>2</td><td>OwnerHistory</td><td><a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a></td><td>? </td><td>
+Assignment of the information about the current ownership of that object, including owning actor, application, local identification and information captured about the recent changes of the object, 
+
+<blockquote class="note">NOTE&nbsp; only the last modification in stored - either as addition, deletion or modification.</blockquote>
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attribute has been changed to be OPTIONAL.</blockquote></td><td>X</td></tr>
+<tr><td>3</td><td>Name</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+Optional name for use by the participating software systems or users. For some subtypes of IfcRoot the insertion of the Name attribute may be required. This would be enforced by a where rule.
+</td><td>X</td></tr>
+<tr><td>4</td><td>Description</td><td><a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a></td><td>? </td><td>
+Optional description, provided for exchanging informative comments.</td><td>X</td></tr>
+<tr><td colspan="6"><i><a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a></i></td></tr>
+<tr><td></td><td><i>HasAssignments</i></td><td><a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a><br/>@RelatedObjects</td><td>S[0:?]</td><td>Reference to the relationship objects, that assign (by an association relationship) other subtypes of IfcObject to this object instance. Examples are the association to products, processes, controls, resources or groups.</td><td>X</td></tr>
+<tr><td></td><td><i>Nests</i></td><td><a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a><br/>@RelatedObjects</td><td>S[0:1]</td><td>References to the decomposition relationship being a nesting. It determines that this object definition is a part within an ordered whole/part decomposition relationship. An object occurrence or type can only be part of a single decomposition (to allow hierarchical strutures only).
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The inverse attribute datatype has been added and separated from <i>Decomposes</i> defined at <span class="self-ref">IfcObjectDefinition</span>.</blockquote>
+</td><td></td></tr>
+<tr><td></td><td><i>IsNestedBy</i></td><td><a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a><br/>@RelatingObject</td><td>S[0:?]</td><td>References to the decomposition relationship being a nesting. It determines that this object definition is the whole within an ordered whole/part decomposition relationship. An object or object type can be nested by several other objects (occurrences or types).
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The inverse attribute datatype has been added and separated from <i>IsDecomposedBy</i> defined at <span class="self-ref">IfcObjectDefinition</span>.</blockquote>
+</td><td>X</td></tr>
+<tr><td></td><td><i>HasContext</i></td><td><a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a><br/>@RelatedDefinitions</td><td>S[0:1]</td><td>References to the context providing context information such as project unit or representation context. It should only be asserted for the uppermost non-spatial object.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The inverse attribute datatype has been added.</blockquote></td><td></td></tr>
+<tr><td></td><td><i>IsDecomposedBy</i></td><td><a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a><br/>@RelatingObject</td><td>S[0:?]</td><td>References to the decomposition relationship being an aggregation. It determines that this object definition is whole within an unordered whole/part decomposition relationship. An object definitions can be aggregated by several other objects (occurrences or parts).
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The inverse attribute datatype has been changed from the supertype <a href="../../ifckernel/lexical/ifcreldecomposes.htm">IfcRelDecomposes</a> to subtype <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>.</blockquote>
+</td><td>X</td></tr>
+<tr><td></td><td><i>Decomposes</i></td><td><a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a><br/>@RelatedObjects</td><td>S[0:1]</td><td>References to the decomposition relationship being an aggregation. It determines that this object definition is a part within an unordered whole/part decomposition relationship. An object definitions can only be part of a single decomposition (to allow hierarchical strutures only).
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The inverse attribute datatype has been changed from the supertype <a href="../../ifckernel/lexical/ifcreldecomposes.htm">IfcRelDecomposes</a> to subtype <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>.</blockquote>
+</td><td>X</td></tr>
+<tr><td></td><td><i>HasAssociations</i></td><td><a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a><br/>@RelatedObjects</td><td>S[0:?]</td><td>Reference to the relationship objects, that associates external references or other resource definitions to the object.. Examples are the association to library, documentation or classification.</td><td>X</td></tr>
+<tr><td colspan="6"><i><a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a></i></td></tr>
+<tr><td>5</td><td>ObjectType</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+The type denotes a particular type that indicates the object further. The use has to be established at the level of instantiable subtypes. In particular it holds the user defined type, if the enumeration of the attribute <i>PredefinedType</i> is set to USERDEFINED. 
+<br></td><td>X</td></tr>
+<tr><td></td><td><i>IsTypedBy</i></td><td><a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a><br/>@RelatedObjects</td><td>S[0:1]</td><td>Set of relationships to the object type that provides the type definitions for this object occurrence. The then associated <a href="../../ifckernel/lexical/ifctypeobject.htm">IfcTypeObject</a>, or its subtypes, contains the specific information (or type, or style), that is common to all instances of <span class="self-ref">IfcObject</span>, or its subtypes, referring to the same type. 
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New inverse relationship, the link to <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> had previously be included in the inverse relationship <a href="../../ifckernel/lexical/ifcreldefines.htm">IfcRelDefines</a>. Change made with upward compatibility for file based exchange.</blockquote></td><td>X</td></tr>
+<tr><td></td><td><i>IsDefinedBy</i></td><td><a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a><br/>@RelatedObjects</td><td>S[0:?]</td><td>Set of relationships to property set definitions attached to this object. Those statically or dynamically defined properties contain alphanumeric information content that further defines the object. 
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The data type has been changed from <a href="../../ifckernel/lexical/ifcreldefines.htm">IfcRelDefines</a> to <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> with upward compatibility for file based exchange.</blockquote></td><td>X</td></tr>
+<tr><td colspan="6"><i><a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a></i></td></tr>
+<tr><td>6</td><td>ObjectPlacement</td><td><a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a></td><td>? </td><td>
+Placement of the product in space, the placement can either be absolute (relative to the world coordinate system), relative (relative to the object placement of another product), or constraint (e.g. relative to grid axes). It is determined by the various subtypes of IfcObjectPlacement, which includes the axis placement information to determine the  transformation for the object coordinate system.</td><td>X</td></tr>
+<tr><td>7</td><td>Representation</td><td><a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a></td><td>? </td><td>
+Reference to the representations of the product, being either a representation (IfcProductRepresentation) or as a special case a shape representations (IfcProductDefinitionShape). The product definition shape provides for multiple geometric representations of the shape property of the object within the same object coordinate system, defined by the object placement.</td><td>X</td></tr>
+<tr><td colspan="6"><i><a href="../../ifcproductextension/lexical/ifcspatialelement.htm">IfcSpatialElement</a></i></td></tr>
+<tr><td>8</td><td>LongName</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+Long name for a spatial structure element, used for informal purposes. It should be used, if available, in conjunction with the inherited <i>Name</i> attribute.
+<blockquote class="note">
+  NOTE&nbsp; In many scenarios the <i>Name</i> attribute refers to the short name or number of a spacial element, and the <i>LongName</i> refers to the full descriptive name.
+</blockquote></td><td>X</td></tr>
+<tr><td></td><td><i>ContainsElements</i></td><td><a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a><br/>@RelatingStructure</td><td>S[0:?]</td><td>Set of spatial containment relationships, that holds those elements, which are contained within this element of the project spatial structure.
+<blockquote class="note">NOTE&nbsp; The spatial containment relationship, established by <a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a>, is required to be an hierarchical relationship, where each element can only be assigned to 0 or 1 spatial structure element.</blockquote></td><td>X</td></tr>
+<tr><td></td><td><i>ServicedBySystems</i></td><td><a href="../../ifcproductextension/lexical/ifcrelservicesbuildings.htm">IfcRelServicesBuildings</a><br/>@RelatedBuildings</td><td>S[0:?]</td><td>Set of relationships to systems, that provides a certain service to the spatial element for which it is defined. The relationship is handled by the objectified relationship <a href="../../ifcproductextension/lexical/ifcrelservicesbuildings.htm">IfcRelServicesBuildings</a>.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The inverse attribute has been promoted to the new supertype <span class="self-ref">IfcSpatialElement</span> with upward compatibility for file based exchange.</blockquote></td><td>X</td></tr>
+<tr><td colspan="6"><i><a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a></i></td></tr>
+<tr><td>9</td><td>CompositionType</td><td><a href="../../ifcproductextension/lexical/ifcelementcompositionenum.htm">IfcElementCompositionEnum</a></td><td>? </td><td>
+Denotes, whether the predefined spatial structure element represents itself, or an aggregate (complex) or a part (part). The interpretation is given separately for each subtype of spatial structure element. If no <i>CompositionType</i> is asserted, the dafault value 'ELEMENT' applies.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional.</blockquote></td><td>X</td></tr>
+<tr><td colspan="6"><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td></tr>
+<tr><td>10</td><td>PredefinedType</td><td><a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a></td><td>? </td><td>
+Predefined generic types for a space that are specified in an enumeration. There might be property sets defined specifically for each predefined type.
+
+<blockquote class="note">NOTE&nbsp; Previous use had been to indicates whether the <span class="self-ref">IfcSpace</span> is an interior space by value INTERNAL, or an exterior space by value EXTERNAL. This use is now deprecated, the property 'IsExternal' at 'Pset_SpaceCommon' should be used instead.</blockquote>
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attribute has been renamed from <i>ExteriorOrInteriorSpace</i> with upward compatibility for file based exchange.</blockquote></td><td>X</td></tr>
+<tr><td>11</td><td>ElevationWithFlooring</td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a></td><td>? </td><td>
+Level of flooring of this space; the average shall be taken, if the space ground surface is sloping or if there are level differences within this space. </td><td>X</td></tr>
+</table>
+</details>
+</section>
+<section>
+<h5 class="num">Definitions applying to Reference View</h5>
+<p><a href="../../../annex/annex-d/reference-view/ifcspace.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5></h5><details open="open">
+<summary>Concept usage</summary>
+<a id="space-attributes" />
+<p class="use-head">Space Attributes</p>
+<p>The <a href="../../templates/space-attributes.htm">Space Attributes</a> concept applies to this entity.</p><br/><br/>
+
+<a id="object-typing" />
+<p class="use-head">Object Typing</p>
+<p>The <a href="../../templates/object-typing.htm">Object Typing</a> concept template applies to this entity as shown in Table 35.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>HasType</b></th><th><b>RelatingType</b></th></tr>
+<tr><td></td><td><a href="../../ifcproductextension/lexical/ifcspacetype.htm">IfcSpaceType</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 35 &mdash; IfcSpace Object Typing</td></tr></table>
+
+<br/><br/>
+
+<a id="property-sets-for-objects" />
+<p class="use-head">Property Sets for Objects</p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept template applies to this entity as shown in Table 36.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td><a href="../../ifcproductextension/pset/pset_spacecommon.htm">Pset_SpaceCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsExternal</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GrossPlannedArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>NetPlannedArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>PubliclyAccessible</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HandicapAccessible</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+</table></td></tr>
+<tr><td><a href="../../ifcproductextension/pset/pset_spacecoveringrequirements.htm">Pset_SpaceCoveringRequirements</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FloorCovering</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FloorCoveringThickness</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>WallCovering</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>WallCoveringThickness</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>CeilingCovering</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>CeilingCoveringThickness</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SkirtingBoard</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SkirtingBoardHeight</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Molding</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>MoldingHeight</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ConcealedFlooring</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ConcealedFlooringOffset</td><td><a href="../../ifcmeasureresource/lexical/ifcnonnegativelengthmeasure.htm">IfcNonNegativeLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ConcealedCeiling</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ConcealedCeilingOffset</td><td><a href="../../ifcmeasureresource/lexical/ifcnonnegativelengthmeasure.htm">IfcNonNegativeLengthMeasure</a></td></tr>
+</table></td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/pset/pset_spacethermaldesign.htm">Pset_SpaceThermalDesign</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>CoolingDesignAirflow</td><td><a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HeatingDesignAirflow</td><td><a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>TotalSensibleHeatGain</td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>TotalHeatGain</td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>TotalHeatLoss</td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>CoolingDryBulb</td><td><a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>CoolingRelativeHumidity</td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HeatingDryBulb</td><td><a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HeatingRelativeHumidity</td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>VentilationAirFlowrate</td><td><a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ExhaustAirFlowrate</td><td><a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>CeilingRAPlenum</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>BoundaryAreaHeatLoss</td><td><a href="../../ifcmeasureresource/lexical/ifcheatfluxdensitymeasure.htm">IfcHeatFluxDensityMeasure</a></td></tr>
+</table></td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/pset/pset_spacethermalload.htm">Pset_SpaceThermalLoad</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>UpperValue</th><th>LowerValue</th><th>SetValue</th></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>People</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>Lighting</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>EquipmentSensible</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>VentilationIndoorAir</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>VentilationOutdoorAir</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>RecirculatedAir</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>ExhaustAir</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>AirExchangeRate</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>DryBulbTemperature</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>RelativeHumidity</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>InfiltrationSensible</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>TotalSensibleLoad</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>TotalLatentLoad</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+<tr><td><a href="../../templates/bounded-value.htm">Bounded Value</a></td><td>TotalRadiantLoad</td><td></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 36 &mdash; IfcSpace Property Sets for Objects</td></tr></table>
+
+<br/><br/>
+
+<a id="quantity-sets" />
+<p class="use-head">Quantity Sets</p>
+<p>The <a href="../../templates/quantity-sets.htm">Quantity Sets</a> concept template applies to this entity as shown in Table 37.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th><th><b>ComplexQuantities</b></th></tr>
+<tr><td><a href="../../ifcproductextension/qset/qto_spacebasequantities.htm">Qto_SpaceBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th><th>VolumeValue</th></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>Height</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>FinishCeilingHeight</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>FinishFloorHeight</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>GrossPerimeter</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>NetPerimeter</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossFloorArea</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetFloorArea</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossWallArea</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetWallArea</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossCeilingArea</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetCeilingArea</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/volume-quantity.htm">Volume Quantity</a></td><td>GrossVolume</td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/volume-quantity.htm">Volume Quantity</a></td><td>NetVolume</td><td></td><td></td><td></td></tr>
+</table></td><td></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 37 &mdash; IfcSpace Quantity Sets</td></tr></table>
+
+<br/><br/>
+
+<a id="spatial-decomposition" />
+<p class="use-head">Spatial Decomposition</p>
+<p>The <a href="../../templates/spatial-decomposition.htm">Spatial Decomposition</a> concept template applies to this entity as shown in Table 38.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedObjects</b></th><th><b>Description</b></th></tr>
+<tr><td></td><td>Relation to the <a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a> to which this space belongs to</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 38 &mdash; IfcSpace Spatial Decomposition</td></tr></table>
+
+<p>By using the inverse relationship <i>IfcSpace.Decomposes</i> it references <a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a> ||
+<a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a> by 
+<i>IfcRelAggregates.RelatingObject</i>.</p>
+<br/><br/>
+
+<a id="spatial-container" />
+<p class="use-head">Spatial Container</p>
+<p>The <a href="../../templates/spatial-container.htm">Spatial Container</a> concept applies to this entity.</p><br/><br/>
+
+<a id="product-local-placement" />
+<p class="use-head">Product Local Placement</p>
+<p>The <a href="../../templates/product-local-placement.htm">Product Local Placement</a> concept applies to this entity.</p><p>The local placement for <span class="self-ref">IfcSpace</span> is defined at its 
+supertype <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>. It is defined by the 
+<a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a>, which defines the local coordinate system 
+that is referenced by all geometric representations.</p>
+
+<ul>
+
+ <li>The <i>PlacementRelTo</i> relationship of 
+<a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a> shall point to the local placement of the
+ <a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a> of type <a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a> or <a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a> if
+ relative placement is used.</li>
+ 
+<li>If the relative placement is not used, the absolute placement
+ is defined within the world coordinate system.
+ </li>
+
+</ul>
+
+<br/><br/>
+
+<a id="footprint-geomset-geometry" />
+<p class="use-head">FootPrint GeomSet Geometry</p>
+<p>The <a href="../../templates/footprint-geomset-geometry.htm">FootPrint GeomSet Geometry</a> concept template applies to this entity as shown in Table 39.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Identifier</b></th><th><b>Type</b></th><th><b>Items</b></th><th><b>Description</b></th></tr>
+<tr><td>FootPrint</td><td>Curve2D</td><td><a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a></td><td>A single curve defining the outer boundary</td></tr>
+<tr><td>FootPrint</td><td>GeometricCurveSet</td><td><a href="../../ifcgeometricmodelresource/lexical/ifcgeometriccurveset.htm">IfcGeometricCurveSet</a></td><td>Set of curves (outer and inner) representing the floor projection,</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 39 &mdash; IfcSpace FootPrint GeomSet Geometry</td></tr></table>
+
+
+<p>The following constraints apply to the 2D representation:</p>
+
+<ul>
+ 
+<li>An <a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a> is required, using
+<i>IfcPolyline</i> for faceted space contours or
+ <i>IfcCompositeCurve</i> for space contours with arc segments. For
+ spaces with inner boundaries, a set of <a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>'s is
+ used, that should be grouped into an
+ <a href="../../ifcgeometricmodelresource/lexical/ifcgeometriccurveset.htm">IfcGeometricCurveSet</a>.</li>
+
+</ul>
+
+
+<p>&nbsp;</p>
+
+
+<table cellpadding="2" cellspacing="2">
+ 
+<tr valign="top">
+  <td align="left" valign="top"><img src="../../../figures/ifcspace_2d-layout1.gif" alt="2d representation" border="0" height="300" width="400"></td>
+  <td><blockquote class="example">EXAMPLE&nbsp; Figure 125 shows a two-dimensional bounded curve representing the
+foot print of <span class="self-ref">IfcSpace</span>.</example></td>
+ </tr>
+
+ <tr>
+  <td><p class="figure">Figure 125 &mdash; Space footprint</p></td>
+  <td>&nbsp;</td>
+ </tr>
+
+</table>
+
+<br/><br/>
+
+<a id="body-sweptsolid-polycurve-geometry" />
+<p class="use-head">Body SweptSolid PolyCurve Geometry</p>
+<p>The <a href="../../templates/body-sweptsolid-polycurve-geometry.htm">Body SweptSolid PolyCurve Geometry</a> concept template applies to this entity as shown in Table 40.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Identifier</b></th><th><b>Type</b></th><th><b>Geometry</b></th><th><b>Description</b></th></tr>
+<tr><td>Body</td><td>SweptSolid</td><td><a href="../../ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IfcExtrudedAreaSolid</a></td><td>Only extruded area solid shall be used for the swept solid representation.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 40 &mdash; IfcSpace Body SweptSolid PolyCurve Geometry</td></tr></table>
+
+
+<p>The following constraints apply to the 'Body' 'SweptSolid' representation:</p>
+
+<ul>
+
+ <li><u>Solid</u>: <a href="../../ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IfcExtrudedAreaSolid</a> is required,</li>
+ 
+<li><u>Profile</u>: <a href="../../ifcprofileresource/lexical/ifcarbitraryclosedprofiledef.htm">IfcArbitraryClosedProfileDef</a> and <a href="../../ifcprofileresource/lexical/ifcarbitraryprofiledefwithvoids.htm">IfcArbitraryProfileDefWithVoids</a> shall be
+supported. The profile outline and inline curves are defined using <a href="../../ifcgeometryresource/lexical/ifcindexedpolycurve.htm">IfcIndexedPolyCurve</a>.</li>
+
+ <li><u>Extrusion</u>: The extrusion direction shall be vertically,
+i.e., along the positive Z Axis of the co-ordinate system of the
+ containing spatial structure element.</li>
+
+</ul>
+
+
+<p>Figure 126 shows an extrusion of an arbitrary profile definition with voids into the swept area solid of <span class="self-ref">IfcSpace</span>.</p>
+
+
+<table cellpadding="2" cellspacing="2">
+
+ <tr valign="top">
+  <td align="left" valign="top">
+   <img src=
+"../../../figures/ifcspace_standard-layout1.gif" alt="fig1" border="0" 
+height="300" width="400"></td>
+ </tr>
+ 
+<tr>
+  <td><p class="figure">Figure 126 &mdash; Space body swept solid</p></td></tr>
+
+</table>
+
+
+<br/><br/>
+
+<a id="object-user-identity" />
+<p class="use-head">Object User Identity</p>
+<p>The <a href="../../templates/object-user-identity.htm">Object User Identity</a> concept (defined at a supertype) does NOT apply to this entity.</p><br/><br/>
+
+<a id="object-predefined-type" />
+<p class="use-head">Object Predefined Type</p>
+<p>The <a href="../../templates/object-predefined-type.htm">Object Predefined Type</a> concept (defined at a supertype) does NOT apply to this entity.</p><br/><br/>
+
+</details>
+<details><summary>mvdXML Specification</summary>
+<div class="xsd"><code class="xsd">
+&lt;?xml version=&quot;1.0&quot;?&gt;<br/>
+&lt;ConceptRoot xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; uuid=&quot;75217ae0-a1fb-43ad-b52d-a6b5d75e53fb&quot; name=&quot;IfcSpace&quot; status=&quot;sample&quot; applicableRootEntity=&quot;IfcSpace&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Applicability uuid=&quot;00000000-0000-0000-0000-000000000000&quot; status=&quot;sample&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c5a21892-3064-4870-ae43-6496eda10540&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot; /&gt;<br/>
+&nbsp;&nbsp;&lt;/Applicability&gt;<br/>
+&nbsp;&nbsp;&lt;Concepts&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;d6239bb5-eddc-4027-a426-172a3b2c2e61&quot; name=&quot;Space Attributes&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;543a52a7-799c-4349-a0ba-04c3fc2914d3&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;a116252d-43fd-4270-bde9-d6b47ad0cfa4&quot; name=&quot;Object Typing&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;35a2e10e-20df-40f4-ab2f-dacf0a6744f4&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatingType=IfcSpaceType;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;324dff43-e2e2-47b3-862c-a3ac53308061&quot; name=&quot;Property Sets for Objects&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;f74255a6-0c0e-4f31-84ad-24981db62461&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;PsetName=Pset_SpaceCommon;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;PsetName=Pset_SpaceCoveringRequirements;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;PsetName=Pset_SpaceThermalDesign;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;PsetName=Pset_SpaceThermalLoad;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;880fcd23-1511-46ae-9a08-f467e1d6a098&quot; name=&quot;Quantity Sets&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;6652398e-6579-4460-8cb4-26295acfacc7&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirements&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirement applicability=&quot;export&quot; requirement=&quot;recommended&quot; exchangeRequirement=&quot;dcd96125-898e-4ff0-b294-eb02afe953aa&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirement applicability=&quot;import&quot; requirement=&quot;recommended&quot; exchangeRequirement=&quot;dcd96125-898e-4ff0-b294-eb02afe953aa&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Requirements&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;QsetName=Qto_SpaceBaseQuantities;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;bc7cd9af-bb2f-42f7-b8a7-c8970e0afe8f&quot; name=&quot;Spatial Decomposition&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;667f8443-ecce-4a8d-a63f-931fab0453e0&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Description=&quot;Relation to the &amp;lt;em&amp;gt;IfcSite&amp;lt;/em&amp;gt; to which this space belongs to&quot; Parameters=&quot;Spatial Parts=IfcSite;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Description=&quot;Relation to the &amp;lt;em&amp;gt;IfcBuildingStorey&amp;lt;/em&amp;gt; to which this space belongs to (default)&quot; Parameters=&quot;Spatial Parts=IfcBuildingStorey;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;9e219929-5710-412e-b75a-34421fe32645&quot; name=&quot;Spatial Container&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;61dd08ed-fd01-4955-9337-8afd284a0e6f&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirements&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirement applicability=&quot;export&quot; requirement=&quot;recommended&quot; exchangeRequirement=&quot;dcd96125-898e-4ff0-b294-eb02afe953aa&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirement applicability=&quot;import&quot; requirement=&quot;recommended&quot; exchangeRequirement=&quot;dcd96125-898e-4ff0-b294-eb02afe953aa&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Requirements&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;7d82617c-3d38-47cc-86fe-f729fc3ed84f&quot; name=&quot;Product Local Placement&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;cbe85b5f-7912-4a43-8bb7-1e63bf40b26d&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;fcddf0b1-ae2e-4ec0-855b-bc6e976107a8&quot; name=&quot;FootPrint GeomSet Geometry&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;9456d6d6-a62a-48b4-baff-be2e38baac9c&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirements&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirement applicability=&quot;export&quot; requirement=&quot;recommended&quot; exchangeRequirement=&quot;dcd96125-898e-4ff0-b294-eb02afe953aa&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirement applicability=&quot;import&quot; requirement=&quot;recommended&quot; exchangeRequirement=&quot;dcd96125-898e-4ff0-b294-eb02afe953aa&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Requirements&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Description=&quot;A single curve defining the outer boundary&quot; Parameters=&quot;Identifier=FootPrint;Type=Curve2D;Items=IfcBoundedCurve;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Description=&quot;Set of curves (outer and inner) representing the floor projection,&quot; Parameters=&quot;Identifier=FootPrint;Type=GeometricCurveSet;Items=IfcGeometricCurveSet;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;eb232576-bd64-469e-87a2-8a77a507e881&quot; name=&quot;Body SweptSolid PolyCurve Geometry&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;38710ccd-8ff5-41ba-8fda-08300907a02e&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Description=&quot;Only extruded area solid shall be used for the swept solid representation.&quot; Parameters=&quot;Identifier=Body;Type=SweptSolid;Geometry=IfcExtrudedAreaSolid;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;a18635bc-e7ab-4f06-9ea5-e92e6080b248&quot; name=&quot;Object User Identity&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c19ec186-9cfd-47fc-a4d4-9fb35008d04a&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Concept uuid=&quot;7af6ece2-a562-4aa1-b752-f302f5782145&quot; name=&quot;Object Predefined Type&quot; status=&quot;sample&quot; override=&quot;false&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;25248261-98df-4d0a-9364-5653575ca421&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;/Concepts&gt;<br/>
+&lt;/ConceptRoot&gt;<br/>
+
+</code></div></details>
+<section>
+<details>
+<summary>Concept inheritance</summary>
+<p><table class="attributes">
+<tr><th><b>#</b></th><th><b>Concept</b></th><th><b>Template</b></th><th><b>Model View</b></th></tr>
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcroot.htm"><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcroot.htm#software-identity">Identity</a></td><td><a href="../../templates/software-identity.htm">Software Identity</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcroot.htm#revision-control">Revision Control</a></td><td><a href="../../templates/revision-control.htm">Revision Control</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobjectdefinition.htm"><a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobjectdefinition.htm#classification">Classification</a></td><td><a href="../../templates/classification.htm">Classification</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobject.htm"><a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#object-user-identity"><del>Object User Identity</del></a> (suppressed)</td><td><a href="../../templates/object-user-identity.htm">Object User Identity</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#object-predefined-type"><del>Object Predefined Type</del></a> (suppressed)</td><td><a href="../../templates/object-predefined-type.htm">Object Predefined Type</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#property-sets-with-override">Property Sets for Objects</a></td><td><a href="../../templates/property-sets-with-override.htm">Property Sets with Override</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifcproductextension/lexical/ifcspatialelement.htm"><a href="../../ifcproductextension/lexical/ifcspatialelement.htm">IfcSpatialElement</a></a></td></tr><tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcspatialelement.htm#spatial-element-type-predefined-type">Spatial Element Type Predefined Type</a></td><td><a href="../../templates/spatial-element-type-predefined-type.htm">Spatial Element Type Predefined Type</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td></tr><tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcspace.htm#space-attributes">Space Attributes</a></td><td><a href="../../templates/space-attributes.htm">Space Attributes</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcspace.htm#object-typing">Object Typing</a></td><td><a href="../../templates/object-typing.htm">Object Typing</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcspace.htm#property-sets-for-objects">Property Sets for Objects</a></td><td><a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcspace.htm#quantity-sets">Quantity Sets</a></td><td><a href="../../templates/quantity-sets.htm">Quantity Sets</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcspace.htm#spatial-decomposition">Spatial Decomposition</a></td><td><a href="../../templates/spatial-decomposition.htm">Spatial Decomposition</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcspace.htm#spatial-container">Spatial Container</a></td><td><a href="../../templates/spatial-container.htm">Spatial Container</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcspace.htm#product-local-placement">Product Local Placement</a></td><td><a href="../../templates/product-local-placement.htm">Product Local Placement</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcspace.htm#footprint-geomset-geometry">FootPrint GeomSet Geometry</a></td><td><a href="../../templates/footprint-geomset-geometry.htm">FootPrint GeomSet Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcspace.htm#body-sweptsolid-polycurve-geometry">Body SweptSolid PolyCurve Geometry</a></td><td><a href="../../templates/body-sweptsolid-polycurve-geometry.htm">Body SweptSolid PolyCurve Geometry</a></td><td>Reference View</td></tr>
+
+</table>
+</details>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<details><summary>XML Specification</summary><div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ElevationWithFlooring&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div></details>
+<details><summary>EXPRESS Specification</summary><div class="express"><code class="express">
+<span class="keyword">ENTITY</span> IfcSpace<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a>;<br/>
+&nbsp;&nbsp;ElevationWithFlooring : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;<br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR<br/>
+ (PredefinedType &lt;&gt; <a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a>.USERDEFINED) OR<br/>
+ ((PredefinedType = <a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a>.USERDEFINED) AND EXISTS (SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.ObjectType));<br/>&nbsp;&nbsp;CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR<br/>
+  (&#39;IFCPRODUCTEXTENSION.<a href="../../ifcproductextension/lexical/ifcspacetype.htm">IfcSpaceType</a>&#39; IN TYPEOF(SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.IsTypedBy[1].RelatingType));<br/><span class="keyword">END_ENTITY;</span><br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0007.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+</details>
+</section>
+</p>
+<p><a href="../../../link/ifcspace.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+  </body>
+</html>
