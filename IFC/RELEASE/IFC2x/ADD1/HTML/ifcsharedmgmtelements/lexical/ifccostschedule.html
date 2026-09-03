@@ -1,0 +1,889 @@
+
+<html>
+<HEAD>
+<title>IfcCostSchedule</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcsharedmgmtelements.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0003.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifccostschedule.html#references">
+</MAP><P><FONT face="Arial" size="5" color="#000000"><B>IfcCostSchedule</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">
+
+	 <P><U>Definition from
+
+		IAI:</U> An <I>IfcCostSchedule</I> is a list of cost elements that provides
+
+		information such as a total cost, description and title of the cost schedule, a
+
+		date when it is prepared and persons who prepared it. It is used to represent a
+
+		cost estimate. The following figure shows how a cost schedule would be used to
+
+		present cost data using groupings of elements where each grouping is itself a
+
+		cost schedule.</P>
+
+	 <IMG SRC="Figures/IfcCostSchedule-Fig1.gif" ALT="Cost Schedule" WIDTH="427"
+
+	  HEIGHT="427" BORDER="0"> 
+
+	 <P>The <I>IfcRelNests</I> provides a model mechanism to allow
+
+		<I>IfcCostSchedule</I> to contain other items of the same type. It provides the
+
+		relationships between the nesting <I>IfcCostSchedule</I> and nested
+
+		<I>IfcCostSchedule</I>(s).</P> 
+
+	 <BLOCKQUOTE> <FONT COLOR="#0000FF" SIZE="-1">HISTORY New Entity in IFC
+
+		Release 2.0. Documentation corrections made in IFC 2x Addendum 1.
+
+		</FONT></BLOCKQUOTE> 
+
+	 <BLOCKQUOTE> <FONT COLOR="#0000FF" SIZE="-1">ISSUES See issue and change
+
+		log for changes made in IFC Release 2x and IFC Release 2x Addendum
+
+		1.</FONT></BLOCKQUOTE>
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">ENTITY</A></B> IfcCostSchedule</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>SUPERTYPE</B>&nbsp;<B>OF</B></FONT>
+                </TD>
+                <TD height="1%"><FONT face="Courier New" size="2" color="#000000">(<A href="ifcbudget.html">IfcBudget</A>)</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifckernel/lexical/ifccontrol.html">IfcControl</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Title</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">SubmittedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcactorresource/lexical/ifcactorselect.html">IfcActorSelect</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">ApprovedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <B>SET</B> [1:?] <B>OF</B> <A href="../../ifcactorresource/lexical/ifcactorselect.html">IfcActorSelect</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">PreparedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcactorresource/lexical/ifcperson.html">IfcPerson</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">SubmittedOn</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">TotalCost</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifccostresource/lexical/ifccostvalue.html">IfcCostValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">CostElements</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <B>LIST</B> [1:?] <B>OF</B> <A href="ifccost.html">IfcCost</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Status</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">IntendedUse</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Comments</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <B>LIST</B> [1:?] <B>OF</B> <B>UNIQUE</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">TargetUsers</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <B>SET</B> [1:?] <B>OF</B> <A href="../../ifcactorresource/lexical/ifcactorselect.html">IfcActorSelect</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">ValidFromDate</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">ValidToDate</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">UpdateDate</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">ScheduleNumber</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcidentifier.html">IfcIdentifier</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000"><B><B>UNIQUE</B></B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="5%"><FONT face="Courier New" size="2" color="#000000">UR31</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">ScheduleNumber;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>Title</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The name by which the cost schedule is known.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>SubmittedBy</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The identity of the person or organization submitting the cost schedule.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>ApprovedBy</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The identity of the persons or organizations involved in approving the cost schedule.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>PreparedBy</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The identity of the person or organization preparing the cost schedule.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>SubmittedOn</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The date on which the cost schedule was submitted.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>TotalCost</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The total cost on the schedule.<BR>
+      <BR>
+      Note: The value of the total cost attribute of an IfcCostSchedule is NOT necessarily the sum of all IfcCostvalues
+      within the schedule, since some costs may be sub totals, etc.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>CostElements</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The individual elements that form the cost schedule.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>Status</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The current status of a cost schedule.<BR>
+      <BR>
+      Note: Since the values that may be applied to the status of a cost schedule may vary between projects
+      and even between organizations determining the values, the data type of status is set to be a string.
+      It is a matter for agreement between participants in an exchange of information to establish the meaning
+      of status values in the context of the work being undertaken.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>IntendedUse</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The intended use for the cost schedule.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>Comments</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Assumptions, qualifications, conditions, and other context information for the cost schedule.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>TargetUsers</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The actors for whom the cost schedule was prepared.<BR>
+      <BR>
+      Note:  May also be used to represent who has access permission for the cost information.  </FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>ValidFromDate</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Commencing date from which a cost schedule is valid.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>ValidToDate</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Terminating date on which a cost schedule is valid.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>UpdateDate</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The date that this cost schedule is updated; this allows tracking the schedule history.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>ScheduleNumber</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      A unique identifier assigned to the cost schedule.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Times New Roman" size="4" color="#000000"><B><A name="References">References (6):</A></B></FONT></P>
+<TABLE WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="1">
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><B>Name</B></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><B>Type</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><B>Referred through</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><B>Express-G</B></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><A href="ifcbudget.html">IfcBudget</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Arial" size="2" color="#000000">Supertype</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Arial" size="2" color="#000000"><A href="../diagrams/diagram_0004.html">Diagram 4</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><A href="ifcchangeorder.html">IfcChangeOrder</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Arial" size="2" color="#000000">Attribute 'CostEstimate'</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Arial" size="2" color="#000000"><A href="../diagrams/diagram_0001.html">Diagram 1</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><A href="../../ifckernel/lexical/ifccontrol.html">IfcControl</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Arial" size="2" color="#000000">Subtype</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Arial" size="2" color="#000000"><A href="../diagrams/diagram_0001.html">Diagram 1</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><A href="ifccost.html">IfcCost</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Arial" size="2" color="#000000">Attribute 'CostSchedule'</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Arial" size="2" color="#000000"><A href="../diagrams/diagram_0003.html">Diagram 3</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><A href="ifcpurchaseorder.html">IfcPurchaseOrder</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Arial" size="2" color="#000000">Attribute 'PurchaseItems'</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Arial" size="2" color="#000000"><A href="../diagrams/diagram_0002.html">Diagram 2</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><A href="ifcworkorder.html">IfcWorkOrder</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Arial" size="2" color="#000000">Attribute 'CostEstimate'</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Arial" size="2" color="#000000"><A href="../diagrams/diagram_0002.html">Diagram 2</A></FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> IfcCostSchedule;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcroot.html">IfcRoot</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">GlobalId</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.html">IfcGloballyUniqueId</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">OwnerHistory</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcutilityresource/lexical/ifcownerhistory.html">IfcOwnerHistory</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Name</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Description</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcobject.html">IfcObject</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">ObjectType</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">IsDefinedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcreldefines.html">IfcRelDefines</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">HasAssociations</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcrelassociates.html">IfcRelAssociates</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">HasAssignments</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcrelassigns.html">IfcRelAssigns</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Decomposes</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcreldecomposes.html">IfcRelDecomposes</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">IsDecomposedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="../../ifckernel/lexical/ifcreldecomposes.html">IfcRelDecomposes</A> <B>FOR</B> RelatingObject;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifccontrol.html">IfcControl</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Controls</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcrelassignstocontrol.html">IfcRelAssignsToControl</A> <B>FOR</B> RelatingControl;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifccostschedule.html">IfcCostSchedule</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Title</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">SubmittedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcactorresource/lexical/ifcactorselect.html">IfcActorSelect</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">ApprovedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <B>SET</B> [1:?] <B>OF</B> <A href="../../ifcactorresource/lexical/ifcactorselect.html">IfcActorSelect</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">PreparedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcactorresource/lexical/ifcperson.html">IfcPerson</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">SubmittedOn</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">TotalCost</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifccostresource/lexical/ifccostvalue.html">IfcCostValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">CostElements</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <B>LIST</B> [1:?] <B>OF</B> <A href="ifccost.html">IfcCost</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Status</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">IntendedUse</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Comments</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <B>LIST</B> [1:?] <B>OF</B> <B>UNIQUE</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">TargetUsers</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <B>SET</B> [1:?] <B>OF</B> <A href="../../ifcactorresource/lexical/ifcactorselect.html">IfcActorSelect</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">ValidFromDate</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">ValidToDate</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">UpdateDate</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">ScheduleNumber</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcidentifier.html">IfcIdentifier</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

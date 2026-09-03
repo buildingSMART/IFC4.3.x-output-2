@@ -1,0 +1,352 @@
+
+<html>
+<HEAD>
+<title>IfcRelOverridesProperties</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifckernel.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0003.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcreloverridesproperties.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><B>IfcRelOverridesProperties</B></FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"> 
+
+	 <P><U>Definition from IAI</U>: The objectified relationship
+
+		(<I>IfcRelOverridesProperties</I>) defines the relationships between objects
+
+		and a standard property set. It also defines a set of properties, which values
+
+		override the standard values given within the standard property set.</P> 
+
+	 <P>The inherited attributes should be interpreted as follows:</P> 
+
+	 <UL> 
+
+		<LI><I>SELF\IfcRelDefinedByProperties.RelatingPropertyDefinition</I>:
+
+		  Property set, which defines the standard set of properties assigned to all
+
+		  objects, that have the same set of properties,</LI> 
+
+		<LI><I>SELF\IfcRelDefines.RelatedObjects</I>: An object occurrence, to
+
+		  which the same set of properties is applied. The object is characterized that
+
+		  certain property values, given by the standard set of properties, have a
+
+		  different value than those defined for all objects of the same style,</LI> 
+
+		<LI><I>OverridingProperties</I>: A set of properties, that have a
+
+		  different value for the subset of objects. The set of the individual overriding
+
+		  properties have to correspond with a standard property set and its containing
+
+		  properties, as given by the <I>RelatingPropertyDefinition</I> attribute. The
+
+		  correspondence is established by the <I>Name</I> attribute.</LI> 
+
+	 </UL> 
+
+	 <P>It is provided as specialization of <I>IfcRelDefinedByProperties</I>
+
+		relationship. </P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT COLOR="#0000FF" SIZE="-1">HISTORY New Entity in IFC Release
+
+		  2x<BR>ISSUE See issue and change for changes made in IFC Release 2x</FONT>
+
+		  </P></BLOCKQUOTE> 
+
+</FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">ENTITY</A></B> IfcRelOverridesProperties</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcreldefinesbyproperties.html">IfcRelDefinesByProperties</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">OverridingProperties</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> [1:?] <B>OF</B> <A href="../../ifcpropertyresource/lexical/ifcproperty.html">IfcProperty</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000"><B><B>WHERE</B></B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">SIZEOF(SELF\IfcRelDefines.RelatedObjects) = 1;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>OverridingProperties</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      A property set, which contains those properties, that have a different value for the subset of objects.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000"><U><A name="constraint_description">Formal Propositions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR1</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      The overriding is only applicable as an occurrence property set - i.e. it can only be assigned to a single
+      occurrence of IfcObject.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><B><A name="References">References (1):</A></B></FONT></P>
+<TABLE WIDTH="100%" BORDER="1">
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Name</B></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Type</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Referred through</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Express-G</B></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><A href="ifcreldefinesbyproperties.html">IfcRelDefinesByProperties</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Times New Roman" size="2" color="#000000">Subtype</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Times New Roman" size="2" color="#000000"><A href="../diagrams/diagram_0003.html">Diagram 3</A></FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> IfcRelOverridesProperties;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcroot.html">IfcRoot</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">GlobalId</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.html">IfcGloballyUniqueId</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">OwnerHistory</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcutilityresource/lexical/ifcownerhistory.html">IfcOwnerHistory</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Name</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Description</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcreldefines.html">IfcRelDefines</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">RelatedObjects</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> [1:?] <B>OF</B> <A href="ifcobject.html">IfcObject</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcreldefinesbyproperties.html">IfcRelDefinesByProperties</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">RelatingPropertyDefinition</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcpropertysetdefinition.html">IfcPropertySetDefinition</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcreloverridesproperties.html">IfcRelOverridesProperties</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">OverridingProperties</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> [1:?] <B>OF</B> <A href="../../ifcpropertyresource/lexical/ifcproperty.html">IfcProperty</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

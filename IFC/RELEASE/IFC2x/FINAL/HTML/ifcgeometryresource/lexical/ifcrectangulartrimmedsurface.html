@@ -1,0 +1,418 @@
+
+<html>
+<HEAD>
+<title>IfcRectangularTrimmedSurface</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0007.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcrectangulartrimmedsurface.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><B>IfcRectangularTrimmedSurface</B></FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"> 
+
+	 <P><U>Definition from ISO/CD 10303-42:1992</U>: The trimmed surface is a
+
+		simple bounded surface in which the boundaries are the constant parametric
+
+		lines <I>u</I><SUB>1</SUB> = u1, <I>u</I><SUB>2</SUB> = u2,
+
+		<I>v</I><SUB>1</SUB> = v1 and <I>v</I><SUB>2</SUB> = v2. All these values shall
+
+		be within the parametric range of the referenced surface. Cyclic properties of
+
+		the parameter range are assumed.</P>
+
+	 <BLOCKQUOTE>NOTE 1 For example, 370 degrees is equivalent to 10 degrees,
+
+		for those surfaces whose parametric form is defined using circular functions
+
+		(sine and cosine).</BLOCKQUOTE>
+
+	 <P>The rectangular trimmed surface inherits its parametrisation directly
+
+		from the basis surface and has parameter ranges from 0 to |<I>u</I><SUB>2</SUB>
+
+		- <I>u</I><SUB>1</SUB>| and 0 to
+
+		|<I>v</I><SUB>2</SUB>-<I>v</I><SUB>1</SUB>|.</P>
+
+	 <BLOCKQUOTE>NOTE 2 If the surface is closed in a given parametric
+
+		direction, the values of <I>u</I><SUB>2</SUB> or <I>v</I><SUB>2</SUB> may
+
+		require to be increased by the cyclic range.</BLOCKQUOTE> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT COLOR="#0000FF" SIZE="-1"> NOTE Corresponding STEP name:
+
+		  rectangular_trimmed_surface. Please refer to ISO/IS 10303-42:1994, p.86 for the
+
+		  final definition of the formal standard. </FONT></P> 
+
+		<P><FONT SIZE="-1"><FONT COLOR="#0000FF">HISTORY New class in IFC Release
+
+		  2x.</FONT> </FONT></P></BLOCKQUOTE> 
+
+	 <P> <U>Informal propositions</U>:</P> 
+
+	 <OL> 
+
+		<LI>The domain of the trimmed surface shall be within the domain of the
+
+		  surface being trimmed.</LI> 
+
+	 </OL> 
+
+</FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">ENTITY</A></B> IfcRectangularTrimmedSurface</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcboundedsurface.html">IfcBoundedSurface</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">BasisSurface</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcsurface.html">IfcSurface</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">U1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcparametervalue.html">IfcParameterValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">V1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcparametervalue.html">IfcParameterValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">U2</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcparametervalue.html">IfcParameterValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">V2</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcparametervalue.html">IfcParameterValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Usense</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"> <B>BOOLEAN</B>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Vsense</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"> <B>BOOLEAN</B>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000"><B><B>WHERE</B></B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">U1 <> U2;</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR2</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">V1 <> V2;</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR3</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">(('IFCGEOMETRYRESOURCE.IFCELEMENTARYSURFACE' IN TYPEOF(BasisSurface)) AND
+
+         (NOT ('IFCGEOMETRYRESOURCE.IFCPLANE' IN TYPEOF(BasisSurface)))) OR
+
+         ('IFCGEOMETRYRESOURCE.IFCSURFACEOFREVOLUTION' IN TYPEOF(BasisSurface)) OR
+
+         (Usense = (U2 > U1));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR4</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">Vsense = (V2 > V1);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000"><U><A name="constraint_description">Formal Propositions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR1</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      U1 and U2 shall have different values.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR2</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      V1 and V2 shall have different values.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR3</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      With exception of those surfaces closed in the U parameter, direction Usense shall be compatible with
+      the ordered parameter values for U.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR4</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Vsense shall be compatible with the ordered parameter values for V.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><B><A name="References">References (1):</A></B></FONT></P>
+<TABLE WIDTH="100%" BORDER="1">
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Name</B></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Type</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Referred through</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Express-G</B></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><A href="ifcboundedsurface.html">IfcBoundedSurface</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Times New Roman" size="2" color="#000000">Subtype</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Times New Roman" size="2" color="#000000"><A href="../diagrams/diagram_0007.html">Diagram 7</A></FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> IfcRectangularTrimmedSurface;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcrectangulartrimmedsurface.html">IfcRectangularTrimmedSurface</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">BasisSurface</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcsurface.html">IfcSurface</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">U1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcparametervalue.html">IfcParameterValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">V1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcparametervalue.html">IfcParameterValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">U2</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcparametervalue.html">IfcParameterValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">V2</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcparametervalue.html">IfcParameterValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Usense</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"> <B>BOOLEAN</B>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Vsense</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"> <B>BOOLEAN</B>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

@@ -1,0 +1,237 @@
+
+<html>
+<HEAD>
+<title>IfcDirection</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0003.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcdirection.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcDirection</B></FONT></P><P><FONT face="Arial" size="3" color="#000000"> 
+
+	 <P><U>Definition from ISO/CD 10303-42:1992</U>: This entity defines a
+
+		general direction vector in two or three dimensional space. The actual
+
+		magnitudes of the components have no effect upon the direction being defined,
+
+		only the ratios X:Y:Z or X:Y are significant. </P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1">NOTE: The components of this entity are not
+
+		  normalized. If a unit vector is required it should be normalized before
+
+		  use.</FONT> </P></BLOCKQUOTE> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1" COLOR="#0000FF">NOTE: Corresponding STEP entity:
+
+		  direction. Please refer to ISO/IS 10303-42:1994, p.26 for the final definition
+
+		  of the formal standard. The derived attribute <I>Dim</I> has been added (see
+
+		  also note at <I>IfcGeometricRepresentationItem</I>). </FONT></P> 
+
+		<P><FONT SIZE="-1" COLOR="#0000FF">HISTORY: New entity in IFC Release 1.0
+
+		  </FONT></P></BLOCKQUOTE>
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">ENTITY</A></B> IfcDirection</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcgeometricrepresentationitem.html">IfcGeometricRepresentationItem</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">DirectionRatios</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>LIST</B> [2:3] <B>OF</B>  <B>REAL</B>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>DERIVE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Dim</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcdimensioncount.html">IfcDimensionCount</A>&nbsp;:=&nbsp;                        HIINDEX(DirectionRatios);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">DirectionRatios</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The components in the direction of X axis (DirectionRatios[1]), of Y axis (DirectionRatios[2]), and of
+      Z axis (DirectionRatios[3]) <BR>
+      </FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">Dim</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The space dimensionality of this class, defined by the number of real in the list of DirectionRatios.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> IfcDirection;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcrepresentationitem.html">IfcRepresentationItem</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcgeometricrepresentationitem.html">IfcGeometricRepresentationItem</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcdirection.html">IfcDirection</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">DirectionRatios</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>LIST</B> [2:3] <B>OF</B>  <B>REAL</B>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>DERIVE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Dim</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcdimensioncount.html">IfcDimensionCount</A>&nbsp;:=&nbsp;                        HIINDEX(DirectionRatios);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

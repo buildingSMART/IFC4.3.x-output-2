@@ -1,0 +1,376 @@
+
+<html>
+<HEAD>
+<title>IfcOrientedEdge</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifctopologyresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0001.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcorientededge.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><B>IfcOrientedEdge</B></FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"> 
+
+	 <P><U>Definition from ISO/CD 10303-42:1992</U>: An oriented edge
+
+		(IfcOrientedEdge) is an edge constructed from another edge and contains a
+
+		BOOLEAN direction flag to indicate whether or not the orientation of the
+
+		constructed edge agrees with the orientation of the original edge. Except for
+
+		perhaps orientation, the oriented edge is equivalent to the original edge. </P>
+
+	 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1">NOTE A common practice is solid modelling systems is
+
+		  to have an entity that represents the "use" or "traversal" of an edge. This
+
+		  "use" entity explicitly represents the requirement in a manifold solid that
+
+		  each edge must be traversed exactly twice, once in each direction. The "use"
+
+		  functionality is provided by the edge subtype oriented
+
+		  edge.</FONT></P></BLOCKQUOTE> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1" COLOR="#0000FF">NOTE Corresponding STEP entity:
+
+		  oriented_edge. Please refer to ISO/IS 10303-42:1994, p. 133 for the final
+
+		  definition of the formal standard. </FONT></P> 
+
+		<P><FONT SIZE="-1" COLOR="#0000FF">HISTORY New Entity in IFC Release
+
+		  2.0</FONT> </P></BLOCKQUOTE> 
+
+</FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">ENTITY</A></B> IfcOrientedEdge</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcedge.html">IfcEdge</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">EdgeElement</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcedge.html">IfcEdge</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Orientation</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"> <B>BOOLEAN</B>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>DERIVE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000"><B>SELF</B>\IfcEdge.EdgeStart</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcvertex.html">IfcVertex</A>&nbsp;:=&nbsp;                        IfcBooleanChoose&nbsp;<BR>
+                        (Orientation,&nbsp;EdgeElement.EdgeStart,&nbsp;EdgeElement.EdgeEnd);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000"><B>SELF</B>\IfcEdge.EdgeEnd</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcvertex.html">IfcVertex</A>&nbsp;:=&nbsp;                        IfcBooleanChoose&nbsp;<BR>
+                        (Orientation,&nbsp;EdgeElement.EdgeEnd,&nbsp;EdgeElement.EdgeStart);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000"><B><B>WHERE</B></B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">NOT('IFCTOPOLOGYRESOURCE.IFCORIENTEDEDGE' IN TYPEOF(EdgeElement));</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>EdgeElement</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Edge entity used to construct this oriented edge.<BR>
+      </FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>Orientation</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      BOOLEAN, If TRUE the topological orientation as used coincides with the orientation from start vertex
+      to end vertex of the edge element. If FALSE otherwise.<BR>
+      </FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>EdgeStart</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      The start vertex of the oriented edge. It derives from the vertices of the edge element after taking
+      account of the orientation.<BR>
+      </FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>EdgeEnd</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      The end vertex of the oriented edge. It derives from the vertices of the edge element after taking account
+      of the orientation.<BR>
+      </FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000"><U><A name="constraint_description">Formal Propositions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR1</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      The edge element shall not be an oriented edge.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><B><A name="References">References (2):</A></B></FONT></P>
+<TABLE WIDTH="100%" BORDER="1">
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Name</B></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Type</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Referred through</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Express-G</B></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><A href="ifcedge.html">IfcEdge</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Times New Roman" size="2" color="#000000">Subtype</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Times New Roman" size="2" color="#000000"><A href="../diagrams/diagram_0001.html">Diagram 1</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><A href="ifcpath.html">IfcPath</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Times New Roman" size="2" color="#000000">Attribute 'EdgeList'</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Times New Roman" size="2" color="#000000"><A href="../diagrams/diagram_0001.html">Diagram 1</A></FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> IfcOrientedEdge;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcorientededge.html">IfcOrientedEdge</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">EdgeElement</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcedge.html">IfcEdge</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Orientation</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"> <B>BOOLEAN</B>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>DERIVE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">EdgeStart</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcvertex.html">IfcVertex</A>&nbsp;:=&nbsp;                        IfcBooleanChoose&nbsp;<BR>
+                        (Orientation,&nbsp;EdgeElement.EdgeStart,&nbsp;EdgeElement.EdgeEnd);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">EdgeEnd</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcvertex.html">IfcVertex</A>&nbsp;:=&nbsp;                        IfcBooleanChoose&nbsp;<BR>
+                        (Orientation,&nbsp;EdgeElement.EdgeEnd,&nbsp;EdgeElement.EdgeStart);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

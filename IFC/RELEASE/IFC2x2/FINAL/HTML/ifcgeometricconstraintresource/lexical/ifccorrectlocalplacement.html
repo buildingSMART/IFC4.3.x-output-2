@@ -1,0 +1,76 @@
+
+<html>
+<HEAD>
+<title>IfcCorrectLocalPlacement</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometricconstraintresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifccorrectlocalplacement.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcCorrectLocalPlacement</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">The function checks that a relative placement (i.e. relative to another local placement, and not grid
+placement) of a 3D local placement has to be relative to a 3D parent placement (and not to a 2D parent
+placement).<BR>
+<BR>
+HISTORY: New function in Release IFC2x Edition 2.</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcCorrectLocalPlacement</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000">
+                  &nbsp;&nbsp;(AxisPlacement:IfcAxis2Placement;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;RelPlacement&nbsp;:&nbsp;IfcObjectPlacement):LOGICAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;IF&nbsp;(EXISTS(RelPlacement))&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;('IFCGEOMETRICCONSTRAINTRESOURCE.IFCGRIDPLACEMENT'&nbsp;IN&nbsp;TYPEOF(RelPlacement))&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(?);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;('IFCGEOMETRICCONSTRAINTRESOURCE.IFCLOCALPLACEMENT'&nbsp;IN&nbsp;TYPEOF(RelPlacement))&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;('IFCGEOMETRYRESOURCE.IFCAXIS2PLACEMENT2D'&nbsp;IN&nbsp;TYPEOF(AxisPlacement))&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(TRUE);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;('IFCGEOMETRYRESOURCE.IFCAXIS2PLACEMENT3D'&nbsp;IN&nbsp;TYPEOF(AxisPlacement))&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(RelPlacement.RelativePlacement.Dim&nbsp;=&nbsp;3)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(TRUE);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(FALSE);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;RETURN(TRUE);&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;RETURN(?);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

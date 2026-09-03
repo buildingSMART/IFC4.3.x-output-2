@@ -1,0 +1,517 @@
+
+<html>
+<HEAD>
+<title>IFCSHAREDMGMTELEMENTS</title>
+</HEAD>
+<BODY>
+<IMG SRC="img/schema_navbar.gif" ALT="Navigation" HEIGHT="46" WIDTH="476" BORDER="0" usemap="#schema-navbar"><BR>
+<MAP name="schema-navbar">
+  <AREA shape="rect" coords="0,0,63,22" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="64,0,197,22" href="#interfaced_schemas">
+  <AREA shape="rect" coords="198,0,287,22" href="#constants">
+  <AREA shape="rect" coords="288,0,356,22" href="#entities">
+  <AREA shape="rect" coords="357,0,475,22" href="#defined_types">
+  <AREA shape="rect" coords="0,23,70,44" href="#select_types">
+  <AREA shape="rect" coords="71,23,171,44" href="#enumerations">
+  <AREA shape="rect" coords="172,23,231,44" href="#global_rules">
+  <AREA shape="rect" coords="232,23,315,44" href="#functions">
+  <AREA shape="rect" coords="316,23,475,44" href="#procedures">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><U>IFCSHAREDMGMTELEMENTS</U></FONT></P><P>The data model consists of the following:
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right">8&nbsp;
+    </TD>
+    <TD><A href="#entities">Entities</A>
+    </TD>
+  </TR>
+
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right">5&nbsp;
+    </TD>
+    <TD><A href="#enumerations">Enumerations</A>
+    </TD>
+  </TR>
+
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000">
+
+<H2>Introduction</H2>
+
+<P>The IfcSharedMgmtElements schema defines basic concepts that are common
+
+		to management throughout the various stages of the building lifecycle. The
+
+		primary classes in the schema are all subtypes of IfcControl and act to manage
+
+		or regulate the conduct of the project in some way. This schema, along with
+
+		IfcProcessExtension and IfcConstructionMgmtDomain, provide a set of models that
+
+		can be used by applications needing to share information concerning management
+
+		related issues.</P>
+
+	 <H2>Scope</H2>
+
+	 <P>The IfcSharedMgmtElements schema forms part of the Interoperabiity Layer
+
+		of the IFC Model. The objective of the IfcSharedMgmtElements schema is to
+
+		capture information that supports the ordering of work and components and the
+
+		development of cost schedules . The aim is to provide support for exchange and
+
+		sharing of minimal information concerning the subjects in scope; the extent of
+
+		the model will not support the more detailed ideas found in more specialized
+
+		management applications.</P>
+
+	 <P>The following are within the scope of this part of the
+
+		specifications::</P>
+
+	 <UL>
+
+		<LI>Principal types of order that may be used in the project and whose
+
+		  details need to be captured for the project including purchase orders, change
+
+		  orders and work orders.</LI>
+
+		<LI>Schedules of costs (cost estimates) and budgets from the cost
+
+		  information attached to objects.</LI>
+
+	 </UL>
+
+	 <P>The following are outside of the scope of this part of the
+
+		specifications:</P>
+
+	 <UL>
+
+		<LI>Transaction details that may be supported by or support electronic
+
+		  commerce.</LI>
+
+	 </UL>
+
+	 <H2>Process Usage</H2>
+
+	 <H3>Project Orders</H3>
+
+	 <P>All types of order contain a basic set of attributes that enable the
+
+		identification of the order, who it is issued by, who it is issued to and when
+
+		it is issued. These are the fundamental requirements of an order.</P>
+
+	 <P>Three types of project order are defined:</P>
+
+	 <UL>
+
+		<LI>Change Order</LI>
+
+		<LI>Purchase Order</LI>
+
+		<LI>Work Order</LI>
+
+	 </UL>
+
+	 <H4>Change Order</H4>
+
+	 <P>The change order provides details of when an instruction is given to
+
+		make a change in the project. It includes a description of the change and the
+
+		reasons for it occurring. It may relate various documents to the change
+
+		requirement. A change order will also have time constraints expressed as
+
+		requested start and finish time and these are paralleled by the actual times at
+
+		which the change is started and finished. Chnage orders may also be constrained
+
+		by a cost estimate and a work plan can be associated in which the various tasks
+
+		and resurces required can be exposed.</P>
+
+	 <H4>Purchase Order</H4>
+
+	 <P>The purchase order can handle information concerning any type of
+
+		purchase including both component and services purchases. Individual items
+
+		within the purchase order are referenced from a cost estimate against which
+
+		individual costs can be assigned. The purchase order also captures some
+
+		information about logistics including shipping method (where a component is
+
+		required).</P>
+
+	 <H4>Work Order</H4>
+
+	 <P>The work order provides a general approach to capturing information
+
+		cncerning an instruction given to do work. Various individual types of work
+
+		order may be further defined in domain schema (e.g. maintenance work
+
+		order).</P>
+
+	 <H3>Cost Schedule</H3>
+
+	 <P>A cost schedule provides the means to bring together costs to develop a
+
+		cost estimate or cost plan. As with any type of schedule, the cost schedule has
+
+		a title and its authors are identified. Because costs can vary, the schedule
+
+		may be assigned a range of dates between which it is valid.</P>
+
+	 <P>Each line in a cost schedule is considered to be a cost in which
+
+		individual a number of items having the same cost value can be extended to give
+
+		a total cost for that item type. </P>
+
+	 <P>Ccost schedules can be nested so that complex, multi-part cost estimates
+
+		or cost plans can be defined. Similarly, costs can be nested so that that an
+
+		individual cost estimate or cost plan can be broken down into elemental parts
+
+		(e.g. brickwork, builders work, fluorescent ligyt fittings etc.).</P>
+
+</FONT></P><P><FONT face="Arial" size="4" color="#000000"><B><A name="interfaced_schemas">Interfaced schemas (8):</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcactorresource/ifcactorresource.html">IFCACTORRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcactorresource/lexical/ifcactorselect.html">IfcActorSelect</A>,<BR><A href="../ifcactorresource/lexical/ifcperson.html">IfcPerson</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifccostresource/ifccostresource.html">IFCCOSTRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifccostresource/lexical/ifccostvalue.html">IfcCostValue</A>,<BR><A href="../ifccostresource/lexical/ifccostquantity.html">IfcCostQuantity</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcdatetimeresource/ifcdatetimeresource.html">IFCDATETIMERESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>,<BR><A href="../ifcdatetimeresource/lexical/ifcdateandtime.html">IfcDateAndTime</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcexternalreferenceresource/ifcexternalreferenceresource.html">IFCEXTERNALREFERENCERESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcexternalreferenceresource/lexical/ifcdocumentreference.html">IfcDocumentReference</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcgeometryresource/ifcgeometryresource.html">IFCGEOMETRYRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcgeometryresource/lexical/ifcaxis2placement3d.html">IfcAxis2Placement3D</A>,<BR><A href="../ifcgeometryresource/lexical/ifcaxis2placement2d.html">IfcAxis2Placement2D</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifckernel/ifckernel.html">IFCKERNEL</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifckernel/lexical/ifccontrol.html">IfcControl</A>,<BR><A href="../ifckernel/lexical/ifcrelassignstocontrol.html">IfcRelAssignsToControl</A>,<BR><A href="../ifckernel/lexical/ifcobject.html">IfcObject</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcmeasureresource/ifcmeasureresource.html">IFCMEASURERESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcmeasureresource/lexical/ifcmeasurewithunit.html">IfcMeasureWithUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>,<BR><A href="../ifcmeasureresource/lexical/ifcidentifier.html">IfcIdentifier</A>,<BR><A href="../ifcmeasureresource/lexical/ifctext.html">IfcText</A>,<BR><A href="../ifcmeasureresource/lexical/ifcsiunit.html">IfcSiUnit</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcprocessextension/ifcprocessextension.html">IFCPROCESSEXTENSION</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcprocessextension/lexical/ifcworkplan.html">IfcWorkPlan</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="entities">Entities (8):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0004.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 4"></A>
+    </TD>
+    <TD><A href="lexical/ifcbudget.html" target="SOURCE">IfcBudget</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifcchangeorder.html" target="SOURCE">IfcChangeOrder</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0003.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 3"></A>
+    </TD>
+    <TD><A href="lexical/ifccost.html" target="SOURCE">IfcCost</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0003.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 3"></A>
+    </TD>
+    <TD><A href="lexical/ifccostschedule.html" target="SOURCE">IfcCostSchedule</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifcprojectorder.html" target="SOURCE">IfcProjectOrder</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifcpurchaseorder.html" target="SOURCE">IfcPurchaseOrder</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0004.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 4"></A>
+    </TD>
+    <TD><A href="lexical/ifcrelcostsobjects.html" target="SOURCE">IfcRelCostsObjects</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifcworkorder.html" target="SOURCE">IfcWorkOrder</A>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="enumerations">Enumerations (5):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifcchangeorderstatusenum.html" target="SOURCE">IfcChangeOrderStatusEnum</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0003.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 3"></A>
+    </TD>
+    <TD><A href="lexical/ifccostuseenum.html" target="SOURCE">IfcCostUseEnum</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifcpurchaseorderstatusenum.html" target="SOURCE">IfcPurchaseOrderStatusEnum</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifcworkorderrisktypeenum.html" target="SOURCE">IfcWorkOrderRiskTypeEnum</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifcworkorderstatusenum.html" target="SOURCE">IfcWorkOrderStatusEnum</A>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

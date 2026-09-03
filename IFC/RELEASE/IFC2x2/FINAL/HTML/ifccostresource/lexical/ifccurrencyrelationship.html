@@ -1,0 +1,279 @@
+
+<html>
+<HEAD>
+<title>IfcCurrencyRelationship</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifccostresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0002.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifccurrencyrelationship.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcCurrencyRelationship</B></FONT></P><P><FONT face="Arial" size="3" color="#000000"> 
+
+	 <P><U>Definition from IAI:</U>An <I>IfcCurrencyRelationship</I> defines the
+
+		rate of exchange that applies between two designated currencies at a particular
+
+		time and as published by a particular source. </P> 
+
+	 <BLOCKQUOTE> <FONT COLOR="#0000FF" SIZE="-1">HISTORY: New Entity in IFC
+
+		2x2.</FONT> </BLOCKQUOTE> 
+
+	 <H3>Use Definitions</H3> 
+
+	 <P>An <I>IfcCurrencyRelationship</I> is used where there may be a need to
+
+		reference an IfcCostValue in one currency to an IfcCostValue in another
+
+		currency. It takes account of fact that currency exchange rates may vary by
+
+		requiring the recording the date and time of the currency exchange rate used
+
+		and the source that publishes the rate. There may be many sources and there are
+
+		different strategies for currency conversion (spot rate, forward buying of
+
+		currency at a fixed rate). </P> 
+
+	 <P>The source for the currency exchange is defined as an instance of
+
+		IfcLibraryInformation that includes a name and a location (typically a URL,
+
+		since most rates are now published in reliable sources via the web, although it
+
+		may be a string value defining a lication of any type). </P> 
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">ENTITY</A></B> IfcCurrencyRelationship;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RelatingMonetaryUnit</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcmonetaryunit.html">IfcMonetaryUnit</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RelatedMonetaryUnit</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcmonetaryunit.html">IfcMonetaryUnit</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ExchangeRate</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.html">IfcPositiveRatioMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RateDateTime</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcdatetimeresource/lexical/ifcdateandtime.html">IfcDateAndTime</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RateSource</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.html">IfcLibraryInformation</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">RelatingMonetaryUnit</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The monetary unit from which an exchange is derived. For instance, in the case of a conversion from GBP
+      to USD, the relating monetary unit is GBP.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">RelatedMonetaryUnit</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The monetary unit to which an exchange results. For instance, in the case of a conversion from GBP to
+      USD, the related monetary unit is USD.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">ExchangeRate</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The currently agreed ratio of the amount of a related monetary unit that is equivalent to a unit amount
+      of the relating monetary unit in a currency relationship. For instance, in the case of a conversion from
+      GBP to USD, the value of the exchange rate may be 1.486 (USD) : 1 (GBP).</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">RateDateTime</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The date and time at which an exchange rate applies.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">RateSource</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The source from which an exchange rate is obtained.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> IfcCurrencyRelationship;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifccurrencyrelationship.html">IfcCurrencyRelationship</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RelatingMonetaryUnit</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcmonetaryunit.html">IfcMonetaryUnit</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RelatedMonetaryUnit</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcmonetaryunit.html">IfcMonetaryUnit</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ExchangeRate</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.html">IfcPositiveRatioMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RateDateTime</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcdatetimeresource/lexical/ifcdateandtime.html">IfcDateAndTime</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RateSource</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.html">IfcLibraryInformation</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

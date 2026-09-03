@@ -1,0 +1,256 @@
+
+<html>
+<HEAD>
+<title>IfcLightDistributionData</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcpresentationorganizationresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0003.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifclightdistributiondata.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcLightDistributionData</B></FONT></P><P><FONT face="Arial" size="3" color="#000000"> 
+
+	 <P><U>Definition from IAI</U>: The <I>IfcLightDistributionData</I> defines
+
+		the luminous intensity of a light source given at a particular main plane
+
+		angle. It is based on some standardized light distribution curves, the
+
+		<I>MainPlaneAngle</I> is either the</P> 
+
+	 <UL> 
+
+		<LI>A angle; if the <I>IfcLightDistributionCurveEnum</I> is set to
+
+		  TYPE_A</LI> 
+
+		<LI>B angle; if the <I>IfcLightDistributionCurveEnum</I> is set to
+
+		  TYPE_B</LI> 
+
+		<LI>C angle; if the <I>IfcLightDistributionCurveEnum</I> is set to
+
+		  TYPE_C</LI> 
+
+	 </UL> 
+
+	 <P>For each <I>MainPlaneAngle</I> (considered as being the row of a table)
+
+		a list of <I>SecondaryPlaneAngle'</I>s are given (considered to be the columns
+
+		of a table). They are either the:</P> 
+
+	 <UL> 
+
+		<LI>&#945; angle; if the <I>IfcLightDistributionCurveEnum</I> is set to
+
+		  TYPE_A</LI> 
+
+		<LI>&#946; angle; if the <I>IfcLightDistributionCurveEnum</I> is set to
+
+		  TYPE_B</LI> 
+
+		<LI>&#947; angle; if the <I>IfcLightDistributionCurveEnum</I> is set to
+
+		  TYPE_C</LI> 
+
+	 </UL> 
+
+	 <P>For each pair of <I>MainPlaneAngle</I> and <I>SecondaryPlaneAngle</I>
+
+		the <I>LuminousIntensity</I> is provides (the unit is given by the
+
+		<I>IfcUnitAssignment</I> refering to the LuminousIntensityDistributionUnit,
+
+		normally cd/klm).</P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT COLOR="#0000FF" SIZE="-1"> HISTORY: New entity in Release IFC2x
+
+		  Edition 2. </FONT></P> </BLOCKQUOTE>
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">ENTITY</A></B> IfcLightDistributionData;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">MainPlaneAngle</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.html">IfcPlaneAngleMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">SecondaryPlaneAngle</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>LIST</B> [1:?] <B>OF</B> <A href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.html">IfcPlaneAngleMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">LuminousIntensity</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>LIST</B> [1:?] <B>OF</B> <A href="../../ifcmeasureresource/lexical/ifcluminousintensitydistributionmeasure.html">IfcLuminousIntensityDistributionMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">MainPlaneAngle</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The main plane angle (A, B or C angles, according to the light distribution curve chosen).</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">SecondaryPlaneAngle</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      
+
+<P>The list of secondary plane angles (the &#945;, &#946; or &#947; angles) according to the light distribution curve chosen.
+
+</P>
+
+<BLOCKQUOTE>NOTE: The <I>SecondaryPlaneAngle</I> and <I>LuminousIntensity</I> lists are corresponding lists.
+
+</BLOCKQUOTE>
+
+</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">LuminousIntensity</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The luminous intensity distribution measure for this pair of main and secondary plane angles according
+      to the light distribution curve chosen.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> IfcLightDistributionData;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifclightdistributiondata.html">IfcLightDistributionData</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">MainPlaneAngle</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.html">IfcPlaneAngleMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">SecondaryPlaneAngle</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>LIST</B> [1:?] <B>OF</B> <A href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.html">IfcPlaneAngleMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">LuminousIntensity</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>LIST</B> [1:?] <B>OF</B> <A href="../../ifcmeasureresource/lexical/ifcluminousintensitydistributionmeasure.html">IfcLuminousIntensityDistributionMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

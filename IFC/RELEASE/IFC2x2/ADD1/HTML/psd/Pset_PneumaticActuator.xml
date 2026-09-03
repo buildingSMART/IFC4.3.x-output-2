@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcHvacDomain"/>
+  <Name>Pset_PneumaticActuator</Name>
+  <Definition>Definition from IAI: 
+
+HISTORY: New property set in IFC Release 2.0.
+
+ISSUES: No issues to date.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcActuator</TypedClass>
+  <TypeName>PneumaticActuator</TypeName>
+  <PropertyDefs>
+    <PropertyDef id="286">
+      <Name>ManualOverride</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcBoolean"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="False"/>
+        <MaxValue value="True"/>
+        <DefaultValue value="False"/>
+      </ValueDef>
+      <Definition>
+Identifies whether hand-operated operation is provided as an override
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="448">
+      <Name>InputPressure</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPressureMeasure"/>
+          <UnitType type="PressureUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Maximum input control air pressure requirement
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="449">
+      <Name>InputFlowrate</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcVolumetricFlowRateMeasure"/>
+          <UnitType type="VolumetricFlowrateUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Maximum input control air flowrate requirement
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

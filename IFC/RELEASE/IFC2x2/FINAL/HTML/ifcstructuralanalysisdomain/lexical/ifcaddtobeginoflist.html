@@ -1,0 +1,68 @@
+
+<html>
+<HEAD>
+<title>IfcAddToBeginOfList</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcstructuralanalysisdomain.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcaddtobeginoflist.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcAddToBeginOfList</B></FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcAddToBeginOfList</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000">
+                  &nbsp;&nbsp;(AScalar&nbsp;:&nbsp;GENERIC;<BR>
+                  &nbsp;&nbsp;&nbsp;AList&nbsp;&nbsp;&nbsp;:&nbsp;LIST&nbsp;OF&nbsp;GENERIC)<BR>
+                  &nbsp;&nbsp;:LIST[1:?]&nbsp;OF&nbsp;GENERIC;<BR>
+                  <BR>
+                  &nbsp;&nbsp;LOCAL<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:&nbsp;LIST&nbsp;OF&nbsp;GENERIC&nbsp;:=&nbsp;[];<BR>
+                  &nbsp;&nbsp;END_LOCAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;IF&nbsp;NOT(EXISTS(AScalar))&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;AList;<BR>
+                  &nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;Result&nbsp;+&nbsp;AScalar;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(HIINDEX(AList)&nbsp;&#62;=&nbsp;1)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i:=1&nbsp;TO&nbsp;HIINDEX(AList);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result[i+1]&nbsp;:=&nbsp;AList[i];<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;RETURN(Result);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

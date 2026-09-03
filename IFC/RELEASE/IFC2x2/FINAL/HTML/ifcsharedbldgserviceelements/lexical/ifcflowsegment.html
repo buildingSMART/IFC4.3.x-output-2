@@ -1,0 +1,798 @@
+
+<html>
+<HEAD>
+<title>IfcFlowSegment</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcsharedbldgserviceelements.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0002.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcflowsegment.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcFlowSegment</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">
+
+	<p><u>Definition from IAI</u>: 
+
+	The distribution flow element <I>IfcFlowSegment</I> defines the occurrence of 
+
+	a segment of a flow distribution system that is typically 
+
+    straight, contiguous and has two ports (e.g., a section 
+
+    of pipe or duct).</p>
+
+    
+
+    <p>The <I>IfcFlowSegment</I> defines a particular occurrence of a segment 
+
+    inserted in the spatial context of a project. The parameters defining the type
+
+    of the segment and/or its shape are defined by the <i>IfcFlowSegmentType</i>, which 
+
+    is related by the inverse relationship IsDefinedBy pointing to 
+
+    <I>IfcRelDefinesByType</I>.
+
+    
+
+	<P>The following parameters shall be given:</P> 
+
+	<UL> 
+
+		<LI>Segment length, taken from the Length attribute in the property
+
+        set, provides the depth of the extrusion.</LI> 
+
+		<LI>Segment profile dimensions are defined by the NominalDiameterOrWidth
+
+        and NominalHeight attributes in the property set.</LI> 
+
+	</UL> 
+
+
+
+    <blockquote>
+
+		<font color="#0000FF" size="-1">
+
+		<p>
+
+    	HISTORY: New entity in IFC R2.0.<br>
+
+	    </p>
+
+    	</font>
+
+    </blockquote>
+
+    
+
+	<p><u>Geometry Use Definitions</u></p>
+
+	<p>The geometric representation of <i>IfcFlowSegment</i> is given
+
+    by the <i>IfcProductDefinitionShape</i>, allowing multiple geometric
+
+    representations. If an <i>IfcRepresentationMap</i> is defined for the 
+
+    <i>IfcFlowSegmentType</i>, then the <I>IfcFlowSegment</I> utilizes it 
+
+    through the <i>IfcMappedItem</i>.
+
+
+
+	<p><b>Local Placement</b></p>
+
+    <p>The local placement is defined in its supertype <i>IfcProduct</i>. 
+
+    It is defined by the <i>IfcLocalPlacement</i>, which defines the local 
+
+    coordinate system that is referenced by all geometric representations. 
+
+    If specified, the PlacementRelTo relationship of <i>IfcLocalPlacement</i> 
+
+    shall point to the local placement of the referenced <i>IfcProduct</i>.
+
+    If the relative placement is not used, the absolute placement is defined 
+
+    within the world coordinate system.</p>
+
+	<p><u>Informal propositions for local placement</u>: </p> 
+
+	<OL> 
+
+		<li>If the LocalPlacement is specified, 
+
+        then all aggregated components should use this placement as
+
+	  	their relative placement.</li> 
+
+	</OL> 
+
+
+
+	<P><B>Geometric Representation</B></P> 
+
+	<P>The standard geometric representation of <i>IfcFlowSegment</i> is defined
+
+	using the following multiple shape representations for its definition:</P> 
+
+	<UL> 
+
+	<LI><U>Axis</U>: A two-dimensional open curve (<i>IfcBoundedCurve</i>)
+
+	  defining the axis for the segment.</LI> 
+
+	<LI><U>Body</U>: A Swept Solid Representation or a CSG representation
+
+	  defining the 3D shape of the segment.</LI> 
+
+	</UL> 
+
+
+
+	<P><I>First representation: Axis</I></P> 
+
+	<P>The segment axis is represented by a two-dimensional open curve within a
+
+	particular shape representation. The segment axis is used to apply the segment length parameter
+
+	to the segment geometry. The following attribute values shall be used</P> 
+
+	<BLOCKQUOTE> 
+
+	<P><I>IfcShapeRepresentation</I></P> 
+
+	<UL> 
+
+	  <LI>RepresentationIdentifier : 'Axis'</LI> 
+
+	  <LI>RepresentationType : 'GeometricSet' </LI> 
+
+	</UL></BLOCKQUOTE> 
+
+	<TABLE CELLPADDING="2" CELLSPACING="2"> 
+
+	<TR> 
+
+	  <TD VALIGN="TOP" ALIGN="LEFT"><A
+
+		 HREF="drawings/IfcFlowSegmentType_StraightSegment_01-Layout1.dwf"><IMG
+
+		 SRC="figures/IfcFlowSegmentType_StraightSegment_01-Layout1.gif"
+
+		 ALT="straight segment axis" WIDTH="393" HEIGHT="299" BORDER="0"></A></TD> 
+
+	  <TD VALIGN="TOP" ALIGN="LEFT">In case of a straight segment, the set of
+
+		 items shall include a single geometric representation item of type
+
+		 <i>IfcPolyline</i>.
+
+       </TD> 
+
+	</TR> 
+
+	<TR> 
+
+	  <TD VALIGN="TOP" ALIGN="LEFT"><A
+
+		 HREF="drawings/IfcFlowSegmentType_CurvedSegment_01-Layout1.dwf"><IMG
+
+		 SRC="figures/IfcFlowSegmentType_CurvedSegment_01-Layout1.gif"
+
+		 ALT="curved segment axis" WIDTH="393" HEIGHT="299" BORDER="0"></A></TD> 
+
+	  <TD VALIGN="TOP" ALIGN="LEFT">In the case of a curved segment, the set of
+
+		 items shall include a single geometric representation item of type
+
+		 <i>IfcTrimmedCurve</i>. The curve shall have a BasisCurve of type 
+
+         <i>IfcCircle</i>.
+
+       </TD> 
+
+	</TR> 
+
+	</TABLE> 
+
+	<P><I>Body Representation</I></P> 
+
+	<P>The body of the <i>IfcFlowSegment</i> is defined using:</P> 
+
+	<UL> 
+
+	  <LI>SweptSolid representation for segments without clippings.</LI> 
+
+	  <LI>CSG representation for segments with clippings.</LI> 
+
+	</UL>
+
+	<BLOCKQUOTE> 
+
+	<P><I>IfcShapeRepresentation</I></P> 
+
+	<UL> 
+
+	  <LI>RepresentationIdentifier : 'Body'</LI> 
+
+	  <LI>RepresentationType : 'SweptSolid', 'CSG' 'Brep', or 'BoundingBox'</LI> 
+
+	</UL></BLOCKQUOTE> 
+
+	<P><B>SweptSolid representation</B></P> 
+
+	<P>The standard geometric representation (for body) of <i>IfcFlowSegment</i> is
+
+	defined using the swept solid representation. The following additional
+
+	constraints apply to the swept solid representation:</P> 
+
+	<UL> 
+
+	  <LI><U>Solid</U>: <i>IfcExtrudedAreaSolid</i> is required,</LI> 
+
+	  <LI><U>Profile</U>: </i>IfcArbitraryProfileDef</i> shall be supported. </LI> 
+
+	  <LI><U>Extrusion</U>: The profile shall be extruded along the segment axis, i.e., in
+
+	    the direction of the x-axis of the coordinate system of local placement.
+
+	    The extrusion axis shall be perpendicular to the swept profile, i.e. pointing into 
+
+        the direction of the x-axis of the Position of the <i>IfcExtrudedAreaSolid</i>.</LI> 
+
+	</UL> 
+
+	<TABLE CELLPADDING="2" CELLSPACING="2"> 
+
+	<TR> 
+
+	  <TD VALIGN="TOP" ALIGN="LEFT"> The profile of a segment is described in
+
+		 plane perpendicular to the extrusion axis. The profile is defined by the 
+
+         <i>IfcArbitraryProfileDef</i> (excluding its subtypes). The profile is given 
+
+         with all segment connections already resolved and is always perpendicular
+
+         to the segment axis. The segment also has a single, unchanged profile. 
+
+	  </TD> 
+
+	</TR> 
+
+	</TABLE> 
+
+	<P>The advanced geometric representation (for body) of <i>IfcFlowSegment</i> is
+
+	defined using the CSG representation. The following additional constraints
+
+	apply to the swept solid representation:</P> 
+
+	<UL> 
+
+	<LI><U>Solid</U>: see standard geometric representation</LI> 
+
+	<LI><U>Profile</U>: see standard geometric representation </LI> 
+
+	<LI><U>Extrusion</U>: see standard geometric representation</LI> 
+
+	<LI><U>Boolean result</U>: The <i>IfcBooleanClippingResult</i> shall be
+
+	  supported, allowing for Boolean differences between the swept solid (here
+
+	  <i>IfcExtrudedAreaSolid</i>) and one or several <i>IfcHalfSpaceSolid</i>.</LI> 
+
+	</UL> 
+
+
+
+	<P><I>Bounding-Box Representation</I></P> 
+
+	<BLOCKQUOTE> 
+
+	<P><I>IfcShapeRepresentation</I></P> 
+
+	<UL> 
+
+	  <LI>RepresentationIdentifier : 'BoundingBox'</LI> 
+
+	  <LI>RepresentationType : 'BoundingBox' </LI> 
+
+	</UL></BLOCKQUOTE> 
+
+
+
+	<P>Any <I>IfcFlowSegment</I> may be represented as a bounding box,
+
+	which shows the maximum extents of the body within the coordinated system
+
+	established by the <I>IfcLocalPlacement</I>. The bounding box representation is
+
+	the simpliest geometric representation available. It is ensured by assigning
+
+	the value '<B>BoundingBox</B>' to the RepresentationType attribute of
+
+	<I>IfcShapeRepresentation</I>.
+
+    </P> 
+
+
+
+	<p><i>B-Rep Representation </i></p>
+
+	<BLOCKQUOTE> 
+
+	<P><I>IfcShapeRepresentation</I></P> 
+
+	<UL> 
+
+	  <LI>RepresentationIdentifier : 'Brep'</LI> 
+
+	  <LI>RepresentationType : 'Brep' </LI> 
+
+	</UL></BLOCKQUOTE> 
+
+
+
+	<p>The faceted B-Rep capabilities (with or without voids) shall be
+
+    supported for B-Rep representation.</p>
+
+     
+
+<BR>
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">ENTITY</A></B> IfcFlowSegment</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcdistributionflowelement.html">IfcDistributionFlowElement</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> IfcFlowSegment;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcroot.html">IfcRoot</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">GlobalId</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.html">IfcGloballyUniqueId</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">OwnerHistory</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcutilityresource/lexical/ifcownerhistory.html">IfcOwnerHistory</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Name</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Description</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcobject.html">IfcObject</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ObjectType</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">IsDefinedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcreldefines.html">IfcRelDefines</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasAssociations</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcrelassociates.html">IfcRelAssociates</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasAssignments</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcrelassigns.html">IfcRelAssigns</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Decomposes</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="../../ifckernel/lexical/ifcreldecomposes.html">IfcRelDecomposes</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">IsDecomposedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcreldecomposes.html">IfcRelDecomposes</A> <B>FOR</B> RelatingObject;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcproduct.html">IfcProduct</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ObjectPlacement</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.html">IfcObjectPlacement</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Representation</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.html">IfcProductRepresentation</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ReferencedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcrelassignstoproduct.html">IfcRelAssignsToProduct</A> <B>FOR</B> RelatingProduct;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifcproductextension/lexical/ifcelement.html">IfcElement</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Tag</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifcidentifier.html">IfcIdentifier</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">FillsVoids</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="../../ifcproductextension/lexical/ifcrelfillselement.html">IfcRelFillsElement</A> <B>FOR</B> RelatedBuildingElement;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ConnectedTo</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifcproductextension/lexical/ifcrelconnectselements.html">IfcRelConnectsElements</A> <B>FOR</B> RelatingElement;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasCoverings</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifcproductextension/lexical/ifcrelcoversbldgelements.html">IfcRelCoversBldgElements</A> <B>FOR</B> RelatingBuildingElement;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasProjections</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifcproductextension/lexical/ifcrelprojectselement.html">IfcRelProjectsElement</A> <B>FOR</B> RelatingElement;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasPorts</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifcproductextension/lexical/ifcrelconnectsporttoelement.html">IfcRelConnectsPortToElement</A> <B>FOR</B> RelatedElement;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasOpenings</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifcproductextension/lexical/ifcrelvoidselement.html">IfcRelVoidsElement</A> <B>FOR</B> RelatingBuildingElement;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">IsConnectionRealization</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifcproductextension/lexical/ifcrelconnectswithrealizingelements.html">IfcRelConnectsWithRealizingElements</A> <B>FOR</B> RealizingElements;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ProvidesBoundaries</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifcproductextension/lexical/ifcrelspaceboundary.html">IfcRelSpaceBoundary</A> <B>FOR</B> RelatedBuildingElement;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ConnectedFrom</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifcproductextension/lexical/ifcrelconnectselements.html">IfcRelConnectsElements</A> <B>FOR</B> RelatedElement;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ContainedInStructure</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.html">IfcRelContainedInSpatialStructure</A> <B>FOR</B> RelatedElements;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifcproductextension/lexical/ifcdistributionelement.html">IfcDistributionElement</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcdistributionflowelement.html">IfcDistributionFlowElement</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasControlElements</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="ifcrelflowcontrolelements.html">IfcRelFlowControlElements</A> <B>FOR</B> RelatingFlowElement;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcflowsegment.html">IfcFlowSegment</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

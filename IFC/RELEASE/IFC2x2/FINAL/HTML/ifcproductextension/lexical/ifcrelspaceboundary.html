@@ -1,0 +1,556 @@
+
+<html>
+<HEAD>
+<title>IfcRelSpaceBoundary</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcproductextension.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0003.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcrelspaceboundary.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcRelSpaceBoundary</B></FONT></P><P><FONT face="Arial" size="3" color="#000000"> 
+
+	 <P><U>Definition from IAI</U>: The space boundary
+
+		(<I>IfcRelSpaceBoundary</I>) defines the physical or virtual delimiter of a
+
+		space as its relationship to the surrounding elements. </P> 
+
+	 <UL> 
+
+		<LI>In the case of physical space boundary, the placement and shape of
+
+		  the boundary may be given, and the building element, providing the boundary, is
+
+		  referenced, </LI> 
+
+		<LI> In the case of virtual space boundary, the placement and shape of
+
+		  the boundary may be given, but no building element is referenced. </LI> 
+
+	 </UL> 
+
+	 <P>The exact definition of how space boundaries are broken down depends on
+
+		the view, more detailed conventions on how space boundaries are decomposed can
+
+		only be given at the domain or application type level.</P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1">EXAMPLE: In an architectural or FM related view, a
+
+		  space boundary is defined from the inside of the space and does not take the
+
+		  providing building element into account. A plane area (even if the building
+
+		  element changes) is still seen as a single space boundary. In an HVAC related
+
+		  view, the decomposition of the space boundary depends on the material of the
+
+		  providing building element and the adjacent spaces
+
+		  behind.</FONT></P></BLOCKQUOTE> 
+
+	 <BLOCKQUOTE> <FONT COLOR="#0000FF" SIZE="-1">HISTORY: New entity in IFC
+
+		Release 1.5, the entity has been modified in IFC Release 2x
+
+		.</FONT></BLOCKQUOTE> 
+
+	 <BLOCKQUOTE><FONT COLOR="#FF0000" SIZE="-1">IFC2x PLATFORM CHANGE: The data
+
+		type of the attribute<I>RelatedBuildingElement</I> has been changed from
+
+		<I>IfcBuildingElement</I> to its supertype <I>IfcElement</I> with upward
+
+		compatibility for file based exchange. The data type of the attribute
+
+		<I>ConnectionGeometry</I> has been changed from
+
+		<I>IfcConnectionSurfaceGeometry</I> to its supertype
+
+		<I>IfcConnectionGeometry</I> with upward compatibility for file based
+
+		exchange.</FONT></BLOCKQUOTE> 
+
+	 <P>The <I>IfcRelSpaceBoundary</I> is defined as an objectified relationship
+
+		that handles the element to space relationship by objectifying the relationship
+
+		between an element and the space it bounds. It is given as a one-to-one
+
+		relationship, but allows each building element to define many such relationship
+
+		and each space to be defined by many such relationships. </P> 
+
+	 <BLOCKQUOTE><FONT COLOR="#FF0000" SIZE="-1">Note: With the upward
+
+		compatible platform extension the <I>IfcRelSpaceBoundary</I> can now also be
+
+		given to an <I>IfcOpeningElement</I>.</FONT></BLOCKQUOTE> 
+
+	 <P><B><U>Use Definitions</U></B></P>
+
+	 <P>If the <I>IfcRelSpaceBoundary</I> is used to express a virtual boundary
+
+		between two spaces, the attribute <I>PhysicalOrVirtualBoundary</I> has to be
+
+		set to VIRTUAL. In addition the attribute <I>RelatedBuildingElement</I> has to
+
+		be omited, whereas the attribute <I>ConnectionGeometry</I> is required to be
+
+		inserted. The connection geometry, either by a 2D curve or a 3D surface, is
+
+		used to describe the "virtual wall" that separates two spaces. Both instances
+
+		of <I>IfcRelSpaceBoundary</I> (given at each space) shall share the same
+
+		instance of <I>IfcConnectionGeometry</I>.</P>
+
+	 <P>If the <I>IfcRelSpaceBoundary</I> is used to express a physical boundary
+
+		between two spaces, the attribute <I>PhysicalOrVirtualBoundary</I> has to be
+
+		set to PHYSICAL. The attribute <I>RelatedBuildingElement</I> has to be given
+
+		and points to the element providing the space boundary. The attribute
+
+		<I>ConnectionGeometry</I> may be inserted, in this case it describes the
+
+		physical space boundary geometically, or it may be omited, in that case it
+
+		describes a physical space boundary logically.</P>
+
+	 <P><B><U>Geometry Use Definitions</U></B>:</P> 
+
+	 <P>The <I>IfcRelSpaceBoundary</I> may have geometry attached. If geometry
+
+		is not attached, the relationship between space and building element is handled
+
+		only on a logical level. If geometry is attached, it is given within the local
+
+		coordinate systems of the space and (if given in addition) of the building
+
+		element.</P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1">NOTE: The attributes <I>CurveOnRelatingElement</I> at
+
+		  <I>IfcConnectionCurveGeometry</I> or <I>SurfaceOnRelatingElement</I> at
+
+		  <I>IfcConnectionSurfaceGeometry</I> provide the geometry within the local
+
+		  coordinate system of the <I>IfcSpace</I>, whereas the attributes
+
+		  <I>CurveOnRelatedElement</I> at <I>IfcConnectionCurveGeometry</I> or
+
+		  <I>SurfaceOnRelatedElement</I> at <I>IfcConnectionSurfaceGeometry</I> provide
+
+		  the geometry within the local coordinate system of the subtype of
+
+		  <I>IfcElement</I>.</FONT></P></BLOCKQUOTE> 
+
+	 <P>The connection geometry, when given, can be given as a curve (for 2D
+
+		representations of space boundaries) or as a surface (for 3D representations of
+
+		space boundaries).</P> 
+
+	 <BLOCKQUOTE><FONT COLOR="#FF0000" SIZE="-1">Note: With the upward
+
+		compatible platform extension the <I>ConnectionGeometry</I> can now also be
+
+		given by a 2D curve.</FONT></BLOCKQUOTE> 
+
+	 <P>The geometric representation (through the <I>ConnectionGeometry</I>
+
+		attribute) is defined using either 2D curve geometry or extruded surfaces for
+
+		space boundaries which bounds prismatic spaces. </P> 
+
+	 <P>The following constraints apply to the 2D curve representation: </P> 
+
+	 <UL> 
+
+		<LI>Curve: <I>IfcPolyline</I>, <I>IfcTrimmedCurve</I> or
+
+		  <I>IfcCompositeCurve</I></LI> 
+
+	 </UL> 
+
+	 <P>The following constraints apply to the surface representation: </P> 
+
+	 <UL> 
+
+		<LI><U>Surface</U>: <I>IfcSurfaceOfLinearExtrusion</I></LI> 
+
+		<LI><U>Profile</U>: <I>IfcArbitraryOpenProfileDef</I></LI> 
+
+		<LI><U>Extrusion</U>: The extrusion direction shall be vertically, i.e.,
+
+		  along the positive Z Axis of the co-ordinate system of the containing spatial
+
+		  structure element. </LI> 
+
+	 </UL>
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">ENTITY</A></B> IfcRelSpaceBoundary</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifckernel/lexical/ifcrelconnects.html">IfcRelConnects</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RelatingSpace</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcspace.html">IfcSpace</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RelatedBuildingElement</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="ifcelement.html">IfcElement</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ConnectionGeometry</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcgeometricconstraintresource/lexical/ifcconnectiongeometry.html">IfcConnectionGeometry</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">PhysicalOrVirtualBoundary</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcphysicalorvirtualenum.html">IfcPhysicalOrVirtualEnum</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">InternalOrExternalBoundary</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcinternalorexternalenum.html">IfcInternalOrExternalEnum</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000"><B><B>WHERE</B></B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="10%"><FONT face="Courier New" size="3" color="#000000">WR1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000">((PhysicalOrVirtualBoundary = IfcPhysicalOrVirtualEnum.Physical) AND (EXISTS(RelatedBuildingElement))) OR 
+
+((PhysicalOrVirtualBoundary = IfcPhysicalOrVirtualEnum.Virtual) AND (NOT(EXISTS(RelatedBuildingElement)))) OR 
+
+ (PhysicalOrVirtualBoundary = IfcPhysicalOrVirtualEnum.NotDefined);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">RelatingSpace</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Reference to one spaces that is delimited by this boundary.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">RelatedBuildingElement</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      
+
+Reference to <STRIKE>Building</STRIKE> Element, that defines the Space Boundaries.
+
+<BLOCKQUOTE> <FONT COLOR="#FF0000" SIZE="-1">IFC2x PLATFORM CHANGE: The data type has been changed from <I>IfcBuildingElement</I> to <I>IfcElement</I> with upward compatibility </FONT></BLOCKQUOTE>
+
+</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">ConnectionGeometry</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      
+
+Physical representation of the space boundary. Provided as a <U>curve or</U> surface given within the LCS of the space.
+
+<BLOCKQUOTE> <FONT COLOR="#FF0000" SIZE="-1">IFC2x PLATFORM CHANGE: The data type has been changed from <I>IfcConnectionSurfaceGeometry</I> to <I>IfcConnectionGeometry</I> with upward compatibility </FONT></BLOCKQUOTE>
+
+</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">PhysicalOrVirtualBoundary</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Defines, whether the Space Boundary is physical (Physical) or virtual (Virtual).<BR>
+      </FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">InternalOrExternalBoundary</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Defines, whether the Space Boundary is internal (Internal), or external, i.e. adjacent to open space
+      (that can be an partially enclosed space, such as terrace (External).<BR>
+      </FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="constraint_description">Formal Propositions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">WR1</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      If the Space Boundary is physical, it shall be provided by an Element by virtue of the objectified relationship
+      IfcRelSeparatesSpaces.<BR>
+      </FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> IfcRelSpaceBoundary;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcroot.html">IfcRoot</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">GlobalId</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.html">IfcGloballyUniqueId</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">OwnerHistory</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcutilityresource/lexical/ifcownerhistory.html">IfcOwnerHistory</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Name</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Description</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcrelationship.html">IfcRelationship</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcrelconnects.html">IfcRelConnects</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcrelspaceboundary.html">IfcRelSpaceBoundary</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RelatingSpace</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcspace.html">IfcSpace</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RelatedBuildingElement</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="ifcelement.html">IfcElement</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ConnectionGeometry</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcgeometricconstraintresource/lexical/ifcconnectiongeometry.html">IfcConnectionGeometry</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">PhysicalOrVirtualBoundary</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcphysicalorvirtualenum.html">IfcPhysicalOrVirtualEnum</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">InternalOrExternalBoundary</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcinternalorexternalenum.html">IfcInternalOrExternalEnum</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

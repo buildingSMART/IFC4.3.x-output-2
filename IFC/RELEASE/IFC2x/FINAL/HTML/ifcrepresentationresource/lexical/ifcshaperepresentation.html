@@ -1,0 +1,685 @@
+
+<html>
+<HEAD>
+<title>IfcShapeRepresentation</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcrepresentationresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0002.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcshaperepresentation.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><B>IfcShapeRepresentation</B></FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"> 
+
+	 <P><I>Definition from ISO/CD 10303-42:1992</I>: The shape representation is
+
+		a specific kind of representation that represents a shape. </P> 
+
+	 <P><I>Definition from IAI</I>: The <I>IfcShapeRepresentation</I> represents
+
+		the concept of a particular geometric representation of a product or a product
+
+		component within a special geometric representation context. Several
+
+		representation types for shape representation are included as predefined types:
+
+		</P> 
+
+	 <TABLE CELLPADDING="2" CELLSPACING="2"> 
+
+		<TR> 
+
+		  <TD WIDTH="20" COLSPAN="2" VALIGN="TOP" ALIGN="LEFT"><B>GeometricSet
+
+			 </B></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">points, curves, surfaces</TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD WIDTH="20" COLSPAN="2" VALIGN="TOP" ALIGN="LEFT"><B>SurfaceModel
+
+			 </B></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">face based surface model</TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD WIDTH="20" COLSPAN="2" VALIGN="TOP" ALIGN="LEFT"><B>SolidModel
+
+			 </B></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">including swept solid, Boolean results
+
+			 and Brep bodies<BR>more specific types are:</TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD WIDTH="20" VALIGN="TOP" ALIGN="LEFT">&nbsp;</TD> 
+
+		  <TD WIDTH="130" VALIGN="TOP" ALIGN="LEFT"><B>SweptSolid</B></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">swept area solids, by extrusion and
+
+			 revolution</TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD WIDTH="20" VALIGN="TOP" ALIGN="LEFT">&nbsp;</TD> 
+
+		  <TD WIDTH="130" VALIGN="TOP" ALIGN="LEFT"><B>Brep</B></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">faceted brep's with and without
+
+			 voids</TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD WIDTH="20" VALIGN="TOP" ALIGN="LEFT">&nbsp;</TD> 
+
+		  <TD WIDTH="130" VALIGN="TOP" ALIGN="LEFT"><B>CSG</B></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">Boolean results of operations between
+
+			 solid models, half spaces and Boolean results</TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD WIDTH="20" VALIGN="TOP" ALIGN="LEFT" COLSPAN="2"><I>additional
+
+			 types</I> </TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">some additional representation types are
+
+			 given:</TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD WIDTH="20" VALIGN="TOP" ALIGN="LEFT">&nbsp;</TD> 
+
+		  <TD WIDTH="130" VALIGN="TOP" ALIGN="LEFT"><B>BoundingBox</B></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">simplistic 3D representation by a
+
+			 bounding box</TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD WIDTH="20" VALIGN="TOP" ALIGN="LEFT">&nbsp;</TD> 
+
+		  <TD WIDTH="130" VALIGN="TOP" ALIGN="LEFT"><B>SectionedSpine</B></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">cross section based representation of a
+
+			 spine curve and planar cross sections. It can represent a surface or a solid
+
+			 and the interpolations of the between the cross sections is not defined</TD> 
+
+		</TR>
+
+		<TR>
+
+		  <TD WIDTH="20" VALIGN="TOP" ALIGN="LEFT">&nbsp;</TD>
+
+		  <TD WIDTH="130" VALIGN="TOP"
+
+		  ALIGN="LEFT"><B>MappedRepresentation</B></TD>
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">representation based on a mapped item,
+
+			 referring to a representation map. Note: it can be seen as an inserted block
+
+			 reference.</TD>
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <P>The representation type is given as a string value at the inherited
+
+		attribute 'RepresentationType'.</P> 
+
+	 <BLOCKQUOTE><FONT SIZE="-1">NOTE: The definition of this entity relates to
+
+		the STEP entity shape_representation. Please refer to ISO/IS 10303-41:1994 for
+
+		the final definition of the formal standard. </FONT></BLOCKQUOTE> 
+
+	 <BLOCKQUOTE><FONT SIZE="-1" COLOR="#0000FF">ISSUE: See issue logs for
+
+		changes made in IFC Release 1.5 and IFC Release 2x. <BR>HISTORY: See change log
+
+		for changes made in IFC Release 2x. </FONT></BLOCKQUOTE>
+
+</FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">ENTITY</A></B> IfcShapeRepresentation</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcrepresentation.html">IfcRepresentation</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">OfShapeAspect</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="ifcshapeaspect.html">IfcShapeAspect</A> <B>FOR</B> ShapeRepresentations;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000"><B><B>WHERE</B></B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">'IFCREPRESENTATIONRESOURCE.IFCGEOMETRICREPRESENTATIONCONTEXT' 
+
+IN TYPEOF(SELF\IfcRepresentation.ContextOfItems);</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR2</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">EXISTS(SELF\IfcRepresentation.RepresentationType);</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR3</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">(RepresentationType <> 'GeometricSet') OR 
+
+((RepresentationType = 'GeometricSet') AND (HIINDEX(SELF\IfcRepresentation.Items) = 1)
+
+  AND ('IFCGEOMETRICMODELRESOURCE.IFCGEOMETRICSET' IN TYPEOF(SELF\IfcRepresentation.Items[1])))
+
+;</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR4</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">(RepresentationType <> 'SurfaceModel') OR 
+
+((RepresentationType = 'SurfaceModel') AND 
+
+ (('IFCGEOMETRICMODELRESOURCE.IFCSHELLBASEDSURFACEMODEL' IN TYPEOF(SELF\IfcRepresentation.Items[1])) OR
+
+  ('IFCGEOMETRICMODELRESOURCE.IFCSHELLBASEDSURFACEMODEL' IN TYPEOF(SELF\IfcRepresentation.Items[1])))
+
+ AND (HIINDEX(SELF\IfcRepresentation.Items) = 1));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR5</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">(NOT(RepresentationType IN ['SolidModel', 'SweptSolid', 'CSG', 'Brep'])) OR 
+
+((RepresentationType IN ['SolidModel', 'SweptSolid', 'CSG', 'Brep'])
+
+   AND (SIZEOF(QUERY(temp <* SELF\IfcRepresentation.Items |
+
+  'IFCGEOMETRICMODELRESOURCE.IFCSOLIDMODEL' IN TYPEOF(temp)))
+
+ = SIZEOF(SELF\IfcRepresentation.Items)));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR6</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">(RepresentationType <> 'SweptSolid') OR 
+
+((RepresentationType = 'SweptSolid') AND 
+
+  (SIZEOF(QUERY(temp <* SELF\IfcRepresentation.Items |
+
+   'IFCGEOMETRICMODELRESOURCE.IFCSWEPTAREASOLID' IN TYPEOF(temp)))
+
+   >= 1));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR7</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">(RepresentationType <> 'CSG') OR 
+
+((RepresentationType = 'CSG') AND 
+
+ (SIZEOF(QUERY(temp <* SELF\IfcRepresentation.Items |
+
+  'IFCGEOMETRICMODELRESOURCE.IFCBOOLEANRESULT' IN TYPEOF(temp)))
+
+ >= 1));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR8</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">(RepresentationType <> 'Brep') OR 
+
+((RepresentationType = 'Brep') AND 
+
+ (SIZEOF(QUERY(temp <* SELF\IfcRepresentation.Items | 
+
+  'IFCGEOMETRICMODELRESOURCE.IFCMANIFOLDSOLIDBREP' IN TYPEOF(temp))) 
+
+ >= 1));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR9</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">(RepresentationType <> 'BoundingBox') OR 
+
+((RepresentationType = 'BoundingBox') AND (HIINDEX(SELF\IfcRepresentation.Items) = 1) 
+
+  AND ('IFCGEOMETRYRESOURCE.IFCBOUNDINGBOX' IN TYPEOF(SELF\IfcRepresentation.Items[1])));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR10</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">(RepresentationType <> 'SectionedSpine') OR 
+
+((RepresentationType = 'SectionedSpine') AND
+
+ (SIZEOF(QUERY(temp <* SELF\IfcRepresentation.Items |
+
+  'IFCGEOMETRICMODELRESOURCE.IFCSECTIONEDSPINE' IN TYPEOF(temp)))
+
+ >= 1));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="15%"><FONT face="Courier New" size="2" color="#000000">WR11</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">(RepresentationType <> 'MappedRepresentation') OR 
+
+((RepresentationType = 'MappedRepresentation') AND (HIINDEX(SELF\IfcRepresentation.Items) = 1) 
+
+  AND ('IFCGEOMETRYRESOURCE.IFCMAPPEDITEM' IN TYPEOF(SELF\IfcRepresentation.Items[1])));</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>OfShapeAspect</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Reference to the shape aspect, for which it is the shape representation.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000"><U><A name="constraint_description">Formal Propositions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR1</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      The context to which the IfcShapeRepresentation is assign, shall be of type IfcGeometricRepresentationContext.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR2</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      A representation type should be given to the shape representation.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR3</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Contraints to the representation type 'GeometricSet'.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR4</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Constraints to the representation type 'SurfaceModel'.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR5</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Constraints to the representation type 'SolidModel'.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR6</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Constraints to the representation type 'SweptSolid'.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR7</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Constraints to the representation type 'CSG'.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR8</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Constraints to the representation type 'Brep'.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR9</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Constraints to the representation type 'BoundingBox'.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR10</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Constraints to the representation type 'SectionedSpine'.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>WR11</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Constraints to the representation type 'MappedRepresentation'.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><B><A name="References">References (2):</A></B></FONT></P>
+<TABLE WIDTH="100%" BORDER="1">
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Name</B></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Type</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Referred through</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Express-G</B></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><A href="ifcrepresentation.html">IfcRepresentation</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Times New Roman" size="2" color="#000000">Subtype</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Times New Roman" size="2" color="#000000"><A href="../diagrams/diagram_0002.html">Diagram 2</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><A href="ifcshapeaspect.html">IfcShapeAspect</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Times New Roman" size="2" color="#000000">Attribute 'ShapeRepresentations'</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Times New Roman" size="2" color="#000000"><A href="../diagrams/diagram_0002.html">Diagram 2</A></FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> IfcShapeRepresentation;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcrepresentation.html">IfcRepresentation</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">ContextOfItems</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcrepresentationcontext.html">IfcRepresentationContext</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">RepresentationIdentifier</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">RepresentationType</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Items</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> [1:?] <B>OF</B> <A href="../../ifcgeometryresource/lexical/ifcrepresentationitem.html">IfcRepresentationItem</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">OfProductRepresentation</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="ifcproductrepresentation.html">IfcProductRepresentation</A> <B>FOR</B> Representations;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcshaperepresentation.html">IfcShapeRepresentation</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">OfShapeAspect</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="ifcshapeaspect.html">IfcShapeAspect</A> <B>FOR</B> ShapeRepresentations;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

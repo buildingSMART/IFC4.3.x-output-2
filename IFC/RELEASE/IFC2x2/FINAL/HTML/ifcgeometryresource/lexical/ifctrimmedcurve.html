@@ -1,0 +1,524 @@
+
+<html>
+<HEAD>
+<title>IfcTrimmedCurve</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0006.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifctrimmedcurve.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcTrimmedCurve</B></FONT></P><P><FONT face="Arial" size="3" color="#000000"> 
+
+	 <P><U>Definition from ISO/CD 10303-42:1992</U>: A trimmed curve
+
+		(<I>IfcTrimmedCurve</I>) is a bounded curve which is created by taking a
+
+		selected portion, between two identified points, of the associated basis curve.
+
+		The basis curve itself is unaltered and more than one trimmed curve may
+
+		reference the same basis curve. Trimming points for the curve may be identified
+
+		by:</P> 
+
+	 <UL> 
+
+		<LI> parametric value </LI> 
+
+		<LI>geometric position </LI> 
+
+		<LI>both of the above </LI> 
+
+	 </UL> 
+
+	 <P>At least one of these shall be specified at each end of the curve. The
+
+		<I>SenseAgreement</I> makes it possible to unambiguously define any segment of
+
+		a closed curve such as a circle. The combinations of sense and ordered end
+
+		points make it possible to define four distinct directed segments connecting
+
+		two different points on a circle or other closed curve. For this purpose cyclic
+
+		properties of the parameter range are assumed; for example, 370 degrees is
+
+		equivalent to 10 degrees. </P> 
+
+	 <P>The <I>IfcTrimmedCurve</I> has a parameterization which is inherited
+
+		from the particular basis curve reference. More precisely the parameter s of
+
+		the trimmed curve is derived from the parameter of the basis curve as follows:
+
+		</P> 
+
+	 <UL> 
+
+		<LI>if <I>SenseAgreement</I> is TRUE: <I>s = t - t<SUB>1</SUB></I></LI> 
+
+		<LI> if <I>SenseAgreement</I> is FALSE: <I>s = t<SUB>2</SUB> - t</I>
+
+		  </LI> 
+
+	 </UL> 
+
+	 <P>In the above equations t<SUB>1</SUB> is the value given by <I>Trim1</I>
+
+		or the parameter value corresponding to point 1 and t<SUB>2</SUB> is the value
+
+		given by <I>Trim2</I> or the parameter value corresponding to point 2. The
+
+		resultant <I>IfcTrimmedCurve</I> has a parameter ranging from 0 at the first
+
+		trimming point to |t<SUB>2</SUB> - t<SUB>1</SUB>| at the second trimming point.
+
+		</P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1">NOTE In case of a closed curve, it may be necessary to
+
+		  increment t1 or t2 by the parametric length for consistency with the sense
+
+		  flag.</FONT></P></BLOCKQUOTE> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1" COLOR="#0000FF">NOTE Corresponding STEP entity:
+
+		  trimmed_curve; As a further IFC restriction, an IfcTrimmedCurve should only
+
+		  trim a IfcLine or IfcConic. Please refer to ISO/IS 10303-42:1994, p. 54 for the
+
+		  final definition of the formal standard. </FONT></P> 
+
+		<P><FONT SIZE="-1" COLOR="#0000FF">HISTORY New class in IFC Release 1.0
+
+		  </FONT></P> </BLOCKQUOTE> 
+
+	 <P> <U>Informal Propositions</U>:</P> 
+
+	 <OL> 
+
+		<LI>Where both the parameter value and the Cartesian point exist for
+
+		  <I>Trim1</I> and <I>Trim2</I> they shall be consistent. (i.e., the
+
+		  <I>BasisCurve</I> evaluated at the parameter value shall coincide with the
+
+		  specified point.</LI> 
+
+		<LI>When a Cartesian point is specified by <I>Trim1</I> or by
+
+		  <I>Trim2</I> it shall lie on the <I>BasisCurve</I>.</LI> 
+
+		<LI>Except the case of a closed <I>BasisCurve</I> where both parameter 1
+
+		  and parameter 2 exist, they shall be consistent with the sense flag, i.e.,
+
+		  (sense = parameter 1 &lt; parameter 2). <FONT COLOR="#0000FF">Or, for every
+
+		  open curve where both parameter 1 and parameter 2 exist, they shall be
+
+		  consistent with the <I>SenseAgreement</I>, i.e., <I>SenseAgreement</I> =
+
+		  (parameter 1 &lt; parameter 2).</FONT></LI> 
+
+		<LI>If both parameter 1 and parameter 2 exist, than parameter 1 &lt;&gt;
+
+		  parameter 2.</LI> 
+
+		<LI>When a parameter value is specified by <I>Trim1</I> or <I>Trim2</I>
+
+		  it shall lie within the parametric range of the <I>BasisCurve</I>.</LI> 
+
+	 </OL> 
+
+	 <P><U>Additional illustration from IAI:</U></P> 
+
+	 <TABLE> 
+
+		<TR> 
+
+		  <TD><IMG SRC="figures/IfcTrimmedCurve_Parameterization.png"
+
+			 ALT="curve parameterization" ALIGN="BOTTOM" WIDTH="700" HEIGHT="500"
+
+			 BORDER="0"></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD>The figure above shows the four arcs (dashed blue and green lines
+
+			 with arrow showing different orientations) that can be defined by the same
+
+			 <I>BasisCurve</I> (of type <I>IfcCircle</I>) and the same trimming points
+
+			 (given by Cartesian points and parameter values) by using different assignments
+
+			 to <I>Trim1</I> and <I>Trim2</I> and <I>SenseAgreement</I>.</TD> 
+
+		</TR> 
+
+	 </TABLE>
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">ENTITY</A></B> IfcTrimmedCurve</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcboundedcurve.html">IfcBoundedCurve</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">BasisCurve</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifccurve.html">IfcCurve</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Trim1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [1:2] <B>OF</B> <A href="ifctrimmingselect.html">IfcTrimmingSelect</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Trim2</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [1:2] <B>OF</B> <A href="ifctrimmingselect.html">IfcTrimmingSelect</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">SenseAgreement</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"> <B>BOOLEAN</B>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">MasterRepresentation</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifctrimmingpreference.html">IfcTrimmingPreference</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000"><B><B>WHERE</B></B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="10%"><FONT face="Courier New" size="3" color="#000000">WR41</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000">(HIINDEX(Trim1) = 1) OR (TYPEOF(Trim1[1]) <> TYPEOF(Trim1[2]));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="10%"><FONT face="Courier New" size="3" color="#000000">WR42</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000">(HIINDEX(Trim2) = 1) OR (TYPEOF(Trim2[1]) <> TYPEOF(Trim2[2]));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="10%"><FONT face="Courier New" size="3" color="#000000">WR43</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000">NOT('IFCGEOMETRYRESOURCE.IFCBOUNDEDCURVE' IN TYPEOF(BasisCurve));</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">BasisCurve</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The curve to be trimmed. For curves with multiple representations any parameter values given as Trim1
+      or Trim2 refer to the master representation of the BasisCurve only.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">Trim1</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The first trimming point which may be specified as a Cartesian point, as a real parameter or both.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">Trim2</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The second trimming point which may be specified as a cartesian point, as a rela parameter or both.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">SenseAgreement</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Flag to indicate whether the direction of the trimmed curve agrees with or is opposed to the direction
+      of the basis curve.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">MasterRepresentation</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Where both parameter and point are present at either end of the curve this indicates the prefered form.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="constraint_description">Formal Propositions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">WR41</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Either a single value is specified for Trim1, or the two trimming values are of different type (point
+      and parameter)</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">WR42</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Either a single value is specified for Trim2, or the two trimming values are of different type (point
+      and parameter)</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">WR43</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Only line and conic curves should be trimmed, not other bounded curves. NOTE: This is an additional constraint
+      of IFC.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> IfcTrimmedCurve;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcrepresentationitem.html">IfcRepresentationItem</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcgeometricrepresentationitem.html">IfcGeometricRepresentationItem</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifccurve.html">IfcCurve</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>DERIVE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Dim</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcdimensioncount.html">IfcDimensionCount</A>&nbsp;:=&nbsp;                        IfcCurveDim(SELF);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcboundedcurve.html">IfcBoundedCurve</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifctrimmedcurve.html">IfcTrimmedCurve</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">BasisCurve</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifccurve.html">IfcCurve</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Trim1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [1:2] <B>OF</B> <A href="ifctrimmingselect.html">IfcTrimmingSelect</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Trim2</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [1:2] <B>OF</B> <A href="ifctrimmingselect.html">IfcTrimmingSelect</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">SenseAgreement</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"> <B>BOOLEAN</B>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">MasterRepresentation</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifctrimmingpreference.html">IfcTrimmingPreference</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

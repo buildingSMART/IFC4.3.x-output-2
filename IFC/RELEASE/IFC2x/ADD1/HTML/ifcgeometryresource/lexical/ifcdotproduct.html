@@ -1,0 +1,83 @@
+
+<html>
+<HEAD>
+<title>IfcDotProduct</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcdotproduct.html#references">
+</MAP><P><FONT face="Arial" size="5" color="#000000"><B>IfcDotProduct</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">Function Semantic Definition<BR>
+Definition from ISO/CD 10303-42:1992: This function returns the scalar (or dot) product of two directions.
+The input arguments can be directions in either two- or three-dimensional space. The returned scalar
+is undefined if the input directions have different dimensionality, or if either is undefined.<BR>
+<BR>
+NOTE Corresponding STEP function dot_product, new function in IFC Release 1.5. Please refer to ISO/IS
+10303-42:1994, p. 104 for the final definition of the formal standard.<BR>
+<BR>
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcDotProduct</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000">
+                  &nbsp;&nbsp;(Arg1,&nbsp;Arg2&nbsp;:&nbsp;IfcDirection)&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;REAL;<BR>
+                  LOCAL<BR>
+                  &nbsp;&nbsp;Scalar&nbsp;:&nbsp;REAL;<BR>
+                  &nbsp;&nbsp;Vec1,&nbsp;Vec2&nbsp;:&nbsp;IfcDirection;<BR>
+                  &nbsp;&nbsp;Ndim&nbsp;&nbsp;&nbsp;:&nbsp;INTEGER;<BR>
+                  END_LOCAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;IF&nbsp;NOT&nbsp;EXISTS&nbsp;(Arg1)&nbsp;OR&nbsp;NOT&nbsp;EXISTS&nbsp;(Arg2)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Scalar&nbsp;:=&nbsp;?;<BR>
+                  &nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(Arg1.Dim&nbsp;&#60;&#62;&nbsp;Arg2.Dim)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scalar&nbsp;:=&nbsp;?;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec1&nbsp;:=&nbsp;IfcNormalise(Arg1);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec2&nbsp;:=&nbsp;IfcNormalise(Arg2);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ndim&nbsp;:=&nbsp;Arg1.Dim;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scalar&nbsp;:=&nbsp;0.0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i&nbsp;:=&nbsp;1&nbsp;TO&nbsp;Ndim;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scalar&nbsp;:=&nbsp;Scalar&nbsp;+&nbsp;Vec1.DirectionRatios[i]*Vec2.DirectionRatios[i];<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;RETURN&nbsp;(Scalar);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcHvacDomain"/>
+  <Name>Pset_ElectricActuator</Name>
+  <Definition>Definition from IAI: This property set is used to define the characteristics of an electric actuator.
+
+HISTORY: New property set in IFC Release 2.0.
+
+ISSUES: No issues to date.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcActuator</TypedClass>
+  <TypeName>ElectricActuator</TypeName>
+  <PropertyDefs>
+    <PropertyDef id="286">
+      <Name>ManualOverride</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcBoolean"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="False"/>
+        <MaxValue value="True"/>
+        <DefaultValue value="False"/>
+      </ValueDef>
+      <Definition>
+Identifies whether hand-operated operation is provided as an override
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="287">
+      <Name>InputPower</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPowerMeasure"/>
+          <UnitType type="PowerUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Maximum input power requirement
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="867">
+      <Name>ElectricActuatorType</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_ElectricActuatorTypeEnum">
+            <EnumItem>MotorDrive</EnumItem>
+            <EnumItem>Magnetic</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+Enumeration that identifies electric actuator as defined by its operational principle.
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

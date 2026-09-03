@@ -1,0 +1,508 @@
+
+<html>
+<HEAD>
+<title>IfcPropertyBoundedValue</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcpropertyresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0002.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcpropertyboundedvalue.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcPropertyBoundedValue</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">
+
+	 <P><U>Definition from IAI</U>: A property with a bounded value
+
+		(<I>IfcPropertyBoundedValue</I>) defines a property object which has two
+
+		(numeric or descriptive) values assigned, the value specifying the upper bound
+
+		and the value specifying the lower bound. It defines a property - value bound
+
+		(min-max) combination for which the property name, the upper bound value with
+
+		measure type, the lower bound value with measure type (and optional the unit)
+
+		is given.</P> 
+
+	 <P>The unit is handled by the <I>Unit</I> attribute:</P> 
+
+	 <UL> 
+
+		<LI>If the <I>Unit</I> attribute is not given, than the unit is already
+
+		  implied by the type of <I>IfcMeasureValue</I> or <I>IfcDerivedMeasureValue</I>.
+
+		  The associated unit can be found at the <I>IfcUnitAssignment</I> globally
+
+		  defined at the project level (<I>IfcProject.UnitsInContext</I>).</LI> 
+
+		<LI> If the <I>Unit</I> attribute is given, the unit assigned by the unit
+
+		  attribute overrides the globally assigned unit.</LI> 
+
+	 </UL> 
+
+	 <P>The <I>IfcPropertyBoundedValue</I> allows for the specification of an
+
+		interval for the value component of the property description.
+
+		<FONT COLOR="#0000FF">If either the <I>LowerBoundValue</I> or the
+
+		<I>UpperBoundValue</I> is not given, it indicates an open bound (either a
+
+		minimum value or a maximum value). The interval is by definition inclusive,
+
+		i.e. the value given for the <I>LowerBoundValue</I> or the
+
+		<I>UpperBoundValue</I> is included in the interval.</FONT></P> 
+
+	 <P>Examples of a property with bounded value are:</P> 
+
+	 <TABLE BORDER="1"> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" WIDTH="15%"><B>Name</B></TD> 
+
+		  <TD VALIGN="TOP" WIDTH="15%"><B>UpperBoundValue</B></TD> 
+
+		  <TD VALIGN="TOP" WIDTH="15%"><B>LowerBoundValue</B></TD> 
+
+		  <TD VALIGN="TOP" WIDTH="25%"><B>Type <BR></B><FONT SIZE="-1">(through
+
+			 IfcValue, WR1 ensures same type for both values)</FONT></TD> 
+
+		  <TD VALIGN="TOP" WIDTH="30%"><B>Unit <BR></B></TD> 
+
+		</TR> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD WIDTH="15%" VALIGN="TOP" ALIGN="LEFT">OverallHeight</TD> 
+
+		  <TD WIDTH="30%" VALIGN="TOP" ALIGN="LEFT">1930</TD> 
+
+		  <TD WIDTH="25%" VALIGN="TOP" ALIGN="LEFT">2300</TD> 
+
+		  <TD WIDTH="25%" VALIGN="TOP" ALIGN="LEFT">IfcPositiveLengthMeasure</TD>
+
+		  
+
+		  <TD WIDTH="30%" VALIGN="TOP" ALIGN="LEFT">- </TD> 
+
+		</TR> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD WIDTH="15%" VALIGN="TOP" ALIGN="LEFT">OverallWidth</TD> 
+
+		  <TD WIDTH="30%" VALIGN="TOP" ALIGN="LEFT">0.9</TD> 
+
+		  <TD WIDTH="25%" VALIGN="TOP" ALIGN="LEFT">1.25</TD> 
+
+		  <TD WIDTH="25%" VALIGN="TOP" ALIGN="LEFT">IfcPositiveLengthMeasure</TD>
+
+		  
+
+		  <TD WIDTH="30%" VALIGN="TOP" ALIGN="LEFT">m</TD> 
+
+		</TR>
+
+		<TR VALIGN="TOP">
+
+		  <TD WIDTH="15%" VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 COLOR="#0000FF">MaxHeight</FONT></TD>
+
+		  <TD WIDTH="30%" VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 COLOR="#0000FF">20.0</FONT></TD>
+
+		  <TD WIDTH="25%" VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 COLOR="#0000FF">&lt;nil&gt;</FONT></TD>
+
+		  <TD WIDTH="25%" VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 COLOR="#0000FF">IfcPositiveLengthMeasure</FONT></TD>
+
+		  <TD WIDTH="30%" VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 COLOR="#0000FF">-</FONT></TD>
+
+		</TR>
+
+		<TR VALIGN="TOP">
+
+		  <TD WIDTH="15%" VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 COLOR="#0000FF">MinWeight</FONT></TD>
+
+		  <TD WIDTH="30%" VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 COLOR="#0000FF">&lt;nil&gt;</FONT></TD>
+
+		  <TD WIDTH="25%" VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 COLOR="#0000FF">20</FONT></TD>
+
+		  <TD WIDTH="25%" VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 COLOR="#0000FF">IfcMassMeasure</FONT></TD>
+
+		  <TD WIDTH="30%" VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 COLOR="#0000FF">kg</FONT></TD>
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT COLOR="#0000FF" SIZE="-1">HISTORY: New entity in IFC Release 2x.
+
+		  </FONT></P> </BLOCKQUOTE> 
+
+	 <BLOCKQUOTE><FONT COLOR="#FF0000" SIZE="-1">IFC2x PLATFORM CHANGE: The
+
+		attribute type of the attribute<I>UpperBoundValue</I> and
+
+		<I>LowerBoundValue</I> has been changed from mandatory to optional with upward
+
+		compatibility for file based exchange.</FONT></BLOCKQUOTE>
+
+	 <P>Informal proposition:</P> 
+
+	 <OL> 
+
+		<LI>If the measure type for the upper and lover bound value is an numeric
+
+		  measure, than the following shall be true: <I>UpperBoundValue</I> &gt;
+
+		  <I>LowerBoundValue</I>.</LI> 
+
+	 </OL> 
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">ENTITY</A></B> IfcPropertyBoundedValue</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcsimpleproperty.html">IfcSimpleProperty</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">UpperBoundValue</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifcvalue.html">IfcValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">LowerBoundValue</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifcvalue.html">IfcValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Unit</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifcunit.html">IfcUnit</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000"><B><B>WHERE</B></B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="10%"><FONT face="Courier New" size="3" color="#000000">WR21</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000">NOT(EXISTS(UpperBoundValue)) OR NOT(EXISTS(LowerBoundValue)) OR
+
+(TYPEOF(UpperBoundValue) = TYPEOF(LowerBoundValue));</FONT>
+                      </TD>
+                    </TR>
+                    <TR VALIGN="top">
+                      <TD WIDTH="10%"><FONT face="Courier New" size="3" color="#000000">WR22</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000">EXISTS(UpperBoundValue) OR EXISTS(LowerBoundValue);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">UpperBoundValue</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Upper bound value for the interval defining the property value. If the value is not given, it indicates
+      an open bound (all values to be greater or equal then LowerBoundValue).</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">LowerBoundValue</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Lower bound value for the interval defining the property value. If the value is not given, it indicates
+      an open bound (all values to be lower or equal then UpperBoundValue).</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">Unit</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Unit for the upper and lower bound values, if not given, the default value for the measure type (given
+      by the TYPE of the upper and lower bound values) is used as defined by the global unit assignment at
+      IfcProject.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="constraint_description">Formal Propositions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">WR21</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      The measure type of the upper bound value shall be the same as the measure type of the lower bound value,
+      if both (upper and lower bound) are given.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">WR22</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Either the upper bound, or the lower bound, or both bounds shall be given.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> IfcPropertyBoundedValue;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcproperty.html">IfcProperty</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Name</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcmeasureresource/lexical/ifcidentifier.html">IfcIdentifier</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Description</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">PropertyForDependance</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="ifcpropertydependencyrelationship.html">IfcPropertyDependencyRelationship</A> <B>FOR</B> DependingProperty;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">PropertyDependsOn</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="ifcpropertydependencyrelationship.html">IfcPropertyDependencyRelationship</A> <B>FOR</B> DependantProperty;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">PartOfComplex</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="ifccomplexproperty.html">IfcComplexProperty</A> <B>FOR</B> HasProperties;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcsimpleproperty.html">IfcSimpleProperty</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcpropertyboundedvalue.html">IfcPropertyBoundedValue</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">UpperBoundValue</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifcvalue.html">IfcValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">LowerBoundValue</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifcvalue.html">IfcValue</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Unit</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifcunit.html">IfcUnit</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

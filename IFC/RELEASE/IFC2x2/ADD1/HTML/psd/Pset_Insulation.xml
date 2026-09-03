@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcSharedBldgServiceElements"/>
+  <Name>Pset_Insulation</Name>
+  <Definition>Definition from IAI: Materials with low heat conductance.
+
+HISTORY: New property set in IFC Release 1.0.
+
+ISSUES: No issues to date.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcDiscreteElement</TypedClass>
+  <TypeName>Insulation</TypeName>
+  <PropertyDefs>
+    <PropertyDef id="450">
+      <Name>InsulationTypeEnum</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_InsulationTypeEnum">
+            <EnumItem>InorganicFibrous</EnumItem>
+            <EnumItem>InorganicCellular</EnumItem>
+            <EnumItem>OrganicFibrous</EnumItem>
+            <EnumItem>OrganicCellular</EnumItem>
+            <EnumItem>Metallic</EnumItem>
+            <EnumItem>MetallizedOrganicReflectiveMembranes</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+This enumeration defines different types of insulation (I.e., InorganicFibrous, InorganicCellular, OrganicFibrous, OrganicCellular, etc.) as defined by ASHRAE 1997 Fundamenatals Section 22.2 Basic Materials.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="408">
+      <Name>Thickness</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="4"/>
+      </ValueDef>
+      <Definition>
+Insulation Thickness
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="454">
+      <Name>JacketType</Name>
+      <PropertyType>
+        <TypePropertyReferenceValue reftype="IfcMaterial"/>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="n/a"/>
+      </ValueDef>
+      <Definition>
+Jacket material type of the insulation
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="455">
+      <Name>FlamabilityRating</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Insulation flammability rating
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

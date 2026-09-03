@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcProductExtension"/>
+  <Name>Pset_ElementQuantities</Name>
+  <Definition>Definition from IAI: Properties about the quantity, orientation and inclination of elements. Can be attached to all IfcElement.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcElement</TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="300">
+      <Name>QuantityCalcStandard</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+The standard by which the quantities in this Pset are calculated. If not specified, measures are simple geometry calculations
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="301">
+      <Name>LengthQuantity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The 1D length of this element (measured according to the standard). If standard not specified, then simple calculation of 1D length.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="302">
+      <Name>AreaQuantity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcAreaMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The 2D area of this element (measured according to the standard). If standard not specified, then simple calculation of 2D surface area.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="303">
+      <Name>VolumeQuantity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcVolumeMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The 3D volume of this element (measured according to the standard). If standard not specified, then simple 3D volume calculation.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="304">
+      <Name>WeightQuantity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcMassMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The weight of this element (measured according to the standard). If standard not specified, then physical weight as calculated from volumne and density.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="305">
+      <Name>CountQuantity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcCountMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="1"/>
+      </ValueDef>
+      <Definition>
+The count (number) of the element (measured according to the standard).
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="306">
+      <Name>LengthQuantityDescription</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Description for or about the length quantity value extraction
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="307">
+      <Name>AreaQuantityDescription</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Description for or about the area quantity value extraction
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="308">
+      <Name>VolumeQuantityDescription</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Description for or about the volume quantity value extraction
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="309">
+      <Name>WeightQuantityDescription</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Description for or about the weight quantity value extraction
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="310">
+      <Name>CountQuantityDescription</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Description for or about the count quantity value extraction
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="311">
+      <Name>Azimuth</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositivePlaneAngleMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Azimuth of the element as derived from the placement of the element shape, by convention: North = 0' and measurement is done clockwise (I.e. south = 90', if unit is grad) ? The calculation procedure will be specific for each type of element. The following translations apply: G: Himmelsrichtung des Bauteils, J: HOUI-KAKU
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="312">
+      <Name>Inclination</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositivePlaneAngleMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Azimuth of the element as derived from the placement of the element shape, by convention: Vertical = 0', horizontal = 90', if unit is grad) ? The calculation procedure will be specific for each type of element. The following translations apply: G: Bauteilneigung, J: KEISHA-KAKU
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

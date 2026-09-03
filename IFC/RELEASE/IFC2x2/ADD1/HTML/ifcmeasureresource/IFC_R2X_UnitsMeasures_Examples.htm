@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>IFC R2</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial" SIZE=5><P ALIGN="CENTER">IFC R2x Measure and Unit Examples</P><DIR>
+<DIR>
+
+</B></FONT><I><P ALIGN="JUSTIFY">In the IFC Object Model there may be a number of ways to use the measure defined types (for measure values) and their units. The purpose of this document and the examples is to  promote common understanding of how measure types and related units should be used, i.e. instantiated.</P></DIR>
+</DIR>
+
+</I><B><FONT FACE="Arial" SIZE=4><P ALIGN="JUSTIFY">Introduction</P>
+</B></FONT><P ALIGN="JUSTIFY">In different types of units there are five basic cases:</P>
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Basic <I>SI-units</I>, which cover a number of fundamental units of mainly physical quantities defined by ISO-1000+A1,1992 &amp; 1998.; e.g. meter or millimeter  as unit for length measure or square meter as a unit for area measure. The unit may have a scaling prefix (milli, kilo, etc.).</LI></P>
+<P ALIGN="JUSTIFY"><LI>Derived <I>SI-units</I>, which are defined as a derivation of the basic SI-units, e.g. Newton <BR>
+(kg m / s<SUP>2</SUP>) as a unit of force. Both basic and derived SI-units are in the IFCs represented by IfcSIUnit.</LI></P>
+<I><P ALIGN="JUSTIFY"><LI>Conversion based units</I>, which can be derived based on SI-units; e.g. inch which can be defined using SI-unit for length measure, i.e. an inch is 25.4 millimeters.</LI></P>
+<I><P ALIGN="JUSTIFY"><LI>Derived units</I>, which can be defined as a derivation or combination of a number of basic units. In the derived unit each of the basic unit "component" has a dimensional exponent in defining the derived unit; e.g. kg / m<SUP>2</SUP>, where kilogram (kg) has dimensional exponent 1 and meter (m) has exponent -2.</LI></P>
+<I><P ALIGN="JUSTIFY"><LI>Context dependent units</I>, which cannot be defined as conversion based unit using SI-units.</LI></P></UL>
+
+<P ALIGN="JUSTIFY">With regard to the usage of the measure defined types (IfcLengthMeasure, IfcTimeMeasure, etc.) as attribute datatypes in the IFC Object Model, there two basic cases:</P><DIR>
+<DIR>
+
+<P>1)&#9;The datatype of an attribute of an entity type is a measure defined type as such without possibility on an instance level to define the unit of the measure value; E.g.</P>
+<FONT FACE="Courier New" SIZE=2><P>ENTITY IfcBoundingBox</P>
+<P>    SUBTYPE OF(IfcGeometricRepresentationItem);</P>
+<P>      Corner : IfcCartesianPoint;</P>
+<P>      XDim   : <B>IfcPositiveLengthMeasure</B>;</P>
+<P>      YDim   : <B>IfcPositiveLengthMeasure</B>;</P>
+<P>      ZDim   : <B>IfcPositiveLengthMeasure</B>;</P>
+<P>  END_ENTITY;</P></DIR>
+</DIR>
+
+<P>and</P>
+<DIR>
+<DIR>
+
+<P>ENTITY IfcScheduleTimeControl</P>
+<P>    SUBTYPE OF(IfcControl);</P>
+<P>      ActualStart                 : OPTIONAL IfcCalendarDate;</P>
+<P>      EarlyStart                  : OPTIONAL IfcCalendarDate;</P>
+<P>      LateStart                   : OPTIONAL IfcCalendarDate;</P>
+<P>      ScheduleStart               : OPTIONAL IfcCalendarDate;</P>
+<P>      ActualFinish                : OPTIONAL IfcCalendarDate;</P>
+<P>      EarlyFinish                 : OPTIONAL IfcCalendarDate;</P>
+<P>      LateFinish                  : OPTIONAL IfcCalendarDate;</P>
+<P>      ScheduleFinish              : OPTIONAL IfcCalendarDate;</P>
+<P>      ScheduleDuration            : OPTIONAL <B>IfcTimeMeasure</B>;</P>
+<P>      ActualDuration              : OPTIONAL <B>IfcTimeMeasure</B>;</P>
+<P>      RemainingTime               : OPTIONAL <B>IfcTimeMeasure</B>;</P>
+<P>      FreeFloat                   : OPTIONAL <B>IfcTimeMeasure</B>;</P>
+<P>      TotalFloat                  : OPTIONAL <B>IfcTimeMeasure</B>;</P>
+<P>      IsCritical                  : OPTIONAL BOOLEAN;</P>
+<P>      StatusTime                  : OPTIONAL IfcCalendarDate;</P>
+<P>      StartFloat                  : OPTIONAL <B>IfcTimeMeasure</B>;</P>
+<P>      FinishFloat                 : OPTIONAL <B>IfcTimeMeasure</B>;</P>
+<P>      Completion                  : OPTIONAL IfcPositiveRatioMeasure;</P>
+<P>  END_ENTITY;</P></DIR>
+
+</FONT><P ALIGN="JUSTIFY">In this case it is the global unit assignment for the corresponding unit for this measure type that defines the unit for all the usages of this defined measure type (except for case 2 below).</P><DIR>
+
+<P ALIGN="JUSTIFY">2)&#9;The datatype of an attribute is IfcMeasureWithUnit, which allows for definition of unit per instance of that entity type, independent and possibly overriding the global unit assignment; E.g.</P></DIR>
+
+<FONT FACE="Courier New" SIZE=2><P>ENTITY IfcConstructionMaterialResource</P>
+<P>    SUBTYPE OF(IfcResource);</P>
+<P>      Suppliers      : OPTIONAL SET [1:?] OF IfcActorSelect;</P>
+<P>      OrderQuantity  : OPTIONAL <B>IfcMeasureWithUnit</B>;</P>
+<P>      DesignMaterial : OPTIONAL SET [1:?] OF IfcMaterial;</P>
+<P>  END_ENTITY;</P>
+</FONT><P>If this case the relevant measure defined type (from the IfcMeasureWithUnit. ValueComponent : IfcValue select list) is not exactly defined by the schema, but implied by the context.</P></DIR>
+
+<P ALIGN="JUSTIFY">Although in this case different units could be used for different instances of the same entity type or for same measure type in attributes of different entity types, it is recommended not to mix different units for same measure defined types, if it can be avoided.</P>
+<P ALIGN="JUSTIFY">Below some examples of each of the above cases are given.</P><DIR>
+
+<I><P ALIGN="JUSTIFY">Note</I>: In the example instantiations in the form of IFC data exchange files, mainly the measure and unit -relevant attributes are given the values; the other attributes are given no values (in the form of $-sign) independent of whether they should actually have values because of being non-optional attributes.</P></DIR>
+
+<P ALIGN="JUSTIFY">Besides this document, it may be useful to have a look at measure and unit summary document which gives an overview of the correspondence of various units, corresponding defined measure types etc.</P>
+<B><FONT FACE="Arial" SIZE=4><P ALIGN="JUSTIFY">Global unit assignment</P>
+</B></FONT><P ALIGN="JUSTIFY">The global unit assignment of the project defines the global units for measures and values when the units are not otherwise defined more specifically using entity type IfcMeasureWithUnit as attribute’s datatype.</P>
+<B><I><FONT FACE="Arial"><P ALIGN="JUSTIFY">Basic SI-units as global units</P>
+</B></I></FONT><P ALIGN="JUSTIFY">An example where a project’s global basic length, area, volume and time units are defined as SI units:</P><DIR>
+
+<FONT FACE="Courier New" SIZE=3><P>#1=IFCPROJECT ('00ZhrqZYLBcgy$rVVaiu2A', $, 'Example project', $,<BR>
+               $, $, $, $, #2);</P>
+<P>#2=IFCUNITASSIGNMENT ((#3, #4, #5, #6));</P>
+<P>#3=IFCSIUNIT (*, .LENGTHUNIT., .MILLI., .METRE.);</P>
+<P>#4=IFCSIUNIT (*, .AREAUNIT., $, .SQUARE_METRE.);</P>
+<P>#5=IFCSIUNIT (*, .VOLUMEUNIT., $, .CUBIC_METRE.);</P>
+<P>#6=IFCSIUNIT (*, .TIMEUNIT., $, .SECOND.);</P>
+</FONT><I><P ALIGN="JUSTIFY">Note:</I>  In the examples the '*' character as the first value in the IfcSIUnit-instances is due to the fact that in the IfcSIUnit the inherited attribute .Dimensions is redefined as a derived attribute. In the IFC Object Model schema there is a function that returns the derived values. In the exchange file the derived attribute values are not exchanged, and in the case of redefinition the value is replaced by '*'.</P></DIR>
+
+<B><I><FONT FACE="Arial"><P ALIGN="JUSTIFY">Conversion based Imperial units as global units</P>
+</B></I></FONT><P ALIGN="JUSTIFY">An example where a project's global basic length, area and volume units are defined as imperial units (inches, square feet and cubic feet), which are further defined as conversion based units relative to SI units millimeter, square meter and cubic meter:</P><DIR>
+
+<FONT FACE="Courier New" SIZE=3><P>#1=IFCPROJECT ('00ZhrqZYLBcgy$rVVaiu2B', $, 'Example project', $,<BR>
+               $, $, $, $, #2);</P>
+<P>#2=IFCUNITASSIGNMENT ((#6, #7, #10, #13));</P>
+<P>#3=IFCSIUNIT (*, .LENGTHUNIT., .MILLI., .METRE.);</P>
+<P>#4=IFCSIUNIT (*, .AREAUNIT., $, .SQUARE_METRE.);</P>
+<P>#5=IFCSIUNIT (*, .VOLUMEUNIT., $, .CUBIC_METRE.);</P>
+<P>#6=IFCSIUNIT (*, .TIMEUNIT., $, .SECOND.);</P>
+<P>#7=IFCCONVERSIONBASEDUNIT(#9, .LENGTHUNIT., 'INCH', #8);</P>
+<P>#8=IFCMEASUREWITHUNIT(IFCLENGTHMEASURE(25.4), #3);</P>
+<P>#9=IFCDIMENSIONALEXPONENTS(1, 0, 0, 0, 0, 0, 0);</P>
+<P>#10=IFCCONVERSIONBASEDUNIT(#11, .AREAUNIT., 'SQUARE_FEET', #12);</P>
+<P>#11=IFCDIMENSIONALEXPONENTS(2, 0, 0, 0, 0, 0, 0);</P>
+<P>#12=IFCMEASUREWITHUNIT(IFCAREAMEASURE(0.09290304), #4);</P>
+<P>#13=IFCCONVERSIONBASEDUNIT(#14, .VOLUMEUNIT., 'CUBIC_FEET', #15);</P>
+<P>#14=IFCDIMENSIONALEXPONENTS(3, 0, 0, 0, 0, 0, 0);</P>
+<P>#15=IFCMEASUREWITHUNIT(IFCVOLUMEMEASURE(0.0283168466), #5);</P>
+</DIR>
+
+</FONT><P ALIGN="JUSTIFY">Another example would be the definition of temperature in degrees of Fahrenheits. A conversion based unit should be used for this purpose, because degrees of Fahrenheits can in principle be defined using degrees of Celsius. However, with IfcConversionBasedUnit one cannot define their relationship fully because the zero degrees offset between them cannot be defined. So, it is assumed that applications can solve the dependency between degrees Fahrenheit and Celsius. </P>
+<P ALIGN="JUSTIFY">Yet another example of a conversion based unit would be gradians as a unit for plane angle measure. Gradian unit can be defined as a conversion based unit based on radian unit.</P>
+<B><FONT FACE="Arial" SIZE=4><P ALIGN="JUSTIFY">Use of defined measure type with global unit assignment</P>
+</B></FONT><P ALIGN="JUSTIFY">An example where the attribute <FONT FACE="Courier New" SIZE=3>IfcScheduletimeControl.ScheduleDuration </FONT>is of datatype <FONT FACE="Courier New" SIZE=3>IfcTimeMeasure</FONT> without possibility of using specific unit from <FONT FACE="Courier New" SIZE=3>IfcMeasureWithUnit</FONT>. Then the global unit for time measure applies; in this case seconds (the example’s 172800 seconds would be equivalent to 2 days):</P><DIR>
+
+<FONT FACE="Courier New" SIZE=3><P>#1=IFCPROJECT ('00ZhrqZYLBcgy$rVVaiu2A', $, 'Example project', $, $, $, $, $, #2);</P>
+<P>#2=IFCUNITASSIGNMENT ((#3, #4, #5, #6));</P>
+<P>#3=IFCSIUNIT (*, .LENGTHUNIT., .MILLI., .METRE.);</P>
+<P>#4=IFCSIUNIT (*, .AREAUNIT., $, .SQUARE_METRE.);</P>
+<P>#5=IFCSIUNIT (*, .VOLUMEUNIT., $, .CUBIC_METRE.);</P>
+<P>#6=IFCSIUNIT (*, .TIMEUNIT., $, .SECOND.);</P>
+<P>#7=IFCSCHEDULETIMECONTROL('00ZhrqZYLBcgy$rVVaiu2B', $, 'Time for<BR>
+      Task-1', $, $, $, $, $, $, $, $, $, $, 172800., $, $, $, $, <BR>
+      $, $, $, $, $);</P></DIR>
+
+</FONT><B><FONT FACE="Arial" SIZE=4><P ALIGN="JUSTIFY">Use IfcMeasureWithUnit and specific unit per instance</P>
+</B></FONT><P ALIGN="JUSTIFY">An example where the <FONT FACE="Courier New" SIZE=3>IfcConstructionMaterialResource.OrderQuantity </FONT>of datatype <FONT FACE="Courier New" SIZE=3>IfcMeasureWithUnit</FONT> is given a value in litres (value 10 litres e.g. as a quantity value for paint) as a conversion based unit based on SI unit cubic meter. Here an &quot;overriding&quot; specific unit can be defined on the instance level independent of the global unit for volume measure (here SI unit cubic meter):</P><DIR>
+
+<FONT FACE="Courier New" SIZE=3><P>#1=IFCPROJECT('00ZhrqZYLBcgy$rVVaiu2A', $, 'Example project', $,<BR>
+              $, $, $, $, #2);</P>
+<P>#2=IFCUNITASSIGNMENT((#3, #4, #5, #6));</P>
+<P>#3=IFCSIUNIT(*, .LENGTHUNIT., .MILLI., .METRE.);</P>
+<P>#4=IFCSIUNIT(*, .AREAUNIT., $, .SQUARE_METRE.);</P>
+<P>#5=IFCSIUNIT(*, .VOLUMEUNIT., $, .CUBIC_METRE.);</P>
+<P>#6=IFCSIUNIT(*, .TIMEUNIT., $, .SECOND.);</P>
+<P>#7=IFCCONSTRUCTIONMATERIALRESOURCE('00ZhrqZYLBcgy$rVVaiu2B', $,<BR>
+      'Paint resource', $, $, $, $, $, #8, $);</P>
+<P>#8=IFCMEASUREWITHUNIT(10., #9);</P>
+<P>#9=IFCCONVERSIONBASEDUNIT(#10, .VOLUMEUNIT., 'LITRE', #11);</P>
+<P>#10=IFCDIMENSIONALEXPONENTS(3, 0, 0, 0, 0, 0, 0);</P>
+<P>#11=IFCMEASUREWITHUNIT(0.001, #5);</P></DIR>
+
+</FONT><B><FONT FACE="Arial" SIZE=4><P ALIGN="JUSTIFY">A derived unit</P>
+</B></FONT><P ALIGN="JUSTIFY">An example definition of a unit for specific heat capacity (Joule / kg Kelvin), which is defined as a derived unit based on basic SI units. In the example the attribute IfcThermal-MaterialProperties.SpecificHeatCapacity is of datatype IfcSpecificHeatCapacityMeasure:</P>
+<FONT FACE="Courier New" SIZE=3><DIR>
+
+<P>#1=IFCPROJECT('00ZhrqZYLBcgy$rVVaiu2A', $, 'Example project', $,<BR>
+              $, $, $, $, #2);</P>
+<P>#2=IFCUNITASSIGNMENT((#3, #4, #5, #6, #7, #8, #9, #10));</P>
+<P>#3=IFCSIUNIT(*, .LENGTHUNIT., .MILLI., .METRE.);</P>
+<P>#4=IFCSIUNIT(*, .AREAUNIT., $, .SQUARE_METRE.);</P>
+<P>#5=IFCSIUNIT(*, .VOLUMEUNIT., $, .CUBIC_METRE.);</P>
+<P>#6=IFCSIUNIT(*, .TIMEUNIT., $, .SECOND.);</P>
+<P>#7=IFCSIUNIT(*, .ENERGYUNIT., $, .JOULE.);</P>
+<P>#8=IFCSIUNIT(*, .MASSUNIT., .KILO., .GRAM.);</P>
+<P>#9=IFCSIUNIT(*, .THERMODYNAMICTEMPERATUREUNIT., $, .KELVIN.);</P>
+<P>#10=IFCDERIVEDUNIT((#11, #12, #13), .SPECIFICHEATCAPACITYUNIT., <BR>
+                   $);</P>
+<P>#11=IFCDERIVEDUNITELEMENT(#7, 1);</P>
+<P>#12=IFCDERIVEDUNITELEMENT(#8, -1);</P>
+<P>#13=IFCDERIVEDUNITELEMENT(#9, -1);</P>
+<P>#15=IFCTHERMALMATERIALPROPERTIES($, 123., $, $, $);</P>
+
+<P>&nbsp;</P></DIR>
+
+</FONT><P ALIGN="CENTER"><FONT FACE="Wingdings">&#178;</FONT>
+</P></BODY>
+</HTML>

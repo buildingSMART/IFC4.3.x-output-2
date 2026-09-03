@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcSharedFacilitiesElements"/>
+  <Name>Pset_Panel</Name>
+  <Definition>Definition from IAI: A set of specific properties for vertical panels that assembly workstations.
+
+HISTORY: {{new Pset in IFC Release R2.0}}
+
+ISSUE:</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcSystemFurnitureElement</TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="544">
+      <Name>HasOpening</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcBoolean"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="True"/>
+        <MaxValue value="False"/>
+        <DefaultValue value="True"/>
+      </ValueDef>
+      <Definition>
+indicates whether the panel has an opening or not.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="545">
+      <Name>PanelType</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="empty string"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+e.g. Acoustical, Horz_Seg, Monolithic, Glazed, Open, Ends, Door, Screen, etc.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="408">
+      <Name>Thickness</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="4"/>
+      </ValueDef>
+      <Definition>
+the thickness of the panel
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

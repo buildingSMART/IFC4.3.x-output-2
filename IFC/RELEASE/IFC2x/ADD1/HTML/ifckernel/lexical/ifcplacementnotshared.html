@@ -1,0 +1,95 @@
+
+<html>
+<HEAD>
+<title>IfcPlacementNotShared</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/rule_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="363" BORDER="0" usemap="#rule-navbar"><BR>
+<MAP name="rule-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifckernel.html">
+  <AREA shape="rect" coords="142,0,220,23" href="#definition">
+  <AREA shape="rect" coords="221,0,264,23" href="#constraint_description">
+  <AREA shape="rect" coords="265,0,361,23" href="ifcplacementnotshared.html#references">
+</MAP><P><FONT face="Arial" size="5" color="#000000"><B>IfcPlacementNotShared</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">Checks that no instance of IfcObjectPlacement is shared by more then one instance of IfcProduct. Each
+IfcProduct requires a separate occurrence of IfcObjectPlacement.</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">RULE</A></B> IfcPlacementNotShared <B>FOR</B></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.html">IfcObjectPlacement</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000">
+                  &nbsp;&nbsp;&nbsp;&nbsp;LOCAL<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:&nbsp;INTEGER&nbsp;:=&nbsp;0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_LOCAL;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(SIZEOF(IfcObjectPlacement)&nbsp;&#62;&nbsp;0)<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i&nbsp;:=&nbsp;LOINDEX(IfcObjectPlacement)&nbsp;TO&nbsp;HIINDEX(IfcObjectPlacement);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(SIZEOF(USEDIN(IfcObjectPlacement[i],&nbsp;'IFCKERNEL.IFCPRODUCT.OBJECTPLACEMENT'))&nbsp;&#60;=&nbsp;1)<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;Count&nbsp;+&nbsp;1;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000"><B><B>WHERE</B></B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="5%"><FONT face="Courier New" size="2" color="#000000">WR1</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000">Count = SIZEOF(IfcObjectPlacement);</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_RULE</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

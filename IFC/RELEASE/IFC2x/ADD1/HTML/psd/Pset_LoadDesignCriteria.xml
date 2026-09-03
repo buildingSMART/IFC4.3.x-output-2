@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcSharedBldgServiceElements"/>
+  <Name>Pset_LoadDesignCriteria</Name>
+  <Definition>Definition from IAI: Building thermal load design data such as occupancy, appliance, and lighting criteria that are used for calculating thermal loads in a space or building.
+
+HISTORY: New property set in IFC Release 1.0.
+
+ISSUES: No issues to date.</Definition>
+  <Typed>False</Typed>
+  <TypedClass></TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="465">
+      <Name>OccupancyTypeEnum</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_OccupancyTypeEnum">
+            <EnumItem>Theater</EnumItem>
+            <EnumItem>Office</EnumItem>
+            <EnumItem>Hotel</EnumItem>
+            <EnumItem>Apartment</EnumItem>
+            <EnumItem>RetailStore</EnumItem>
+            <EnumItem>DrugStore</EnumItem>
+            <EnumItem>Bank</EnumItem>
+            <EnumItem>Restaurant</EnumItem>
+            <EnumItem>Factory</EnumItem>
+            <EnumItem>DanceHall</EnumItem>
+            <EnumItem>BowlingAlley</EnumItem>
+            <EnumItem>Gymnasium</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+This enumeration identifies types of occupancy or space usage (e.g., Theater, Office, Hotel, Apartment, etc.) as defined by Table 3, Chapter 28, of the 1997 ASHRAE Handbook of Fundamentals.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="466">
+      <Name>AreaPerPerson</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcAreaMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Design occupancy loading for this type of usage
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="467">
+      <Name>PeopleSensibleLoad</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPowerMeasure"/>
+          <UnitType type="PowerUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Sensible thermal load contributed per person.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="468">
+      <Name>PeopleLatentLoad</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPowerMeasure"/>
+          <UnitType type="PowerUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Latent thermal load contributed per person.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="469">
+      <Name>PeopleSensibleLoadToRadiant</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Percent of sensible thermal load contributed by people to radiant heat.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="470">
+      <Name>OccupancyDiversity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Diversity factor that may be applied to the number of people in the space.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="471">
+      <Name>OutsideAirPerPerson</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcVolumetricFlowRateMeasure"/>
+          <UnitType type="VolumetricFlowrateUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Design quantity of outside air to be provided per person in the space.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="472">
+      <Name>ReceptacleLoadIntensity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcReal"/>
+          <UnitType type="UserDefined"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Average power use intensity of appliances and other non-HVAC equipment.in the space per unit area.(PowerMeasure/IfcAreaMeasure)
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="473">
+      <Name>AppliancePercentLoadToRadiant</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Percent of sensible load to radiant heat.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="474">
+      <Name>LightingLoadIntensity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcReal"/>
+          <UnitType type="UserDefined"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Average lighting load intensity in the space per unit area (PowerMeasure/IfcAreaMeasure)
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="475">
+      <Name>LightingPercentLoadToReturnAir</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Percent of lighting load to the return air plenum.
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

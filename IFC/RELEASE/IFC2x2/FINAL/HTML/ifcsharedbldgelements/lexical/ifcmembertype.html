@@ -1,0 +1,718 @@
+
+<html>
+<HEAD>
+<title>IfcMemberType</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcsharedbldgelements.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0002.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcmembertype.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcMemberType</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">
+
+	 <P><U>Definition from IAI</U>: The element type (<I>IfcMemberType</I>)
+
+		defines a list of commonly shared property set definitions of a structural
+
+		member and an optional set of product representations. It is used to define a
+
+		structural member specification (i.e. the specific product information that is
+
+		common to all occurrences of that product type). </P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1">NOTE: The product representations are defined as
+
+		  representation maps (at the level of the supertype <I>IfcTypeProduct</I>, which
+
+		  gets assigned by an element occurrence instance through the
+
+		  <I>IfcShapeRepresentation.Item[1]</I> being an
+
+		  <I>IfcMappedItem</I>.</FONT></P></BLOCKQUOTE> 
+
+	 <P>A structural member type is used to define the common properties of a
+
+		certain type of a structural member that may be applied to many instances of
+
+		that type to assign a specific style. Structural member types may be exchanged
+
+		without being already assigned to occurrences.</P> 
+
+	 <P>The occurrences of the <I>IfcMemberType</I> are represented by instances
+
+		of <I>IfcBeam</I>, <I>IfcColumn</I> or <I>IfcBuildingElementProxy</I>.</P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT COLOR="#0000FF" SIZE="-1">HISTORY New entity in Release IFC2x
+
+		  Edition 2.</FONT></P></BLOCKQUOTE> 
+
+	 <P><B>Use definition for steel members</B></P> 
+
+	 <P> When using the <I>IfcMemberType</I> as the underlying type for steel
+
+		members within steel construction aware applications the following additional
+
+		conventions apply:</P> 
+
+	 <P><U>Material association:</U><U></U><BR> The <I>IfcMemberType</I> is
+
+		associated with exactly one instance <I>IfcMaterial</I> by the
+
+		<I>IfcRelAssociatesMaterial</I> relationship. This material association assigns
+
+		a common material to all occurrences (<I>IfcBeam</I>, <I>IfcColumn</I> or
+
+		<I>IfcBuildingElementProxy</I>) of the <I>IfcMemberType</I>. If an individual
+
+		occurrence has its own material assignment (see <I>IfcBeam</I> or
+
+		<I>IfcColumn</I>), then this overrides the material assignment given at the
+
+		<I>IfcMemberType</I>.</P> 
+
+	 <P><U>Geometric representation:</U><U></U><BR> The <I>IfcMemberType</I>
+
+		type has (at least) one representation map assigned through the
+
+		<I>RepresentationMaps</I> relation. The representation map has a full geometric
+
+		representation given by:</P> 
+
+	 <UL> 
+
+		<LI> <I>IfcExtrudedAreaSolid</I> for straight beams,</LI> 
+
+		<LI><I>IfcRevolvedAreaSolid</I> for curved beams based on circular arcs,
+
+		  or </LI> 
+
+		<LI><I>IfcSurfaceCurveSweptAreaSolid</I> for all other curved beams.
+
+		  </LI> 
+
+	 </UL> 
+
+	 <P>The attribute <I>ProfileName</I> of the extruded <I>IfcProfile</I>
+
+		instance may contain a standardized name according to local standards. However,
+
+		a geometric representation of the profile is necessary as specified below. An
+
+		importing application is allowed to check for the existence of the profile
+
+		name: in case of identifying it as a standardised name, the corresponding
+
+		profile geometry and possibly other cross sectional properties can be read from
+
+		a library. Otherwise the explicit IFC geometry and possible non geometric
+
+		<I>IfcProfileProperties</I> have to be used.</P> 
+
+	 <P>Only 'SweptSolid' representation should be used to represent steel
+
+		members. The following attribute values for the <I>IfcShapeRepresentation</I>
+
+		holding this geometric representation shall be used:</P> 
+
+	 <UL> 
+
+		<LI><I>RepresentationIdentifier</I> : 'Body'</LI> 
+
+		<LI><I>RepresentationType</I> : 'SweptSolid'</LI> 
+
+	 </UL> 
+
+	 <P> The following additional constraints apply to the 'SweptSolid'
+
+		representation:</P> 
+
+	 <UL> 
+
+		<LI><U>Solid:</U> <I>IfcExtrudedAreaSolid</I> shall be supported.</LI> 
+
+		<LI><U>Profile:</U> <I>IfcArbitraryClosedProfileDef,
+
+		  IfcArbitraryOpenProfileDef, IfcArbitraryProfileDefWithVoids,
+
+		  IfcCircleProfileDef, IfcCompositeProfileDef, IfcIShapeProfileDef,
+
+		  IfcRectangleProfileDef, IfcRoundedRectangleProfileDef, IfcCShapeProfileDef,
+
+		  IfcCircleHollowProfileDef, IfcCraneRailAShapeProfileDef,
+
+		  IfcCraneRailFShapeProfileDef, IfcLShapeProfileDef,
+
+		  IfcRectangleHollowProfileDef, IfcTShapeProfileDef, IfcUShapeProfileDef,
+
+		  IfcZShapeProfileDef</I> and <I>IfcAsymmetricIShapeProfileDef</I>.</LI> 
+
+		<LI><U>Extrusion:</U> The extrusion axis shall be perpendicular to the
+
+		  swept profile, i.e. pointing into the direction of the z-axis of the position
+
+		  of the <I>IfcExtrudedAreaSolid</I>.</LI> 
+
+	 </UL> 
+
+	 <P>In addition to the full 'SweptSolid' representation a simple
+
+		representation for the axis of gravity can be used., i.e. as a second
+
+		<I>IfcRepresentationMap</I>. It represents the neutral axis of stress which is
+
+		not necessarily in the profiles center of gravity. In this case the following
+
+		attribute values for the <I>IfcShapeRepresentation</I> holding this geometric
+
+		representation shall be used:</P> 
+
+	 <UL> 
+
+		<LI><I>RepresentationIdentifier</I> : 'Axis'</LI> 
+
+		<LI><I>RepresentationType</I> : 'GeometricCurveSet'</LI> 
+
+	 </UL> 
+
+	 <P><U>Position number:</U><U></U><BR> The position number is specified in
+
+		the attribute <I>IfcTypeProduct.Tag</I>.</P> 
+
+	 <P><U>Non geometric profile properties:</U><U></U><BR> Non geometric
+
+		profile properties (for instance mechanical properties) are specified through
+
+		<I>IfcProfileProperties</I> (and its specific subtypes). These properties are
+
+		attached to <I>IfcMemberType</I> by the relationship
+
+		<I>IfcRelAssociatesProfileProperties</I>. If an individual occurrence has its
+
+		own profile property assignment (see <I>IfcBeam</I>, <I>IfcColumn</I> or
+
+		<I>IfcBuildingElementProxy</I>), then this overrides the profile property
+
+		assignment given at the <I>IfcMemberType</I>.</P> 
+
+	 <P><U>Quantity related properties:</U><U></U><BR> Quantity related
+
+		properties, which do not relate to the profile, are specified through
+
+		<I>IfcElementQuantity</I> (and its specific subtypes). These properties are
+
+		attached to the <I>IfcMemberType</I> by the relationship
+
+		<I>IfcRelDefinesByProperties</I>. If an individual occurrence has its own
+
+		element quantity assignment (see <I>IfcBeam</I>, <I>IfcColumn</I>,
+
+		<I>IfcBuildingElementProxy</I>), then this overrides the quantity assignment
+
+		given at the <I>IfcMemberType</I>. The following quantities are foreseen, but
+
+		will be subjected to the local standard of measurement used:</P> 
+
+	 <TABLE CELLPADDING="2" CELLSPACING="2" BORDER="1"> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1"><I><B>Name</B></I></FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT
+
+			 SIZE="-1"><I><B>Description</B></I></FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1"><I><B>Value
+
+			 Type</B></I></FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1">NominalLength</FONT></TD>
+
+		  
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Total nominal
+
+			 length of the beam or column, not taking into account any cut-out's or other
+
+			 processing features.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1"><I>IfcQuantityLength</I></FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1">CrossSectionArea</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Total area of
+
+			 the cross section (or profile) of the beam or column. The exact definition and
+
+			 calculation rules depend on the method of measurement used.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1"><I>IfcQuantityArea</I></FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1">OuterSurfaceArea</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Total area of
+
+			 the extruded surfaces of the beam or column (not taking into account the end
+
+			 cap areas), normally generated as perimeter * length.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1"><I>IfcQuantityArea</I></FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1">TotalSurfaceArea</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Total area of
+
+			 the beam or column, normally generated as perimeter * length + 2 * cross
+
+			 section area.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1"><I>IfcQuantityArea</I></FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1">GrossVolume</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Total gross
+
+			 volume of the beam or column, not taking into account possible processing
+
+			 features (cut-out's, etc.) or openings and recesses. The exact definition and
+
+			 calculation rules depend on the method of measurement used.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1"><I>IfcQuantityVolume</I></FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1">GrossVolume</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Total net
+
+			 volume of the beam or column, taking into account possible processing features
+
+			 (cut-out's, etc.) or openings and recesses. The exact definition and
+
+			 calculation rules depend on the method of measurement used.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1"><I>IfcQuantityVolume</I></FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1">GrossWeight</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1"> Total gross
+
+			 weight of the beam or column without add-on parts, not taking into account
+
+			 possible processing features (cut-out's, etc.) or openings and
+
+			 recesses.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1"><I>IfcQuantityWeight</I></FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1">NetWeight</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1"> Total net
+
+			 weight of the beam or column without add-on parts, taking into account possible
+
+			 processing features (cut-out's, etc.) or openings and recesses.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1"><I>IfcQuantityWeight</I></FONT></TD> 
+
+		</TR> 
+
+	 </TABLE>
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">ENTITY</A></B> IfcMemberType</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcbeamandcolumntype.html">IfcBeamAndColumnType</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">PredefinedType</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcmembertypeenum.html">IfcMemberTypeEnum</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">PredefinedType</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Identifies the predefined types of a linear structural member element from which the type required may
+      be set.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> IfcMemberType;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcroot.html">IfcRoot</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">GlobalId</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.html">IfcGloballyUniqueId</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">OwnerHistory</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcutilityresource/lexical/ifcownerhistory.html">IfcOwnerHistory</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Name</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Description</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcpropertydefinition.html">IfcPropertyDefinition</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasAssociations</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcrelassociates.html">IfcRelAssociates</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifctypeobject.html">IfcTypeObject</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ApplicableOccurrence</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasPropertySets</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <B>LIST</B> [1:?] <B>OF</B> <B>UNIQUE</B> <A href="../../ifckernel/lexical/ifcpropertysetdefinition.html">IfcPropertySetDefinition</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ObjectTypeOf</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="../../ifckernel/lexical/ifcreldefinesbytype.html">IfcRelDefinesByType</A> <B>FOR</B> RelatingType;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifctypeproduct.html">IfcTypeProduct</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">RepresentationMaps</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <B>LIST</B> [1:?] <B>OF</B> <B>UNIQUE</B> <A href="../../ifcgeometryresource/lexical/ifcrepresentationmap.html">IfcRepresentationMap</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Tag</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifcproductextension/lexical/ifcelementtype.html">IfcElementType</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ElementType</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifcproductextension/lexical/ifcbuildingelementtype.html">IfcBuildingElementType</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcbeamandcolumntype.html">IfcBeamAndColumnType</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcmembertype.html">IfcMemberType</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">PredefinedType</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcmembertypeenum.html">IfcMemberTypeEnum</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

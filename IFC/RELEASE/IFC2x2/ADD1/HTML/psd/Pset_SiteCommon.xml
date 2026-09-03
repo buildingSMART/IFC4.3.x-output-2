@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcProductExtension"/>
+  <Name>Pset_SiteCommon</Name>
+  <Definition>Definition from IAI: Properties common to the definition of all IfcSite.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcSite</TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="34">
+      <Name>Description</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Description for this type of Site (note name is captured in the TypeDef object that references this PropertySet)
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="659">
+      <Name>BuildableArea</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcAreaMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Area of site that can be covered by buildings - according to local building codes.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="660">
+      <Name>BuildingHeightLimit</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="1"/>
+      </ValueDef>
+      <Definition>
+Calculated maximum height of buildings on this site - according to local building codes.
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

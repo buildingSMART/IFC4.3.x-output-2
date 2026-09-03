@@ -1,0 +1,960 @@
+
+<html>
+<HEAD>
+<title>IfcSpace</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcproductextension.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0003.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcspace.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcSpace</B></FONT></P><P><FONT face="Arial" size="3" color="#000000"> 
+
+	 <P><U>Definition from IAI</U>: A space (<I>IfcSpace</I>) represents an area
+
+		or volume bounded actually or theoretically. Spaces are areas or volumes that
+
+		provide for certain functions within a building.</P> 
+
+	 <P>A space is (if specified) associated to a building storey (or in case of
+
+		exterior spaces to a site). A space may span over several connected spaces.
+
+		Therefore a space group provides for a collection of spaces included in a
+
+		storey. A space can also be decomposed in parts, where each part defines a
+
+		partial space. This is defined by the composition type attribute of the
+
+		supertype <I>IfcSpatialStructureElement</I> which is interpreted as follow:</P>
+
+	 
+
+	 <UL> 
+
+		<LI>COMPLEX = space group</LI> 
+
+		<LI>ELEMENT = space</LI> 
+
+		<LI>PARTIAL = partial space</LI> 
+
+	 </UL> 
+
+	 <P>The following guidelines should apply for using the <I>Name</I>,
+
+		<I>Description</I>, <I>LongName</I> and <I>ObjectType</I> attributes. </P> 
+
+	 <UL> 
+
+		<LI>	<I>Name</I> holds the unique name (or space number) from the plan.
+
+		  </LI> 
+
+		<LI><I>Description</I> holds any additional information field the user
+
+		  may have specified, there are no further recommendations. </LI> 
+
+		<LI> <I>LongName</I> holds the full name of the space, it is often used
+
+		  in addition to the <I>Name</I>, if a number is assigned to the room, than the
+
+		  descriptive name is exchanged as <I>LongName</I>. </LI> 
+
+		<LI><I>ObjectType</I> holds the space type, i.e. usually the functional
+
+		  category of the space . </LI> 
+
+	 </UL> 
+
+	 <P>The quantities relating to the space are defined by the
+
+		<I>IfcElementQuantity</I> and attached by the <I>IfcRelDefinesByProperties</I>.
+
+		The following quantities are foreseen, but will be subjected to the local
+
+		standard of measurement:</P> 
+
+	 <TABLE CELLPADDING="2" CELLSPACING="2" BORDER="1"> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1"><I><B>Name</B></I></FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT
+
+			 SIZE="-1"><I><B>Description</B></I></FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1"><I><B>Value
+
+			 Type</B></I></FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1">AverageHeight</FONT></TD>
+
+		  
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Floor Height
+
+			 (without flooring) to Ceiling height (without suspended ceiling) for this space
+
+			 (measured from top of slab of this space to the bottom of slab of space above);
+
+			 the average shall be taken if room shape is not prismatic. </FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1">IfcQuantityLength
+
+			 </FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1">AverageGrossHeight</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Floor Height
+
+			 to Floor Height for this space (measured from top of slab of this space to top
+
+			 of slab of space above); the average shall be taken if room shape is not
+
+			 prismatic. </FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1">IfcQuantityLength</FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1">AverageClearHeight</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Clear Height
+
+			 between floor level (including finish) and ceiling level (including finish and
+
+			 sub construction) of this space; the average shall be taken if room shape is
+
+			 not prismatic.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1">IfcQuantityLength</FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1">Perimeter</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Perimeter at
+
+			 the floor level of this Space. The exact definition and calculation rules
+
+			 depend on the method of measurement used.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1">IfcQuantityLength</FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1">Area</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Area at the
+
+			 floor level of this space. The exact definition and calculation rules depend on
+
+			 the method of measurement used.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1">IfcQuantityArea</FONT></TD> 
+
+		</TR> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT SIZE="-1">Volume</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="60%"><FONT SIZE="-1">Volume of
+
+			 this space. The exact definition and calculation rules depend on the method of
+
+			 measurement used.</FONT></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><FONT
+
+			 SIZE="-1">IfcQuantityVolume</FONT></TD> 
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <P></P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT COLOR="#0000FF" SIZE="-1">HISTORY New Entity in IFC Release 1.0
+
+		  </FONT></P></BLOCKQUOTE> 
+
+	 <P><U>Use case</U>:</P> 
+
+	 <TABLE CELLPADDING="2" CELLSPACING="2"> 
+
+		<TR> 
+
+		  <TD><IMG SRC="Figures/IfcSpace_Fig1.gif" ALT="space heights"
+
+			 WIDTH="313" HEIGHT="308" BORDER="0"></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"> 
+
+			 <P><FONT SIZE="-1">The following figure describes the heights and
+
+				elevations of the <I>IfcSpace</I>.</FONT></P></TD> 
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <P> <B><U>Geometry Use Definitions</U></B></P> 
+
+	 <P> The geometric representation of <I>IfcSpace</I> is given by the
+
+		<I>IfcProductDefinitionShape</I> and <I>IfcLocalPlacement</I> allowing multiple
+
+		geometric representations. </P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1">NOTE1 If the surrounding instances of
+
+		  <I>IfcRelSpaceBoundary</I> define a complete geometric representation of a
+
+		  particular representation view for that space, than this view shall be omitted
+
+		  from the multiple representations of <I>IfcSpace</I>.</FONT></P></BLOCKQUOTE> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT SIZE="-1">NOTE2 In cases of inconsistency between the geometric
+
+		  representation of the <I>IfcSpace</I> and its surrounding
+
+		  <I>IfcRelSpaceBoundary</I>, the geometric representation of the space should
+
+		  take priority over the geometric representation of the surrounding space
+
+		  boundaries</FONT>. </P></BLOCKQUOTE> 
+
+	 <P><B>Local Placement</B></P> 
+
+	 <P>The local placement for <I>IfcSpace</I> is defined in its supertype
+
+		<I>IfcProduct</I>. It is defined by the <I>IfcLocalPlacement</I>, which defines
+
+		the local coordinate system that is referenced by all geometric
+
+		representations. </P> 
+
+	 <UL> 
+
+		<LI>The <I>PlacementRelTo</I> relationship of <I>IfcLocalPlacement</I>
+
+		  shall point to the local placement of the <I>IfcSpatialStructureElement</I> of
+
+		  type "IfcBuildingStorey", if relative placement is used, or of type "IfcSpace"
+
+		  (e.g. to position a space relative to a space group, or a partial space to a
+
+		  space). </LI> 
+
+		<LI>If the relative placement is not used, the absolute placement is
+
+		  defined within the world coordinate system. </LI> 
+
+	 </UL> 
+
+	 <P><B><U>Geometric Representations</U></B></P> 
+
+	 <P>Currently, the use of a 2D 'FootPrint' representation of type 'Curve2D'
+
+		or 'GeometricCurveSet' and a 3D 'Body' representation of type 'SweptSolid,
+
+		'Clipping' and 'Brep' is supported.</P> 
+
+	 <P><B>Two-dimensional Representation using foot print
+
+		representation</B></P> 
+
+	 <P>The 2D geometric representation of <I>IfcSpace</I> is defined using the
+
+		'Curve2D' or 'GeometricCurveSet' geometry. The following attribute values
+
+		should be inserted</P> 
+
+	 <UL> 
+
+		<LI><I>IfcShapeRepresentation.RepresentationIdentifier</I> =
+
+		  'FootPrint'.</LI>
+
+		<LI> <I>IfcShapeRepresentation.RepresentationType</I> = 'Curve2D' or
+
+		  'GeometricCurveSet' . </LI> 
+
+	 </UL> 
+
+	 <P>The following constraints apply to the 2D representation: </P> 
+
+	 <UL> 
+
+		<LI><U>Profile</U>: <I>IfcBoundedCurve</I> is required, using
+
+		  <I>IfcPolyline</I> for faceted space contours or <I>IfcCompositeCurve</I> for
+
+		  space contours with arc segments. </LI> 
+
+	 </UL> 
+
+	 <TABLE CELLPADDING="2" CELLSPACING="2"> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><A
+
+			 HREF="drawings/IfcSpace_2D-Layout1.dwf"><IMG
+
+			 SRC="figures/IfcSpace_2D-Layout1.gif" ALT="2d representation" WIDTH="400"
+
+			 HEIGHT="300" BORDER="0"></A></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"> 
+
+			 <P><FONT SIZE="-1">Two-dimensional bounded curve representing the
+
+				foot print of <I>IfcSpace</I>.</FONT></P></TD> 
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <P><B>Standard Geometric Representation using Swept Solid
+
+		representation</B></P> 
+
+	 <P>The standard geometric representation of <I>IfcSpace</I> is defined
+
+		using the swept area solid geometry. The following attribute values should be
+
+		inserted</P> 
+
+	 <UL> 
+
+		<LI><I>IfcShapeRepresentation.RepresentationIdentifier</I> = 'Body'.</LI>
+
+		
+
+		<LI> <I>IfcShapeRepresentation.RepresentationType</I> = 'SweptSolid'.
+
+		  </LI> 
+
+	 </UL> 
+
+	 <P>The following constraints apply to the standard representation: </P> 
+
+	 <UL> 
+
+		<LI><U>Solid</U>: <I>IfcExtrudedAreaSolid</I> is required, </LI> 
+
+		<LI><U>Profile</U>: <I>IfcArbitraryClosedProfileDef</I> is required,
+
+		  <I>IfcArbitraryProfileDefWithVoids</I> shall be supported. </LI> 
+
+		<LI><U>Extrusion</U>: The extrusion direction shall be vertically, i.e.,
+
+		  along the positive Z Axis of the co-ordinate system of the containing spatial
+
+		  structure element. </LI> 
+
+	 </UL> 
+
+	 <TABLE CELLPADDING="2" CELLSPACING="2"> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><A
+
+			 HREF="drawings/IfcSpace_Standard-Layout1.dwf"><IMG
+
+			 SRC="Figures/IfcSpace_Standard-Layout1.gif" ALT="fig1" WIDTH="400" HEIGHT="300"
+
+			 BORDER="0"></A></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"> 
+
+			 <P><FONT SIZE="-1">Extrusion of an arbitrary profile definition with
+
+				voids into the swept area solid of <I>IfcSpace</I>.</FONT></P></TD> 
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <P> <B>Advanced Geometric Representation using Clipping
+
+		representation</B></P> 
+
+	 <P>The advanced geometric representation of <I>IfcSpace</I> is defined
+
+		using the swept area solid geometry that can be subjected to a Boolean
+
+		expression. The following attribute values should be inserted. </P> 
+
+	 <UL> 
+
+		<LI><I>IfcShapeRepresentation.RepresentationIdentifier</I> = 'Body'.</LI>
+
+		
+
+		<LI> <I>IfcShapeRepresentation.RepresentationType</I> = 'Clipping'. </LI>
+
+		
+
+	 </UL> 
+
+	 <P>The following additional constraints apply to the advanced
+
+		representation: </P> 
+
+	 <UL> 
+
+		<LI><U>Solid</U>: see standard geometric representation,</LI> 
+
+		<LI><U>Profile</U>: see standard geometric representation, </LI> 
+
+		<LI><U>Extrusion</U>: see standard geometric representation,</LI> 
+
+		<LI><U>Boolean result</U>: The difference operation with the second
+
+		  operand being of type <I>IfcHalfSpaceSolid</I> (or one of its subtypes) shall
+
+		  be supported. </LI> 
+
+	 </UL> 
+
+	 <TABLE CELLPADDING="2" CELLSPACING="2"> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><A
+
+			 HREF="drawings/IfcSpace_Advanced-Layout1.dwf"><IMG
+
+			 SRC="Figures/IfcSpace_Advanced-Layout1.gif" ALT="fig2" WIDTH="400" HEIGHT="300"
+
+			 BORDER="0"></A></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">Extrusion of an arbitrary profile
+
+			 definition into the swept area solid. The solid and an half space solid are
+
+			 operands of the Boolean result of <I>IfcSpace</I>.</TD> 
+
+		</TR> 
+
+	 </TABLE>
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">ENTITY</A></B> IfcSpace</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcspatialstructureelement.html">IfcSpatialStructureElement</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">InteriorOrExteriorSpace</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcinternalorexternalenum.html">IfcInternalOrExternalEnum</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ElevationWithFlooring</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclengthmeasure.html">IfcLengthMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">BoundedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="ifcrelspaceboundary.html">IfcRelSpaceBoundary</A> <B>FOR</B> RelatingSpace;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">InteriorOrExteriorSpace</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Defines, whether the Space is interior (Internal), or exterior (External), i.e. part of the outer space.<BR>
+      </FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">ElevationWithFlooring</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Level of flooring of this space; the average shall be taken, if the space ground surface is sloping or
+      if there are level differences within this space. </FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%"><FONT face="Arial" size="2" color="#000000">BoundedBy</FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      Reference to Set of Space Boundaries that defines the physical or virtual delimitation of that Space.<BR>
+      </FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> IfcSpace;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcroot.html">IfcRoot</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">GlobalId</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.html">IfcGloballyUniqueId</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">OwnerHistory</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="../../ifcutilityresource/lexical/ifcownerhistory.html">IfcOwnerHistory</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Name</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Description</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcobject.html">IfcObject</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ObjectType</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">IsDefinedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcreldefines.html">IfcRelDefines</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasAssociations</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcrelassociates.html">IfcRelAssociates</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">HasAssignments</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcrelassigns.html">IfcRelAssigns</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Decomposes</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> [0:1] <B>OF</B> <A href="../../ifckernel/lexical/ifcreldecomposes.html">IfcRelDecomposes</A> <B>FOR</B> RelatedObjects;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">IsDecomposedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcreldecomposes.html">IfcRelDecomposes</A> <B>FOR</B> RelatingObject;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifckernel/lexical/ifcproduct.html">IfcProduct</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ObjectPlacement</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.html">IfcObjectPlacement</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">Representation</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.html">IfcProductRepresentation</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ReferencedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="../../ifckernel/lexical/ifcrelassignstoproduct.html">IfcRelAssignsToProduct</A> <B>FOR</B> RelatingProduct;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcspatialstructureelement.html">IfcSpatialStructureElement</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">LongName</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">CompositionType</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcelementcompositionenum.html">IfcElementCompositionEnum</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ServicedBySystems</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="ifcrelservicesbuildings.html">IfcRelServicesBuildings</A> <B>FOR</B> RelatedBuildings;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ContainsElements</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="ifcrelcontainedinspatialstructure.html">IfcRelContainedInSpatialStructure</A> <B>FOR</B> RelatingStructure;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcspace.html">IfcSpace</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">InteriorOrExteriorSpace</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifcinternalorexternalenum.html">IfcInternalOrExternalEnum</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">ElevationWithFlooring</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>OPTIONAL</B> <A href="../../ifcmeasureresource/lexical/ifclengthmeasure.html">IfcLengthMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>INVERSE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="20%" NOWRAP><FONT face="Courier New" size="3" color="#000000">BoundedBy</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="3" color="#000000"><B>SET</B> <B>OF</B> <A href="ifcrelspaceboundary.html">IfcRelSpaceBoundary</A> <B>FOR</B> RelatingSpace;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

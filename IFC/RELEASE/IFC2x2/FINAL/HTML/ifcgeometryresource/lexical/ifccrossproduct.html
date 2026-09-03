@@ -1,0 +1,86 @@
+
+<html>
+<HEAD>
+<title>IfcCrossProduct</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifccrossproduct.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcCrossProduct</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">Function Semantic Definition<BR>
+Definition from ISO/CD 10303-42:1992: This function returns the vector (or cross) product of two input
+directions. The input directions must be three-dimensional. The result is always a vector which is unitless.
+If the input directions are either parallel or anti-parallel a vector of zero magnitude is returned.<BR>
+<BR>
+NOTE Corresponding STEP function cross_product, new function in IFC Release 1.5. Please refer to ISO/IS
+10303-42:1994, p. 103 for the final definition of the formal standard.<BR>
+<BR>
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcCrossProduct</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000">
+                  &nbsp;&nbsp;(Arg1,&nbsp;Arg2&nbsp;:&nbsp;IfcDirection)&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;IfcVector;<BR>
+                  LOCAL<BR>
+                  &nbsp;&nbsp;Mag&nbsp;:&nbsp;REAL;<BR>
+                  &nbsp;&nbsp;Res&nbsp;:&nbsp;IfcDirection;<BR>
+                  &nbsp;&nbsp;V1,V2&nbsp;&nbsp;:&nbsp;LIST[3:3]&nbsp;OF&nbsp;REAL;<BR>
+                  &nbsp;&nbsp;Result&nbsp;:&nbsp;IfcVector;<BR>
+                  END_LOCAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;IF&nbsp;(NOT&nbsp;EXISTS&nbsp;(Arg1)&nbsp;OR&nbsp;(Arg1.Dim&nbsp;=&nbsp;2))&nbsp;OR&nbsp;(NOT&nbsp;EXISTS&nbsp;(Arg2)&nbsp;OR&nbsp;(Arg2.Dim&nbsp;=&nbsp;2))&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;RETURN(?);<BR>
+                  &nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V1&nbsp;&nbsp;:=&nbsp;IfcNormalise(Arg1).DirectionRatios;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V2&nbsp;&nbsp;:=&nbsp;IfcNormalise(Arg2).DirectionRatios;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Res&nbsp;:=&nbsp;IfcRepresentationItem()&nbsp;||&nbsp;IfcGeometricRepresentationItem&nbsp;()&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||&nbsp;IfcDirection([(V1[2]*V2[3]&nbsp;-&nbsp;V1[3]*V2[2]),&nbsp;(V1[3]*V2[1]&nbsp;-&nbsp;V1[1]*V2[3]),&nbsp;(V1[1]*V2[2]&nbsp;-&nbsp;V1[2]*V2[1])]);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag&nbsp;:=&nbsp;0.0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i&nbsp;:=&nbsp;1&nbsp;TO&nbsp;3;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag&nbsp;:=&nbsp;Mag&nbsp;+&nbsp;Res.DirectionRatios[i]*Res.DirectionRatios[i];<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(Mag&nbsp;&#62;&nbsp;0.0)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;IfcRepresentationItem()&nbsp;||&nbsp;IfcGeometricRepresentationItem&nbsp;()&nbsp;||&nbsp;IfcVector(Res,&nbsp;SQRT(Mag));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;IfcRepresentationItem()&nbsp;||&nbsp;IfcGeometricRepresentationItem&nbsp;()&nbsp;||&nbsp;IfcVector(Arg1,&nbsp;0.0);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Result);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;END_IF;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

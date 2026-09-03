@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcHvacDomain"/>
+  <Name>Pset_HvacSensor</Name>
+  <Definition>Definition from IAI: This property set is used to define the general characteristics of a sensor used in an HVAC control system.
+
+HISTORY: New property set in IFC Release 2.0.
+
+ISSUES: No issues to date.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcSensor</TypedClass>
+  <TypeName>HvacSensor</TypeName>
+  <PropertyDefs>
+    <PropertyDef id="444">
+      <Name>SensorTypeEnum</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_SensorTypeEnum">
+            <EnumItem>Flow</EnumItem>
+            <EnumItem>Pressure</EnumItem>
+            <EnumItem>Temperature</EnumItem>
+            <EnumItem>Gas</EnumItem>
+            <EnumItem>Concentration</EnumItem>
+            <EnumItem>Volts</EnumItem>
+            <EnumItem>Amps</EnumItem>
+            <EnumItem>Density</EnumItem>
+            <EnumItem>Viscosity</EnumItem>
+            <EnumItem>Energy</EnumItem>
+            <EnumItem>Humidity</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+Enumeration that identifies the type of HVAC sensor
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="446">
+      <Name>Accuracy</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcReal"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The accuracy of the sensor
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="868">
+      <Name>TimeConstant</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcTimeMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="0"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The time constant of the sensor
+.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="869">
+      <Name>UpperRangeValue</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcReal"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="0"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The upper range value.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="870">
+      <Name>LowerRangeValue</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcReal"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="0"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The lower range value.
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

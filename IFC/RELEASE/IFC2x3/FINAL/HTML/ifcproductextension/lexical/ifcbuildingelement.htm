@@ -1,0 +1,792 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content ="text/html; charset=ISO-8859-1">
+<title>IfcBuildingElement</title>
+<link rel="stylesheet" href="../../secondlevel.css" type="text/css">
+</head>
+<body CLASS="body-background">
+<img src="../img/entity_navbar.gif" alt="Navigation" height="24" width="625" border="0" usemap="#entity-navbar"/><br/>
+<map name="entity-navbar">
+  <area shape="rect" coords="0,0,62,23" alt="Navigate"href="http://www.buildingsmart.org/">
+  <area shape="rect" coords="63,0,141,23" alt="Navigate"href="../ifcproductextension.htm">
+  <area shape="rect" coords="142,0,244,23" alt="Navigate"href="../diagrams/diagram_0005.htm">
+  <area shape="rect" coords="245,0,323,23" alt="Navigate"href="#definition">
+  <area shape="rect" coords="324,0,398,23" alt="Navigate"href="#attribute_description">
+  <area shape="rect" coords="399,0,442,23" alt="Navigate"href="#constraint_description">
+  <area shape="rect" coords="443,0,526,23" alt="Navigate"href="#inheritance">
+  <area shape="rect" coords="527,0,623,23" alt="Navigate"href="ifcbuildingelement.htm#references">
+</map><p CLASS="object-heading">IfcBuildingElement</p>         
+
+	 <P><U>Definition from ISO 6707-1:1989</U>: Major functional part of a
+
+		building, examples are foundation, floor, roof, wall.</P>
+
+	 <P><U>Definition from buildingSMART</U>: The building element comprises all elements
+
+		that are primarily part of the construction of a building, i.e., its structural
+
+		and space separating system. </P> 
+
+	 <BLOCKQUOTE><FONT SIZE="-1">EXAMPLEs of building elements are walls, beams,
+
+		or doors, they are all physically existent and tangible things.
+
+		</FONT></BLOCKQUOTE> 
+
+	 <P>They are separated from other elements, since they are dealt with in
+
+		separate AEC processes. The <I>IfcBuildingElement</I> utilizes the following
+
+		capabilities mainly through inverse referenced to objectified
+
+		relationships:</P> 
+
+	 <OL> 
+
+		<LI>Grouping - being part of a logical group of objects</LI> 
+
+		<LI>Classification - assigned reference to an external
+
+		  classification</LI> 
+
+		<LI>Documentation - assigned reference to an external documentation</LI> 
+
+		<LI>Type - reference to the product type information for the element
+
+		  occurrence</LI> 
+
+		<LI>Properties - reference to all attached properties, including
+
+		  quantities</LI> 
+
+		<LI>Cost control - reference to cost elements associated with this
+
+		  building element</LI> 
+
+		<LI>Work processes - reference to work tasks, in which this building
+
+		  element is used</LI> 
+
+		<LI>Aggregation - aggregated together with other elements to form an
+
+		  aggregate </LI> 
+
+		<LI>Connection - connectivity to other elements, including the definition
+
+		  of the joint</LI> 
+
+		<LI>Ports - information, whether the building element has ports for
+
+		  system connections</LI> 
+
+		<LI>Realization - information, whether the building element is used to
+
+		  realize a connection</LI> 
+
+		<LI>Assignment to spatial structure - hierarchical assignment to the
+
+		  right level within the spatial structure</LI> 
+
+		<LI>Material - assignment of material used by this building element</LI> 
+
+		<LI>Boundary - provision of space boundaries through this building
+
+		  element</LI> 
+
+		<LI>Opening - information, whether the building element includes
+
+		  openings</LI> 
+
+		<LI>Projection - information, whether the building element has
+
+		  projections</LI> 
+
+		<LI>Filling - information whether the building element is used to fill
+
+		  openings</LI> 
+
+	 </OL> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT COLOR="#0000FF" SIZE="-1">HISTORY New entity in IFC Release
+
+		  1.0</FONT> </P></BLOCKQUOTE> 
+
+	 <P><U><B>Quantity Use Definition</B></U>:</P>
+
+	 <P>The quantities relating to the <I>IfcBuildingElement</I> are defined by
+
+		the <I>IfcElementQuantity</I> and attached by the
+
+		<I>IfcRelDefinesByProperties</I>. A detailed specification for individual
+
+		quantities is introduced at the level of subtypes of
+
+		<I>IfcBuildingElement</I>.</P>
+
+	 <P><U><B>Geometry Use Definitions</B></U></P> 
+
+	 <P>The geometric representation of any <I>IfcBuildingElement</I> is given
+
+		by the <I>IfcProductDefinitionShape</I> and <I>IfcLocalPlacement</I> allowing
+
+		multiple geometric representations. </P> 
+
+	 <P><B>Local Placement</B></P> 
+
+	 <P>The local placement for any <I>IfcBuildingElement</I> is defined in its
+
+		supertype <I>IfcProduct</I>. It is defined by the <I>IfcLocalPlacement</I>,
+
+		which defines the local coordinate system that is referenced by all geometric
+
+		representations. Further constraints are defined at the level of its
+
+		subtypes.</P> 
+
+	 <P><B><I>Geometric Representations</I></B></P> 
+
+	 <P><B>Bounding Box Representation</B></P> 
+
+	 <P>Any <I>IfcBuildingElement</I> may be represented as a bounding box,
+
+		which shows the maximum extend of the body within the coordinated system
+
+		established by the <I>IfcLocalPlacement</I>. The bounding box representation is
+
+		the simplest geometric representation available. The following attribute values
+
+		for the <I>IfcShapeRepresentation</I> holding this geometric representation
+
+		shall be used:</P> 
+
+	 <UL> 
+
+		<LI><I>RepresentationIdentifier</I> : 'Body'</LI> 
+
+		<LI><I>RepresentationType</I> : 'BoundingBox'</LI> 
+
+	 </UL> 
+
+	 <TABLE> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><A
+
+			 HREF="drawings/IfcBuildingElement-BoundingBox-Layout1.dwf"><IMG
+
+			 SRC="Figures/IfcBuildingElement-BoundingBox-Layout1.gif" ALT="bounding box"
+
+			 WIDTH="400" HEIGHT="275" BORDER="0"></A></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"> 
+
+			 <P><FONT SIZE="-1">The bounding box representation is given by an
+
+				<I>IfcShapeRepresentation</I>, which includes a single item, an
+
+				<I>IfcBoundingBox</I>.</FONT></P></TD> 
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <P><B>SurfaceModel Representation</B></P> 
+
+	 <P>Any <I>IfcBuildingElement</I> (so far no further constraints are defined
+
+		at the level of its subtypes) may be represented as a single or multiple
+
+		surface models, based on either shell or face based models. The following
+
+		attribute values for the <I>IfcShapeRepresentation</I> holding this geometric
+
+		representation shall be used: </P> 
+
+	 <UL> 
+
+		<LI><I>RepresentationIdentifier</I> : 'Body'</LI> 
+
+		<LI><I>RepresentationType</I> : 'SurfaceModel'</LI> 
+
+	 </UL> 
+
+	 <P>In some cases it may be useful to also expose a simple representation as
+
+		a bounding box representation of the same complex shape.</P> 
+
+	 <TABLE> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><A
+
+			 HREF="drawings/IfcBuildingElement-SurfaceModel-Layout1.dwf"><IMG
+
+			 SRC="Figures/IfcBuildingElement-SurfaceModel-Layout1.gif" ALT="bounding box"
+
+			 WIDTH="400" HEIGHT="275" BORDER="0"></A></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"> 
+
+			 <P><FONT SIZE="-1">The surface model representation is given by an
+
+				IfcShapeRepresentation, which includes a single item, which is either:
+
+				</FONT></P> 
+
+			 <UL> 
+
+				<LI><FONT SIZE="-1"><I>IfcShellBasedSurfaceModel</I>,
+
+				  or</FONT></LI> 
+
+				<LI><FONT SIZE="-1"><I>IfcFaceBasedSurfaceModel</I>.</FONT></LI> 
+
+			 </UL></TD> 
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <P><B>Brep Representation</B></P> 
+
+	 <P>Any <I>IfcBuildingElement</I> (so far no further constraints are defined
+
+		at the level of its subtypes) may be represented as a single or multiple
+
+		Boundary Representation elements (which are restricted to faceted Brep with or
+
+		without voids). The Brep representation allows for the representation of
+
+		complex element shape. The following attribute values for the
+
+		<I>IfcShapeRepresentation</I> holding this geometric representation shall be
+
+		used:</P> 
+
+	 <UL> 
+
+		<LI><I>RepresentationIdentifier</I> : 'Body'</LI> 
+
+		<LI><I>RepresentationType</I> : 'Brep'</LI> 
+
+	 </UL> 
+
+	 <P>In some cases it may be useful to also expose a simple representation as
+
+		a bounding box representation of the same complex shape.</P> 
+
+	 <TABLE CELLPADDING="2" CELLSPACING="2"> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><A
+
+			 HREF="drawings/IfcBuildingElement-BRep-Layout1.dwf"><IMG
+
+			 SRC="Figures/IfcBuildingElement-BRep-Layout1.gif" ALT="Brep representation"
+
+			 WIDTH="400" HEIGHT="275" BORDER="0"></A></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">TheBrep representation is given by an
+
+			 IfcShapeRepresentation, which includes one or more items, all of type
+
+			 IfcManifoldSolidBrep.</TD> 
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <P><B>MappedRepresentation</B></P> 
+
+	 <P>Any <I>IfcBuildingElement</I> (so far no further constraints are defined
+
+		at the level of its subtypes) may be represented using the
+
+		MappedRepresentation. This shall be supported as it allows for reusing the
+
+		geometry definition of a type at all occurrences of the same type. The
+
+		following attribute values for the <I>IfcShapeRepresentation</I> holding this
+
+		geometric representation shall be used:</P> 
+
+	 <UL> 
+
+		<LI><I>RepresentationIdentifier</I> : 'Body'</LI> 
+
+		<LI><I>RepresentationType</I> : 'MappedRepresentation'</LI> 
+
+	 </UL> 
+
+	 <P>The same constraints, as given for the 'SurfaceModel' and the 'Brep'
+
+		geometric representation, shall apply to the <I>MappedRepresentation</I> of the
+
+		<I>IfcRepresentationMap</I>.</P>
+
+<p CLASS="object-express-specification">EXPRESS specification:</p>
+        <table width="100%" cellspacing="0" cellpadding="0">
+          <tr valign="top">
+            <td width="2%">
+            </td>
+            <td>
+              <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td><SPAN CLASS="all-express-keywords"><a name="definition">ENTITY</a></SPAN> IfcBuildingElement
+                  </td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td width="2%">
+                  </td>
+                  <td>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="1%"><SPAN CLASS="all-express-keywords">ABSTRACT</SPAN>&nbsp;<SPAN CLASS="all-express-keywords">SUPERTYPE</SPAN>&nbsp;<SPAN CLASS="all-express-keywords">OF</SPAN>
+                        </td>
+                        <td height="1%">(<SPAN CLASS="all-express-keywords">ONEOF</SPAN>(<a href="ifcbuildingelementproxy.htm">IfcBuildingElementProxy</a>, <a href="ifccovering.htm">IfcCovering</a>, <a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a>, <a href="../../ifcsharedbldgelements/lexical/ifccolumn.htm">IfcColumn</a>, <a href="../../ifcsharedbldgelements/lexical/ifccurtainwall.htm">IfcCurtainWall</a>, <a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a>, <a href="../../ifcsharedbldgelements/lexical/ifcmember.htm">IfcMember</a>, <a href="../../ifcsharedbldgelements/lexical/ifcrailing.htm">IfcRailing</a>, <a href="../../ifcsharedbldgelements/lexical/ifcramp.htm">IfcRamp</a>, <a href="../../ifcsharedbldgelements/lexical/ifcrampflight.htm">IfcRampFlight</a>, <a href="../../ifcsharedbldgelements/lexical/ifcwall.htm">IfcWall</a>, <a href="../../ifcsharedbldgelements/lexical/ifcslab.htm">IfcSlab</a>, <a href="../../ifcsharedbldgelements/lexical/ifcstairflight.htm">IfcStairFlight</a>, <a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a>, <a href="../../ifcsharedbldgelements/lexical/ifcstair.htm">IfcStair</a>, <a href="../../ifcsharedbldgelements/lexical/ifcroof.htm">IfcRoof</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifcpile.htm">IfcPile</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifcfooting.htm">IfcFooting</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifcbuildingelementcomponent.htm">IfcBuildingElementComponent</a>, <a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a>))
+                        </td>
+                      </tr>
+                    </table>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="1%"><SPAN CLASS="all-express-keywords">SUBTYPE</SPAN>&nbsp;<SPAN CLASS="all-express-keywords">OF</SPAN>&nbsp;(
+                        </td>
+                        <td><a href="ifcelement.htm">IfcElement</a>);
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td><SPAN CLASS="all-express-keywords">END_ENTITY</SPAN>;
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table><p CLASS="inheritance-heading"><a name="inheritance">Inheritance graph</a></p>
+        <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+          <tr valign="top">
+            <td width="2%">
+            </td>
+            <td>
+              <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td><SPAN CLASS="all-express-keywords">ENTITY</SPAN> IfcBuildingElement;
+                  </td>
+                </tr>
+              </table>
+              <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td width="2%">
+                  </td>
+                  <td>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="100%"><SPAN CLASS="all-express-keywords">ENTITY</SPAN> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>;
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="2%">
+                        </td>
+                        <td>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>GlobalId
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>OwnerHistory
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>Name
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">OPTIONAL</SPAN> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>Description
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">OPTIONAL</SPAN> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="100%"><SPAN CLASS="all-express-keywords">ENTITY</SPAN> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>;
+                        </td>
+                      </tr>
+                    </table>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="1%"><SPAN CLASS="all-express-keywords">INVERSE</SPAN>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="2%">
+                        </td>
+                        <td>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>HasAssignments
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatedObjects;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>IsDecomposedBy
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="../../ifckernel/lexical/ifcreldecomposes.htm">IfcRelDecomposes</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatingObject;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>Decomposes
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> [0:1] <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="../../ifckernel/lexical/ifcreldecomposes.htm">IfcRelDecomposes</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatedObjects;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>HasAssociations
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatedObjects;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="100%"><SPAN CLASS="all-express-keywords">ENTITY</SPAN> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>;
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="2%">
+                        </td>
+                        <td>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>ObjectType
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">OPTIONAL</SPAN> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="1%"><SPAN CLASS="all-express-keywords">INVERSE</SPAN>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="2%">
+                        </td>
+                        <td>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>IsDefinedBy
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="../../ifckernel/lexical/ifcreldefines.htm">IfcRelDefines</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatedObjects;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="100%"><SPAN CLASS="all-express-keywords">ENTITY</SPAN> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>;
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="2%">
+                        </td>
+                        <td>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>ObjectPlacement
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">OPTIONAL</SPAN> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>Representation
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">OPTIONAL</SPAN> <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="1%"><SPAN CLASS="all-express-keywords">INVERSE</SPAN>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="2%">
+                        </td>
+                        <td>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>ReferencedBy
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatingProduct;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="100%"><SPAN CLASS="all-express-keywords">ENTITY</SPAN> <a href="ifcelement.htm">IfcElement</a>;
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="2%">
+                        </td>
+                        <td>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>Tag
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">OPTIONAL</SPAN> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="1%"><SPAN CLASS="all-express-keywords">INVERSE</SPAN>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="2%">
+                        </td>
+                        <td>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>FillsVoids
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> [0:1] <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelfillselement.htm">IfcRelFillsElement</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatedBuildingElement;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>ConnectedTo
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelconnectselements.htm">IfcRelConnectsElements</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatingElement;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>HasCoverings
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelcoversbldgelements.htm">IfcRelCoversBldgElements</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatingBuildingElement;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>HasProjections
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelprojectselement.htm">IfcRelProjectsElement</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatingElement;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>HasStructuralMember
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectsstructuralelement.htm">IfcRelConnectsStructuralElement</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatingElement;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>ReferencedInStructures
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelreferencedinspatialstructure.htm">IfcRelReferencedInSpatialStructure</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatedElements;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>HasPorts
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelconnectsporttoelement.htm">IfcRelConnectsPortToElement</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatedElement;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>HasOpenings
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelvoidselement.htm">IfcRelVoidsElement</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatingBuildingElement;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>IsConnectionRealization
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelconnectswithrealizingelements.htm">IfcRelConnectsWithRealizingElements</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RealizingElements;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>ProvidesBoundaries
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatedBuildingElement;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>ConnectedFrom
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelconnectselements.htm">IfcRelConnectsElements</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatedElement;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>ContainedInStructure
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><SPAN CLASS="all-express-keywords">SET</SPAN> [0:1] <SPAN CLASS="all-express-keywords">OF</SPAN> <a href="ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a> <SPAN CLASS="all-express-keywords">FOR</SPAN> RelatedElements;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="100%"><SPAN CLASS="all-express-keywords">ENTITY</SPAN> <a href="ifcbuildingelement.htm">IfcBuildingElement</a>;
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td><SPAN CLASS="all-express-keywords">END_ENTITY</SPAN>;
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+</body>
+</html>

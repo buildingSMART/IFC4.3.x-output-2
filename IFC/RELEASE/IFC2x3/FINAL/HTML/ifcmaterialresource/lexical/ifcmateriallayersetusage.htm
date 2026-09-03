@@ -1,0 +1,300 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content ="text/html; charset=ISO-8859-1">
+<title>IfcMaterialLayerSetUsage</title>
+<link rel="stylesheet" href="../../secondlevel.css" type="text/css">
+</head>
+<body CLASS="body-background">
+<img src="../img/entity_navbar.gif" alt="Navigation" height="24" width="625" border="0" usemap="#entity-navbar"/><br/>
+<map name="entity-navbar">
+  <area shape="rect" coords="0,0,62,23" alt="Navigate"href="http://www.buildingsmart.org/">
+  <area shape="rect" coords="63,0,141,23" alt="Navigate"href="../ifcmaterialresource.htm">
+  <area shape="rect" coords="142,0,244,23" alt="Navigate"href="../diagrams/diagram_0001.htm">
+  <area shape="rect" coords="245,0,323,23" alt="Navigate"href="#definition">
+  <area shape="rect" coords="324,0,398,23" alt="Navigate"href="#attribute_description">
+  <area shape="rect" coords="399,0,442,23" alt="Navigate"href="#constraint_description">
+  <area shape="rect" coords="443,0,526,23" alt="Navigate"href="#inheritance">
+  <area shape="rect" coords="527,0,623,23" alt="Navigate"href="ifcmateriallayersetusage.htm#references">
+</map><p CLASS="object-heading">IfcMaterialLayerSetUsage</p>        
+
+<p><u>Definition
+
+from buildingSMART</u>: Determines the usage
+
+of <i>IfcMaterialLayerSet</i>
+
+in terms of its location and orientation relative to the associated
+
+element geometry. The location of material layer set shall be
+
+compatible with the element geometry (i.e. material layers shall fit
+
+inside the element geometry).</p>
+
+<blockquote><font
+
+ size="-1">EXAMPLE: For a cavity brick wall with
+
+extruded geometric representation, the <i>IfcMaterialLayerSet.TotalThickness</i>
+
+shall be equal to the wall thickness.</font>
+
+</blockquote>
+
+<p> Material layer set is
+
+primarily intended to be associated with planar elements with constant
+
+thickness. With further agreements on the interpretation of layer set
+
+direction, the usage can be extended also to other cases, e.g. to
+
+curved elements.</p>
+
+<p> Generally, an element may be
+
+layered in any of its primary directions, denoted by its x, y or z
+
+axis. However, with geometry use definitions for specific elements, it
+
+may become evident which direction is the relevant one for layering.</p>
+
+<blockquote><font
+
+ size="-1">EXAMPLE: For a standard wall with extruded
+
+geometric representation (vertical extrusion), the layer set direction
+
+shall be perpendicular to extrusion direction, and coincide with the
+
+direction denoting the wall thickness (in positive or negative sense).
+
+For a curved wall, "direction denoting the wall thickness" can be
+
+derived from the element LCS, but it will remain perpendicular to the
+
+wall path.</font>
+
+</blockquote>
+
+<blockquote><font
+
+ size="-1">EXAMPLE: For a slab with vertically
+
+extruded geometric representation, the layer set direction shall
+
+coincide with the extrusion direction (in positive or negative sense).</font>
+
+</blockquote>
+
+<p><img
+
+ src="figures/IfcMaterialLayerSetUsage.png" alt="Mls usage"
+
+ border="0"></p>
+
+<p>Fig 1: shows the use of <i>IfcMaterialLayerSetUsage</i>
+
+aligned to the axis of a wall.</p>
+
+<p CLASS="object-express-specification">EXPRESS specification:</p>
+        <table width="100%" cellspacing="0" cellpadding="0">
+          <tr valign="top">
+            <td width="2%">
+            </td>
+            <td>
+              <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td><SPAN CLASS="all-express-keywords"><a name="definition">ENTITY</a></SPAN> IfcMaterialLayerSetUsage;
+                  </td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td width="2%">
+                  </td>
+                  <td>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="2%">
+                        </td>
+                        <td>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>ForLayerSet
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><a href="ifcmateriallayerset.htm">IfcMaterialLayerSet</a>;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>LayerSetDirection
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><a href="ifclayersetdirectionenum.htm">IfcLayerSetDirectionEnum</a>;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>DirectionSense
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><a href="ifcdirectionsenseenum.htm">IfcDirectionSenseEnum</a>;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>OffsetFromReferenceLine
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td><SPAN CLASS="all-express-keywords">END_ENTITY</SPAN>;
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table><p CLASS="object-express-specification"><a name="attribute_description">Attribute definitions:</a></p>
+        <table width="100%" cellspacing="0" cellpadding="0">
+          <tr valign="top">
+            <td CLASS="attribute-description-name" width="5%">ForLayerSet
+            </td>
+            <td CLASS="attribute-description" width="1%">&nbsp;:&nbsp;
+            </td>
+            <td CLASS="attribute-description">              Layer set to which the usage is applied.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td CLASS="attribute-description-name" width="5%">LayerSetDirection
+            </td>
+            <td CLASS="attribute-description" width="1%">&nbsp;:&nbsp;
+            </td>
+            <td CLASS="attribute-description">              Orientation of the layer set relative to element geometry. The meaning of the value of this attribute
+              shall be specified in the geometry use section for each element. For extruded geometric representation,
+              direction can be given along the extrusion path (e.g. for slabs) or perpendicular to it (e.g. for walls).
+            </td>
+          </tr>
+          <tr valign="top">
+            <td CLASS="attribute-description-name" width="5%">DirectionSense
+            </td>
+            <td CLASS="attribute-description" width="1%">&nbsp;:&nbsp;
+            </td>
+            <td CLASS="attribute-description">              Denotion whether the layer set is oriented in positive or negative sense along the axis given by LayerSetDirection.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td CLASS="attribute-description-name" width="5%">OffsetFromReferenceLine
+            </td>
+            <td CLASS="attribute-description" width="1%">&nbsp;:&nbsp;
+            </td>
+            <td CLASS="attribute-description">              Offset of the material layer set (MlsBase) from reference line. The offset can be positive or negative,
+              unless restricted for a particular building element type in its use definition or by implementer agreement.
+              The reference line for each IfcElement is defined in use definition for the element.
+            </td>
+          </tr>
+        </table><p CLASS="inheritance-heading"><a name="inheritance">Inheritance graph</a></p>
+        <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+          <tr valign="top">
+            <td width="2%">
+            </td>
+            <td>
+              <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td><SPAN CLASS="all-express-keywords">ENTITY</SPAN> IfcMaterialLayerSetUsage;
+                  </td>
+                </tr>
+              </table>
+              <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td width="2%">
+                  </td>
+                  <td>
+                    <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="100%"><SPAN CLASS="all-express-keywords">ENTITY</SPAN> <a href="ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>;
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                      <tr valign="top">
+                        <td width="2%">
+                        </td>
+                        <td>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>ForLayerSet
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><a href="ifcmateriallayerset.htm">IfcMaterialLayerSet</a>;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>LayerSetDirection
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><a href="ifclayersetdirectionenum.htm">IfcLayerSetDirectionEnum</a>;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>DirectionSense
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><a href="ifcdirectionsenseenum.htm">IfcDirectionSenseEnum</a>;
+                              </td>
+                            </tr>
+                          </table>
+                          <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                              <td width="15%" nowrap>OffsetFromReferenceLine
+                              </td>
+                              <td width="1%">&nbsp;:&nbsp;
+                              </td>
+                              <td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <table CLASS="object-express-source" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                  <td><SPAN CLASS="all-express-keywords">END_ENTITY</SPAN>;
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+</body>
+</html>

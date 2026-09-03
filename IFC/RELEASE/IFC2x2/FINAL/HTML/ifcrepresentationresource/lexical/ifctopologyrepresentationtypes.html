@@ -1,0 +1,86 @@
+
+<html>
+<HEAD>
+<title>IfcTopologyRepresentationTypes</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcrepresentationresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifctopologyrepresentationtypes.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcTopologyRepresentationTypes</B></FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcTopologyRepresentationTypes</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000">
+                  (RepType&nbsp;:&nbsp;IfcLabel;&nbsp;Items&nbsp;:&nbsp;SET&nbsp;OF&nbsp;IfcRepresentationItem)&nbsp;:&nbsp;LOGICAL;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;LOCAL<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:&nbsp;INTEGER&nbsp;:=&nbsp;0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_LOCAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;CASE&nbsp;RepType&nbsp;OF&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'Vertex'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('IFCTOPOLOGYRESOURCE.IFCVERTEX'&nbsp;IN&nbsp;TYPEOF(temp))));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'Edge'&nbsp;:&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('IFCTOPOLOGYRESOURCE.IFCEDGE'&nbsp;IN&nbsp;TYPEOF(temp))));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'Path'&nbsp;:&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('IFCTOPOLOGYRESOURCE.IFCPATH'&nbsp;IN&nbsp;TYPEOF(temp))));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'Face'&nbsp;:&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('IFCTOPOLOGYRESOURCE.IFCFACE'&nbsp;IN&nbsp;TYPEOF(temp))));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'Shell'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('IFCTOPOLOGYRESOURCE.IFCOPENSHELL'&nbsp;IN&nbsp;TYPEOF(temp))<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;('IFCTOPOLOGYRESOURCE.IFCCLOSEDSHELL'&nbsp;IN&nbsp;TYPEOF(temp))));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'Undefined':&nbsp;RETURN(TRUE);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHERWISE&nbsp;:&nbsp;RETURN(?);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_CASE;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(Count&nbsp;=&nbsp;SIZEOF(Items));</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

@@ -1,0 +1,372 @@
+
+<html>
+<HEAD>
+<title>IfcManifoldSolidBrep</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometricmodelresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0004.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcmanifoldsolidbrep.html#references">
+</MAP><P><FONT face="Arial" size="5" color="#000000"><B>IfcManifoldSolidBrep</B></FONT></P><P><FONT face="Arial" size="3" color="#000000"> 
+
+	 <P><U>Definition from ISO/CD 10303-42:1992</U>: A manifold solid B-rep is a
+
+		finite, arcwise connected volume bounded by one or more surfaces, each of which
+
+		is a connected, oriented, finite, closed 2-manifold. There is no restriction on
+
+		the genius of the volume, nor on the number of voids within the volume. </P> 
+
+	 <P>The Boundary Representation (B-rep) of a manifold solid utilizes a graph
+
+		of edges and vertices embedded in a connected, oriented, finite, closed two
+
+		manifold surface. The embedded graph divides the surface into arcwise connected
+
+		areas known as faces. The edges and vertices, therefore, form the boundaries of
+
+		the face and the domain of a face does not include its boundaries. The embedded
+
+		graph may be disconnected and may be a pseudo graph. The graph is labeled; that
+
+		is, each entity in the graph has a unique identity. The geometric surface
+
+		definition used to specify the geometry of a face shall be 2-manifold
+
+		embeddable in the plane within the domain of the face. In other words, it shall
+
+		be connected, oriented, finite, non-self-intersecting, and of surface genus 0.
+
+		</P> 
+
+	 <P>Faces do not intersect except along their boundaries. Each edge along
+
+		the boundary of a face is shared by at most one other face in the assemblage.
+
+		The assemblage of edges in the B-rep do not intersect except at their
+
+		boundaries (i.e., vertices). The geometry curve definition used to specify the
+
+		geometry of an edge shall be arcwise connected and shall not self intersect or
+
+		overlap within the domain of the edge. The geometry of an edge shall be
+
+		consistent with the geometry of the faces of which it forms a partial bound.
+
+		The geometry used to define a vertex shall be consistent with the geometry of
+
+		the faces and edges of which it forms a partial bound. </P> 
+
+	 <P>A B-rep is represented by one or more closed shells which shall be
+
+		disjoint. One shell, the outer, shall completely enclose all the other shells
+
+		and no other shell may enclose a shell. The facility to define a B-rep with one
+
+		or more internal voids is provided by a subtype. The following version of the
+
+		Euler formula shall be satisfied, where V, E, F, L<SUB>l</SUB> and S are the
+
+		numbers of unique vertices, edges, faces, loop uses and shells in the model and
+
+		G<SUP>s</SUP> is the sum of the genus of the shells. </P> 
+
+	 <BLOCKQUOTE> 
+
+		<BLOCKQUOTE> 
+
+		  <P><IMG SRC="figures/IfcManifoldSolidBrep-Math1.gif"
+
+			 WIDTH="236" HEIGHT="25"></P></BLOCKQUOTE></BLOCKQUOTE> 
+
+	 <P><U>Definition from IAI</U>: In the current IFC Release all instances of
+
+		type IfcManifoldSolidBrep shall be of type faceted B-rep, using only
+
+		IfcPolyLoop for the bounds of IfcFaceBound. </P> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT COLOR="#0000FF" SIZE="-1">NOTE Corresponding STEP entity:
+
+		  manifold_solid_brep. Please refer to ISO/IS 10303-42:1994, p. 170 for the final
+
+		  definition of the formal standard. Since only faceted B-rep (with and without
+
+		  voids) is in scope of the current IFC Release the IfcManifoldSolidBrep is
+
+		  defined as ABSTRACT supertype to prevent it from direct instantiation.
+
+		  </FONT></P> 
+
+		<P><FONT COLOR="#0000FF" SIZE="-1">HISTORY New class in IFC Release 1.0
+
+		  </FONT></P></BLOCKQUOTE> 
+
+	 <P><U>Informal proposition</U>:</P>
+
+	 <OL>
+
+		<LI>The dimensionality of a manifold solid brep shall be 3.</LI>
+
+		<LI>The extent of the manifold solid brep shall be finite and
+
+		  non-zero.</LI>
+
+		<LI>All elements of the manifold solid brep shall have defined associated
+
+		  geometry.</LI>
+
+		<LI>The shell normals shall agree with the B-rep normal and point away
+
+		  from the solid represented by the B-rep.</LI>
+
+		<LI>Each face shall be referenced only once by the shells of the manifold
+
+		  solid brep.</LI>
+
+		<LI>The Euler equation shall be satisfied for the boundary
+
+		  representation, where the genus term "shell term" us the sum of the genus
+
+		  values for the shells of the brep. </LI>
+
+	 </OL>
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">ENTITY</A></B> IfcManifoldSolidBrep</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>ABSTRACT</B>&nbsp;<B>SUPERTYPE</B>&nbsp;<B>OF</B></FONT>
+                </TD>
+                <TD height="1%"><FONT face="Courier New" size="2" color="#000000">(<B>ONEOF</B>(<A href="ifcfacetedbrep.html">IfcFacetedBrep</A>, <A href="ifcfacetedbrepwithvoids.html">IfcFacetedBrepWithVoids</A>))</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="ifcsolidmodel.html">IfcSolidModel</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Outer</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifctopologyresource/lexical/ifcclosedshell.html">IfcClosedShell</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="5%"><FONT face="Arial" size="2" color="#000000"><B>Outer</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Arial" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="2" color="#000000">      A closed shell defining the exterior boundary of the solid. The shell normal shall point away from the
+      interior of the solid.</FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Times New Roman" size="4" color="#000000"><B><A name="References">References (3):</A></B></FONT></P>
+<TABLE WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="1">
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><B>Name</B></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><B>Type</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><B>Referred through</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><B>Express-G</B></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><A href="ifcfacetedbrep.html">IfcFacetedBrep</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Arial" size="2" color="#000000">Supertype</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Arial" size="2" color="#000000"><A href="../diagrams/diagram_0004.html">Diagram 4</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><A href="ifcfacetedbrepwithvoids.html">IfcFacetedBrepWithVoids</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Arial" size="2" color="#000000">Supertype</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Arial" size="2" color="#000000"><A href="../diagrams/diagram_0004.html">Diagram 4</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000"><A href="ifcsolidmodel.html">IfcSolidModel</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Arial" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Arial" size="2" color="#000000">Subtype</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Arial" size="2" color="#000000"><A href="../diagrams/diagram_0003.html">Diagram 3</A></FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> IfcManifoldSolidBrep;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="../../ifcgeometryresource/lexical/ifcrepresentationitem.html">IfcRepresentationItem</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.html">IfcGeometricRepresentationItem</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcsolidmodel.html">IfcSolidModel</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000"><B>DERIVE</B></FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Dim</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifcgeometryresource/lexical/ifcdimensioncount.html">IfcDimensionCount</A>&nbsp;:=&nbsp;                        3;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcmanifoldsolidbrep.html">IfcManifoldSolidBrep</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">Outer</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><A href="../../ifctopologyresource/lexical/ifcclosedshell.html">IfcClosedShell</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

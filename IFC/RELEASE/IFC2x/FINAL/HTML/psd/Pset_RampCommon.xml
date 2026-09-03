@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcSharedBldgElements"/>
+  <Name>Pset_RampCommon</Name>
+  <Definition>Definition from IAI: Set of properties common to all types of ramps.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcRamp</TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="628">
+      <Name>RampPurpose</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Purpose of primary use for this ramp
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="629">
+      <Name>HandicapAccessible</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcBoolean"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="False"/>
+        <MaxValue value="True"/>
+        <DefaultValue value="False"/>
+      </ValueDef>
+      <Definition>
+Is this ramp rated as handicap accessible - according the local building codes.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="865">
+      <Name>RequiredHeadroom</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Required headroom clearance for the passageway according to the applicable building code or additional requirements
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="866">
+      <Name>RequiredSlope</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositivePlaneAngleMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Required maximum slope for the passageway according to the applicable building code or additional requirements
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

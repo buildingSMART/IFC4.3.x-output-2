@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcFacilitiesMgmtDomain"/>
+  <Name>Pset_FurnitureElementCommon</Name>
+  <Definition>Definition from IAI: Common properties for all systems furniture (I.e. modular furniture) element types (e.g. vertical panels, work surfaces, and storage).
+
+HISTORY: {{new Pset in IFC Release 2.0}}
+
+ISSUE: {{see issue ??? For changes made in IFC Release ???}}</Definition>
+  <Typed>False</Typed>
+  <TypedClass></TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="402">
+      <Name>IsUsed</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcBoolean"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="True"/>
+        <MaxValue value="False"/>
+        <DefaultValue value="True"/>
+      </ValueDef>
+      <Definition>
+indicates whether the element is being used in a workstation or not.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="403">
+      <Name>GroupCode</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="empty"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+e.g. panels, worksurfaces, storage, etc.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="105">
+      <Name>Width</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="1"/>
+      </ValueDef>
+      <Definition>
+I.e. nominal width.
+The size information is provided in addition to the shape representation and the geometric parameters used within. In cases of inconsistency between the geometric parameters and the size properties, provided in the attached property set, the geometric parameters take precedence.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="170">
+      <Name>Height</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+I.e. nominal length.
+The size information is provided in addition to the shape representation and the geometric parameters used within. In cases of inconsistency between the geometric parameters and the size properties, provided in the attached property set, the geometric parameters take precedence.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="406">
+      <Name>Finishing</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="empty string"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+e.g. walnut, fabric
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

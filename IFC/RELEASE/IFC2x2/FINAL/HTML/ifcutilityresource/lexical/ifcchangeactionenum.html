@@ -1,0 +1,156 @@
+
+<html>
+<HEAD>
+<title>IfcChangeActionEnum</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/type_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="466" BORDER="0" usemap="#type-navbar"><BR>
+<MAP name="type-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcutilityresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0001.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,367,23" href="#constraint_description">
+  <AREA shape="rect" coords="368,0,464,23" href="ifcchangeactionenum.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcChangeActionEnum</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">
+
+	<p><u>Definition from IAI</u>:
+
+    Enumeration identifying the type of change that might have occurred
+
+    to the object during the last session (e.g., unchanged, added,
+
+    deleted, etc.). This information is required in a partial model
+
+    exchange scenario so that an application or model server will know
+
+    how an object might have been affected by the previous application.
+
+    Valid enumerations are:</p>
+
+	<ul>
+
+		<li><b>NOCHANGE</b>:       Object has not been modified. This is the
+
+        					       default state.</li>
+
+		<li><b>MODIFIED</b>:       A modification to the object has been made
+
+        					       by the user and application defined by the
+
+                                   LastModifyingUser and LastModifyingApplication
+
+                                   respectively.</li>
+
+		<li><b>ADDED</b>:          The object has been added by the user and
+
+        					       application defined by the LastModifyingUser
+
+                                   and LastModifyingApplication respectively.</li>
+
+		<li><b>DELETED</b>:        The object has been deleted by the user and
+
+        					       application defined by the LastModifyingUser
+
+                                   and LastModifyingApplication respectively.</li>
+
+		<li><b>MODIFIEDADDED</b>:  The object has been added and modified
+
+        					       by the user and application defined by the
+
+                                   LastModifyingUser and LastModifyingApplication
+
+                                   respectively.</li>
+
+		<li><b>MODIFIEDDELETED</b>:  The object has been modified and deleted
+
+        					       by the user and application defined by the
+
+                                   LastModifyingUser and LastModifyingApplication
+
+                                   respectively.</li>
+
+	</ul>
+
+
+
+    <p>Note that only the first four enumerations should be used. The MIDIFIEDADDED
+
+    and MODIFIEDDELETED are left for compatibility purposes but should not be used.
+
+    </p>
+
+    <p>Consider Application A receives an IFC dataset, adds a new object
+
+    and sets <i>IfcChangeActionEnum</i> to ADDED. Application B then receives
+
+    this IFC dataset but doesn't do anything to the object added by
+
+    Application A. Consequently, the object's <i>IfcChangeActionEnum</i>
+
+    remains set at ADDED. Consequently, the intent is that an
+
+    application only modifies the value of <i>IfcChangeActionEnum</i> when
+
+    it does something to the object, with the further intent that a
+
+    model server is responsible for clearing the <i>IfcChangeActionEnum</i>
+
+    back to UNCHANGED when it is checked back into the repository.</p>
+
+
+
+	<blockquote>
+
+		<font color="#0000FF" size="-1">
+
+		<p>
+
+    	HISTORY: New enumeration in IFC R2.0.<br>
+
+	    </p>
+
+    	</font>
+
+    </blockquote>
+
+<BR>
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">TYPE</A></B> IfcChangeActionEnum = <B>ENUMERATION </B><B>OF</B></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000">NOCHANGE,<BR>MODIFIED,<BR>ADDED,<BR>DELETED,<BR>MODIFIEDADDED,<BR>MODIFIEDDELETED);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_TYPE</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

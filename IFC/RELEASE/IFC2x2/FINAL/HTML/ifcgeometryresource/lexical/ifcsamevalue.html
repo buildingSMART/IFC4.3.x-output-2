@@ -1,0 +1,72 @@
+
+<html>
+<HEAD>
+<title>IfcSameValue</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcsamevalue.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcSameValue</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">
+
+  <P><U>Definition from IAI</U>: The function compares two numerical values
+
+    and ensures that they are the same (with an epsilon precision factor).</P>
+
+<BLOCKQUOTE> 
+
+  <P><FONT COLOR="#0000FF" SIZE="-1">HISTORY: New function in Release IFC2x Edition 2</FONT></P>
+
+</BLOCKQUOTE> 
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcSameValue</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000">
+                  &nbsp;&nbsp;(Value1,&nbsp;Value2&nbsp;:&nbsp;REAL;&nbsp;Epsilon&nbsp;:&nbsp;REAL)<BR>
+                  &nbsp;&nbsp;:&nbsp;LOGICAL&nbsp;;<BR>
+                  LOCAL<BR>
+                  &nbsp;&nbsp;ValidEps&nbsp;:&nbsp;REAL;<BR>
+                  END_LOCAL;<BR>
+                  <BR>
+                  --&nbsp;In&nbsp;the&nbsp;function&nbsp;the&nbsp;following&nbsp;questionable&nbsp;ad-hoc&nbsp;value&nbsp;is&nbsp;used:<BR>
+                  --&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000001&nbsp;&nbsp;for&nbsp;the&nbsp;default&nbsp;precision&nbsp;(1E-8)<BR>
+                  <BR>
+                  &nbsp;&nbsp;ValidEps&nbsp;:=&nbsp;NVL(Epsilon,&nbsp;0.00000001);<BR>
+                  &nbsp;&nbsp;RETURN&nbsp;((Value1&nbsp;+&nbsp;ValidEps&nbsp;&#62;&nbsp;Value2)&nbsp;AND&nbsp;(Value1&nbsp;&#60;&nbsp;Value2&nbsp;+&nbsp;ValidEps));</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

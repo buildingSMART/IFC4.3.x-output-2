@@ -1,0 +1,373 @@
+
+<html>
+<HEAD>
+<title>IFCCOSTRESOURCE</title>
+</HEAD>
+<BODY>
+<IMG SRC="img/schema_navbar.gif" ALT="Navigation" HEIGHT="46" WIDTH="476" BORDER="0" usemap="#schema-navbar"><BR>
+<MAP name="schema-navbar">
+  <AREA shape="rect" coords="0,0,63,22" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="64,0,197,22" href="#interfaced_schemas">
+  <AREA shape="rect" coords="198,0,287,22" href="#constants">
+  <AREA shape="rect" coords="288,0,356,22" href="#entities">
+  <AREA shape="rect" coords="357,0,475,22" href="#defined_types">
+  <AREA shape="rect" coords="0,23,70,44" href="#select_types">
+  <AREA shape="rect" coords="71,23,171,44" href="#enumerations">
+  <AREA shape="rect" coords="172,23,231,44" href="#global_rules">
+  <AREA shape="rect" coords="232,23,315,44" href="#functions">
+  <AREA shape="rect" coords="316,23,475,44" href="#procedures">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><U>IFCCOSTRESOURCE</U></FONT></P><P>The data model consists of the following:
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right">6&nbsp;
+    </TD>
+    <TD><A href="#entities">Entities</A>
+    </TD>
+  </TR>
+
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right">1&nbsp;
+    </TD>
+    <TD><A href="#select_types">Select types</A>
+    </TD>
+  </TR>
+
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right">3&nbsp;
+    </TD>
+    <TD><A href="#enumerations">Enumerations</A>
+    </TD>
+  </TR>
+
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000">
+
+	 <P>The IfcCostResource schema provides the means to identify the cost value
+
+		of an object or aggregation of objects. </P> 
+
+	 <H3>Cost Value</H3> 
+
+	 <P>A cost value represents an amount of money (the cost value) that is
+
+		applied to the cost of an object. A cost value has a cost date that can be used
+
+		to provide a basis on which fluctuations in price can be established or that
+
+		otherwise identifies when the cost value was applied. A cost value may be
+
+		assigned either a base value or a final value. These values may be asserted
+
+		individually or in combination. Whilst both are optiona, at least one of these
+
+		attributes must be asserted. It is intended that there should be a relation
+
+		between the base cost value and the final cost value that is determined by the
+
+		application of cost modifiers. However, this is not enfrced through rules in
+
+		the schema. Therefore, a required relationship between the values of these
+
+		attributes must be enfirced through application software. Each cost value also
+
+		has a unit cost basis which determines how a total cost should be determined
+
+		for items purchased. This is relevant where costs are identified per unit
+
+		quantity of an item. </P> 
+
+	 <H3>Cost Value Relationship</H3> 
+
+	 <P>An individual cost value may be derived as the sum of a set of component
+
+		cost values and may also be identified as a component of other cost values.
+
+		This is achieved through the assertion of a cost value relationship which acts
+
+		as a container for cost value components. </P> 
+
+	 <H3>Cost Modification</H3> 
+
+	 <P>A cost may be or have been modified through the application of various
+
+		modifiers. Provision is made for this through the IfcCostModifier class. For
+
+		instance, in determining the purchase cost of a given item, the cost from a
+
+		manufacturers or suppliers price list may be subject to such factors as trade
+
+		discount, bulk purchase rebate, small quantity surcharge, price list surcharge
+
+		(where an old price list is used but all prices are increased by a value or
+
+		percentage). Identification of which factor causes a cost modification is
+
+		enabled through the purpose attribute of IfcCostModifier. The value of the cost
+
+		modifier purpose needs to be set by the user; predefined purposes are not
+
+		provided within the schema. A cost modifier may be applied either as a value
+
+		with a defined currency (through the IfcModifierValue class) or as a value
+
+		without a defined currency. Either is allowed and that to be used is selected
+
+		via a SELECT data type. The selection of IfcModifierValue with its own currency
+
+		may be used to inmply that the currency of the modifier is different to the
+
+		currency of the cost value that it is modifying (in which case it is up to the
+
+		application software to carry out any currency conversions required to
+
+		determine final cost values from base cost values or vice versa). The selection
+
+		of a modifier vaue of data type REAL implies that the currency is either the
+
+		same as that of the relating cost value or that it is otherwise established by
+
+		global assignment. In general, it is considered to be good practice to use
+
+		IfcModifierValue and specify the currency even if it is the same as that of the
+
+		IfcCostValue being modified. </P> 
+
+	 <H3>Assigning Cost Modifiers</H3> 
+
+	 <P>The IfcAssignsCostModifier class takes a defined set of modifiers and
+
+		applies them to a set of cost values. Using this form of modeling construct,
+
+		all cost values that are (for instance) determined from a single price list can
+
+		use a single set of modifier values. If modification is not required, then the
+
+		IfcAssignsCostModifier class is not asserted and there is no impact on the
+
+		sharing or exchange of information. </P> 
+
+	 <H3>Referencing Cost Documents</H3> 
+
+	 <P>The origin of a cost value will normally be a price list, quotation or
+
+		some other documentary source. The Cost Resource model allows identification of
+
+		such a source through a document reference. IfcReferencesCostDocument is a
+
+		relationship class that allows many cost values to be referencd from a single
+
+		such document. By providing document referencing in this way, only one
+
+		referenced document object need be included when sharing or exchanging such
+
+		information, the object of the relationship class containing the set of all
+
+		cost values that reference the document. If a document reference is not
+
+		required, then the IfcReferencesCostDocument class is not asserted and there is
+
+		no impact on the sharing or exchange of information. </P> 
+
+	 <BLOCKQUOTE><FONT SIZE="-1" COLOR="#0000FF">HISTORY New schema for R2.0.
+
+		This schema was formerly part of the IfcPropertyResource schema. In IFC 2x
+
+		several additions have been defined to the cost resource.</FONT></BLOCKQUOTE>
+
+</FONT></P><P><FONT face="Arial" size="4" color="#000000"><B><A name="interfaced_schemas">Interfaced schemas (4):</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcactorresource/ifcactorresource.html">IFCACTORRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcactorresource/lexical/ifcpostaladdress.html">IfcPostalAddress</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcdatetimeresource/ifcdatetimeresource.html">IFCDATETIMERESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcexternalreferenceresource/ifcexternalreferenceresource.html">IFCEXTERNALREFERENCERESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcexternalreferenceresource/lexical/ifcdocumentselect.html">IfcDocumentSelect</A>,<BR><A href="../ifcexternalreferenceresource/lexical/ifcdocumentreference.html">IfcDocumentReference</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcmeasureresource/ifcmeasureresource.html">IFCMEASURERESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcmeasureresource/lexical/ifcmonetarymeasure.html">IfcMonetaryMeasure</A>,<BR><A href="../ifcmeasureresource/lexical/ifccurrencyenum.html">IfcCurrencyEnum</A>,<BR><A href="../ifcmeasureresource/lexical/ifcmeasurewithunit.html">IfcMeasureWithUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifcratiomeasure.html">IfcRatioMeasure</A>,<BR><A href="../ifcmeasureresource/lexical/ifctext.html">IfcText</A>,<BR><A href="../ifcmeasureresource/lexical/ifcnamedunit.html">IfcNamedUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifcderivedunit.html">IfcDerivedUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifcsiunit.html">IfcSiUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>,<BR><A href="../ifcmeasureresource/lexical/ifcpositiveratiomeasure.html">IfcPositiveRatioMeasure</A>,<BR><A href="../ifcmeasureresource/lexical/ifcreal.html">IfcReal</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="entities">Entities (6):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifccostmodifier.html" target="SOURCE">IfcCostModifier</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifccostmodifiervalue.html" target="SOURCE">IfcCostModifierValue</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifccostquantity.html" target="SOURCE">IfcCostQuantity</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifccostvalue.html" target="SOURCE">IfcCostValue</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifccostvaluerelationship.html" target="SOURCE">IfcCostValueRelationship</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifcreferencescostdocument.html" target="SOURCE">IfcReferencesCostDocument</A>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="select_types">Select types (1):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifccostmodifiervalueselect.html" target="SOURCE">IfcCostModifierValueSelect</A>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="enumerations">Enumerations (3):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifccostmodifierbasisenum.html" target="SOURCE">IfcCostModifierBasisEnum</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifccostoperatorenum.html" target="SOURCE">IfcCostOperatorEnum</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifcquantityroundoffbasisenum.html" target="SOURCE">IfcQuantityRoundOffBasisEnum</A>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

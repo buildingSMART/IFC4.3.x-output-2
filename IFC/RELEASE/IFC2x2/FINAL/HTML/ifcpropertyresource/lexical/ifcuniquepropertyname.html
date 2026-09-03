@@ -1,0 +1,60 @@
+
+<html>
+<HEAD>
+<title>IfcUniquePropertyName</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcpropertyresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcuniquepropertyname.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcUniquePropertyName</B></FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcUniquePropertyName</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000">
+                  (Properties&nbsp;:&nbsp;SET&nbsp;[1:?]&nbsp;OF&nbsp;IfcProperty)<BR>
+                  :LOGICAL;<BR>
+                  <BR>
+                  LOCAL<BR>
+                  &nbsp;&nbsp;Names&nbsp;:&nbsp;SET&nbsp;OF&nbsp;IfcIdentifier&nbsp;:=&nbsp;[];<BR>
+                  END_LOCAL;<BR>
+                  <BR>
+                  REPEAT&nbsp;i:=1&nbsp;TO&nbsp;HIINDEX(Properties);<BR>
+                  &nbsp;&nbsp;Names&nbsp;:=&nbsp;Names&nbsp;+&nbsp;Properties[i].Name;<BR>
+                  END_REPEAT;<BR>
+                  RETURN&nbsp;(SIZEOF(Names)&nbsp;=&nbsp;SIZEOF(Properties));</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

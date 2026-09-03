@@ -1,0 +1,64 @@
+
+<html>
+<HEAD>
+<title>IfcBuild2Axes</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcbuild2axes.html#references">
+</MAP><P><FONT face="Arial" size="5" color="#000000"><B>IfcBuild2Axes</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">Function Semantic Definition<BR>
+Definition from ISO/CD 10303-42:1992: This function returns two orthogonal directions. U[1] is in the
+direction of RefDirection and U[2] is perpendicular to U[1]. A default value of (1.0,0.0,0.0) is supplied
+for RefDirection if the input data is incomplete.<BR>
+<BR>
+NOTE Corresponding STEP function build_2axes, new function in IFC Release 1.5. Please refer to ISO/IS
+10303-42:1994, p. 100 for the final definition of the formal standard.<BR>
+<BR>
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcBuild2Axes</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000">
+                  &nbsp;&nbsp;(RefDirection&nbsp;:&nbsp;IfcDirection)<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;LIST&nbsp;[2:2]&nbsp;OF&nbsp;IfcDirection;<BR>
+                  LOCAL<BR>
+                  &nbsp;&nbsp;D&nbsp;:&nbsp;IfcDirection&nbsp;:=&nbsp;NVL(IfcNormalise(RefDirection),<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcRepresentationItem()&nbsp;||&nbsp;IfcGeometricRepresentationItem&nbsp;()&nbsp;||&nbsp;IfcDirection([1.0,0.0]));<BR>
+                  END_LOCAL;<BR>
+                  &nbsp;&nbsp;RETURN([D,&nbsp;IfcOrthogonalComplement(D)]);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

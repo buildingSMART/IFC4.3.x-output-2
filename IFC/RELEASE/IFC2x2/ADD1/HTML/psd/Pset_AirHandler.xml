@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcSharedBldgServiceElements"/>
+  <Name>Pset_AirHandler</Name>
+  <Definition>Definition from IAI: Equipment which modifies the psychrometric properties of a controlled air stream. It typically consists of an arrangement of Fans, Coils and AirFilters.
+
+HISTORY: New property set in IFC Release 1.0.
+
+ISSUES: No issues to date.</Definition>
+  <Typed>False</Typed>
+  <TypedClass></TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="27">
+      <Name>AirHandlerConstructionEnum</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_AirHandlerConstructionEnum">
+            <EnumItem>ManufacturedItem</EnumItem>
+            <EnumItem>ConstructedOnSite</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+Enumeration defining how the air handler might be fabricated.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="28">
+      <Name>AirHandlerFanCoilArrangementEnum</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_AirHandlerFanCoilArrangementEnum">
+            <EnumItem>BlowThrough</EnumItem>
+            <EnumItem>DrawThrough</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+Enumeration defining the arrangement of the supply air fan and the cooling coil.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="29">
+      <Name>DualDeck</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcBoolean"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="False"/>
+        <MaxValue value="True"/>
+        <DefaultValue value="False"/>
+      </ValueDef>
+      <Definition>
+Does the AirHandler have a dual deck? TRUE = Yes, FALSE = No.
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

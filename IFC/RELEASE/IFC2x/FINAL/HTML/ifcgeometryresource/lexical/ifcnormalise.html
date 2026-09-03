@@ -1,0 +1,109 @@
+
+<html>
+<HEAD>
+<title>IfcNormalise</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcnormalise.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><B>IfcNormalise</B></FONT></P><P><FONT face="Times New Roman" size="3" color="#000000">Function Semantic Definition<BR>
+Definition from ISO/CD 10303-42:1992: This function returns a vector or direction whose components are
+normalized to have a sum of squares of 1.0. The output is of the same type (Direction or Vector, with
+the same units) as the input argument. If the input argument is not defined or of zero length then the
+output vector is undefined.<BR>
+<BR>
+NOTE Corresponding STEP function normalise, new function in IFC Release 1.5. Please refer to ISO/IS 10303-42:1994,
+p. 105 for the final definition of the formal standard.<BR>
+<BR>
+</FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcNormalise</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000">
+                  &nbsp;&nbsp;(Arg&nbsp;:&nbsp;IfcVectorOrDirection)&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;IfcVectorOrDirection;<BR>
+                  LOCAL<BR>
+                  &nbsp;&nbsp;Ndim&nbsp;:&nbsp;INTEGER;<BR>
+                  &nbsp;&nbsp;V&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;IfcDirection<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;IfcDummyGri&nbsp;||&nbsp;IfcDirection([1.,0.]);&nbsp;<BR>
+                  &nbsp;&nbsp;Vec&nbsp;&nbsp;:&nbsp;IfcVector&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;IfcDummyGri&nbsp;||&nbsp;IfcVector&nbsp;(<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcDummyGri&nbsp;||&nbsp;IfcDirection([1.,0.]),&nbsp;1.);<BR>
+                  &nbsp;&nbsp;Mag&nbsp;&nbsp;:&nbsp;REAL;<BR>
+                  &nbsp;&nbsp;Result&nbsp;:&nbsp;IfcVectorOrDirection<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;V;<BR>
+                  END_LOCAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;IF&nbsp;NOT&nbsp;EXISTS&nbsp;(Arg)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(?);<BR>
+                  &nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Ndim&nbsp;:=&nbsp;Arg.Dim;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;'IFCGEOMETRYRESOURCE.IFCVECTOR'&nbsp;IN&nbsp;TYPEOF(Arg)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec&nbsp;:=&nbsp;Arg;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;:=&nbsp;Arg.Orientation;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;Arg.Magnitude&nbsp;=&nbsp;0.0&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(?);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec.Magnitude&nbsp;:=&nbsp;1.0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;:=&nbsp;Arg;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Mag&nbsp;:=&nbsp;0.0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i&nbsp;:=&nbsp;1&nbsp;TO&nbsp;Ndim;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag&nbsp;:=&nbsp;Mag&nbsp;+&nbsp;V.DirectionRatios[i]*V.DirectionRatios[i];<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;Mag&nbsp;&#62;&nbsp;0.0&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag&nbsp;:=&nbsp;SQRT(Mag);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i&nbsp;:=&nbsp;1&nbsp;TO&nbsp;Ndim;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V.DirectionRatios[i]&nbsp;:=&nbsp;V.DirectionRatios[i]/Mag;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;'IFCGEOMETRYRESOURCE.IFCVECTOR'&nbsp;IN&nbsp;TYPEOF(arg)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec.Orientation&nbsp;:=&nbsp;V;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;Vec;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;V;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(?);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;RETURN&nbsp;(Result);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

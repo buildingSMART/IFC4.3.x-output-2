@@ -1,0 +1,92 @@
+
+<html>
+<HEAD>
+<title>IfcFirstProjAxis</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcfirstprojaxis.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><B>IfcFirstProjAxis</B></FONT></P><P><FONT face="Times New Roman" size="3" color="#000000">Function Semantic Definition<BR>
+Definition from ISO/CD 10303-42:1992: This function produces a three dimensional direction which is,
+with fully defined input, the projection of Arg onto the plane normal to the ZAxis. With Arg defaulted
+the result is the projection of (1.0,0.0,0.0) onto this plane except that if ZAxis = (1.0,0.0,0.0) then
+(0.0,1.0,0.0) is used as initial value of Arg. A violation occurs if Arg is in the same direction as
+the input ZAxis.<BR>
+<BR>
+NOTE Corresponding STEP function first_proj_axis, new function in IFC Release 1.5. Please refer to ISO/IS
+10303-42:1994, p. 102 for the final definition of the formal standard.<BR>
+<BR>
+</FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcFirstProjAxis</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000">
+                  &nbsp;&nbsp;(ZAxis,&nbsp;Arg&nbsp;:&nbsp;IfcDirection)&nbsp;:&nbsp;IfcDirection;<BR>
+                  LOCAL<BR>
+                  &nbsp;&nbsp;XAxis&nbsp;:&nbsp;IfcDirection;<BR>
+                  &nbsp;&nbsp;V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;IfcDirection;<BR>
+                  &nbsp;&nbsp;Z&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;IfcDirection;<BR>
+                  &nbsp;&nbsp;XVec&nbsp;&nbsp;:&nbsp;IfcVector;<BR>
+                  END_LOCAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;IF&nbsp;(NOT&nbsp;EXISTS(ZAxis))&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(?)&nbsp;;<BR>
+                  &nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;:=&nbsp;IfcNormalise(ZAxis);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;NOT&nbsp;EXISTS(Arg)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(Z.DirectionRatios&nbsp;&#60;&#62;&nbsp;[1.0,0.0,0.0])&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;:=&nbsp;IfcDummyGri&nbsp;||&nbsp;IfcDirection([1.0,0.0,0.0]);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;:=&nbsp;IfcDummyGri&nbsp;||&nbsp;IfcDirection([0.0,1.0,0.0]);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(Arg.Dim&nbsp;&#60;&#62;&nbsp;3)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(?)&nbsp;;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;((IfcCrossProduct(Arg,Z).Magnitude)&nbsp;=&nbsp;0.0)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(?);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;:=&nbsp;IfcNormalise(Arg);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;XVec&nbsp;&nbsp;:=&nbsp;IfcScalarTimesVector(IfcDotProduct(V,&nbsp;Z),&nbsp;Z);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;XAxis&nbsp;:=&nbsp;IfcVectorDifference(V,&nbsp;XVec).Orientation;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;XAxis&nbsp;:=&nbsp;IfcNormalise(XAxis);<BR>
+                  &nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;RETURN(XAxis);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

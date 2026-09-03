@@ -1,0 +1,84 @@
+
+<html>
+<HEAD>
+<title>IfcScalarTimesVector</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcscalartimesvector.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><B>IfcScalarTimesVector</B></FONT></P><P><FONT face="Times New Roman" size="3" color="#000000">Function Semantic Definition<BR>
+Definition from ISO/CD 10303-42:1992: This function returns the vector that is the scalar multiple of
+the input vector. It accepts as input a scalar and a 'vector' which may be either a Direction or a Vector.
+The output is a Vector of the same units as the input vector or unitless if a direction is input. If
+either input argument is undefined then the returned vector is also undefined.<BR>
+<BR>
+NOTE Corresponding STEP function scalar_times_vector, new function in IFC Release 1.5. Please refer to
+ISO/IS 10303-42:1994, p. 107 for the final definition of the formal standard.<BR>
+</FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcScalarTimesVector</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000">
+                  &nbsp;&nbsp;(Scalar&nbsp;:&nbsp;REAL;&nbsp;Vec&nbsp;:&nbsp;IfcVectorOrDirection)<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;IfcVector;<BR>
+                  LOCAL<BR>
+                  &nbsp;&nbsp;V&nbsp;:&nbsp;IfcDirection;<BR>
+                  &nbsp;&nbsp;Mag&nbsp;:&nbsp;REAL;<BR>
+                  &nbsp;&nbsp;Result&nbsp;:&nbsp;IfcVector;<BR>
+                  END_LOCAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;IF&nbsp;NOT&nbsp;EXISTS&nbsp;(Scalar)&nbsp;OR&nbsp;NOT&nbsp;EXISTS&nbsp;(Vec)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(?)&nbsp;;<BR>
+                  &nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;'IFCGEOMETRYRESOURCE.IFCVECTOR'&nbsp;IN&nbsp;TYPEOF&nbsp;(Vec)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;:=&nbsp;Vec.Orientation;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag&nbsp;:=&nbsp;Scalar&nbsp;*&nbsp;Vec.Magnitude;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;:=&nbsp;Vec;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag&nbsp;:=&nbsp;Scalar;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(Mag&nbsp;&#60;&nbsp;0.0&nbsp;)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i&nbsp;:=&nbsp;1&nbsp;TO&nbsp;SIZEOF(V.DirectionRatios);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V.DirectionRatios[i]&nbsp;:=&nbsp;-V.DirectionRatios[i];<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag&nbsp;:=&nbsp;-Mag;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;IfcDummyGri&nbsp;||&nbsp;IfcVector(IfcNormalise(V),&nbsp;Mag);<BR>
+                  &nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;RETURN&nbsp;(Result);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

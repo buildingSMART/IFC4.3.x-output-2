@@ -1,0 +1,67 @@
+
+<html>
+<HEAD>
+<title>IfcValidTime</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcdatetimeresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcvalidtime.html#references">
+</MAP><P><FONT face="Arial" size="5" color="#000000"><B>IfcValidTime</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">
+
+
+
+<P><U>Definition from ISO/CD 10303-41:1992</U>: Determines whether a candidate local time (<I>IfcLocalTime</I>) 
+
+has a minute component if it has a second component. It returns FALSE if the condition is not met, otherwise
+
+it returns TRUE.
+
+
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcValidTime</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000">
+                  (Time:&nbsp;IfcLocalTime)&nbsp;:&nbsp;BOOLEAN;<BR>
+                  IF&nbsp;EXISTS&nbsp;(Time.SecondComponent)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;RETURN&nbsp;(EXISTS&nbsp;(Time.MinuteComponent));&nbsp;&nbsp;<BR>
+                  ELSE&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;RETURN&nbsp;(TRUE);&nbsp;&nbsp;<BR>
+                  END_IF;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

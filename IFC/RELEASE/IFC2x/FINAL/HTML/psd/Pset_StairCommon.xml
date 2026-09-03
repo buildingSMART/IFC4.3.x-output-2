@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcSharedBldgElements"/>
+  <Name>Pset_StairCommon</Name>
+  <Definition>Definition from IAI: Set of properties common to all types of Stairs.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcStair</TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="753">
+      <Name>StairPurpose</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Purpose of primary use for this stair
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="239">
+      <Name>FireRating</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Fire survival rating = length of time the stair enclosure/assembly will survive in case of fire
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="755">
+      <Name>ExitStair</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcBoolean"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="False"/>
+        <MaxValue value="True"/>
+        <DefaultValue value="False"/>
+      </ValueDef>
+      <Definition>
+Is this stair counted as an exit stair in case of fire
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="865">
+      <Name>RequiredHeadroom</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Required headroom clearance for the passageway according to the applicable building code or additional requirements
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcSharedBldgElements"/>
+  <Name>Pset_WindowPanelCommon</Name>
+  <Definition>Definition from IAI: Properties common to the definition of all IfcWindowPanel.</Definition>
+  <Typed>False</Typed>
+  <TypedClass>IfcWindow</TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="817">
+      <Name>FrameToLiningOffset</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Offset measured horizontally (perpendicular to the panel and glazing plane) between the inner surface of the frame and the inner surface of the lining.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="820">
+      <Name>StileDepth</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Depth (dimension in plane perpendicular to glazing) of the stiles dividing any glass panes
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="821">
+      <Name>StileThickness</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Thickness (width in plane parallel to glazing) of the stiles dividing any glass panes
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="250">
+      <Name>CrackLength</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="NIL"/>
+      </ValueDef>
+      <Definition>
+Length of the joints of this window panel (usually the perimeter of the panel) that have to be considered for natural ventilation and heat losses.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="251">
+      <Name>InfiltrationCoefficient</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcReal"/>
+          <UnitType type="UserDefined"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Infiltration Coefficient per length unit of joints. Used in conjunction with the LenghtOfJoints property in Pset_WindowPanel or Pset_DoorPanel.. The usual unit (if pressure is taken into consideration) is m3/(mhPa2/3). The following translations apply: G: Fugendurchlaskoeffizient, J: JYOINTO BUBUN NO KUUKI TOUKARITU
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="254">
+      <Name>GlazingAreaFraction</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="1"/>
+      </ValueDef>
+      <Definition>
+Fraction of the glazing area relative to the total area of the filling element. It shall be used, if the glazing area is not given in the Pset_DoorWinPanelOpening as OpeningArea. The following translations apply: G: Glasflachenanteil, J: MADO MENSEKI HIRITU
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

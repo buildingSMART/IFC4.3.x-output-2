@@ -1,0 +1,420 @@
+
+<html>
+<HEAD>
+<title>IFCCONSTRAINTRESOURCE</title>
+</HEAD>
+<BODY>
+<IMG SRC="img/schema_navbar_e2.gif" ALT="Navigation" HEIGHT="46" WIDTH="629" BORDER="0" usemap="#schema-navbar"><BR>
+<MAP name="schema-navbar">
+  <AREA shape="rect" coords="0,0,63,22" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="64,0,197,22" href="#interfaced_schemas">
+  <AREA shape="rect" coords="198,0,287,22" href="#constants">
+  <AREA shape="rect" coords="288,0,356,22" href="#entities">
+  <AREA shape="rect" coords="357,0,475,22" href="#defined_types">
+  <AREA shape="rect" coords="0,23,70,44" href="#select_types">
+  <AREA shape="rect" coords="71,23,171,44" href="#enumerations">
+  <AREA shape="rect" coords="172,23,231,44" href="#global_rules">
+  <AREA shape="rect" coords="232,23,315,44" href="#functions">
+  <AREA shape="rect" coords="316,23,475,44" href="#procedures">
+  <AREA shape="rect" coords="476,0,628,22" href="#subtype_constraints">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IFCCONSTRAINTRESOURCE</B></FONT></P><P><FONT face="Arial" size="3" color="#000080">The data model consists of the following:</FONT></P>
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right"><FONT face="Arial" size="3" color="#000080">5&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="#entities">Entities</A></FONT>
+    </TD>
+  </TR>
+
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right"><FONT face="Arial" size="3" color="#000080">1&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="#select_types">Select types</A></FONT>
+    </TD>
+  </TR>
+
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right"><FONT face="Arial" size="3" color="#000080">4&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="#enumerations">Enumerations</A></FONT>
+    </TD>
+  </TR>
+
+</TABLE><P><FONT face="Arial" size="3" color="#000000"> 
+
+	 <P>The <I>IfcConstraintResource</I> schema provides for the specification
+
+		of constraints that can be applied to objects or to properties so as limit or
+
+		bound their values. </P> 
+
+	 <P>The concept is that a constraint (<I>IfcConstraint</I>)may be applied to
+
+		any object that is ultimately a subtype of <I>IfcObject</I> (through the
+
+		provision of the relationship class <I>IfcRelAssociatesConstraint</I>) or that
+
+		is an <I>IfcProperty</I> (through the provision of the relationship class
+
+		<I>IfcPropertyConstraintRelationship</I>).</P> 
+
+	 <P>A grade must be also be set for the constraint that establishes whether
+
+		it is a hard constraint (must be satisfied), a soft constraint (should be
+
+		satisfied) or simply advisory.</P> 
+
+	 <P>A constraint must be named and may optionally have one or more sources
+
+		within which it is defined or from which it is taken. </P> 
+
+	 <P>Additionally, a constraint may optionally be assigned a creating actor,
+
+		creation date and a description.</P> 
+
+	 <H3>Constraint Aggregation</H3> 
+
+	 <P>Constraints may be aggregated together via the
+
+		IfcConstraintAggregationRelationship. This allows complex constraints to be
+
+		developed based on their logical relationship.</P> 
+
+	 <H3>Constraint Types</H3> 
+
+	 <P>Constraint may be either qualitative (an objective constraint) or
+
+		quantitative (a measured constraint or metric). A qualifier can be applied to
+
+		an objective constraint that determines the purpose for which it is applied. It
+
+		may be applied to define the constraining values beyond which building codes
+
+		may be violated or to limit the selectable range of values as in a
+
+		specification (e.g. value of A must be greater than A but less than B). Several
+
+		possible purposes are provided through an enumeration.</P> 
+
+	 <P>A set of benchmark values can be specified for the objective constraint
+
+		and a set of result values captured for performance comparison purposes.</P> 
+
+	 <P>A measured constraint or metric defines the actual value or values of a
+
+		constraint. Values can be defined in terms of a benchmark requirement which
+
+		sets the intent of the constraint i.e. whether the benchmark is greater than
+
+		(&gt;), less than (&lt;) etc. </P> 
+
+	 <P>The value of a constraint may be defined according to a number of
+
+		datatypes that are available through a select mechanism.</P> 
+
+	 <P>For instance, a constraint advised by a manufacturer beyond which
+
+		maintenance must be undertaken on a pump might be qualified as a
+
+		'TriggerCondition', named 'PumpMaintenanceCondition', have as its source
+
+		'ManufacturerData' and be graded as 'Advisory'. It could have as a single value
+
+		10^-2 / sec as the frequency of vibration and have a benchmark of
+
+		'GreaterThanOrEqualTo'. </P> 
+
+	 <BLOCKQUOTE><FONT SIZE="-1" COLOR="#0000FF">HISTORY: New schema in IFC 2x
+
+		containing <I>IfcConstraint</I> and its subtypes, previously in
+
+		<I>IfcControlExtension</I>. Modified in IFC 2x2</FONT> </BLOCKQUOTE>
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000080"><B><A name="interfaced_schemas">Interfaced schemas (7):</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcactorresource/ifcactorresource.html">IFCACTORRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="../ifcactorresource/lexical/ifcperson.html">IfcPerson</A>,<BR><A href="../ifcactorresource/lexical/ifcpersonandorganization.html">IfcPersonAndOrganization</A>,<BR><A href="../ifcactorresource/lexical/ifcpostaladdress.html">IfcPostalAddress</A>,<BR><A href="../ifcactorresource/lexical/ifcactorselect.html">IfcActorSelect</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifccostresource/ifccostresource.html">IFCCOSTRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="../ifccostresource/lexical/ifccostvalue.html">IfcCostValue</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcdatetimeresource/ifcdatetimeresource.html">IFCDATETIMERESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="../ifcdatetimeresource/lexical/ifccalendardate.html">IfcCalendarDate</A>,<BR><A href="../ifcdatetimeresource/lexical/ifcdateandtime.html">IfcDateAndTime</A>,<BR><A href="../ifcdatetimeresource/lexical/ifclocaltime.html">IfcLocalTime</A>,<BR><A href="../ifcdatetimeresource/lexical/ifcdatetimeselect.html">IfcDateTimeSelect</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcmeasureresource/ifcmeasureresource.html">IFCMEASURERESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="../ifcmeasureresource/lexical/ifcmeasurewithunit.html">IfcMeasureWithUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifcunit.html">IfcUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifcderivedunit.html">IfcDerivedUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifcnamedunit.html">IfcNamedUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifcsiunit.html">IfcSiUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifcconversionbasedunit.html">IfcConversionBasedUnit</A>,<BR><A href="../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>,<BR><A href="../ifcmeasureresource/lexical/ifctext.html">IfcText</A>,<BR><A href="../ifcmeasureresource/lexical/ifclengthmeasure.html">IfcLengthMeasure</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcpropertyresource/ifcpropertyresource.html">IFCPROPERTYRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="../ifcpropertyresource/lexical/ifcproperty.html">IfcProperty</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifctimeseriesresource/ifctimeseriesresource.html">IFCTIMESERIESRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="../ifctimeseriesresource/lexical/ifctimeseries.html">IfcTimeSeries</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcutilityresource/ifcutilityresource.html">IFCUTILITYRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="../ifcutilityresource/lexical/ifctable.html">IfcTable</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000080"><B><A name="entities">Entities (5):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="lexical/ifcconstraint.html" target="SOURCE">IfcConstraint</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="lexical/ifcconstraintaggregationrelationship.html" target="SOURCE">IfcConstraintAggregationRelationship</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="lexical/ifcmetric.html" target="SOURCE">IfcMetric</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="lexical/ifcobjective.html" target="SOURCE">IfcObjective</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="lexical/ifcpropertyconstraintrelationship.html" target="SOURCE">IfcPropertyConstraintRelationship</A></FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000080"><B><A name="select_types">Select types (1):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="lexical/ifcmetricvalueselect.html" target="SOURCE">IfcMetricValueSelect</A></FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000080"><B><A name="enumerations">Enumerations (4):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="lexical/ifcbenchmarkenum.html" target="SOURCE">IfcBenchmarkEnum</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="lexical/ifcconstraintenum.html" target="SOURCE">IfcConstraintEnum</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="lexical/ifclogicaloperatorenum.html" target="SOURCE">IfcLogicalOperatorEnum</A></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><FONT face="Arial" size="3" color="#000080"><A href="lexical/ifcobjectiveenum.html" target="SOURCE">IfcObjectiveEnum</A></FONT>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

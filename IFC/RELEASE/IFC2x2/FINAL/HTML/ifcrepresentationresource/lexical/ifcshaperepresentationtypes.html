@@ -1,0 +1,156 @@
+
+<html>
+<HEAD>
+<title>IfcShapeRepresentationTypes</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcrepresentationresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcshaperepresentationtypes.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcShapeRepresentationTypes</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">
+
+  <P>The function gets the representation type and the assigned set of 
+
+     representation items as input and verifies whether the correct items 
+
+     are assigned according to the representation type given.</P>
+
+<BLOCKQUOTE> 
+
+  <P><FONT COLOR="#0000FF" SIZE="-1">HISTORY: New function in Release IFC2x</FONT></P>
+
+</BLOCKQUOTE> 
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcShapeRepresentationTypes</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000">
+                  (RepType&nbsp;:&nbsp;IfcLabel;&nbsp;Items&nbsp;:&nbsp;SET&nbsp;OF&nbsp;IfcRepresentationItem)&nbsp;:&nbsp;LOGICAL;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;LOCAL<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:&nbsp;INTEGER&nbsp;:=&nbsp;0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_LOCAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;CASE&nbsp;RepType&nbsp;OF&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'Curve2D'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRYRESOURCE.IFCCURVE'&nbsp;IN&nbsp;TYPEOF(temp))&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;(temp.Dim&nbsp;=&nbsp;2)));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'GeometricSet'&nbsp;:&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCGEOMETRICSET'&nbsp;IN&nbsp;TYPEOF(temp))<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;('IFCGEOMETRYRESOURCE.IFCPOINT'&nbsp;IN&nbsp;TYPEOF(temp))<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;('IFCGEOMETRYRESOURCE.IFCCURVE'&nbsp;IN&nbsp;TYPEOF(temp))<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;('IFCGEOMETRYRESOURCE.IFCSURFACE'&nbsp;IN&nbsp;TYPEOF(temp))));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'GeometricCurveSet'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCGEOMETRICCURVESET'&nbsp;IN&nbsp;TYPEOF(temp))<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCGEOMETRICSET'&nbsp;IN&nbsp;TYPEOF(temp))<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;('IFCGEOMETRYRESOURCE.IFCPOINT'&nbsp;IN&nbsp;TYPEOF(temp))<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;('IFCGEOMETRYRESOURCE.IFCCURVE'&nbsp;IN&nbsp;TYPEOF(temp))));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i:=1&nbsp;TO&nbsp;HIINDEX(Items);&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;('IFCGEOMETRYRESOURCE.IFCGEOMETRICSET'&nbsp;IN&nbsp;TYPEOF(Items[i]))<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items[i]\IfcGeometricSet.Elements&nbsp;|&nbsp;'IFCGEOMETRYRESOURCE.IFCSURFACE'&nbsp;IN&nbsp;TYPEOF(temp)))&nbsp;&#62;&nbsp;0)<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;Count&nbsp;-&nbsp;1;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'SurfaceModel'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;SIZEOF([<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'IFCGEOMETRICMODELRESOURCE.IFCSHELLBASEDSURFACEMODEL',<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'IFCGEOMETRICMODELRESOURCE.IFCFACEBASEDSURFACEMODEL',<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'IFCGEOMETRICMODELRESOURCE.IFCFACETEDBREP',<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'IFCGEOMETRICMODELRESOURCE.IFCFACETEDBREPWITHVOIDS']&nbsp;*&nbsp;TYPEOF(temp))&nbsp;&#62;=&nbsp;1<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'SolidModel'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCSOLIDMODEL'&nbsp;IN&nbsp;TYPEOF(temp))));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'SweptSolid'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCSWEPTAREASOLID'&nbsp;IN&nbsp;TYPEOF(temp))));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'CSG'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCBOOLEANRESULT'&nbsp;IN&nbsp;TYPEOF(temp))));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'Clipping'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCBOOLEANCLIPPINGRESULT'&nbsp;IN&nbsp;TYPEOF(temp))));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'AdvancedSweptSolid'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCSURFACECURVESWEPTAREASOLID'&nbsp;IN&nbsp;TYPEOF(temp))<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCSWEPTDISKSOLID'&nbsp;IN&nbsp;TYPEOF(temp))));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'Brep'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCFACETEDBREP'&nbsp;IN&nbsp;TYPEOF(temp))<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCFACETEDBREPWITHVOIDS'&nbsp;IN&nbsp;TYPEOF(temp))));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'BoundingBox'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCBOUNDINGBOX'&nbsp;IN&nbsp;TYPEOF(temp))));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(SIZEOF(Items)&nbsp;&#62;&nbsp;1)<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'SectionedSpine'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRICMODELRESOURCE.IFCSECTIONEDSPINE'&nbsp;IN&nbsp;TYPEOF(temp))));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'MappedRepresentation'&nbsp;:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;SIZEOF(QUERY(temp&nbsp;&#60;*&nbsp;Items&nbsp;|&nbsp;('IFCGEOMETRYRESOURCE.IFCMAPPEDITEM'&nbsp;IN&nbsp;TYPEOF(temp))));&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(SIZEOF(Items)&nbsp;&#62;&nbsp;1)<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;:=&nbsp;0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHERWISE&nbsp;:&nbsp;RETURN(?);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_CASE;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(Count&nbsp;=&nbsp;SIZEOF(Items));</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

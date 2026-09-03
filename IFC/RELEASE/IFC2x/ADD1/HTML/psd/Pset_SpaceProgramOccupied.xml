@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcArchitectureDomain"/>
+  <Name>Pset_SpaceProgramOccupied</Name>
+  <Definition>Definition from IAI: Space program for a space to be occupied by humans.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcSpaceProgram</TypedClass>
+  <TypeName>OccupiedSpaceProgram</TypeName>
+  <PropertyDefs>
+    <PropertyDef id="734">
+      <Name>Occupants</Name>
+      <PropertyType>
+        <TypeComplexProperty lbound="0" ubound="0">
+          <PropertyType>
+            <TypePropertyReferenceValue reftype="IfcPerson"/>
+          </PropertyType>
+        </TypeComplexProperty>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="NIL"/>
+      </ValueDef>
+
+      <Definition>
+List of persons who will occupy this space
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="735">
+      <Name>OccupantOrganizataion</Name>
+      <PropertyType>
+        <TypePropertyReferenceValue reftype="IfcOrganization"/>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="NIL"/>
+      </ValueDef>
+      <Definition>
+Client organizaiton that will charged for this space
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="736">
+      <Name>OccupancyTargetDate</Name>
+      <PropertyType>
+        <TypePropertyReferenceValue reftype="IfcDateAndTime"/>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n.a"/>
+        <DefaultValue value="NIL"/>
+      </ValueDef>
+      <Definition>
+Target date of occupancy.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="737">
+      <Name>BldgCodeOccupancyType</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Occupancy type according to the building code for this project
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="738">
+      <Name>ProgrammedOccupantCount</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcInteger"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Programmed number of occupants for this space. Zero means the value has not been set.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="720">
+      <Name>RequiredFFETypes</Name>
+      <PropertyType>
+        <TypeComplexProperty lbound="0" ubound="0">
+          <PropertyType>
+            <TypePropertySingleValue>
+              <DataType type="IfcString"/>
+            </TypePropertySingleValue>
+          </PropertyType>
+        </TypeComplexProperty>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+
+      <Definition>
+Furniture, Fixtures and Equipment for this space
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="740">
+      <Name>PrivacyRequirements</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Client requirements for privacy
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="741">
+      <Name>WeeklyOccupiedHours</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcTimeMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Hours per week that this space is programmed for occupants
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

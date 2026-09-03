@@ -1,0 +1,438 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>IfcProjectOrder</TITLE> 
+  </HEAD> 
+  <BODY>
+	 <IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625"
+	  BORDER="0" USEMAP="#entity-navbar"><BR> 
+	 <MAP NAME="entity-navbar">
+		<AREA SHAPE="rect" COORDS="0,0,62,23" HREF="http://www.iai-international.org/">
+		<AREA SHAPE="rect" COORDS="63,0,141,23" HREF="../ifcsharedmgmtelements.html">
+		<AREA SHAPE="rect" COORDS="142,0,244,23" HREF="../diagrams/diagram_0001.html">
+		<AREA SHAPE="rect" COORDS="245,0,323,23" HREF="#definition">
+		<AREA SHAPE="rect" COORDS="324,0,398,23" HREF="#attribute_description">
+		<AREA SHAPE="rect" COORDS="399,0,442,23" HREF="#constraint_description">
+		<AREA SHAPE="rect" COORDS="443,0,526,23" HREF="#inheritance">
+		<AREA SHAPE="rect" COORDS="527,0,623,23"
+		 HREF="ifcprojectorder.html#references"> 
+	 </MAP>
+	 <P><FONT FACE="Arial" SIZE="4"
+		COLOR="#000080"><B>IfcProjectOrder</B></FONT></P>
+	 <P></P>
+	 <P><FONT FACE="Arial" SIZE="3" COLOR="#000000"><U>Definition from IAI:</U>
+		An <I>IfcProjectOrder</I> sets common properties for project orders issued in a
+		construction or facilities management project. </FONT></P> 
+	 <BLOCKQUOTE> <FONT COLOR="#0000FF" SIZE="-1">HISTORY: New Entity in IFC
+		Release 2.0. Modified in IFC 2x2</FONT></BLOCKQUOTE> 
+	 <P><U>Use Definitions</U></P> 
+	 <P>Actor attributes such as the organization to which the order is sent,
+		issuing organization, person responsible atc. are handled by assigning
+		instances of <I>IfcActor</I> through <I>IfcRelAssignsToProjectOrder</I>. The
+		<I>IfcActorRole</I> must be asserted with the value of the role set when used
+		in this context.</P> 
+	 <P>A work plan (acting as a service) may be assigned to a project order
+		(acting as a client) to describe how the project order should be fulfilled.
+		This is handled by assigning instances of <I>IfcWorkPlan</I> through
+		<I>IfcRelAssignsToProjectOrder</I>.</P> 
+	 <P>The reverse of this situation may be true whereby the work plan (acting
+		as a client) may have project orders (acting as a service). This is handled by
+		assigning instances of <I>IfcProjectOrder</I> to an <I>IfcWorkPlan</I> through
+		<I>IfcRelAssignsToControl</I>.</P> 
+	 <P>Approvals including signoff, authorization etc. are handled using the
+		the <I>IfcRelAssociatesApproval</I> relationship class.</P> 
+	 <P>A cost schedule may be assigned to a project order are handled through
+		the <I>IfcRelAssignsToProjectOrder</I> relationship. </P> 
+	 <P><FONT FACE="Arial" SIZE="3" COLOR="#000000"><U>EXPRESS
+		specification:</U></FONT></P> 
+	 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+		<TR VALIGN="top"> 
+		  <TD WIDTH="2%"> </TD> 
+		  <TD> 
+			 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+				<TR VALIGN="top"> 
+				  <TD><FONT FACE="Courier New" SIZE="3" COLOR="#000000"><B><A
+					 NAME="definition">ENTITY</A></B> IfcProjectOrder</FONT> </TD> 
+				</TR> 
+			 </TABLE> 
+			 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+				<TR VALIGN="top"> 
+				  <TD WIDTH="2%"> </TD> 
+				  <TD> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+							 COLOR="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT> </TD> 
+						  <TD><FONT FACE="Courier New" SIZE="3" COLOR="#000000"><A
+							 HREF="../../ifckernel/lexical/ifccontrol.html">IfcControl</A>);</FONT> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="2%"> </TD> 
+						  <TD> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">ID</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><A
+									 HREF="../../ifcmeasureresource/lexical/ifcidentifier.html">IfcIdentifier</A>;</FONT>
+									 </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">PredefinedType</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><A
+									 HREF="ifcprojectordertypeenum.html">IfcProjectOrderTypeEnum</A>;</FONT> </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">Status</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>OPTIONAL</B>
+									 <A HREF="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+									 </TD> 
+								</TR> 
+							 </TABLE> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD><FONT FACE="Courier New" SIZE="3"
+							 COLOR="#000000"><B><B>UNIQUE</B></B></FONT> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="2%"> </TD> 
+						  <TD> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="10%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">UR2</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">ID;</FONT> </TD> 
+								</TR> 
+							 </TABLE> </TD> 
+						</TR> 
+					 </TABLE> </TD> 
+				</TR> 
+			 </TABLE> 
+			 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+				<TR VALIGN="top"> 
+				  <TD><FONT FACE="Courier New" SIZE="3"
+					 COLOR="#000000"><B>END_ENTITY</B>;</FONT> </TD> 
+				</TR> 
+			 </TABLE> </TD> 
+		</TR> 
+	 </TABLE>
+	 <P><FONT FACE="Arial" SIZE="3" COLOR="#000000"><U><A
+		NAME="attribute_description">Attribute definitions:</A></U></FONT></P> 
+	 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+		<TR VALIGN="top"> 
+		  <TD WIDTH="10%"><FONT FACE="Arial" SIZE="2" COLOR="#000000">ID</FONT>
+			 </TD> 
+		  <TD WIDTH="1%"><FONT FACE="Arial" SIZE="2"
+			 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+		  <TD><FONT FACE="Arial" SIZE="2" COLOR="#000000"> A unique
+			 identification assigned to a project order that enables its differentiation
+			 from other project orders.</FONT> </TD> 
+		</TR> 
+		<TR VALIGN="top"> 
+		  <TD WIDTH="10%"><FONT FACE="Arial" SIZE="2"
+			 COLOR="#000000">PredefinedType</FONT> </TD> 
+		  <TD WIDTH="1%"><FONT FACE="Arial" SIZE="2"
+			 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+		  <TD><FONT FACE="Arial" SIZE="2" COLOR="#000000"> The type of project
+			 order.<BR> </FONT> </TD> 
+		</TR> 
+		<TR VALIGN="top"> 
+		  <TD WIDTH="10%"><FONT FACE="Arial" SIZE="2"
+			 COLOR="#000000">Status</FONT> </TD> 
+		  <TD WIDTH="1%"><FONT FACE="Arial" SIZE="2"
+			 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+		  <TD><FONT FACE="Arial" SIZE="2" COLOR="#000000"> The current status of
+			 a project order.Examples of status values that might be used for a project
+			 order status include:<BR> - PLANNED<BR> - REQUESTED<BR> - APPROVED<BR> -
+			 ISSUED<BR> - STARTED<BR> - DELAYED<BR> - DONE<BR> <BR> </FONT> </TD> 
+		</TR> 
+	 </TABLE>
+	 <P><FONT FACE="Arial" SIZE="4" COLOR="#000000"><B><A
+		NAME="inheritance">Inheritance graph</A></B></FONT></P> 
+	 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+		<TR VALIGN="top"> 
+		  <TD WIDTH="2%"> </TD> 
+		  <TD> 
+			 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+				<TR VALIGN="top"> 
+				  <TD><FONT FACE="Courier New" SIZE="3"
+					 COLOR="#000000"><B>ENTITY</B> IfcProjectOrder;</FONT> </TD> 
+				</TR> 
+			 </TABLE> 
+			 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+				<TR VALIGN="top"> 
+				  <TD WIDTH="2%"> </TD> 
+				  <TD> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="100%"><FONT FACE="Courier New" SIZE="3"
+							 COLOR="#000000"><B>ENTITY</B> <A
+							 HREF="../../ifckernel/lexical/ifcroot.html">IfcRoot</A>;</FONT> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="2%"> </TD> 
+						  <TD> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">GlobalId</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><A
+									 HREF="../../ifcutilityresource/lexical/ifcgloballyuniqueid.html">IfcGloballyUniqueId</A>;</FONT>
+									 </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">OwnerHistory</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><A
+									 HREF="../../ifcutilityresource/lexical/ifcownerhistory.html">IfcOwnerHistory</A>;</FONT>
+									 </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">Name</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>OPTIONAL</B>
+									 <A HREF="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+									 </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">Description</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>OPTIONAL</B>
+									 <A HREF="../../ifcmeasureresource/lexical/ifctext.html">IfcText</A>;</FONT>
+									 </TD> 
+								</TR> 
+							 </TABLE> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="100%"><FONT FACE="Courier New" SIZE="3"
+							 COLOR="#000000"><B>ENTITY</B> <A
+							 HREF="../../ifckernel/lexical/ifcobject.html">IfcObject</A>;</FONT> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="2%"> </TD> 
+						  <TD> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">ObjectType</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>OPTIONAL</B>
+									 <A HREF="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+									 </TD> 
+								</TR> 
+							 </TABLE> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+							 COLOR="#000000"><B>INVERSE</B></FONT> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="2%"> </TD> 
+						  <TD> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">IsDefinedBy</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>SET</B> <B>OF</B>
+									 <A HREF="../../ifckernel/lexical/ifcreldefines.html">IfcRelDefines</A>
+									 <B>FOR</B> RelatedObjects;</FONT> </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">HasAssociations</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>SET</B> <B>OF</B>
+									 <A HREF="../../ifckernel/lexical/ifcrelassociates.html">IfcRelAssociates</A>
+									 <B>FOR</B> RelatedObjects;</FONT> </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">HasAssignments</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>SET</B> <B>OF</B>
+									 <A HREF="../../ifckernel/lexical/ifcrelassigns.html">IfcRelAssigns</A>
+									 <B>FOR</B> RelatedObjects;</FONT> </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">Decomposes</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>SET</B> [0:1] <B>OF</B>
+									 <A HREF="../../ifckernel/lexical/ifcreldecomposes.html">IfcRelDecomposes</A>
+									 <B>FOR</B> RelatedObjects;</FONT> </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">IsDecomposedBy</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>SET</B> <B>OF</B>
+									 <A HREF="../../ifckernel/lexical/ifcreldecomposes.html">IfcRelDecomposes</A>
+									 <B>FOR</B> RelatingObject;</FONT> </TD> 
+								</TR> 
+							 </TABLE> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="100%"><FONT FACE="Courier New" SIZE="3"
+							 COLOR="#000000"><B>ENTITY</B> <A
+							 HREF="../../ifckernel/lexical/ifccontrol.html">IfcControl</A>;</FONT> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+							 COLOR="#000000"><B>INVERSE</B></FONT> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="2%"> </TD> 
+						  <TD> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">Controls</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>SET</B> <B>OF</B>
+									 <A
+									  HREF="../../ifckernel/lexical/ifcrelassignstocontrol.html">IfcRelAssignsToControl</A>
+									 <B>FOR</B> RelatingControl;</FONT> </TD> 
+								</TR> 
+							 </TABLE> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="100%"><FONT FACE="Courier New" SIZE="3"
+							 COLOR="#000000"><B>ENTITY</B> <A
+							 HREF="ifcprojectorder.html">IfcProjectOrder</A>;</FONT> </TD> 
+						</TR> 
+					 </TABLE> 
+					 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+						<TR VALIGN="top"> 
+						  <TD WIDTH="2%"> </TD> 
+						  <TD> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">ID</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><A
+									 HREF="../../ifcmeasureresource/lexical/ifcidentifier.html">IfcIdentifier</A>;</FONT>
+									 </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">PredefinedType</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><A
+									 HREF="ifcprojectordertypeenum.html">IfcProjectOrderTypeEnum</A>;</FONT> </TD> 
+								</TR> 
+							 </TABLE> 
+							 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+								<TR VALIGN="top"> 
+								  <TD WIDTH="20%" NOWRAP="NOWRAP"><FONT
+									 FACE="Courier New" SIZE="3" COLOR="#000000">Status</FONT> </TD> 
+								  <TD WIDTH="1%"><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000">&nbsp;:&nbsp;</FONT> </TD> 
+								  <TD><FONT FACE="Courier New" SIZE="3"
+									 COLOR="#000000"><B>OPTIONAL</B>
+									 <A HREF="../../ifcmeasureresource/lexical/ifclabel.html">IfcLabel</A>;</FONT>
+									 </TD> 
+								</TR> 
+							 </TABLE> </TD> 
+						</TR> 
+					 </TABLE> </TD> 
+				</TR> 
+			 </TABLE> 
+			 <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"> 
+				<TR VALIGN="top"> 
+				  <TD><FONT FACE="Courier New" SIZE="3"
+					 COLOR="#000000"><B>END_ENTITY</B>;</FONT> </TD> 
+				</TR> 
+			 </TABLE> </TD> 
+		</TR> 
+	 </TABLE> </BODY>
+</HTML>

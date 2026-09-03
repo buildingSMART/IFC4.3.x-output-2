@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcSharedBldgElements"/>
+  <Name>Pset_DoorPanelCommon</Name>
+  <Definition>Definition from IAI: Properties common to the definition of all IfcDoorPanel.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcDoor</TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="247">
+      <Name>PanelToLiningOffset</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Offset of the inner panel face from the inner lining face (measured along the x-axis of the placement co-ordinate system).
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="250">
+      <Name>CrackLength</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="NIL"/>
+      </ValueDef>
+      <Definition>
+Length of the joints of this door panel (usually the perimeter of the panel) that have to be considered for natural ventilation and heat losses.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="251">
+      <Name>InfiltrationCoefficient</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcReal"/>
+          <UnitType type="UserDefined"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Infiltration Coefficient per length unit of joints. Used in conjunction with the LenghtOfJoints property in Pset_WindowPanel or Pset_DoorPanel.. The usual unit (if pressure is taken into consideration) is m3/(mhPa2/3). The following translations apply: G: Fugendurchlaskoeffizient, J: JYOINTO BUBUN NO KUUKI TOUKARITU
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="253">
+      <Name>PanelHasOpenings</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcBoolean"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="False"/>
+        <MaxValue value="True"/>
+        <DefaultValue value="False"/>
+      </ValueDef>
+      <Definition>
+Indication whether the door panel has openings (TRUE) or not (FALSE). Only solid panels are supported by the advanced geometric representation using geometry parameters given by the property set (see property ParameterTakesPrecedence).
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="254">
+      <Name>GlazingAreaFraction</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="1"/>
+      </ValueDef>
+      <Definition>
+Fraction of the glazing area relative to the total area of the filling element. It shall be used, if the glazing area is not given in the Pset_DoorWinPanelOpening as OpeningArea. The following translations apply: G: Glasflachenanteil, J: MADO MENSEKI HIRITU
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="256">
+      <Name>Finish</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Finish selection for this panel
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="257">
+      <Name>Color</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Color selection for this panel
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

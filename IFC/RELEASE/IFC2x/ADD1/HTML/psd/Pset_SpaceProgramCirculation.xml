@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcArchitectureDomain"/>
+  <Name>Pset_SpaceProgramCirculation</Name>
+  <Definition>Definition from IAI: Space program for a circulation space.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcSpaceProgram</TypedClass>
+  <TypeName>CirculationSpaceProgram</TypeName>
+  <PropertyDefs>
+    <PropertyDef id="719">
+      <Name>CirculationLoad</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcInteger"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Maximum number of occupants per minute this space must accommodate (as in escape from Fire). Zero means the value has not been calculated.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="720">
+      <Name>RequiredFFETypes</Name>
+      <PropertyType>
+        <TypeComplexProperty lbound="0" ubound="0">
+          <PropertyType>
+            <TypePropertySingleValue>
+              <DataType type="IfcString"/>
+            </TypePropertySingleValue>
+          </PropertyType>
+        </TypeComplexProperty>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+
+      <Definition>
+Furniture, Fixtures and Equipment for this space
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcProductExtension"/>
+  <Name>Pset_PipeDesignCriteria</Name>
+  <Definition>Definition from IAI: This property set is used to define the general characteristics of the pipe design parameters. This property set is typically attached to an instance of an IfcSystem, however, it may also be attached to individual elements within a pipe distribution system where individual design parameters overrule those of the system.
+
+HISTORY: New property set in IFC Release 2.0.
+
+ISSUES: No issues to date.</Definition>
+  <Typed>False</Typed>
+  <TypedClass></TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="265">
+      <Name>DesignName</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+A name for the design values
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="569">
+      <Name>PipeSizingMethodEnum</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_PipeSizingMethodEnum">
+            <EnumItem>MaximumVelocity</EnumItem>
+            <EnumItem>MaximumPressureDrop</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+Enumeration that identifies the sizing method to be used if different from the system design criteria
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="267">
+      <Name>PressureClass</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPressureMeasure"/>
+          <UnitType type="PressureUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Nominal pressure rating of the system components.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="274">
+      <Name>MaximumVelocity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcLinearVelocityMeasure"/>
+          <UnitType type="LinearVelocityUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The maximum design velocity of the air.
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcSharedBldgElements"/>
+  <Name>Pset_WindowCommon</Name>
+  <Definition>Definition from IAI: Properties common to the definition of all IfcWindow.</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcWindow</TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="102">
+      <Name>Reference</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcIdentifier"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+User defined reference for this window type in this project (e.g. type "W-1")
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="34">
+      <Name>Description</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Specific description for this type of window within this project.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="233">
+      <Name>IsExterior</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcBoolean"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="False"/>
+        <MaxValue value="True"/>
+        <DefaultValue value="False"/>
+      </ValueDef>
+      <Definition>
+Window is an exterior window (TRUE) or interior window (FALSE)
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="237">
+      <Name>Infiltration</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcReal"/>
+          <UnitType type="UserDefined"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Infiltration flowrate of outside air for the filler object based on the area of the filler object at a pressure level of 50 Pascals. It shall be used, if the length of all joints in unknown. The usual unit (if pressure is taken into consideration) is m3/(hPa2/3). The following translations apply: G: Fugendurchlassigkeit
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="238">
+      <Name>ThermalTransmittanceCoefficient</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcThermalTransmittanceMeasure"/>
+          <UnitType type="ThermalTransmittanceUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Overall thermal transmittance coefficient (U-Value) of the composite materials used by the filler object. It includes internal and external surface coefficient. The usual unit is W/m2K. The following translations apply: G: Gesamtwarmedurchgangskoeffizient
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="239">
+      <Name>FireRating</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+Fire rating of complete window assembly. Given according to the national fire safety classification.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="216">
+      <Name>AcousticRating</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Rating for acoustic transmisivity (Sound Transference Factor =STF) for the complete window assembly.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="241">
+      <Name>SecurityRating</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+ndex based rating system indicating security level.
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

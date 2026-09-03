@@ -1,0 +1,81 @@
+
+<html>
+<HEAD>
+<title>IfcSameValidPrecision</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcrepresentationresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcsamevalidprecision.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcSameValidPrecision</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">
+
+  <P><U>Definition from IAI</U>: The function compares the epsilon values (
+
+    given as <I>Precision</I> at <I>IfcGeometricRepresentationContext</I> and 
+
+    ensures that they are the same (with a derivation tollerance) and within 
+
+    reasonable min and max values.</P>
+
+<BLOCKQUOTE> 
+
+  <P><FONT COLOR="#0000FF" SIZE="-1">HISTORY: New function in Release IFC2x Edition 2</FONT></P>
+
+</BLOCKQUOTE> 
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcSameValidPrecision</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000">
+                  &nbsp;&nbsp;(Epsilon1,&nbsp;Epsilon2&nbsp;:&nbsp;REAL)&nbsp;:&nbsp;LOGICAL&nbsp;;<BR>
+                  LOCAL<BR>
+                  &nbsp;&nbsp;ValidEps1,&nbsp;ValidEps2&nbsp;:&nbsp;REAL;<BR>
+                  &nbsp;&nbsp;DefaultEps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;REAL&nbsp;:=&nbsp;0.00000001;<BR>
+                  &nbsp;&nbsp;DerivationOfEps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;REAL&nbsp;:=&nbsp;1.001;<BR>
+                  &nbsp;&nbsp;UpperEps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;REAL&nbsp;:=&nbsp;1.0;<BR>
+                  END_LOCAL;<BR>
+                  <BR>
+                  --&nbsp;In&nbsp;the&nbsp;above&nbsp;function&nbsp;the&nbsp;following&nbsp;three&nbsp;questionable&nbsp;ad-hoc&nbsp;values&nbsp;are&nbsp;used:<BR>
+                  --&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000001&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;the&nbsp;default&nbsp;precision&nbsp;(1E-8)<BR>
+                  --&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;the&nbsp;allowable&nbsp;deviation&nbsp;of&nbsp;the&nbsp;precision&nbsp;values&nbsp;and<BR>
+                  --&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;setting&nbsp;the&nbsp;upper&nbsp;limit&nbsp;of&nbsp;the&nbsp;accepted&nbsp;precision&nbsp;values&nbsp;to&nbsp;about&nbsp;100.<BR>
+                  <BR>
+                  &nbsp;&nbsp;ValidEps1&nbsp;:=&nbsp;NVL(Epsilon1,&nbsp;DefaultEps);<BR>
+                  &nbsp;&nbsp;ValidEps2&nbsp;:=&nbsp;NVL(Epsilon2,&nbsp;DefaultEps);<BR>
+                  &nbsp;&nbsp;RETURN&nbsp;((0.0&nbsp;&#60;&nbsp;ValidEps1)&nbsp;AND&nbsp;(ValidEps1&nbsp;&#60;=&nbsp;DerivationOfEps&nbsp;*&nbsp;ValidEps2)&nbsp;AND&nbsp;(ValidEps2&nbsp;&#60;=&nbsp;DerivationOfEps&nbsp;*&nbsp;ValidEps1)&nbsp;AND&nbsp;(ValidEps2&nbsp;&#60;&nbsp;UpperEps));</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

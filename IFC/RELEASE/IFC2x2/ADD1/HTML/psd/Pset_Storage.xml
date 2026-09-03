@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcSharedFacilitiesElements"/>
+  <Name>Pset_Storage</Name>
+  <Definition>Definition from IAI: A set of specific properties for storage used in workstations.
+
+HISTORY: {{new Pset in IFC Release R2.0}}
+
+ISSUE:</Definition>
+  <Typed>True</Typed>
+  <TypedClass>IfcSystemFurnitureElement</TypedClass>
+  <TypeName>Storage</TypeName>
+  <PropertyDefs>
+    <PropertyDef id="759">
+      <Name>IsOverhead</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcBoolean"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="True"/>
+        <MaxValue value="False"/>
+        <DefaultValue value="True"/>
+      </ValueDef>
+      <Definition>
+is overhead storage or not
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="760">
+      <Name>SupportType</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="empty string"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+I.e. Freestanding or supported
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="761">
+      <Name>UsePurpose</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="empty string"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+e.g. shelf, stationary, office supplies, personal items, etc.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="762">
+      <Name>NumberOfDrawers</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcInteger"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+number of drawers
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="763">
+      <Name>HungingHeight</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+hanging height if IsOverhead
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="104">
+      <Name>Depth</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="0"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="1"/>
+      </ValueDef>
+      <Definition>
+depth of the storage
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

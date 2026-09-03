@@ -1,0 +1,62 @@
+
+<html>
+<HEAD>
+<title>IfcMlsTotalThickness</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcmaterialresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcmlstotalthickness.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><B>IfcMlsTotalThickness</B></FONT></P><P><FONT face="Times New Roman" size="3" color="#000000">Function Semantic Definition<BR>
+Calculates the total thickness of a material layer set.<BR>
+</FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcMlsTotalThickness</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000">
+                  (LayerSet&nbsp;:&nbsp;IfcMaterialLayerSet)&nbsp;:&nbsp;IfcLengthMeasure;<BR>
+                  &nbsp;&nbsp;LOCAL<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;:&nbsp;IfcLengthMeasure&nbsp;:=&nbsp;LayerSet.MaterialLayers[1].LayerThickness;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;END_LOCAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;IF&nbsp;SIZEOF(LayerSet.MaterialLayers)&nbsp;&#62;&nbsp;1&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i&nbsp;:=&nbsp;2&nbsp;TO&nbsp;HIINDEX(LayerSet.MaterialLayers);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;:=&nbsp;Max&nbsp;+&nbsp;LayerSet.MaterialLayers[i].LayerThickness;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;RETURN&nbsp;(Max);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

@@ -1,0 +1,330 @@
+
+<html>
+<HEAD>
+<title>IfcVirtualGridIntersection</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometricconstraintresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0001.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcvirtualgridintersection.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><B>IfcVirtualGridIntersection</B></FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"> 
+
+	 <P><U>Definition from IAI</U>: The virtual grid intersection
+
+		(<I>IfcVirtualGridIntersection</I>) defines the derived location of the
+
+		intersection between two grid axes. Offset values may be given to set an offset
+
+		distance to the grid axis for the calculation of the virtual grid
+
+		intersection.</P> 
+
+	 <P>The two intersecting axes (<I>IntersectingAxes</I>) define the
+
+		intersection point, which exact location (in terms of the Cartesian point
+
+		representing the intersection) has to be calculated from the geometric
+
+		representation of the two participating curves.</P> 
+
+	 <P>Offset values may be given (<I>OffsetDistances</I>). If given, the
+
+		position within the list of <I>OffsetDistances</I> corresponds with the
+
+		position within the list of <I>IntersectingAxes</I>. Therefore:</P> 
+
+	 <UL> 
+
+		<LI> OffsetDistances[1] sets the offset to IntersectingAxes[1], </LI> 
+
+		<LI>OffsetDistances[2] sets the offset to IntersectingAxes[2], and</LI> 
+
+		<LI>OffsetDistances[3] sets the offset to the virtual intersection in
+
+		  direction of the orientation of the cross product of IntersectingAxes[1] and
+
+		  the orthogonal complement of the IntersectingAxes[1] (which is the positive or
+
+		  negative direction of the z axis of the design grid position).</LI> 
+
+	 </UL> 
+
+	 <P><I>Illustration</I></P> 
+
+	 <TABLE CELLPADDING="2" CELLSPACING="2"> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><A
+
+			 HREF="drawings/IfcVirtualGridIntersection-Layout1.dwf"><IMG
+
+			 SRC="figures/IfcVirtualGridIntersection-Layout1.gif" ALT="2D offsets"
+
+			 WIDTH="400" HEIGHT="300" BORDER="0"></A></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">Two offset distances given, the virtual
+
+			 intersection is defined in the xy plane of the grid axis placement.</TD> 
+
+		</TR> 
+
+		<TR VALIGN="TOP"> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><A
+
+			 HREF="drawings/IfcVirtualGridIntersection-Layout2.dwf"><IMG
+
+			 SRC="figures/IfcVirtualGridIntersection-Layout2.gif" ALT="3D offsets"
+
+			 WIDTH="400" HEIGHT="300" BORDER="0"></A></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT">Three offset distances given, the virtual
+
+			 intersection is defined by an offset (in direction of the z-axis of the design
+
+			 grid placement) to the virtual intersection in the xy plane of the grid axis
+
+			 placement.</TD> 
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <P>The distance of the offset curve (<I>OffsetDistances[n]</I>) is measured
+
+		from the basis curve. The distance may be positive, negative or zero. A
+
+		positive value of distance defines an offset in the direction which is normal
+
+		to the curve in the sense of an anti-clockwise rotation through 90 degrees from
+
+		the tangent vector T at the given point. (This is in the direction of
+
+		orthogonal complement(T).) This can be reverted by the <I>SameSense</I>
+
+		attribute at <I>IfcGridAxis</I> which may switch the sense of the
+
+		<I>AxisCurve</I>.</P> 
+
+	 <P><I>Illustration</I></P> 
+
+	 <TABLE CELLPADDING="2" CELLSPACING="2"> 
+
+		<TR> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="320"><IMG
+
+			 SRC="figures/IfcVirtualGridIntersection-Offset1.gif" ALT="offset direction"
+
+			 WIDTH="306" HEIGHT="211" BORDER="0"></TD> 
+
+		  <TD VALIGN="TOP" ALIGN="LEFT"><U>example of a negative offset</U> 
+
+			 <UL> 
+
+				<LI>IntersectingAxes[1].AxisCurve is an IfcTrimmedCurve with an
+
+				  IfcCircle as BasisCurve and SenseAgreement = TRUE. </LI> 
+
+				<LI>IntersectingAxes[1].SameSense = TRUE.</LI> 
+
+				<LI>OffsetDistances[1] is a negative length measure</LI> 
+
+			 </UL>the figure shows the side of the offset.</TD> 
+
+		</TR> 
+
+	 </TABLE> 
+
+	 <BLOCKQUOTE><FONT COLOR="#0000FF" SIZE="-1">HISTORY: New entity in IFC
+
+		Release 1.5. The definition has changed after version 2x beta 2.<BR>ISSUES: See
+
+		issue log for changes made in IFC Release 2x. The entity name was changed from
+
+		IfcConstraintRelIntersection.</FONT></BLOCKQUOTE> 
+
+</FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">ENTITY</A></B> IfcVirtualGridIntersection;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">IntersectingAxes</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>LIST</B> [2:2] <B>OF</B> <B>UNIQUE</B> <A href="ifcgridaxis.html">IfcGridAxis</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">OffsetDistances</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>LIST</B> [2:3] <B>OF</B> <A href="../../ifcmeasureresource/lexical/ifclengthmeasure.html">IfcLengthMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000"><U><A name="attribute_description">Attribute definitions:</A></U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>IntersectingAxes</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Two grid axes which intersects at exactly one intersection (see also informal proposition at IfcGrid).
+      If attribute OffsetDistances is omited, the intersection defines the placement or ref direction of a
+      grid placement directly. If OffsetDistances are given, the intersection is defined by the offset curves
+      to the grid axes.</FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="15%"><FONT face="Times New Roman" size="3" color="#000000"><B>OffsetDistances</B></FONT>
+    </TD>
+    <TD WIDTH="1%"><FONT face="Times New Roman" size="3" color="#000000">&nbsp;:&nbsp;</FONT>
+    </TD>
+    <TD><FONT face="Times New Roman" size="3" color="#000000">      Offset distances to the grid axes. If given, it defines virtual offset curves to the grid axes. The intersection
+      of the offset curves specify the virtual grid intersection.<BR>
+      </FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><B><A name="References">References (2):</A></B></FONT></P>
+<TABLE WIDTH="100%" BORDER="1">
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Name</B></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Type</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Referred through</B></FONT>
+    </TD>
+    <TD WIDTH="40%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><B>Express-G</B></FONT>
+    </TD>
+  </TR>
+  <TR VALIGN="top">
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000"><A href="ifcgridplacement.html">IfcGridPlacement</A></FONT>
+    </TD>
+    <TD WIDTH="10%" ROWSPAN="-1" COLSPAN="-1"><FONT face="Times New Roman" size="2" color="#000000">Entity</FONT>
+    </TD>
+    <TD WIDTH="40%">
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Times New Roman" size="2" color="#000000">Attribute 'PlacementLocation'</FONT>
+          </TD>
+        </TR>
+        <TR VALIGN="top">
+          <TD WIDTH="100%"><FONT face="Times New Roman" size="2" color="#000000">Attribute 'PlacementRefDirection'</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%"><FONT face="Times New Roman" size="2" color="#000000"><A href="../diagrams/diagram_0001.html">Diagram 1</A></FONT>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="3" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> IfcVirtualGridIntersection;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="2" color="#000000"><B>ENTITY</B> <A href="ifcvirtualgridintersection.html">IfcVirtualGridIntersection</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="2%">
+                </TD>
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">IntersectingAxes</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>LIST</B> [2:2] <B>OF</B> <B>UNIQUE</B> <A href="ifcgridaxis.html">IfcGridAxis</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+                    <TR VALIGN="top">
+                      <TD WIDTH="30%"><FONT face="Courier New" size="2" color="#000000">OffsetDistances</FONT>
+                      </TD>
+                      <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">&nbsp;:&nbsp;</FONT>
+                      </TD>
+                      <TD><FONT face="Courier New" size="2" color="#000000"><B>LIST</B> [2:3] <B>OF</B> <A href="../../ifcmeasureresource/lexical/ifclengthmeasure.html">IfcLengthMeasure</A>;</FONT>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

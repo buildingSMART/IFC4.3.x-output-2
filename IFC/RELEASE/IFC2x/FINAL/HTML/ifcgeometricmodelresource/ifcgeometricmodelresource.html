@@ -1,0 +1,485 @@
+
+<html>
+<HEAD>
+<title>IFCGEOMETRICMODELRESOURCE</title>
+</HEAD>
+<BODY>
+<IMG SRC="img/schema_navbar.gif" ALT="Navigation" HEIGHT="46" WIDTH="476" BORDER="0" usemap="#schema-navbar"><BR>
+<MAP name="schema-navbar">
+  <AREA shape="rect" coords="0,0,63,22" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="64,0,197,22" href="#interfaced_schemas">
+  <AREA shape="rect" coords="198,0,287,22" href="#constants">
+  <AREA shape="rect" coords="288,0,356,22" href="#entities">
+  <AREA shape="rect" coords="357,0,475,22" href="#defined_types">
+  <AREA shape="rect" coords="0,23,70,44" href="#select_types">
+  <AREA shape="rect" coords="71,23,171,44" href="#enumerations">
+  <AREA shape="rect" coords="172,23,231,44" href="#global_rules">
+  <AREA shape="rect" coords="232,23,315,44" href="#functions">
+  <AREA shape="rect" coords="316,23,475,44" href="#procedures">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><U>IFCGEOMETRICMODELRESOURCE</U></FONT></P><P>The data model consists of the following:
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right">18&nbsp;
+    </TD>
+    <TD><A href="#entities">Entities</A>
+    </TD>
+  </TR>
+
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right">3&nbsp;
+    </TD>
+    <TD><A href="#select_types">Select types</A>
+    </TD>
+  </TR>
+
+  <TR VALIGN="top">
+    <TD ALIGN="right" WIDTH="10">
+    </TD>
+    <TD ALIGN="right">1&nbsp;
+    </TD>
+    <TD><A href="#enumerations">Enumerations</A>
+    </TD>
+  </TR>
+
+</TABLE><P><FONT face="Times New Roman" size="3" color="#000000">
+
+	 <P>The schema <I>IfcGeometricModelResource</I> defines the resources used
+
+		for geometric model representations. The primary application of this resource
+
+		is for representation of the shape or geometric form of a product model.</P> 
+
+	 <BLOCKQUOTE><FONT COLOR="#0000FF">NOTE: The definitions of this resource of
+
+		the IFC model have been taken from the Integrated Resource, part 42 "Integrated
+
+		generic resources: Geometric and topological representations" of the ISO
+
+		standard 10303: "Industrial automation systems and integration - Product data
+
+		representation and exchange". The IfcGeometricModelResource refers to the
+
+		clause 6, "Geometric Model" of the standard. The reference is ISO/IS
+
+		10303-42:1994, pp. 166. The improved definitions of the second edition, ISO/DIS
+
+		10303-42:1999 have been used, when applicable.</FONT></BLOCKQUOTE> 
+
+	 <P>The definitions taken from ISO/IS 10303-42:1994 have undergone a
+
+		adaptation process, characterized by:</P> 
+
+	 <UL> 
+
+		<LI>adaptation of the IFC naming convention (inner majuscules and Ifc
+
+		  prefix)</LI> 
+
+		<LI>adaptation of the STEP entities, where multiple inheritance or
+
+		  non-exclusive inheritance (i.e. AND or ANDOR subtype constraints) are used</LI>
+
+		
+
+		<LI>selection of a subset of the IR, using subtype and select
+
+		  pruning</LI> 
+
+		<LI>dimensionality of geometric representation items defined at each item
+
+		  (not through the representation context)</LI> 
+
+		<LI>omission of the name attribute at the representation item</LI> 
+
+		<LI>using profile definitions instead of curve bounded surface for the
+
+		  swept surface of swept area solid</LI> 
+
+		<LI>restriction of the manifold solid brep to support faceted breps
+
+		  only</LI> 
+
+		<LI>additional subtype of half space solid added</LI> 
+
+		<LI>additional constraining subtype of Boolean result added</LI> 
+
+	 </UL> 
+
+	 <P>The geometric representation of the shape is defined following the
+
+		adaptation of the <B>ISO/CD 10303-42:1992</B>, <I>Industrial Automation Systems
+
+		and Integration: Product Data Representation and Exchange - Part 42: Integrated
+
+		Generic Resources. Geometric and Topological Representation</I>. The type,
+
+		class, and function semantic definition sections follow the adapted wording of
+
+		the working draft, which is clearly indicated and quoted at each reference. The
+
+		definitions on geometric and topological representation (when taken from ISO/CD
+
+		10303-42:1992) are explicitly excluded from the copyright of buildingSMART International Limited. </P> 
+
+	 <BLOCKQUOTE><FONT COLOR="#0000FF">For more information on the definitions
+
+		as defined in the formal ISO standard please refer to: ISO/IS 10303-42:1994,
+
+		Industrial Automation Systems and Integration: Product Data Representation and
+
+		Exchange - Part 42: Integrated Generic Resources. Geometric and Topological
+
+		Representation. The formal standard can be obtained through the local
+
+		publishers of standards in each individual country.</FONT> </BLOCKQUOTE> 
+
+	 <P>The following is within the scope of the geometric model representation
+
+		in the current version of the geometric model resource: </P> 
+
+	 <UL> 
+
+		<LI>data describing the precise geometric form of three-dimensional solid
+
+		  objects;</LI> 
+
+		<LI>constructive solid geometry (CSG) models;</LI> 
+
+		<LI>definition of half-spaces ( CSG primitives are not in scope);</LI> 
+
+		<LI>creation of solid models by sweeping operations (swept area solids
+
+		  only);</LI> 
+
+		<LI>manifold boundary representation (B-rep) models (restricted to
+
+		  faceted brep);</LI>
+
+		<LI>surface models;</LI>
+
+		<LI>geometric sets.</LI> 
+
+	 </UL> 
+
+	 <H3>Fundamental Concepts and Assumptions</H3>
+
+	 <BLOCKQUOTE> <FONT COLOR="#0000FF">NOTE: The following fundamental concepts
+
+		and assumptions are taken from ISO/CD 10303-42:1992. Please refer to ISO/IS
+
+		10303-42:1994, p. 166-167 for the final definition of the formal
+
+		standard.</FONT></BLOCKQUOTE> 
+
+	 <BLOCKQUOTE><FONT COLOR="#0000FF">NOTE: Only the parts relevant to the
+
+		subset of ISO 10303-42 (which had been incorporated into the
+
+		IfcGeometricModelResource) are quoted.</FONT></BLOCKQUOTE>
+
+	 <P>The constructive solid geometry models are represented by teir component
+
+		primitives and the sequence of Boolean operations (union, intersection, or
+
+		difference) used in their construction. The entity which communicates the
+
+		logical sequence of Boolean operations is the boolean_result
+
+		(<I>IfcBooleanResult</I>) which identifies an operator and two operands. Since
+
+		the operands can themselves be Boolean results thus enabling nested operations.
+
+		Swept solids and half-space solids are permissable Boolean operands. The swept
+
+		solids are the solid of revolution and the solid of linear extrusion. The swept
+
+		solids are obtained by extruding or sweeping a planar face which may contain
+
+		holes. The half space solid is essentially defined as a semi-infinite solid on
+
+		one side of a surface; it may be limited by a box domain.</P>
+
+	 <P>B-rep models are represented by the set of shells defining the exterior
+
+		or interior boundaries. The facetted B-rep is restricted to represent B-reps in
+
+		which all faces are planar and every loop is a poly loop. For such a solid this
+
+		entity provides a more efficient form of representation. The shell based
+
+		surface model, the face based surface model and the geometric set entities do
+
+		not enforce the integrity checks of the manifold solid brep and can be used for
+
+		the communication of incomplete models (including two-dimensional
+
+		models).</P>
+
+</FONT></P><P><FONT face="Arial" size="4" color="#000000"><B><A name="interfaced_schemas">Interfaced schemas (4):</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcgeometryresource/ifcgeometryresource.html">IFCGEOMETRYRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcgeometryresource/lexical/ifcdimensioncount.html">IfcDimensionCount</A>,<BR><A href="../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.html">IfcGeometricRepresentationItem</A>,<BR><A href="../ifcgeometryresource/lexical/ifcsurface.html">IfcSurface</A>,<BR><A href="../ifcgeometryresource/lexical/ifccartesianpoint.html">IfcCartesianPoint</A>,<BR><A href="../ifcgeometryresource/lexical/ifcdirection.html">IfcDirection</A>,<BR><A href="../ifcgeometryresource/lexical/ifcaxis1placement.html">IfcAxis1Placement</A>,<BR><A href="../ifcgeometryresource/lexical/ifcline.html">IfcLine</A>,<BR><A href="../ifcgeometryresource/lexical/ifccircle.html">IfcCircle</A>,<BR><A href="../ifcgeometryresource/lexical/ifcvectorsum.html">IfcVectorSum</A>,<BR><A href="../ifcgeometryresource/lexical/ifcaxis2placement3d.html">IfcAxis2Placement3D</A>,<BR><A href="../ifcgeometryresource/lexical/ifccompositecurve.html">IfcCompositeCurve</A>,<BR><A href="../ifcgeometryresource/lexical/ifc2dcompositecurve.html">Ifc2DCompositeCurve</A>,<BR><A href="../ifcgeometryresource/lexical/ifcpolyline.html">IfcPolyline</A>,<BR><A href="../ifcgeometryresource/lexical/ifctrimmedcurve.html">IfcTrimmedCurve</A>,<BR><A href="../ifcgeometryresource/lexical/ifcplane.html">IfcPlane</A>,<BR><A href="../ifcgeometryresource/lexical/ifcdummygri.html">IfcDummyGri</A>,<BR><A href="../ifcgeometryresource/lexical/ifccurve.html">IfcCurve</A>,<BR><A href="../ifcgeometryresource/lexical/ifcpoint.html">IfcPoint</A>,<BR><A href="../ifcgeometryresource/lexical/ifcvector.html">IfcVector</A>,<BR><A href="../ifcgeometryresource/lexical/ifcdotproduct.html">IfcDotProduct</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcmeasureresource/ifcmeasureresource.html">IFCMEASURERESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcmeasureresource/lexical/ifcpositivelengthmeasure.html">IfcPositiveLengthMeasure</A>,<BR><A href="../ifcmeasureresource/lexical/ifcplaneanglemeasure.html">IfcPlaneAngleMeasure</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifcprofileresource/ifcprofileresource.html">IFCPROFILERESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifcprofileresource/lexical/ifccircleprofiledef.html">IfcCircleProfileDef</A>,<BR><A href="../ifcprofileresource/lexical/ifcrectangleprofiledef.html">IfcRectangleProfileDef</A>,<BR><A href="../ifcprofileresource/lexical/ifctrapeziumprofiledef.html">IfcTrapeziumProfileDef</A>,<BR><A href="../ifcprofileresource/lexical/ifcellipseprofiledef.html">IfcEllipseProfileDef</A>,<BR><A href="../ifcprofileresource/lexical/ifcroundedrectangleprofiledef.html">IfcRoundedRectangleProfileDef</A>,<BR><A href="../ifcprofileresource/lexical/ifcprofiledef.html">IfcProfileDef</A>,<BR><A href="../ifcprofileresource/lexical/ifcprofiletypeenum.html">IfcProfileTypeEnum</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>REFERENCE</B> <B>FROM</B> <A href="../ifctopologyresource/ifctopologyresource.html">IFCTOPOLOGYRESOURCE</A></FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="2" color="#000000">(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="2" color="#000000"><A href="../ifctopologyresource/lexical/ifcclosedshell.html">IfcClosedShell</A>,<BR><A href="../ifctopologyresource/lexical/ifcconnectedfaceset.html">IfcConnectedFaceSet</A>,<BR><A href="../ifctopologyresource/lexical/ifcshell.html">IfcShell</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="entities">Entities (18):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifcbooleanclippingresult.html" target="SOURCE">IfcBooleanClippingResult</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifcbooleanresult.html" target="SOURCE">IfcBooleanResult</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifcboundingbox.html" target="SOURCE">IfcBoundingBox</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifcboxedhalfspace.html" target="SOURCE">IfcBoxedHalfSpace</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifccsgsolid.html" target="SOURCE">IfcCsgSolid</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0003.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 3"></A>
+    </TD>
+    <TD><A href="lexical/ifcextrudedareasolid.html" target="SOURCE">IfcExtrudedAreaSolid</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0005.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 5"></A>
+    </TD>
+    <TD><A href="lexical/ifcfacebasedsurfacemodel.html" target="SOURCE">IfcFaceBasedSurfaceModel</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0004.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 4"></A>
+    </TD>
+    <TD><A href="lexical/ifcfacetedbrep.html" target="SOURCE">IfcFacetedBrep</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0004.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 4"></A>
+    </TD>
+    <TD><A href="lexical/ifcfacetedbrepwithvoids.html" target="SOURCE">IfcFacetedBrepWithVoids</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0005.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 5"></A>
+    </TD>
+    <TD><A href="lexical/ifcgeometricset.html" target="SOURCE">IfcGeometricSet</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifchalfspacesolid.html" target="SOURCE">IfcHalfSpaceSolid</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0004.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 4"></A>
+    </TD>
+    <TD><A href="lexical/ifcmanifoldsolidbrep.html" target="SOURCE">IfcManifoldSolidBrep</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0002.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 2"></A>
+    </TD>
+    <TD><A href="lexical/ifcpolygonalboundedhalfspace.html" target="SOURCE">IfcPolygonalBoundedHalfSpace</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0003.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 3"></A>
+    </TD>
+    <TD><A href="lexical/ifcrevolvedareasolid.html" target="SOURCE">IfcRevolvedAreaSolid</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0004.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 4"></A>
+    </TD>
+    <TD><A href="lexical/ifcsectionedspine.html" target="SOURCE">IfcSectionedSpine</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0005.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 5"></A>
+    </TD>
+    <TD><A href="lexical/ifcshellbasedsurfacemodel.html" target="SOURCE">IfcShellBasedSurfaceModel</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0003.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 3"></A>
+    </TD>
+    <TD><A href="lexical/ifcsolidmodel.html" target="SOURCE">IfcSolidModel</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0003.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 3"></A>
+    </TD>
+    <TD><A href="lexical/ifcsweptareasolid.html" target="SOURCE">IfcSweptAreaSolid</A>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="select_types">Select types (3):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifcbooleanoperand.html" target="SOURCE">IfcBooleanOperand</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifccsgselect.html" target="SOURCE">IfcCsgSelect</A>
+    </TD>
+  </TR>
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0005.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 5"></A>
+    </TD>
+    <TD><A href="lexical/ifcgeometricsetselect.html" target="SOURCE">IfcGeometricSetSelect</A>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="enumerations">Enumerations (1):</A></B></FONT></P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="center">
+    <TD WIDTH="24"><A href="diagrams/diagram_0001.html"><IMG src="../img/layout_icon.gif" border="0" alt="Go to Diagram 1"></A>
+    </TD>
+    <TD><A href="lexical/ifcbooleanoperator.html" target="SOURCE">IfcBooleanOperator</A>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

@@ -1,0 +1,172 @@
+<?xml version ="1.0" encoding='UTF-8' ?>
+
+<!--
+# Property Set Definition markup language (PSD)
+
+# Author: adachi@ai.isl.secom.co.jp (Yoshinobu Adachi)
+# Version: 0.91
+# Organization: International Alliance for Interoperability MSG
+# Date: 1999/06/28 0.1
+        1999/12/15 0.2
+        2000/02/07 0.3
+        2000/03/22 0.4 add R2.x enumeration
+        2000/03/24 0.5 bug fix
+        2000/03/30 0.6 TypePropertyList -> TypeComplexProperty
+        2000/03/31 0.7 add Schema element
+        2000/04/12 0.8 add ThermodynamicTemperatureUnit to UnitType
+        2000/10/01 0.9
+        2000/10/17 0.91 removed ValueDef from PropertyDef child level
+-->
+<!-- ************************************************ -->
+<!-- PropertySet body definition                      -->
+<!-- ************************************************ -->
+<!ELEMENT PropertySetDef  (IfcVersion , Name ,  (Definition? ) , Typed , TypedClass , TypeName , PropertyDefs )>
+
+<!ELEMENT IfcVersion EMPTY>
+
+<!-- ************************************************ -->
+<!-- Other attribute list definition                  -->
+<!-- ************************************************ -->
+<!ATTLIST IfcVersion version NMTOKEN  "2.0">
+
+<!ATTLIST IfcVersion schema  CDATA    #IMPLIED>
+
+<!ELEMENT Name  (#PCDATA )>
+
+<!ELEMENT Definition  (#PCDATA )>
+<!ATTLIST Definition  lang CDATA  #IMPLIED >
+<!ELEMENT Typed  (#PCDATA )>
+
+<!ELEMENT TypedClass  (#PCDATA )>
+
+<!ELEMENT TypeName  (#PCDATA )>
+
+<!ELEMENT PropertyDefs  (PropertyDef* )>
+
+<!ELEMENT PropertyDef  (Name | PropertyType | ValueDef | Definition )*>
+<!ATTLIST PropertyDef  name NMTOKEN  #IMPLIED
+                       id   NMTOKEN  #REQUIRED >
+<!ELEMENT PropertyType  (TypePropertySingleValue | TypePropertyEnumeratedValue | TypePropertyBoundedValue | TypePropertyTableValue | TypePropertyReferenceValue | TypeComplexProperty )>
+
+<!-- ************************************************ -->
+<!-- Property body definition                         -->
+<!-- ************************************************ -->
+<!ELEMENT TypePropertySingleValue  (DataType , UnitType? )>
+
+<!ELEMENT TypePropertyEnumeratedValue  (EnumList )>
+
+<!ELEMENT TypeComplexProperty  (PropertyType )>
+<!ATTLIST TypeComplexProperty  ubound CDATA    #IMPLIED
+                               name   NMTOKEN  #IMPLIED
+                               lbound CDATA    #IMPLIED >
+<!ELEMENT TypePropertyReferenceValue EMPTY>
+<!ATTLIST TypePropertyReferenceValue  name        NMTOKEN  #IMPLIED
+                                      reftype     NMTOKEN  #REQUIRED
+                                      guid        NMTOKEN  #IMPLIED
+                                      URL         CDATA    #IMPLIED
+                                      libraryname CDATA    #IMPLIED
+                                      sectionref  CDATA    #IMPLIED >
+<!ELEMENT TypePropertyTableValue  (DefiningUnit? , DefinedUnit? )>
+<!ATTLIST TypePropertyTableValue  expression CDATA  #IMPLIED >
+<!-- ************************************************ -->
+<!-- Data type and Unit type definition               -->
+<!-- ************************************************ -->
+<!ELEMENT DataType EMPTY>
+<!ATTLIST DataType  type  (IfcAmountOfSubstanceMeasure | 
+                           IfcAngularVelocityMeasure | 
+                           IfcAreaMeasure | 
+                           IfcBoolean | 
+                           IfcCompoundPlaneAngleMeasure | 
+                           IfcContextDependentMeasure | 
+                           IfcCountMeasure | 
+                           IfcDescriptiveMeasure | 
+                           IfcDynamicViscosityMeasure | 
+                           IfcElectricCurrentMeasure | 
+                           IfcElectricVoltageMeasure | 
+                           IfcEnergyMeasure | 
+                           IfcHeatfluxDensityMeasure | 
+                           IfcIdentifier | 
+                           IfcInteger | 
+                           IfcIntegerCountMeasure | 
+                           IfcIntegerCountRateMeasure | 
+                           IfcKinematicViscosityMeasure | 
+                           IfcLengthMeasure | 
+                           IfcLinearVelocityMeasure | 
+                           IfcLuminousIntensityMeasure | 
+                           IfcMassDensityMeasure | 
+                           IfcMassFlowRateMeasure | 
+                           IfcMassMeasure | 
+                           IfcMonetaryMeasure | 
+                           IfcNumericMeasure | 
+                           IfcParameterValue | 
+                           IfcPercentMeasure | 
+                           IfcPlaneAngleMeasure | 
+                           IfcPositiveLengthMeasure | 
+                           IfcPositivePlaneAngleMeasure | 
+                           IfcPositiveRatioMeasure | 
+                           IfcPowerMeasure | 
+                           IfcPressureMeasure | 
+                           IfcRatioMeasure | 
+                           IfcReal | 
+                           IfcRotationalFrequencyMeasure | 
+                           IfcSolidAngleMeasure | 
+                           IfcString | 
+                           IfcThermalAdmittanceMeasure | 
+                           IfcThermalResistanceMeasure | 
+                           IfcThermalTransmittanceMeasure | 
+                           IfcThermodynamicTemperatureMeasure | 
+                           IfcTimeDurationMeasure | 
+                           IfcTimeMeasure | 
+                           IfcTimeStamp | 
+                           IfcVolumeMeasure | 
+                           IfcVolumetricFlowRateMeasure )  'IfcString' >
+<!ELEMENT UnitType EMPTY>
+<!ATTLIST UnitType  type  (VolumetricFlowrateUnit | 
+                           MassFlowrateUnit | 
+                           PressureUnit | 
+                           EnergyUnit | 
+                           PowerUnit | 
+                           AngularVelocityUnit | 
+                           LinearVelocityUnit | 
+                           RotationalFrequencyUnit | 
+                           HeatfluxDensityUnit | 
+                           MassDensityUnit | 
+                           ThermalResistanceUnit | 
+                           ThermalTransmittanceUnit | 
+                           ThermodynamicTemperatureUnit | 
+                           InfiltatationUnit | 
+                           VoltageUnit | 
+                           DynamicViscosityUnit | 
+                           KinematicViscosityUnit | 
+                           UserDefined | 
+                           Unspecified )  'Unspecified' >
+<!ELEMENT EnumList  ( (EnumItem )* , DataType? , UnitType? )>
+<!ATTLIST EnumList  name CDATA  #REQUIRED >
+<!ELEMENT EnumItem  (#PCDATA )>
+
+<!-- ************************************************ -->
+<!-- Value definition                                 -->
+<!-- ************************************************ -->
+<!ELEMENT ValueDef  (MinValue | MaxValue | DefaultValue )*>
+
+<!ELEMENT MinValue EMPTY>
+<!ATTLIST MinValue  value CDATA  #IMPLIED >
+<!ELEMENT MaxValue EMPTY>
+<!ATTLIST MaxValue  value CDATA  #IMPLIED >
+<!ELEMENT DefaultValue EMPTY>
+<!ATTLIST DefaultValue  value CDATA  #IMPLIED >
+<!ELEMENT TypePropertyBoundedValue  (ValueRangeDef , DataType? , UnitType? )>
+
+<!ELEMENT DefiningUnit  (UnitType )>
+
+<!ELEMENT DefinedUnit  (UnitType )>
+
+<!-- ************************************************ -->
+<!-- ValueRange definition                            -->
+<!-- ************************************************ -->
+<!ELEMENT ValueRangeDef  (LowerBoundValue | UpperBoundValue )>
+
+<!ELEMENT LowerBoundValue EMPTY>
+<!ATTLIST LowerBoundValue  value CDATA  #IMPLIED >
+<!ELEMENT UpperBoundValue EMPTY>
+<!ATTLIST UpperBoundValue  value CDATA  #IMPLIED >

@@ -1,0 +1,94 @@
+
+<html>
+<HEAD>
+<title>IfcVectorSum</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://iaiweb.lbl.gov">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcgeometryresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcvectorsum.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000000"><B>IfcVectorSum</B></FONT></P><P><FONT face="Times New Roman" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcVectorSum</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000">
+                  &nbsp;&nbsp;(Arg1,&nbsp;Arg2&nbsp;:&nbsp;IfcVectorOrDirection)&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;IfcVector;<BR>
+                  LOCAL<BR>
+                  &nbsp;&nbsp;Result&nbsp;:&nbsp;IfcVector;<BR>
+                  &nbsp;&nbsp;Res,&nbsp;Vec1,&nbsp;Vec2&nbsp;:&nbsp;IfcDirection;<BR>
+                  &nbsp;&nbsp;Mag,&nbsp;Mag1,&nbsp;Mag2&nbsp;:&nbsp;REAL;<BR>
+                  &nbsp;&nbsp;Ndim&nbsp;:&nbsp;INTEGER;<BR>
+                  END_LOCAL;<BR>
+                  <BR>
+                  &nbsp;&nbsp;IF&nbsp;((NOT&nbsp;EXISTS&nbsp;(Arg1))&nbsp;OR&nbsp;(NOT&nbsp;EXISTS&nbsp;(Arg2)))&nbsp;OR&nbsp;(Arg1.Dim&nbsp;&#60;&#62;&nbsp;Arg2.Dim)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(?)&nbsp;;<BR>
+                  &nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;BEGIN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;'IFCGEOMETRYRESOURCE.IFCVECTOR'&nbsp;IN&nbsp;TYPEOF(Arg1)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag1&nbsp;:=&nbsp;Arg1.Magnitude;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec1&nbsp;:=&nbsp;Arg1.Orientation;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag1&nbsp;:=&nbsp;1.0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec1&nbsp;:=&nbsp;Arg1;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;'IFCGEOMETRYRESOURCE.IFCVECTOR'&nbsp;IN&nbsp;TYPEOF(Arg2)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag2&nbsp;:=&nbsp;Arg2.Magnitude;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec2&nbsp;:=&nbsp;Arg2.Orientation;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag2&nbsp;:=&nbsp;1.0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec2&nbsp;:=&nbsp;Arg2;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec1&nbsp;:=&nbsp;IfcNormalise&nbsp;(Vec1);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec2&nbsp;:=&nbsp;IfcNormalise&nbsp;(Vec2);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ndim&nbsp;:=&nbsp;SIZEOF(Vec1.DirectionRatios);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag&nbsp;&nbsp;:=&nbsp;0.0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Res&nbsp;&nbsp;:=&nbsp;IfcDummyGri&nbsp;||&nbsp;IfcDirection([]);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i&nbsp;:=&nbsp;1&nbsp;TO&nbsp;Ndim;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Res.DirectionRatios[i]&nbsp;:=&nbsp;Mag1*Vec1.DirectionRatios[i]&nbsp;+<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag2*Vec2.DirectionRatios[i];<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mag&nbsp;:=&nbsp;Mag&nbsp;+&nbsp;(Res.DirectionRatios[i]*Res.DirectionRatios[i]);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(Mag&nbsp;&#62;&nbsp;0.0&nbsp;)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;IfcDummyGri&nbsp;||&nbsp;IfcVector(&nbsp;Res,&nbsp;SQRT(Mag));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;IfcDummyGri&nbsp;||&nbsp;IfcVector(&nbsp;Vec1,&nbsp;0.0);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END;<BR>
+                  &nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;RETURN&nbsp;(Result);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

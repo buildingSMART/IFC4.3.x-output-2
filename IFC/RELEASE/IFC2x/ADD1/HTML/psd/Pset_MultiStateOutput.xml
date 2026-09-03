@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcHvacDomain"/>
+  <Name>Pset_MultiStateOutput</Name>
+  <Definition>Definition from IAI: This property set is used to define the characteristics of a multi-state output.
+
+HISTORY: New property set in IFC Release 2.0.
+
+ISSUES: No issues to date.</Definition>
+  <Typed>False</Typed>
+  <TypedClass></TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="495">
+      <Name>NumberOfStates</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcInteger"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Number of states for the MultiState Output
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="496">
+      <Name>StateText</Name>
+      <PropertyType>
+        <TypeComplexProperty lbound="0" ubound="0">
+          <PropertyType>
+            <TypePropertySingleValue>
+              <DataType type="IfcString"/>
+            </TypePropertySingleValue>
+          </PropertyType>
+        </TypeComplexProperty>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="n/a"/>
+        <MaxValue value="n/a"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+
+      <Definition>
+String value to identify the state condition. Upper limit of the list is equal to the NumberOfStates.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="77">
+      <Name>EventEnableEnum</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_EventEnableEnum">
+            <EnumItem>To-OffNormal</EnumItem>
+            <EnumItem>To-Fault</EnumItem>
+            <EnumItem>To-Normal</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+Enumeration that defines the type of event enabling
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="78">
+      <Name>NotifyTypeEnum</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_NotifyTypeEnum">
+            <EnumItem>Alarm</EnumItem>
+            <EnumItem>Event</EnumItem>
+            <EnumItem>AcknowledgeNotification</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+numeration that defines the notification type
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>

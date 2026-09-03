@@ -1,0 +1,82 @@
+
+<html>
+<HEAD>
+<title>IfcNoOfLayers</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifcsharedbldgelements.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcnooflayers.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcNoOfLayers</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">The function IfcNoOfLayers returns the number of layer from the material description attached to an element.</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcNoOfLayers</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="3" color="#000000">
+                  &nbsp;&nbsp;&nbsp;&nbsp;(Element&nbsp;:&nbsp;IfcElement&nbsp;)<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;INTEGER;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;LOCAL<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Association&nbsp;:&nbsp;BAG&nbsp;OF&nbsp;IfcRelAssociates&nbsp;:=&nbsp;[];<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MaterialAssociation&nbsp;:&nbsp;SET&nbsp;OF&nbsp;IfcRelAssociatesMaterial&nbsp;:=&nbsp;[];<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_LOCAL;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Association&nbsp;:=&nbsp;USEDIN(Element,&nbsp;'IFCKERNEL.IFCRELASSOCIATES.RELATEDOBJECTS');<BR>
+                  &nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;SIZEOF&nbsp;(Association)&nbsp;&#62;&nbsp;0&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT&nbsp;i&nbsp;:=&nbsp;1&nbsp;TO&nbsp;HIINDEX(Association);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;('IFCPRODUCTEXTENSION.IFCRELASSOCIATESMATERIAL'&nbsp;IN&nbsp;TYPEOF(Association[i]))&nbsp;THEN&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MaterialAssociation&nbsp;:=&nbsp;MaterialAssociation&nbsp;+&nbsp;Association[i];<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;(SIZEOF(MaterialAssociation)&nbsp;&#60;&#62;&nbsp;1)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(?);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;ELSE<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;'IFCMATERIALRESOURCE.IFCMATERIAL'&nbsp;IN&nbsp;TYPEOF(MaterialAssociation[1].RelatingMaterial)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(1);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;'IFCMATERIALRESOURCE.IFCMATERIALLAYERSETUSAGE'&nbsp;IN&nbsp;TYPEOF(MaterialAssociation[1].RelatingMaterial)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(SIZEOF(MaterialAssociation[1].RelatingMaterial.ForLayerSet.MaterialLayers));<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;'IFCMATERIALRESOURCE.IFCMATERIALLIST'&nbsp;IN&nbsp;TYPEOF(MaterialAssociation[1].RelatingMaterial)&nbsp;THEN<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(?);<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;END_IF;<BR>
+                  &nbsp;&nbsp;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;(?);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

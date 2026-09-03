@@ -1,0 +1,177 @@
+
+<html>
+<HEAD>
+<title>IfcLoop</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/entity_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="625" BORDER="0" usemap="#entity-navbar"><BR>
+<MAP name="entity-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org/">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifctopologyresource.html">
+  <AREA shape="rect" coords="142,0,244,23" href="../diagrams/diagram_0002.html">
+  <AREA shape="rect" coords="245,0,323,23" href="#definition">
+  <AREA shape="rect" coords="324,0,398,23" href="#attribute_description">
+  <AREA shape="rect" coords="399,0,442,23" href="#constraint_description">
+  <AREA shape="rect" coords="443,0,526,23" href="#inheritance">
+  <AREA shape="rect" coords="527,0,623,23" href="ifcloop.html#references">
+</MAP><P><FONT face="Arial" size="4" color="#000080"><B>IfcLoop</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">
+
+	 <P><U>Definition from ISO/CD 10303-42:1992:</U> A loop is a topological
+
+		entity constructed from a single vertex, or by stringing together connected
+
+		(oriented) edges, or linear segments beginning and ending at the same vertex.
+
+		It is typically used to bound a face lying on a surface. A loop has
+
+		dimensionality of 0 or 1. The domain of a 0-dimensional loop is a single point.
+
+		The domain of a 1-dimensional loop is a connected, oriented curve, but need not
+
+		to be manifold. As the loop is a circle, the location of its beginning/ending
+
+		point is arbitrary. The domain of the loop includes its bounds, an
+
+		<FONT FACE="Symbol">0 &pound; X &lt; &yen;.</FONT> </P> 
+
+	 <P>A loop is represented by a single vertex, or by an ordered collection of
+
+		oriented edges, or by an ordered collection of points. A loop is a graph, so
+
+		<I>M</I> and the graph genus <I>G<SUP>l</SUP></I> may be determined by the
+
+		graph traversal algorithm. Since <I>M </I>= 1, the Euler equation (1) reduces
+
+		in this case to </P> 
+
+	 <BLOCKQUOTE><IMG SRC="figures/IfcLoop-Math1.gif" HEIGHT="31" WIDTH="180">
+
+		</BLOCKQUOTE> 
+
+	 <P>where <I>V</I> and <I>E<SUB>l</SUB></I> are the number of unique
+
+		vertices and oriented edges in the loop and <I>G<SUP>l</SUP></I> is the genus
+
+		of the loop. </P> 
+
+	 <BLOCKQUOTE><FONT COLOR="#0000FF" SIZE="-1">NOTE: Corresponding STEP
+
+		entity: loop, the following subtypes have been incorporated into IFC: poly_loop
+
+		as <I>IfcPolyLoop</I>, vertex_loop as <I>IfcVertexLoop</I>, edge_loop as
+
+		<I>IfcEdgeLoop</I>. Please refer to ISO/IS 10303-42:1994, p. 136 for the final
+
+		definition of the formal standard.</FONT> </BLOCKQUOTE> 
+
+	 <BLOCKQUOTE> 
+
+		<P><FONT COLOR="#0000FF" SIZE="-1">HISTORY: New Entity in IFC Release
+
+		  2.x. </FONT></P></BLOCKQUOTE> 
+
+	 <P>Informal propositions:</P> 
+
+	 <OL> 
+
+		<LI>A loop has a finite extent.</LI> 
+
+		<LI>A loop describes a closed (topological) curve with coincident start
+
+		  and end vertices.</LI> 
+
+	 </OL>
+
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B><A name="definition">ENTITY</A></B> IfcLoop</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>SUPERTYPE</B>&nbsp;<B>OF</B></FONT>
+                </TD>
+                <TD height="1%"><FONT face="Courier New" size="3" color="#000000">(<B>ONEOF</B>(<A href="ifcpolyloop.html">IfcPolyLoop</A>, <A href="ifcvertexloop.html">IfcVertexLoop</A>, <A href="ifcedgeloop.html">IfcEdgeLoop</A>))</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="1%"><FONT face="Courier New" size="3" color="#000000"><B>SUBTYPE</B>&nbsp;<B>OF</B>&nbsp;(</FONT>
+                </TD>
+                <TD><FONT face="Courier New" size="3" color="#000000"><A href="ifctopologicalrepresentationitem.html">IfcTopologicalRepresentationItem</A>);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE><P><FONT face="Arial" size="4" color="#000000"><B><A name="inheritance">Inheritance graph</A></B></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> IfcLoop;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="../../ifcgeometryresource/lexical/ifcrepresentationitem.html">IfcRepresentationItem</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifctopologicalrepresentationitem.html">IfcTopologicalRepresentationItem</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD WIDTH="100%"><FONT face="Courier New" size="3" color="#000000"><B>ENTITY</B> <A href="ifcloop.html">IfcLoop</A>;</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="3" color="#000000"><B>END_ENTITY</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

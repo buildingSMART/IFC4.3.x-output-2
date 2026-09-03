@@ -1,0 +1,64 @@
+
+<html>
+<HEAD>
+<title>IfcPathHeadToTail</title>
+</HEAD>
+<BODY>
+<IMG SRC="../img/expression_navbar.gif" ALT="Navigation" HEIGHT="24" WIDTH="319" BORDER="0" usemap="#expression-navbar"><BR>
+<MAP name="expression-navbar">
+  <AREA shape="rect" coords="0,0,62,23" href="http://www.iai-international.org">
+  <AREA shape="rect" coords="63,0,141,23" href="../ifctopologyresource.html">
+  <AREA shape="rect" coords="142,0,221,23" href="#definition">
+  <AREA shape="rect" coords="222,0,318,23" href="ifcpathheadtotail.html#references">
+</MAP><P><FONT face="Arial" size="5" color="#000000"><B>IfcPathHeadToTail</B></FONT></P><P><FONT face="Arial" size="3" color="#000000">Function Semantic Definition<BR>
+  <BR>
+History<BR>
+New Function in IFC Release 2.0 <BR>
+</FONT></P><P><FONT face="Arial" size="3" color="#000000"><U>EXPRESS specification:</U></FONT></P>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+  <TR VALIGN="top">
+    <TD WIDTH="2%">
+    </TD>
+    <TD>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B><A name="definition">FUNCTION</A></B> IfcPathHeadToTail</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD WIDTH="2%">
+          </TD>
+          <TD>
+            <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TR VALIGN="top">
+                <TD><FONT face="Courier New" size="2" color="#000000">
+                  (APath&nbsp;:&nbsp;IfcPath)&nbsp;:&nbsp;LOGICAL;<BR>
+                  &nbsp;&nbsp;&nbsp;LOCAL<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;:&nbsp;INTEGER&nbsp;:=&nbsp;0;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P&nbsp;:&nbsp;LOGICAL&nbsp;:=&nbsp;UNKNOWN;<BR>
+                  &nbsp;&nbsp;&nbsp;END_LOCAL;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;:=&nbsp;SIZEOF&nbsp;(APath.EdgeList);<BR>
+                  &nbsp;&nbsp;&nbsp;REPEAT&nbsp;i&nbsp;:=&nbsp;2&nbsp;TO&nbsp;N;<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P&nbsp;:=&nbsp;P&nbsp;AND&nbsp;(APath.EdgeList[i-1].EdgeEnd&nbsp;:=:<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;APath.EdgeList[i].EdgeStart);<BR>
+                  &nbsp;&nbsp;&nbsp;END_REPEAT;<BR>
+                  &nbsp;&nbsp;&nbsp;RETURN&nbsp;(P);</FONT>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="top">
+          <TD><FONT face="Courier New" size="2" color="#000000"><B>END_FUNCTION</B>;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY>
+</html>

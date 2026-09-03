@@ -1,0 +1,420 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertySetDef SYSTEM "PSD_R2x.dtd">
+<?xml-stylesheet type="text/xsl" href="PSD_R2x.xsl"?>
+<PropertySetDef>
+  <IfcVersion version="2.x" schema="IfcProductExtension"/>
+  <Name>Pset_AirSideSystemInformation</Name>
+  <Definition>Definition from IAI: Attributes that apply to an air side HVAC system.
+
+HISTORY: New property set in IFC Release 1.0.
+
+ISSUES: No issues to date.</Definition>
+  <Typed>False</Typed>
+  <TypedClass></TypedClass>
+  <TypeName></TypeName>
+  <PropertyDefs>
+    <PropertyDef id="1">
+      <Name>Name</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+The name of the air side system
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="34">
+      <Name>Description</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcString"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="empty string"/>
+      </ValueDef>
+      <Definition>
+The description of the air side system
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="35">
+      <Name>AirSideSystemTypeEnum</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_AirSideSystemTypeEnum">
+            <EnumItem>ConstantVolume</EnumItem>
+            <EnumItem>ConstantVolumeSingleZone</EnumItem>
+            <EnumItem>ConstantVolumeMultipleZoneReheat</EnumItem>
+            <EnumItem>ConstantVolumeBypass</EnumItem>
+            <EnumItem>VariableAirVolume</EnumItem>
+            <EnumItem>VariableAirVolumeReheat</EnumItem>
+            <EnumItem>VariableAirVolumeInduction</EnumItem>
+            <EnumItem>VariableAirVolumeFanPowered</EnumItem>
+            <EnumItem>VariableAirVolumeDualConduit</EnumItem>
+            <EnumItem>VariableAirVolumeVariableDiffusers</EnumItem>
+            <EnumItem>VariableAirVolumeVariableTemperature</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+This enumeration specifies the basic types of possible air side systems (e.g., Constant Volume, Variable Volume, etc.)
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="36">
+      <Name>AirSideSystemDistributionTypeEnum</Name>
+      <PropertyType>
+        <TypePropertyEnumeratedValue>
+          <EnumList name="Pset_AirSideSystemDistributionTypeEnum">
+            <EnumItem>SingleDuct</EnumItem>
+            <EnumItem>DualDuct</EnumItem>
+            <EnumItem>Multizone</EnumItem>
+            <EnumItem>Other</EnumItem>
+            <EnumItem>NotKnown</EnumItem>
+            <EnumItem>Unset</EnumItem>
+          </EnumList>
+        </TypePropertyEnumeratedValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value=""/>
+        <MaxValue value=""/>
+        <DefaultValue value=""/>
+      </ValueDef>
+      <Definition>
+This enumeration defines the basic types of air side systems (e.g., SingleDuct, DualDuct, Multizone, etc.)
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="37">
+      <Name>TotalAirflow</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcVolumetricFlowRateMeasure"/>
+          <UnitType type="VolumetricFlowrateUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The total design supply air flowrate required for the system for either heating or cooling conditions, whichever is greater.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="38">
+      <Name>EnergyGainTotal</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPowerMeasure"/>
+          <UnitType type="PowerUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The total amount of energy gains for the spaces served by the system during the peak cooling conditions, plus any system-level total energy gains.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="39">
+      <Name>AirflowSensible</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcVolumetricFlowRateMeasure"/>
+          <UnitType type="VolumetricFlowrateUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The air flowrate required to satisfy the sensible peak loads.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="40">
+      <Name>EnergyGainSensible</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPowerMeasure"/>
+          <UnitType type="PowerUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The sum of total energy gains for the spaces served by the system during the peak cooling conditions, plus any system-level sensible energy gains.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="41">
+      <Name>CoolingCoilEnteringDryBulb</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcThermodynamicTemperatureMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The system cooling coil entering dry bulb temperature at the peak
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="42">
+      <Name>CoolingCoilEnteringWetBulb</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcThermodynamicTemperatureMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The system cooling coil entering wet bulb temperature at the peak
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="43">
+      <Name>CoolingCoilLeavingDryBulb</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcThermodynamicTemperatureMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The system cooling coil entering dry bulb temperature at the peak
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="44">
+      <Name>CoolingCoilLeavingWetBulb</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcThermodynamicTemperatureMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The system cooling coil entering wet bulb temperature at the peak
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="45">
+      <Name>EnergyLoss</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPowerMeasure"/>
+          <UnitType type="PowerUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+The sum of energy losses for the spaces served by the system during the peak heating conditions.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="16">
+      <Name>LightingDiversity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Lighting diversity.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="17">
+      <Name>InfiltrationDiversitySummer</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Diversity factor for Summer infiltration.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="18">
+      <Name>InfiltrationDiversityWinter</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Diversity factor for Winter infiltration.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="19">
+      <Name>ApplianceDiversity</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Diversity of applicance load.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="20">
+      <Name>LoadSafetyFactor</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveRatioMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Load safety factor.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="51">
+      <Name>HeatingTemperatureDelta</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcThermodynamicTemperatureMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Heating temperature difference for calculating space air flow rates
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="52">
+      <Name>CoolingTemperatureDelta</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcThermodynamicTemperatureMeasure"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Cooling temperature difference for calculating space air flow rates
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="53">
+      <Name>Ventilation</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcVolumetricFlowRateMeasure"/>
+          <UnitType type="VolumetricFlowrateUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Required outside air ventilation.
+      </Definition>
+    </PropertyDef>
+
+    <PropertyDef id="54">
+      <Name>FanPower</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPowerMeasure"/>
+          <UnitType type="PowerUnit"/>
+        </TypePropertySingleValue>
+      </PropertyType>
+      <ValueDef>
+        <MinValue value="see type"/>
+        <MaxValue value="see type"/>
+        <DefaultValue value="0"/>
+      </ValueDef>
+      <Definition>
+Fan motor loads contributing to the cooling load.
+      </Definition>
+    </PropertyDef>
+
+  </PropertyDefs>
+</PropertySetDef>
