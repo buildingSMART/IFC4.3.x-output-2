@@ -1,0 +1,410 @@
+<html lang="en">
+<head>
+<link href="../../assets/css/mini-default.css" rel="stylesheet"/>
+<link href="../../assets/css/style.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta charset="utf-8"/>
+<title>Annex E
+(informative)
+
+Examples - IFC4.3.2.0 Documentation</title>
+<link href="../../assets/img/favicon.ico" rel="icon" type="image/x-icon"/>
+<script>window.is_iso = false;</script>
+</head>
+<body class="annex">
+<div class="container">
+<div class="row">
+<header>
+<p>IFC 4.3.2.0 (IFC4X3_ADD2)
+                        
+                            <small>official</small>
+</p>
+<ul>
+<li>
+<a href="https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/">
+<i data-feather="message-circle"></i>
+                                Help improve the next version
+                            </a>
+</li>
+<li>
+<a href="https://forums.buildingsmart.org/">
+<i data-feather="help-circle"></i>
+                            Get user or developer support
+                        </a>
+</li>
+<!--
+                    <li>
+                        <a href="#todo">
+                            <i data-feather="code"></i>
+                            Get started with software development
+                        </a>
+                    </li>
+                    -->
+</ul>
+</header>
+</div>
+<div class="row">
+<div class="col-md-2">
+<nav>
+<div>
+<a href="../../../index.html">
+                             Cover
+                        </a>
+<a href="../../toc.html">
+                             Contents
+                        </a>
+<a href="../../content/foreword.htm">
+                             Foreword
+                        </a>
+<a href="../../content/introduction.htm">
+                             Introduction
+                        </a>
+</div>
+<div>
+<a href="../../content/scope.htm">
+                            1 Scope
+                        </a>
+<a href="../../content/normative_references.htm">
+                            2 Normative references
+                        </a>
+<a href="../../content/terms_and_definitions.htm">
+                            3 Terms, definitions, and abbreviated terms
+                        </a>
+<a href="../../concepts/content.html">
+                            4 Fundamental concepts and assumptions
+                        </a>
+<a href="../../chapter-5/index.html">
+                            5 Core data schemas
+                        </a>
+<a href="../../chapter-6/index.html">
+                            6 Shared element data schemas
+                        </a>
+<a href="../../chapter-7/index.html">
+                            7 Domain specific data schemas
+                        </a>
+<a href="../../chapter-8/index.html">
+                            8 Resource definition data schemas
+                        </a>
+</div>
+<div>
+<a href="../../annex-a.html">
+                            A Computer interpretable listings
+                        </a>
+<a href="../../annex-b.html">
+                            B Alphabetical listings
+                        </a>
+<a href="../../annex-c.html">
+                            C Inheritance listings
+                        </a>
+<a href="../../annex-d.html">
+                            D Diagrams
+                        </a>
+<a href="../../annex-e.html">
+                            E Examples
+                        </a>
+<a href="../../annex-f.html">
+                            F Change logs
+                        </a>
+</div>
+<div>
+<a href="../../content/bibliography.htm">
+                             Bibliography
+                        </a>
+<a href="../../index.htm">
+                             Index
+                        </a>
+</div>
+</nav>
+</div>
+<div class="col-md-8" id="main-content">
+<h1>Annex E<br/>
+<span style="font-weight:lighter">(informative)</span><br/>
+<br/>
+Examples</h1>
+<h2><a class="anchor" id="E.1.5-Cube-Advanced-Brep"></a>E.1.5 - Cube Advanced Brep<a class="link" href="cube-advanced-brep.html#E.1.5-Cube-Advanced-Brep"><i data-feather="link"></i></a></h2>
+<h2><a class="anchor" id="Example-overview"></a>
+    Example overview
+<a class="link" href="cube-advanced-brep.html#Example-overview"><i data-feather="link"></i></a></h2>
+<p>﻿The examples demonstrate the use of various geometric shape representation types to express a simple geometric form of an element. The examples of advanced geometric shape deal with CSG having Boolean operations, advanced swept solid and advanced brep representations. in some cases, the same geometry is also provided as faceted brep or tessellation to compare the results.</p><p>﻿The advanced brep representation using NURBS is shown in Figure E.B. It shows a twisted cube resulting in b-spline surfaces at four sides. The cube itself is exported as a proxy element.</p>
+<figure><a class="anchor" id="Figure-E.B-Advanced-shape-represented-as-advanced-Brep"></a><img alt="advanced_brep_2.png" src="../../figures/examples/advanced_brep_2.png"/><figcaption>
+
+
+Figure E.B — Advanced shape represented as advanced Brep<a class="link" href="cube-advanced-brep.html#Figure-E.B-Advanced-shape-represented-as-advanced-Brep"><i data-feather="link"></i></a></figcaption></figure>
+<aside class="aside-note"><mark>NOTE</mark>  There is no color information within the file, the displayed color has been set by the target application as a default.
+</aside>
+<ul class="thumbnails">
+</ul>
+<h2><a class="anchor" id="IFC-SPF-source"></a>
+    IFC-SPF source
+<a class="link" href="cube-advanced-brep.html#IFC-SPF-source"><i data-feather="link"></i></a></h2>
+<pre><code class="language-step21 hljs">ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION(('ViewDefinition [notYetAssigned]'),'2;1');
+FILE_NAME(
+/* name */ 'cube-advanced-brep.ifc',
+/* time_stamp */ '2012-05-31T11:53:44',
+/* author */ ('redacted'),
+/* organization */ ('redacted'),
+/* preprocessor_version */ 'redacted',
+/* originating_system */ 'redacted',
+/* authorization */ 'None');
+
+FILE_SCHEMA (('IFC4X3_ADD2'));
+ENDSEC;
+
+DATA;
+
+/* single owner history sufficient if not otherwise required by the view definition ------------ */
+/* provides the person and application creating the data set, and the time it is created ------- */
+#1= <a href="../../lexical/IfcApplication.htm">IFCAPPLICATION</a>(#2,'redacted','redacted','redacted');
+#2= <a href="../../lexical/IfcOrganization.htm">IFCORGANIZATION</a>($,'redacted',$,$,$);
+#3= <a href="../../lexical/IfcPersonAndOrganization.htm">IFCPERSONANDORGANIZATION</a>(#4,#5,$);
+#4= <a href="../../lexical/IfcPerson.htm">IFCPERSON</a>($,'redacted',$,$,$,$,$,$);
+#5= <a href="../../lexical/IfcOrganization.htm">IFCORGANIZATION</a>($,'redacted',$,$,$);
+#6= <a href="../../lexical/IfcOwnerHistory.htm">IFCOWNERHISTORY</a>(#3,#1,$,.ADDED.,1338465163,$,$,1338465163);
+
+/* each IFC data set containing geometry has to define a geometric representation context ------ */
+/* the attribute 'ContextType' has to be 'Model' for 3D model geometry ------------------------- */
+#7= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.0,0.0,0.0));
+#8= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((1.0,0.0,0.0));
+#9= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.0,1.0,0.0));
+#10= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.0,0.0,1.0));
+#11= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#7,#10,#8);
+#12= <a href="../../lexical/IfcAxis2Placement2D.htm">IFCAXIS2PLACEMENT2D</a>(#13,$);
+#13= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.0,0.0));
+#14= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#7,#10,#8);
+#15= <a href="../../lexical/IfcGeometricRepresentationContext.htm">IFCGEOMETRICREPRESENTATIONCONTEXT</a>('Body','Model',3,0.00001,#14,#16);
+#16= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.0,1.0));
+
+/* each IFC data set containing geometry has to define at absolute minimum length and angle ---- */
+#17= <a href="../../lexical/IfcSIUnit.htm">IFCSIUNIT</a>(*,.LENGTHUNIT.,$,.METRE.);
+#18= <a href="../../lexical/IfcSIUnit.htm">IFCSIUNIT</a>(*,.AREAUNIT.,$,.SQUARE_METRE.);
+#19= <a href="../../lexical/IfcSIUnit.htm">IFCSIUNIT</a>(*,.VOLUMEUNIT.,$,.CUBIC_METRE.);
+#27= <a href="../../lexical/IfcSIUnit.htm">IFCSIUNIT</a>(*,.PLANEANGLEUNIT.,$,.RADIAN.);
+#26= <a href="../../lexical/IfcUnitAssignment.htm">IFCUNITASSIGNMENT</a>((#17,#18,#19,#27));
+
+/* each IFC data set containing elements in a building context has to include a building ------- */
+/* at absolute minimum (could have a site and stories as well) --------------------------------- */
+#25= <a href="../../lexical/IfcProject.htm">IFCPROJECT</a>('2oT9YYbSrBUghtexcAcblU',#6,'Grasshopper Project',$,$,'Grasshopper Project',$,(#15),#26);
+#21= <a href="../../lexical/IfcBuilding.htm">IFCBUILDING</a>('3qzoyCPy1CtfV237Rle9$t',#6,'Grasshopper Building','GH Building',$,#22,$,$,.ELEMENT.,$,$,$);
+#22= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>($,#11);
+#23= <a href="../../lexical/IfcRelContainedInSpatialStructure.htm">IFCRELCONTAINEDINSPATIALSTRUCTURE</a>('0LkkopPYL7VANMLhZDjkkq',#6,'Building','Building Container for Elements',(#181),#21);
+#28= <a href="../../lexical/IfcRelAggregates.htm">IFCRELAGGREGATES</a>('2C1MZiLqv228Cmw2sZ7QPO',#6,'Project Container','Project Container for Buildings',#25,(#21));
+
+/* geometry definition of the advanced brep ---------------------------------------------------- */
+/* previded as the 'AdvancedBrep' representation type for the 'Body' of a building element proxy */
+#29= <a href="../../lexical/IfcClosedShell.htm">IFCCLOSEDSHELL</a>((#104,#115,#131,#147,#163,#179));
+#30= <a href="../../lexical/IfcVertexPoint.htm">IFCVERTEXPOINT</a>(#31);
+#31= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,-0.5,0.0));
+#32= <a href="../../lexical/IfcVertexPoint.htm">IFCVERTEXPOINT</a>(#33);
+#33= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,-0.5,0.0));
+#34= <a href="../../lexical/IfcVertexPoint.htm">IFCVERTEXPOINT</a>(#35);
+#35= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,0.5,0.0));
+#36= <a href="../../lexical/IfcVertexPoint.htm">IFCVERTEXPOINT</a>(#37);
+#37= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,0.5,0.0));
+#38= <a href="../../lexical/IfcVertexPoint.htm">IFCVERTEXPOINT</a>(#39);
+#39= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.683012701892219,-0.183012701892219,1.0));
+#40= <a href="../../lexical/IfcVertexPoint.htm">IFCVERTEXPOINT</a>(#41);
+#41= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.183012701892219,0.683012701892219,1.0));
+#42= <a href="../../lexical/IfcVertexPoint.htm">IFCVERTEXPOINT</a>(#43);
+#43= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.683012701892219,0.183012701892219,1.0));
+#44= <a href="../../lexical/IfcVertexPoint.htm">IFCVERTEXPOINT</a>(#45);
+#45= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.183012701892219,-0.683012701892219,1.0));
+#46= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,0.5));
+#47= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,-0.5));
+#48= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#47,#46));
+#49= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#30,#36,#48,.T.);
+#50= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,-0.5));
+#51= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,-0.5));
+#52= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#51,#50));
+#53= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#32,#30,#52,.T.);
+#54= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,-0.5));
+#55= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,0.5));
+#56= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#55,#54));
+#57= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#34,#32,#56,.T.);
+#58= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,0.5));
+#59= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,0.5));
+#60= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#59,#58));
+#61= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#36,#34,#60,.T.);
+#62= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.183012701892219,-0.683012701892219,1.0));
+#63= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.683012701892219,-0.183012701892219,1.0));
+#64= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#63,#62));
+#65= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#38,#44,#64,.T.);
+#66= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.683012701892219,-0.183012701892219,1.0));
+#67= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.183012701892219,0.683012701892219,1.0));
+#68= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#67,#66));
+#69= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#40,#38,#68,.T.);
+#70= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.183012701892219,0.683012701892219,1.0));
+#71= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.683012701892219,0.183012701892219,1.0));
+#72= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#71,#70));
+#73= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#42,#40,#72,.T.);
+#74= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.683012701892219,0.183012701892219,1.0));
+#75= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.183012701892219,-0.683012701892219,1.0));
+#76= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#75,#74));
+#77= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#44,#42,#76,.T.);
+#78= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.183012701892219,-0.683012701892219,1.0));
+#79= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,-0.5,0.0));
+#80= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#79,#78));
+#81= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#30,#44,#80,.T.);
+#82= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.683012701892219,0.183012701892219,1.0));
+#83= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,-0.5,0.0));
+#84= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#83,#82));
+#85= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#32,#42,#84,.T.);
+#86= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.183012701892219,0.683012701892219,1.0));
+#87= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,0.5,0.0));
+#88= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#87,#86));
+#89= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#34,#40,#88,.T.);
+#90= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.683012701892219,-0.183012701892219,1.0));
+#91= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,0.5,0.0));
+#92= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#91,#90));
+#93= <a href="../../lexical/IfcEdgeCurve.htm">IFCEDGECURVE</a>(#36,#38,#92,.T.);
+#94= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#49,.T.);
+#95= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#61,.T.);
+#96= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#57,.T.);
+#97= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#53,.T.);
+#98= <a href="../../lexical/IfcEdgeLoop.htm">IFCEDGELOOP</a>((#94,#95,#96,#97));
+#99= <a href="../../lexical/IfcFaceOuterBound.htm">IFCFACEOUTERBOUND</a>(#98,.T.);
+#100= <a href="../../lexical/IfcPlane.htm">IFCPLANE</a>(#101);
+#101= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#102,#103,#8);
+#102= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,-0.5,0.0));
+#103= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.0,0.0,-1.0));
+#104= <a href="../../lexical/IfcAdvancedFace.htm">IFCADVANCEDFACE</a>((#99),#100,.T.);
+#105= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#65,.T.);
+#106= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#77,.T.);
+#107= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#73,.T.);
+#108= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#69,.T.);
+#109= <a href="../../lexical/IfcEdgeLoop.htm">IFCEDGELOOP</a>((#105,#106,#107,#108));
+#110= <a href="../../lexical/IfcFaceOuterBound.htm">IFCFACEOUTERBOUND</a>(#109,.T.);
+#111= <a href="../../lexical/IfcPlane.htm">IFCPLANE</a>(#112);
+#112= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#113,#10,#114);
+#113= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.683012701892219,-0.183012701892219,1.0));
+#114= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((-0.5,-0.8660254,0.0));
+#115= <a href="../../lexical/IfcAdvancedFace.htm">IFCADVANCEDFACE</a>((#110),#111,.T.);
+#116= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#93,.T.);
+#117= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#65,.T.);
+#118= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#81,.F.);
+#119= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#49,.T.);
+#120= <a href="../../lexical/IfcEdgeLoop.htm">IFCEDGELOOP</a>((#116,#117,#118,#119));
+#121= <a href="../../lexical/IfcFaceOuterBound.htm">IFCFACEOUTERBOUND</a>(#120,.T.);
+#122= <a href="../../lexical/IfcBSplineSurfaceWithKnots.htm">IFCBSPLINESURFACEWITHKNOTS</a>(3,1,((#123,#124),(#125,#126),(#127,#128),(#129,#130)),.UNSPECIFIED.,.F.,.F.,.U.,(4,4),(2,2),(0.0,1224.74487139159),(3.0,4.0),.UNSPECIFIED.);
+#123= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,0.5,0.0));
+#124= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,-0.5,0.0));
+#125= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.561004233964073,0.27232909936926,0.333333333333333));
+#126= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.27232909936926,-0.561004233964073,0.333333333333333));
+#127= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.622008467928146,0.0446581987385206,0.666666666666667));
+#128= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.0446581987385206,-0.622008467928146,0.666666666666667));
+#129= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.683012701892219,-0.183012701892219,1.0));
+#130= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.183012701892219,-0.683012701892219,1.0));
+#131= <a href="../../lexical/IfcAdvancedFace.htm">IFCADVANCEDFACE</a>((#121),#122,.F.);
+#132= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#53,.T.);
+#133= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#81,.T.);
+#134= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#77,.T.);
+#135= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#85,.F.);
+#136= <a href="../../lexical/IfcEdgeLoop.htm">IFCEDGELOOP</a>((#132,#133,#134,#135));
+#137= <a href="../../lexical/IfcFaceOuterBound.htm">IFCFACEOUTERBOUND</a>(#136,.T.);
+#138= <a href="../../lexical/IfcBSplineSurfaceWithKnots.htm">IFCBSPLINESURFACEWITHKNOTS</a>(3,1,((#139,#140),(#141,#142),(#143,#144),(#145,#146)),.UNSPECIFIED.,.F.,.F.,.U.,(4,4),(2,2),(0.0,1224.74487139159),(0.0,1.0),.UNSPECIFIED.);
+#139= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,-0.5,0.0));
+#140= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,-0.5,0.0));
+#141= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.27232909936926,-0.561004233964073,0.333333333333333));
+#142= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.561004233964073,-0.27232909936926,0.333333333333333));
+#143= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.0446581987385206,-0.622008467928146,0.666666666666667));
+#144= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.622008467928146,-0.0446581987385206,0.666666666666667));
+#145= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.183012701892219,-0.683012701892219,1.0));
+#146= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.683012701892219,0.183012701892219,1.0));
+#147= <a href="../../lexical/IfcAdvancedFace.htm">IFCADVANCEDFACE</a>((#137),#138,.F.);
+#148= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#57,.T.);
+#149= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#85,.T.);
+#150= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#73,.T.);
+#151= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#89,.F.);
+#152= <a href="../../lexical/IfcEdgeLoop.htm">IFCEDGELOOP</a>((#148,#149,#150,#151));
+#153= <a href="../../lexical/IfcFaceOuterBound.htm">IFCFACEOUTERBOUND</a>(#152,.T.);
+#154= <a href="../../lexical/IfcBSplineSurfaceWithKnots.htm">IFCBSPLINESURFACEWITHKNOTS</a>(3,1,((#155,#156),(#157,#158),(#159,#160),(#161,#162)),.UNSPECIFIED.,.F.,.F.,.U.,(4,4),(2,2),(0.0,1224.74487139159),(1.0,2.0),.UNSPECIFIED.);
+#155= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,-0.5,0.0));
+#156= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,0.5,0.0));
+#157= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.561004233964073,-0.27232909936926,0.333333333333333));
+#158= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.27232909936926,0.561004233964073,0.333333333333333));
+#159= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.622008467928146,-0.0446581987385206,0.666666666666667));
+#160= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.0446581987385206,0.622008467928146,0.666666666666667));
+#161= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.683012701892219,0.183012701892219,1.0));
+#162= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.183012701892219,0.683012701892219,1.0));
+#163= <a href="../../lexical/IfcAdvancedFace.htm">IFCADVANCEDFACE</a>((#153),#154,.F.);
+#164= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#61,.T.);
+#165= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#89,.T.);
+#166= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#69,.T.);
+#167= <a href="../../lexical/IfcOrientedEdge.htm">IFCORIENTEDEDGE</a>(*,*,#93,.F.);
+#168= <a href="../../lexical/IfcEdgeLoop.htm">IFCEDGELOOP</a>((#164,#165,#166,#167));
+#169= <a href="../../lexical/IfcFaceOuterBound.htm">IFCFACEOUTERBOUND</a>(#168,.T.);
+#170= <a href="../../lexical/IfcBSplineSurfaceWithKnots.htm">IFCBSPLINESURFACEWITHKNOTS</a>(3,1,((#171,#172),(#173,#174),(#175,#176),(#177,#178)),.UNSPECIFIED.,.F.,.F.,.U.,(4,4),(2,2),(0.0,1224.74487139159),(2.0,3.0),.UNSPECIFIED.);
+#171= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.5,0.5,0.0));
+#172= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.5,0.5,0.0));
+#173= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.27232909936926,0.561004233964073,0.333333333333333));
+#174= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.561004233964073,0.27232909936926,0.333333333333333));
+#175= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.0446581987385206,0.622008467928146,0.666666666666667));
+#176= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.622008467928146,0.0446581987385206,0.666666666666667));
+#177= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.183012701892219,0.683012701892219,1.0));
+#178= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-0.683012701892219,-0.183012701892219,1.0));
+#179= <a href="../../lexical/IfcAdvancedFace.htm">IFCADVANCEDFACE</a>((#169),#170,.F.);
+#180= <a href="../../lexical/IfcAdvancedBrep.htm">IFCADVANCEDBREP</a>(#29);
+#181= <a href="../../lexical/IfcBuildingElementProxy.htm">IFCBUILDINGELEMENTPROXY</a>('1hMBdOkWj7WhC2kvgZp44F',#6,'BuildingElementProxy',$,$,#184,#182,$,.NOTDEFINED.);
+#182= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#183));
+#183= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#15,'Body','AdvancedBrep',(#180));
+#184= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>($,#11);
+ENDSEC;
+
+END-ISO-10303-21;
+
+
+</code></pre>
+</div>
+<div class="col-md-2">
+<div class="card fluid shadowed">
+<p>
+<a class="button primary edit-github" href="https://github.com/buildingSMART/IFC4.3.x-sample-models/blob/main/models/advanced-geometric-shape/cube-advanced-brep/README.md"><span class="icon-edit inverse"></span> Edit on Github</a>
+</p>
+<p>
+<small>
+<span id="contributors"></span><br/>
+<span id="last-change"></span>
+</small>
+</p>
+<p>
+<small>
+                            Is this page difficult to understand? <a href="https://github.com/buildingSMART/IFC4.3.x-development/issues/371">Let us know!</a>
+</small>
+</p>
+</div>
+<div class="card fluid shadowed hidden" id="section-navigation">
+<p>
+</p><center><small>Jump to section</small></center>
+<ol class="referenced-list small"></ol>
+</div>
+</div>
+</div>
+<div class="row">
+<footer>
+<p>
+<a href="http://creativecommons.org/licenses/by-nd/4.0/" rel="license"><img alt="Creative Commons License" src="../../../lib/i.creativecommons.org/l/by-nd/4.0/88x31.png" style="border-width:0"/></a>
+<small>
+                        Copyright © 1996-2022 buildingSMART International Limited. Some rights reserved. Any technical documentation made available by buildingSMART International Limited is the copyrighted work of buildingSMART International Limited and is owned by buildingSMART International Limited. The Industry Foundation Classes are published under Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0). Read the <a href="https://creativecommons.org/licenses/by-nd/4.0/legalcode">full license text here</a>. For more information please refer to our <a href="https://buildingsmart-1xbd3ajdayi.netdna-ssl.com/wp-content/uploads/2021/06/bSI-Intellectual-Property-Policy.pdf">IP Policy.</a>
+</small>
+</p>
+<a class="button" id="back-to-top"><i data-feather="arrow-up-circle"></i></a>
+</footer>
+</div>
+</div>
+<script>
+        window.appconfig = {
+            'path': 'models/advanced-geometric-shape/cube-advanced-brep/README.md',
+            'base': '/HTML',
+            'repo': 'buildingSMART/IFC4.3.x-sample-models',
+        };
+    </script>
+<script src="../../../lib/unpkg.com/feather-icons"></script>
+<script src="../../../lib/polyfill.io/v3/polyfill.min.js%3Ffeatures=es6"></script>
+<script async="" id="MathJax-script" src="../../../lib/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link href="../../../lib/cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css" rel="stylesheet"/>
+<script src="../../assets/js/highlight.min.js"></script>
+<script src="../../../lib/cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script src="../../assets/js/app.js" type="text/javascript"></script>
+</body>
+</html>

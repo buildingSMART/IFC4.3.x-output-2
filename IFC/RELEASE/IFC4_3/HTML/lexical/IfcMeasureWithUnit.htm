@@ -1,0 +1,397 @@
+<html lang="en">
+<head>
+<link href="../assets/css/mini-default.css" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta charset="utf-8"/>
+<title>8.11.3.7 IfcMeasureWithUnit - IFC4.3.2.0 Documentation</title>
+<link href="../assets/img/favicon.ico" rel="icon" type="image/x-icon"/>
+<script>window.is_iso = false;</script>
+</head>
+<body class="">
+<div class="container">
+<div class="row">
+<header>
+<p>IFC 4.3.2.0 (IFC4X3_ADD2)
+                        
+                            <small>official</small>
+</p>
+<ul>
+<li>
+<a href="https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/">
+<i data-feather="message-circle"></i>
+                                Help improve the next version
+                            </a>
+</li>
+<li>
+<a href="https://forums.buildingsmart.org/">
+<i data-feather="help-circle"></i>
+                            Get user or developer support
+                        </a>
+</li>
+<!--
+                    <li>
+                        <a href="#todo">
+                            <i data-feather="code"></i>
+                            Get started with software development
+                        </a>
+                    </li>
+                    -->
+</ul>
+</header>
+</div>
+<div class="row">
+<div class="col-md-2">
+<nav>
+<div>
+<a href="../../index.html">
+                             Cover
+                        </a>
+<a href="../toc.html">
+                             Contents
+                        </a>
+<a href="../content/foreword.htm">
+                             Foreword
+                        </a>
+<a href="../content/introduction.htm">
+                             Introduction
+                        </a>
+</div>
+<div>
+<a href="../content/scope.htm">
+                            1 Scope
+                        </a>
+<a href="../content/normative_references.htm">
+                            2 Normative references
+                        </a>
+<a href="../content/terms_and_definitions.htm">
+                            3 Terms, definitions, and abbreviated terms
+                        </a>
+<a href="../concepts/content.html">
+                            4 Fundamental concepts and assumptions
+                        </a>
+<a href="../chapter-5/index.html">
+                            5 Core data schemas
+                        </a>
+<a href="../chapter-6/index.html">
+                            6 Shared element data schemas
+                        </a>
+<a href="../chapter-7/index.html">
+                            7 Domain specific data schemas
+                        </a>
+<a class="current" href="../chapter-8/index.html">
+                            8 Resource definition data schemas
+                        </a>
+<a class="sublink-1" href="../ifcactorresource/content.html">
+                            8.1 IfcActorResource
+                        </a>
+<a class="sublink-1" href="../ifcapprovalresource/content.html">
+                            8.2 IfcApprovalResource
+                        </a>
+<a class="sublink-1" href="../ifcconstraintresource/content.html">
+                            8.3 IfcConstraintResource
+                        </a>
+<a class="sublink-1" href="../ifccostresource/content.html">
+                            8.4 IfcCostResource
+                        </a>
+<a class="sublink-1" href="../ifcdatetimeresource/content.html">
+                            8.5 IfcDateTimeResource
+                        </a>
+<a class="sublink-1" href="../ifcexternalreferenceresource/content.html">
+                            8.6 IfcExternalReferenceResource
+                        </a>
+<a class="sublink-1" href="../ifcgeometricconstraintresource/content.html">
+                            8.7 IfcGeometricConstraintResource
+                        </a>
+<a class="sublink-1" href="../ifcgeometricmodelresource/content.html">
+                            8.8 IfcGeometricModelResource
+                        </a>
+<a class="sublink-1" href="../ifcgeometryresource/content.html">
+                            8.9 IfcGeometryResource
+                        </a>
+<a class="sublink-1" href="../ifcmaterialresource/content.html">
+                            8.10 IfcMaterialResource
+                        </a>
+<a class="sublink-1 current" href="../ifcmeasureresource/content.html">
+                            8.11 IfcMeasureResource
+                        </a>
+<a class="sublink-1" href="../ifcpresentationappearanceresource/content.html">
+                            8.12 IfcPresentationAppearanceResource
+                        </a>
+<a class="sublink-1" href="../ifcpresentationdefinitionresource/content.html">
+                            8.13 IfcPresentationDefinitionResource
+                        </a>
+<a class="sublink-1" href="../ifcpresentationorganizationresource/content.html">
+                            8.14 IfcPresentationOrganizationResource
+                        </a>
+<a class="sublink-1" href="../ifcprofileresource/content.html">
+                            8.15 IfcProfileResource
+                        </a>
+<a class="sublink-1" href="../ifcpropertyresource/content.html">
+                            8.16 IfcPropertyResource
+                        </a>
+<a class="sublink-1" href="../ifcquantityresource/content.html">
+                            8.17 IfcQuantityResource
+                        </a>
+<a class="sublink-1" href="../ifcrepresentationresource/content.html">
+                            8.18 IfcRepresentationResource
+                        </a>
+<a class="sublink-1" href="../ifcstructuralloadresource/content.html">
+                            8.19 IfcStructuralLoadResource
+                        </a>
+<a class="sublink-1" href="../ifctopologyresource/content.html">
+                            8.20 IfcTopologyResource
+                        </a>
+<a class="sublink-1" href="../ifcutilityresource/content.html">
+                            8.21 IfcUtilityResource
+                        </a>
+</div>
+<div>
+<a href="../annex-a.html">
+                            A Computer interpretable listings
+                        </a>
+<a href="../annex-b.html">
+                            B Alphabetical listings
+                        </a>
+<a href="../annex-c.html">
+                            C Inheritance listings
+                        </a>
+<a href="../annex-d.html">
+                            D Diagrams
+                        </a>
+<a href="../annex-e.html">
+                            E Examples
+                        </a>
+<a href="../annex-f.html">
+                            F Change logs
+                        </a>
+</div>
+<div>
+<a href="../content/bibliography.htm">
+                             Bibliography
+                        </a>
+<a href="../index.htm">
+                             Index
+                        </a>
+</div>
+</nav>
+</div>
+<div class="col-md-8" id="main-content">
+<h1>8.11.3.7 IfcMeasureWithUnit</h1>
+<div class="mvd" title="Included in IfcAppliedValue.UnitBasis, Project Units">AbRV ⓘ</div>
+<div class="mvd" title="Included in IfcAppliedValue.UnitBasis, Project Units">RV ⓘ</div>
+<h2><a class="anchor" id="8.11.3.7.1-Semantic-definition"></a>
+    8.11.3.7.1 Semantic definition
+<a class="link" href="IfcMeasureWithUnit.htm#8.11.3.7.1-Semantic-definition"><i data-feather="link"></i></a></h2>
+<aside class="aside-note"><mark>NOTE</mark>  Definition according to ISO/CD 10303-41:1992
+A measure with unit is the specification of a physical quantity as defined in ISO 31 (clause 2).</aside>
+<p><em><a href="IfcMeasureWithUnit.htm">IfcMeasureWithUnit</a></em> has two usages:
+1. For representing measure value together with its unit on the entity type attribute level; thus overriding the IFC model global unit assignments.
+2. For conversion based unit to give the conversion rate and its base.</p>
+<aside class="aside-note"><mark>NOTE</mark>  Corresponding ISO 10303 name: measure_with_unit, please refer to ISO/IS 10303-41 for the final definition of the formal standard.</aside><aside class="aside-history"><mark>HISTORY</mark>  New entity in IFC1.5.1.</aside>
+<h2><a class="anchor" id="8.11.3.7.2-Entity-inheritance"></a>
+    8.11.3.7.2 Entity inheritance
+<a class="link" href="IfcMeasureWithUnit.htm#8.11.3.7.2-Entity-inheritance"><i data-feather="link"></i></a></h2>
+<ol class="tier">
+<li>
+<i data-feather="arrow-up"></i>
+<ul class="classes classes-in-chain">
+<li class="current ancestor"><a href="IfcMeasureWithUnit.htm">IfcMeasureWithUnit</a></li>
+</ul>
+</li>
+</ol>
+<h2><a class="anchor" id="8.11.3.7.3-Attributes"></a>
+    8.11.3.7.3 Attributes
+<a class="link" href="IfcMeasureWithUnit.htm#8.11.3.7.3-Attributes"><i data-feather="link"></i></a></h2>
+<!-- <a class="button primary hide-inverse"><i data-feather="eye-off"></i> Hide inverse</a> -->
+<figure><a class="anchor" id="Table-8.11.3.7.R"></a><table class="striped grouped attributes">
+<colgroup>
+<col style="width: 20px;"/>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="group">
+<td colspan="4">
+<a href="IfcMeasureWithUnit.htm">IfcMeasureWithUnit</a>
+<small>(2)</small>
+</td>
+</tr>
+<tr>
+<td data-label="#">1</td>
+<td data-label="Name">
+                
+                ValueComponent
+                
+            </td>
+<td data-label="Type"><a href="IfcValue.htm">IfcValue</a></td>
+<td data-label="Description">
+<p>The value of the physical quantity when expressed in the specified units.</p>
+</td>
+</tr>
+<tr>
+<td data-label="#">2</td>
+<td data-label="Name">
+                
+                UnitComponent
+                
+            </td>
+<td data-label="Type"><a href="IfcUnit.htm">IfcUnit</a></td>
+<td data-label="Description">
+<p>The unit in which the physical quantity is expressed.</p>
+</td>
+</tr>
+</tbody>
+</table><figcaption>Table 8.11.3.7.R<a class="link" href="IfcMeasureWithUnit.htm#Table-8.11.3.7.R"><i data-feather="link"></i></a></figcaption></figure>
+<h2><a class="anchor" id="8.11.3.7.4-Examples"></a>
+    8.11.3.7.4 Examples
+<a class="link" href="IfcMeasureWithUnit.htm#8.11.3.7.4-Examples"><i data-feather="link"></i></a></h2>
+<ul class="examples">
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.A"></a><a href="../annex_e/construction-scheduling/construction-scheduling-task.html"><img src="../examples/construction-scheduling/construction-scheduling-task/thumb.png"/></a><figcaption>Figure 8.11.3.7.A<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.A"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/construction-scheduling/construction-scheduling-task.html">Construction Scheduling Task</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.B"></a><a href="../annex_e/mapped-geometric-shape/mapped-shape-with-transformation.html"><img src="../examples/mapped-geometric-shape/mapped-shape-with-transformation/thumb.png"/></a><figcaption>Figure 8.11.3.7.B<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.B"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/mapped-geometric-shape/mapped-shape-with-transformation.html">Mapped Shape With Transformation</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.C"></a><a href="../annex_e/mapped-geometric-shape/mapped-shape-with-multiple-items.html"><img src="../examples/mapped-geometric-shape/mapped-shape-with-multiple-items/thumb.png"/></a><figcaption>Figure 8.11.3.7.C<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.C"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/mapped-geometric-shape/mapped-shape-with-multiple-items.html">Mapped Shape With Multiple Items</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.D"></a><a href="../annex_e/tessellated-shape-with-style/tessellation-with-pixel-texture.html"><img src="../examples/tessellated-shape-with-style/tessellation-with-pixel-texture/thumb.png"/></a><figcaption>Figure 8.11.3.7.D<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.D"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/tessellated-shape-with-style/tessellation-with-pixel-texture.html">Tessellation With Pixel Texture</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.E"></a><a href="../annex_e/trimmed-curve-parameters/curve-parameters-in-degrees.html"><img src="../assets/img/ifc-file-format.png"/></a><figcaption>Figure 8.11.3.7.E<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.E"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/trimmed-curve-parameters/curve-parameters-in-degrees.html">Curve Parameters In Degrees</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.F"></a><a href="../annex_e/tessellated-shape-with-style/tessellation-with-image-texture.html"><img src="../examples/tessellated-shape-with-style/tessellation-with-image-texture/thumb.png"/></a><figcaption>Figure 8.11.3.7.F<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.F"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/tessellated-shape-with-style/tessellation-with-image-texture.html">Tessellation With Image Texture</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.G"></a><a href="../annex_e/basic-geometric-shape/surface-model.html"><img src="../examples/basic-geometric-shape/surface-model/thumb.png"/></a><figcaption>Figure 8.11.3.7.G<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.G"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/basic-geometric-shape/surface-model.html">Surface Model</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.H"></a><a href="../annex_e/structural-analysis-model/structural-curve-member.html"><img src="../examples/structural-analysis-model/structural-curve-member/thumb.png"/></a><figcaption>Figure 8.11.3.7.H<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.H"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/structural-analysis-model/structural-curve-member.html">Structural Curve Member</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.I"></a><a href="../annex_e/placements-and-gis-referencing/grid-placement.html"><img src="../examples/placements-and-gis-referencing/grid-placement/thumb.png"/></a><figcaption>Figure 8.11.3.7.I<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.I"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/placements-and-gis-referencing/grid-placement.html">Grid Placement</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.J"></a><a href="../annex_e/basic-geometric-shape/csg-primitive.html"><img src="../examples/basic-geometric-shape/csg-primitive/thumb.png"/></a><figcaption>Figure 8.11.3.7.J<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.J"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/basic-geometric-shape/csg-primitive.html">Csg Primitive</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.K"></a><a href="../annex_e/basic-geometric-shape/extruded-solid.html"><img src="../examples/basic-geometric-shape/extruded-solid/thumb.png"/></a><figcaption>Figure 8.11.3.7.K<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.K"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/basic-geometric-shape/extruded-solid.html">Extruded Solid</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.L"></a><a href="../annex_e/tessellated-shape-with-style/tessellation-with-blob-texture.html"><img src="../examples/tessellated-shape-with-style/tessellation-with-blob-texture/thumb.png"/></a><figcaption>Figure 8.11.3.7.L<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.L"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/tessellated-shape-with-style/tessellation-with-blob-texture.html">Tessellation With Blob Texture</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.M"></a><a href="../annex_e/placements-and-gis-referencing/geographic-referencing-rigid-operation.html"><img src="../assets/img/ifc-file-format.png"/></a><figcaption>Figure 8.11.3.7.M<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.M"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/placements-and-gis-referencing/geographic-referencing-rigid-operation.html">Geographic Referencing Rigid Operation</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.N"></a><a href="../annex_e/basic-geometric-shape/brep-model.html"><img src="../examples/basic-geometric-shape/brep-model/thumb.png"/></a><figcaption>Figure 8.11.3.7.N<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.N"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/basic-geometric-shape/brep-model.html">Brep Model</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.O"></a><a href="../annex_e/basic-geometric-shape/triangulated-item.html"><img src="../examples/basic-geometric-shape/triangulated-item/thumb.png"/></a><figcaption>Figure 8.11.3.7.O<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.O"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/basic-geometric-shape/triangulated-item.html">Triangulated Item</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.P"></a><a href="../annex_e/tessellated-shape/column-straight-rectangle-tessellation.html"><img src="../examples/tessellated-shape/column-straight-rectangle-tessellation/thumb.png"/></a><figcaption>Figure 8.11.3.7.P<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.P"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/tessellated-shape/column-straight-rectangle-tessellation.html">Column Straight Rectangle Tessellation</a></p>
+</li>
+<li>
+<figure><a class="anchor" id="Figure-8.11.3.7.Q"></a><a href="../annex_e/mapped-geometric-shape/mapped-shape-without-transformation.html"><img src="../examples/mapped-geometric-shape/mapped-shape-without-transformation/thumb.png"/></a><figcaption>Figure 8.11.3.7.Q<a class="link" href="IfcMeasureWithUnit.htm#Figure-8.11.3.7.Q"><i data-feather="link"></i></a></figcaption></figure>
+<p><a href="../annex_e/mapped-geometric-shape/mapped-shape-without-transformation.html">Mapped Shape Without Transformation</a></p>
+</li>
+</ul>
+<h2><a class="anchor" id="8.11.3.7.5-Formal-representation"></a>
+    8.11.3.7.5 Formal representation
+<a class="link" href="IfcMeasureWithUnit.htm#8.11.3.7.5-Formal-representation"><i data-feather="link"></i></a></h2>
+<pre><code class="language-express hljs">ENTITY <a href="IfcMeasureWithUnit.htm">IfcMeasureWithUnit</a>;
+	ValueComponent : <a href="IfcValue.htm">IfcValue</a>;
+	UnitComponent : <a href="IfcUnit.htm">IfcUnit</a>;
+END_ENTITY;</code></pre>
+<h2><a class="anchor" id="8.11.3.7.6-References"></a>
+    8.11.3.7.6 References
+<a class="link" href="IfcMeasureWithUnit.htm#8.11.3.7.6-References"><i data-feather="link"></i></a></h2>
+<ul class="references">
+<li><i data-feather="paperclip"></i><a href="IfcAppliedValue.htm">IfcAppliedValue</a></li>
+<li><i data-feather="paperclip"></i><a href="IfcAppliedValueSelect.htm">IfcAppliedValueSelect</a></li>
+<li><i data-feather="paperclip"></i><a href="IfcConversionBasedUnit.htm">IfcConversionBasedUnit</a></li>
+<li><i data-feather="paperclip"></i><a href="IfcMetricValueSelect.htm">IfcMetricValueSelect</a></li>
+<li><i data-feather="paperclip"></i><a href="IfcRelAssignsToProcess.htm">IfcRelAssignsToProcess</a></li>
+</ul>
+</div>
+<div class="col-md-2">
+<div class="card fluid shadowed">
+<p>
+<a class="button primary edit-github" href="https://github.com/buildingSMART/IFC4.3.x-development/blob/master//docs/schemas/resource/IfcMeasureResource/Entities/IfcMeasureWithUnit.md"><span class="icon-edit inverse"></span> Edit on Github</a>
+</p>
+<p>
+<small>
+<span id="contributors"></span><br/>
+<span id="last-change"></span>
+</small>
+</p>
+<p>
+<small>
+                            Is this page difficult to understand? <a href="https://github.com/buildingSMART/IFC4.3.x-development/issues/371">Let us know!</a>
+</small>
+</p>
+</div>
+<div class="card fluid shadowed hidden" id="section-navigation">
+<p>
+</p><center><small>Jump to section</small></center>
+<ol class="referenced-list small"></ol>
+</div>
+</div>
+</div>
+<div class="row">
+<footer>
+<p>
+<a href="http://creativecommons.org/licenses/by-nd/4.0/" rel="license"><img alt="Creative Commons License" src="../../lib/i.creativecommons.org/l/by-nd/4.0/88x31.png" style="border-width:0"/></a>
+<small>
+                        Copyright © 1996-2022 buildingSMART International Limited. Some rights reserved. Any technical documentation made available by buildingSMART International Limited is the copyrighted work of buildingSMART International Limited and is owned by buildingSMART International Limited. The Industry Foundation Classes are published under Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0). Read the <a href="https://creativecommons.org/licenses/by-nd/4.0/legalcode">full license text here</a>. For more information please refer to our <a href="https://buildingsmart-1xbd3ajdayi.netdna-ssl.com/wp-content/uploads/2021/06/bSI-Intellectual-Property-Policy.pdf">IP Policy.</a>
+</small>
+</p>
+<a class="button" id="back-to-top"><i data-feather="arrow-up-circle"></i></a>
+</footer>
+</div>
+</div>
+<script>
+        window.appconfig = {
+            'path': '/docs/schemas/resource/IfcMeasureResource/Entities/IfcMeasureWithUnit.md',
+            'base': '/HTML',
+            'repo': 'buildingSMART/IFC4.3.x-development',
+        };
+    </script>
+<script src="../../lib/unpkg.com/feather-icons"></script>
+<script src="../../lib/polyfill.io/v3/polyfill.min.js%3Ffeatures=es6"></script>
+<script async="" id="MathJax-script" src="../../lib/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link href="../../lib/cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css" rel="stylesheet"/>
+<script src="../assets/js/highlight.min.js"></script>
+<script src="../../lib/cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script src="../assets/js/app.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,532 @@
+<html lang="en">
+<head>
+<link href="../../assets/css/mini-default.css" rel="stylesheet"/>
+<link href="../../assets/css/style.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta charset="utf-8"/>
+<title>Annex E
+(informative)
+
+Examples - IFC4.3.2.0 Documentation</title>
+<link href="../../assets/img/favicon.ico" rel="icon" type="image/x-icon"/>
+<script>window.is_iso = false;</script>
+</head>
+<body class="annex">
+<div class="container">
+<div class="row">
+<header>
+<p>IFC 4.3.2.0 (IFC4X3_ADD2)
+                        
+                            <small>official</small>
+</p>
+<ul>
+<li>
+<a href="https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/">
+<i data-feather="message-circle"></i>
+                                Help improve the next version
+                            </a>
+</li>
+<li>
+<a href="https://forums.buildingsmart.org/">
+<i data-feather="help-circle"></i>
+                            Get user or developer support
+                        </a>
+</li>
+<!--
+                    <li>
+                        <a href="#todo">
+                            <i data-feather="code"></i>
+                            Get started with software development
+                        </a>
+                    </li>
+                    -->
+</ul>
+</header>
+</div>
+<div class="row">
+<div class="col-md-2">
+<nav>
+<div>
+<a href="../../../index.html">
+                             Cover
+                        </a>
+<a href="../../toc.html">
+                             Contents
+                        </a>
+<a href="../../content/foreword.htm">
+                             Foreword
+                        </a>
+<a href="../../content/introduction.htm">
+                             Introduction
+                        </a>
+</div>
+<div>
+<a href="../../content/scope.htm">
+                            1 Scope
+                        </a>
+<a href="../../content/normative_references.htm">
+                            2 Normative references
+                        </a>
+<a href="../../content/terms_and_definitions.htm">
+                            3 Terms, definitions, and abbreviated terms
+                        </a>
+<a href="../../concepts/content.html">
+                            4 Fundamental concepts and assumptions
+                        </a>
+<a href="../../chapter-5/index.html">
+                            5 Core data schemas
+                        </a>
+<a href="../../chapter-6/index.html">
+                            6 Shared element data schemas
+                        </a>
+<a href="../../chapter-7/index.html">
+                            7 Domain specific data schemas
+                        </a>
+<a href="../../chapter-8/index.html">
+                            8 Resource definition data schemas
+                        </a>
+</div>
+<div>
+<a href="../../annex-a.html">
+                            A Computer interpretable listings
+                        </a>
+<a href="../../annex-b.html">
+                            B Alphabetical listings
+                        </a>
+<a href="../../annex-c.html">
+                            C Inheritance listings
+                        </a>
+<a href="../../annex-d.html">
+                            D Diagrams
+                        </a>
+<a href="../../annex-e.html">
+                            E Examples
+                        </a>
+<a href="../../annex-f.html">
+                            F Change logs
+                        </a>
+</div>
+<div>
+<a href="../../content/bibliography.htm">
+                             Bibliography
+                        </a>
+<a href="../../index.htm">
+                             Index
+                        </a>
+</div>
+</nav>
+</div>
+<div class="col-md-8" id="main-content">
+<h1>Annex E<br/>
+<span style="font-weight:lighter">(informative)</span><br/>
+<br/>
+Examples</h1>
+<h2><a class="anchor" id="E.5.1-Construction-Scheduling-Task"></a>E.5.1 - Construction Scheduling Task<a class="link" href="construction-scheduling-task.html#E.5.1-Construction-Scheduling-Task"><i data-feather="link"></i></a></h2>
+<h2><a class="anchor" id="Example-overview"></a>
+    Example overview
+<a class="link" href="construction-scheduling-task.html#Example-overview"><i data-feather="link"></i></a></h2>
+<p>﻿Products can be assigned to task to represent a construction schedule.</p><p>﻿The focus point of this example is linking building elements to the task of a construction schedule to enable construction scheduling.</p>
+<p>The example includes a hierarchy of tasks assigned to building elements. One task is assigned to pour a concrete
+slab, and four tasks are assigned to construct respective walls. The tasks are sequenced, where the walls are
+constructed in serial, following completion of the slab. The walls are nested into summary tasks for the slab and
+walls.</p>
+<p>The slabs and walls in the example have a local placement, a body shape representation, and a material assignment.</p>
+<p>Figure E.A shows a GANTT chart representing the tasks of the construction schedule.</p>
+<figure><a class="anchor" id="Figure-E.A-Task-occurrences"></a><img alt="construction_scheduling_fig-1.png 26,0 KB" src="../../figures/examples/construction_scheduling_task-1.png"/><figcaption>Figure E.A — Task occurrences<a class="link" href="construction-scheduling-task.html#Figure-E.A-Task-occurrences"><i data-feather="link"></i></a></figcaption></figure>
+<p>The project consists of a site aggregating a building which aggregates a building storey. The building storey contains
+a slab and four walls, each physically connected using <em><a href="../../lexical/IfcRelConnectsElements.htm">IfcRelConnectsElements</a></em> where the <em>RelatingElement</em> anchors the <em>RelatedElement</em>. The slab and walls have standard shape that is expressed parametrically using <em>ifcMaterialLayerSetUsage</em> 
+and <em><a href="../../lexical/IfcExtrudedAreaSolid.htm">IfcExtrudedAreaSolid</a></em> geometry. Therefore the slab and the walls are expressed as <em>IfcSlabStandardCase</em> and <em><a href="../../lexical/IfcWallStandardCase.htm">IfcWallStandardCase</a></em>. See Figure E26 for the geometric representation of the construction elements assigned to the tasks of the 
+construction schedule.</p>
+<figure><a class="anchor" id="Figure-E.B-Task-products"></a><img alt="construction_scheduling_fig-2.png 41,1 KB" src="../../figures/examples/construction_scheduling_task-2.png"/><figcaption>Figure E.B — Task products<a class="link" href="construction-scheduling-task.html#Figure-E.B-Task-products"><i data-feather="link"></i></a></figcaption></figure>
+<p>Each task is assigned to a resulting product produced by the task using the <em><a href="../../lexical/IfcRelAssignsToProduct.htm">IfcRelAssignsToProduct</a></em>
+relationship. The root task and the construction tasks form a hierachical task - subtask relationship provided
+by <em><a href="../../lexical/IfcRelNests.htm">IfcRelNests</a></em>. The time related information (start time, end time) is added to each <em><a href="../../lexical/IfcTask.htm">IfcTask</a></em> by
+<em><a href="../../lexical/IfcTaskTime.htm">IfcTaskTime</a></em>. See Figure E.C for an instantiation diagram.</p>
+<figure><a class="anchor" id="Figure-E.C-Task-assignment-graph"></a><img alt="construction_scheduling_fig-3.png 38,8 KB" src="../../figures/examples/construction_scheduling_task-3.png"/><figcaption>Figure E.C — Task assignment graph<a class="link" href="construction-scheduling-task.html#Figure-E.C-Task-assignment-graph"><i data-feather="link"></i></a></figcaption></figure>
+<ul class="thumbnails">
+</ul>
+<h2><a class="anchor" id="IFC-SPF-source"></a>
+    IFC-SPF source
+<a class="link" href="construction-scheduling-task.html#IFC-SPF-source"><i data-feather="link"></i></a></h2>
+<pre><code class="language-step21 hljs">ISO-10303-21;
+HEADER;
+/* NOTE a valid model view name has to be asserted, replacing 'notYetAssigned' ----------------- */
+FILE_DESCRIPTION(
+    ( 'ViewDefinition [notYetAssigned]'
+     ,'Comment [manual creation of example file]'
+	)
+	,'2;1');
+/* NOTE standard header information according to ISO 10303-21 ---------------------------------- */
+FILE_NAME(
+	'construction-scheduling-task.ifc',
+	'2010-09-23T23:27:15',
+	('redacted'),
+	('redacted'),
+	'redacted',
+	'redacted',
+	'reference file created for the IFC4 specification');
+FILE_SCHEMA(('IFC4X3_ADD2'));
+ENDSEC;
+
+DATA;
+/* Project context ----------------------------------------------------------------------------- */
+/* required for every IFC data file ------------------------------------------------------------ */
+#1= <a href="../../lexical/IfcApplication.htm">IFCAPPLICATION</a>(#2,'redacted','redacted','redacted');
+#2= <a href="../../lexical/IfcOrganization.htm">IFCORGANIZATION</a>($,'redacted',$,$,$);
+#3= <a href="../../lexical/IfcPerson.htm">IFCPERSON</a>('','redacted','redacted',$,$,$,$,$);
+#4= <a href="../../lexical/IfcOrganization.htm">IFCORGANIZATION</a>($,'redacted',$,$,$);
+#5= <a href="../../lexical/IfcPersonAndOrganization.htm">IFCPERSONANDORGANIZATION</a>(#3,#4,$);
+/* Project units ------------------------------------------------------------------------------- */
+/* this project is based on imperial units (inch) ---------------------------------------------- */
+#26= <a href="../../lexical/IfcSIUnit.htm">IFCSIUNIT</a>(*,.LENGTHUNIT.,$,.METRE.);
+#27= <a href="../../lexical/IfcMeasureWithUnit.htm">IFCMEASUREWITHUNIT</a>(<a href="../../lexical/IfcLengthMeasure.htm">IFCLENGTHMEASURE</a>(0.0254),#26);
+#28= <a href="../../lexical/IfcConversionBasedUnit.htm">IFCCONVERSIONBASEDUNIT</a>(#29,.LENGTHUNIT.,'inch',#27);
+#29= <a href="../../lexical/IfcDimensionalExponents.htm">IFCDIMENSIONALEXPONENTS</a>(1,0,0,0,0,0,0);
+#199= <a href="../../lexical/IfcUnitAssignment.htm">IFCUNITASSIGNMENT</a>((#28));
+/* Project ------------------------------------------------------------------------------------- */
+/* declaring units, representation context and owner history for this data set ----------------- */
+#200= <a href="../../lexical/IfcProject.htm">IFCPROJECT</a>('2ww9A9wXX54eT3Wns4rLsr',#201,'example project',$,$,$,$,(#204,#207),#199);
+#201= <a href="../../lexical/IfcOwnerHistory.htm">IFCOWNERHISTORY</a>(#5,#1,.READWRITE.,.ADDED.,1285284288,$,$,1285284288);
+#202= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#203= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#202,$,$);
+#204= <a href="../../lexical/IfcGeometricRepresentationContext.htm">IFCGEOMETRICREPRESENTATIONCONTEXT</a>('3D','Model',3,1.0E-05,#203,$);
+#205= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#206= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#205,$,$);
+#207= <a href="../../lexical/IfcGeometricRepresentationContext.htm">IFCGEOMETRICREPRESENTATIONCONTEXT</a>('2D','Plan',2,1.0E-05,#206,$);
+
+/* Spatial structure of site, building, and single storey -------------------------------------- */
+/* the site has a footprint and body geometric representation ---------------------------------- */
+#208= <a href="../../lexical/IfcSite.htm">IFCSITE</a>('2uTUkDuu1Caw4X2OaltWYD',#201,'Site #1',$,$,#229,#210,$,.ELEMENT.,$,$,$,$,$);
+#210= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#212,#214));
+#212= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'FootPrint','GeometricCurveSet',(#221));
+#214= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'Body','SweptSolid',(#260));
+#216= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.));
+#217= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((1536.,0.));
+#218= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((1536.,768.));
+#219= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,768.));
+#220= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#216,#217,#218,#219,#216));
+#221= <a href="../../lexical/IfcGeometricCurveSet.htm">IFCGEOMETRICCURVESET</a>((#220));
+#223= <a href="../../lexical/IfcArbitraryClosedProfileDef.htm">IFCARBITRARYCLOSEDPROFILEDEF</a>(.AREA.,$,#220);
+#224= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#223,#226,#227,48.);
+#225= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#226= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#225,$,$);
+#227= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#229= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>($,#231);
+#230= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#231= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#230,$,$);
+#233= <a href="../../lexical/IfcRelAggregates.htm">IFCRELAGGREGATES</a>('3lhFWDvkb6Cwv__4__szPn',#201,$,$,#200,(#208));
+#235= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+
+/* the building has a footprint geometric representation --------------------------------------- */
+/* --------------------------------------------------------------------------------------------- */
+#236= <a href="../../lexical/IfcBuilding.htm">IFCBUILDING</a>('39A9p5Pi1EIRKAduawfVgP',#201,'Building #1',$,$,#252,#245,$,.ELEMENT.,$,$,$);
+#238= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.));
+#239= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((288.,0.));
+#240= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((288.,192.));
+#241= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,192.));
+#242= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#238,#239,#240,#241,#238));
+#243= <a href="../../lexical/IfcGeometricCurveSet.htm">IFCGEOMETRICCURVESET</a>((#242));
+#245= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#247));
+#247= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'FootPrint','GeometricCurveSet',(#243));
+#250= <a href="../../lexical/IfcRelAggregates.htm">IFCRELAGGREGATES</a>('2Ugw7SsXLDQBYCez8hipzK',#201,$,$,#208,(#236));
+#252= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>(#229,#257);
+#253= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#254= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#253,$,$);
+#256= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((576.,240.,48.));
+#257= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#256,$,$);
+#259= <a href="../../lexical/IfcArbitraryClosedProfileDef.htm">IFCARBITRARYCLOSEDPROFILEDEF</a>(.AREA.,$,#220);
+#260= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#259,#262,#263,48.);
+#261= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#262= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#261,$,$);
+#263= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+
+/* the building storey has a footprint geometric representation -------------------------------- */
+/* --------------------------------------------------------------------------------------------- */
+#265= <a href="../../lexical/IfcBuildingStorey.htm">IFCBUILDINGSTOREY</a>('3nYYuCp$XC4vhvJ2cMbpd2',#201,'Ground Level',$,$,#270,#281,$,.ELEMENT.,0.);
+#266= <a href="../../lexical/IfcRelAggregates.htm">IFCRELAGGREGATES</a>('2RHRlut4v6yPP4JCrvm4IE',#201,$,$,#236,(#265));
+#270= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>(#252,#272);
+#271= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#272= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#271,$,$);
+#274= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.));
+#275= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((288.,0.));
+#276= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((288.,192.));
+#277= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,192.));
+#278= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.));
+#279= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#274,#275,#276,#277,#278));
+#280= <a href="../../lexical/IfcGeometricCurveSet.htm">IFCGEOMETRICCURVESET</a>((#279));
+#281= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#283));
+#283= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'FootPrint','GeometricCurveSet',(#280));
+
+/* Slab having rectangular shape and concrete material layer ----------------------------------- */
+/* --------------------------------------------------------------------------------------------- */
+#286= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.));
+#287= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((288.,0.));
+#288= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((288.,192.));
+#289= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,192.));
+#290= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.));
+#291= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#286,#287,#288,#289,#290));
+#292= <a href="../../lexical/IfcSlab.htm">IFCSLAB</a>('20WrgxqpbDtferON_k1P2X',#201,'Slab #1',$,$,#352,#302,$,.BASESLAB.);
+#300= <a href="../../lexical/IfcGeometricCurveSet.htm">IFCGEOMETRICCURVESET</a>((#291));
+#302= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#304,#346));
+#304= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'FootPrint','GeometricCurveSet',(#300));
+#310= <a href="../../lexical/IfcMaterialLayer.htm">IFCMATERIALLAYER</a>(#315,6.,$,'Core','Material from which the slab is constructed.',$,$);
+#311= <a href="../../lexical/IfcMaterialLayerSet.htm">IFCMATERIALLAYERSET</a>((#310),$,$);
+#313= <a href="../../lexical/IfcMaterialLayerSetUsage.htm">IFCMATERIALLAYERSETUSAGE</a>(#311,.AXIS3.,.POSITIVE.,0.,$);
+#314= <a href="../../lexical/IfcRelAssociatesMaterial.htm">IFCRELASSOCIATESMATERIAL</a>('2kASSjs2f6Phd71DH$IPe5',#201,'IfcSlabStandardCase',$,(#292),#313);
+#315= <a href="../../lexical/IfcMaterial.htm">IFCMATERIAL</a>('Concrete (Nominal)',$,'Concrete');
+#341= <a href="../../lexical/IfcArbitraryClosedProfileDef.htm">IFCARBITRARYCLOSEDPROFILEDEF</a>(.AREA.,$,#279);
+#342= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#341,#344,#345,6.);
+#343= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#344= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#343,$,$);
+#345= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#346= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'Body','SweptSolid',(#534));
+#532= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#533= <a href="../../lexical/IfcArbitraryClosedProfileDef.htm">IFCARBITRARYCLOSEDPROFILEDEF</a>(.AREA.,$,#291);
+#534= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#533,#536,#532,6.);
+#535= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#536= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#535,$,$);
+
+#349= <a href="../../lexical/IfcRelContainedInSpatialStructure.htm">IFCRELCONTAINEDINSPATIALSTRUCTURE</a>('19iKmngSP0bR$GMfGwTIoD',#201,$,$,(#292,#356,#385,#407,#429),#265);
+#350= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#351= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#350,$,$);
+#352= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>(#270,#351);
+#355= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+
+/* Walls for exterior, positioned along edges of rectangular slab ------------------------------ */
+/* --------------------------------------------------------------------------------------------- */
+
+/* Standard case walls #1 with axis and body geometry and material layer set defined ----------- */
+/* --------------------------------------------------------------------------------------------- */
+#356= <a href="../../lexical/IfcWall.htm">IFCWALL</a>('26tmERtwL8G8UQn5BoglEh',#201,'Wall #1',$,$,#362,#379,$,.NOTDEFINED.);
+#358= <a href="../../lexical/IfcRelConnectsElements.htm">IFCRELCONNECTSELEMENTS</a>('2ZHJEGFvL98QhEDnQsGNrK',#201,$,$,$,#292,#356);
+#359= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,6.));
+#360= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#361= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#359,#360,#355);
+#362= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>(#270,#361);
+#365= <a href="../../lexical/IfcMaterialLayerWithOffsets.htm">IFCMATERIALLAYERWITHOFFSETS</a>(#370,6.,$,'Block','Structural core of the wall, such as concrete masonry units.',$,$,.AXIS1.,(0.,0.));
+#366= <a href="../../lexical/IfcMaterialLayerSet.htm">IFCMATERIALLAYERSET</a>((#365),$,$);
+#368= <a href="../../lexical/IfcMaterialLayerSetUsage.htm">IFCMATERIALLAYERSETUSAGE</a>(#366,.AXIS2.,.POSITIVE.,-3.,$);
+#369= <a href="../../lexical/IfcRelAssociatesMaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0cuSbpct575BKLAXM$olZ_',#201,'<a href="../../lexical/IfcWallStandardCase.htm">IfcWallStandardCase</a>',$,(#356,#385,#407,#429),#368);
+#370= <a href="../../lexical/IfcMaterial.htm">IFCMATERIAL</a>('Block (Nominal)',$,'Block');
+#376= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.));
+#377= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((192.,0.));
+#378= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#376,#377));
+#379= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#381,#548));
+#381= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'Axis','Curve2D',(#378));
+#384= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+#538= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((3.,-3.));
+#539= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((189.,-3.));
+#540= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((195.,3.));
+#541= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-3.,3.));
+#542= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#538,#539,#540,#541,#538));
+#543= <a href="../../lexical/IfcArbitraryClosedProfileDef.htm">IFCARBITRARYCLOSEDPROFILEDEF</a>(.AREA.,$,#542);
+#544= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#543,#546,#547,120.);
+#545= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#546= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#545,$,$);
+#547= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#548= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'Body','SweptSolid',(#544));
+
+
+/* Standard case walls #2 with axis and body geometry and material layer set defined ----------- */
+/* --------------------------------------------------------------------------------------------- */
+#385= <a href="../../lexical/IfcWall.htm">IFCWALL</a>('2qqyx9mIf27vQuEGt7ts8$',#201,'Wall #2',$,$,#394,#401,$,.NOTDEFINED.);
+#387= <a href="../../lexical/IfcRelConnectsElements.htm">IFCRELCONNECTSELEMENTS</a>('04lBS8dRv8082xho3Ve2L0',#201,$,$,$,#292,#385);
+#388= <a href="../../lexical/IfcRelConnectsPathElements.htm">IFCRELCONNECTSPATHELEMENTS</a>('2aU84ph_f2iwRK7mEx6APn',#201,$,$,$,#356,#385,(),(),.ATSTART.,.ATEND.);
+#391= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,192.,6.));
+#392= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#393= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#391,#392,#384);
+#394= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>(#270,#393);
+#398= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.));
+#399= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((288.,0.));
+#400= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#398,#399));
+#401= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#403,#561));
+#403= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'Axis','Curve2D',(#400));
+#406= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,-1.,0.));
+#551= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((3.,-3.));
+#552= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((285.,-3.));
+#553= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((291.,3.));
+#554= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-3.,3.));
+#555= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#551,#552,#553,#554,#551));
+#556= <a href="../../lexical/IfcArbitraryClosedProfileDef.htm">IFCARBITRARYCLOSEDPROFILEDEF</a>(.AREA.,$,#555);
+#557= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#556,#559,#560,120.);
+#558= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#559= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#558,$,$);
+#560= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#561= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'Body','SweptSolid',(#557));
+
+/* Standard case walls #3 with axis and body geometry and material layer set defined ----------- */
+/* --------------------------------------------------------------------------------------------- */
+#407= <a href="../../lexical/IfcWall.htm">IFCWALL</a>('0edwXkNgP03AySQjQQlat2',#201,'Wall #3',$,$,#416,#423,$,.NOTDEFINED.);
+#409= <a href="../../lexical/IfcRelConnectsElements.htm">IFCRELCONNECTSELEMENTS</a>('1_c3omXFD7UPfF9thiXwlM',#201,$,$,$,#292,#407);
+#410= <a href="../../lexical/IfcRelConnectsPathElements.htm">IFCRELCONNECTSPATHELEMENTS</a>('3cHo0l0vT7YecRcCZH80A_',#201,$,$,$,#385,#407,(),(),.ATSTART.,.ATEND.);
+#413= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((288.,192.,6.));
+#414= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#415= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#413,#414,#406);
+#416= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>(#270,#415);
+#420= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.));
+#421= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((192.,0.));
+#422= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#420,#421));
+#423= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#425,#574));
+#425= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'Axis','Curve2D',(#422));
+#428= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((-1.,0.,0.));
+#564= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((3.,-3.));
+#565= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((189.,-3.));
+#566= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((195.,3.));
+#567= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-3.,3.));
+#568= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#564,#565,#566,#567,#564));
+#569= <a href="../../lexical/IfcArbitraryClosedProfileDef.htm">IFCARBITRARYCLOSEDPROFILEDEF</a>(.AREA.,$,#568);
+#570= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#569,#572,#573,120.);
+#571= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#572= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#571,$,$);
+#573= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#574= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'Body','SweptSolid',(#570));
+
+/* Standard case walls #4 with axis and body geometry and material layer set defined ----------- */
+/* --------------------------------------------------------------------------------------------- */
+#429= <a href="../../lexical/IfcWall.htm">IFCWALL</a>('27D5wuD5z86hr07xvbZLKW',#201,'Wall #4',$,$,#438,#445,$,.NOTDEFINED.);
+#431= <a href="../../lexical/IfcRelConnectsElements.htm">IFCRELCONNECTSELEMENTS</a>('2GwDyB_Xb1mBzqynA5hpmk',#201,$,$,$,#292,#429);
+#432= <a href="../../lexical/IfcRelConnectsPathElements.htm">IFCRELCONNECTSPATHELEMENTS</a>('0N2CJ8VSz1yx6iStYDzqLN',#201,$,$,$,#407,#429,(),(),.ATSTART.,.ATEND.);
+#435= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((288.,0.,6.));
+#436= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#437= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#435,#436,#428);
+#438= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>(#270,#437);
+#442= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.));
+#443= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((288.,0.));
+#444= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#442,#443));
+#445= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#447,#587));
+#447= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'Axis','Curve2D',(#444));
+#450= <a href="../../lexical/IfcRelConnectsPathElements.htm">IFCRELCONNECTSPATHELEMENTS</a>('2FxBB642r3GfFLy0QsWZoT',#201,$,$,$,#429,#356,(),(),.ATSTART.,.ATEND.);
+#577= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((3.,-3.));
+#578= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((285.,-3.));
+#579= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((291.,3.));
+#580= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((-3.,3.));
+#581= <a href="../../lexical/IfcPolyline.htm">IFCPOLYLINE</a>((#577,#578,#579,#580,#577));
+#582= <a href="../../lexical/IfcArbitraryClosedProfileDef.htm">IFCARBITRARYCLOSEDPROFILEDEF</a>(.AREA.,$,#581);
+#583= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#582,#585,#586,120.);
+#584= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+#585= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#584,$,$);
+#586= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+#587= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#204,'Body','SweptSolid',(#583));
+
+
+/* Root task ----------------------------------------------------------------------------------- */
+/* Scheduled start is specified which constrains the start of all descendent tasks ------------- */
+#597= <a href="../../lexical/IfcTaskTime.htm">IFCTASKTIME</a>($,.PREDICTED.,$,.WORKTIME.,'P0Y0M1DT16H0M0S','2010-09-20T08:00:00',$,'2010-09-20T08:00:00', '2010-09-24T16:00:00','2010-09-20T08:00:00','2010-09-20T16:00:00','P0Y0M0DT0H0M0S','P0Y0M0DT0H0M0S',.T.,$,$,$,$,$,$);
+#598= <a href="../../lexical/IfcTask.htm">IFCTASK</a>('0HSpq15hDC2R2RlJos8Ql5',#201,'Ground Level',$,$,$,$,$,$,.F.,$,#597,$);
+#599= <a href="../../lexical/IfcRelDeclares.htm">IFCRELDECLARES</a>('0CWmoqi1D5fvyIWw6QZMVg',#201,'PROCESS',$,#200,(#598));
+#611= <a href="../../lexical/IfcRelAssignsToProduct.htm">IFCRELASSIGNSTOPRODUCT</a>('3fzXeaVoT7R8p4ro97HwNg',#201,$,$,(#598),$,#265);
+
+/* Tasks for slabs, where each nested task is assigned to a specific slab ---------------------- */
+/* Scheduled start and finish are not specified, such that early start and finish take effect -- */
+#614= <a href="../../lexical/IfcTaskTime.htm">IFCTASKTIME</a>($,.PREDICTED.,$,.WORKTIME.,'P0Y0M0DT8H0M0S',$,$,'2010-09-20T08:00:00','2010-09-20T16:00:00',$,$,$,$,$,$,$,$,$,$,$);
+#615= <a href="../../lexical/IfcTask.htm">IFCTASK</a>('3OFhQ6xenBvBxNI4NhGlTz',#201,'Slab (Standard)',$,$,'IfcSlabStandardCase',$,$,$,.F.,$,#614,$);
+#618= <a href="../../lexical/IfcRelNests.htm">IFCRELNESTS</a>('084eMXNPf4iQUJ1DL9YVyg',#201,$,$,#598,(#615,#639));
+#620= <a href="../../lexical/IfcTaskTime.htm">IFCTASKTIME</a>($,.PREDICTED.,$,.WORKTIME.,'P0Y0M0DT8H0M0S',$,$,'2010-09-20T08:00:00','2010-09-20T16:00:00', '2010-09-20T08:00:00','2010-09-20T16:00:00','P0Y0M0DT16H0M0S','P0Y0M0DT1H0M0S',.T.,$,$,$,$,$,$);
+#621= <a href="../../lexical/IfcTask.htm">IFCTASK</a>('3vesIabXX7guLU5lIRuXh7',#201,'Slab #1',$,$,$,$,$,$,.F.,$,#620,$);
+#622= <a href="../../lexical/IfcRelNests.htm">IFCRELNESTS</a>('25bUvqUPT8sO$Hp1WU0jhy',#201,$,$,#615,(#621));
+#624= <a href="../../lexical/IfcRelAssignsToProduct.htm">IFCRELASSIGNSTOPRODUCT</a>('3vXaSpK9P0fg8T$uh5yD3o',#201,$,$,(#621),$,#292);
+
+/* Tasks for walls where each nested task is assigned to a specific wall ----------------------- */
+#638= <a href="../../lexical/IfcTaskTime.htm">IFCTASKTIME</a>($,.PREDICTED.,$,.WORKTIME.,'P0Y0M1DT8H0M0S',$,$,'2010-09-21T08:00:00','2010-09-24T16:00:00',$,$,$,$,$,$,$,$,$,$,$);
+#639= <a href="../../lexical/IfcTask.htm">IFCTASK</a>('0njFKjg5HAEuwb1SdMaVRR',#201,'Wall (Standard)',$,$,'<a href="../../lexical/IfcWallStandardCase.htm">IfcWallStandardCase</a>',$,$,$,.F.,$,#638,$);
+#643= <a href="../../lexical/IfcTaskTime.htm">IFCTASKTIME</a>($,.PREDICTED.,$,.WORKTIME.,'P0Y0M0DT8H0M0S',$,$,'2010-09-21T08:00:00','2010-09-21T16:00:00', '2010-09-21T08:00:00','2010-09-21T16:00:00','P0Y0M0DT0H0M0S','P0Y0M0DT0H0M0S',.T.,$,$,$,$,$,$);
+#644= <a href="../../lexical/IfcTask.htm">IFCTASK</a>('0Kq8RwbZH3afCy87RX8dso',#201,'Wall #1',$,$,$,$,$,$,.F.,$,#643,$);
+#645= <a href="../../lexical/IfcRelNests.htm">IFCRELNESTS</a>('3i7xt4aCT70BYgowuH355l',#201,$,$,#639,(#644,#662,#676,#690));
+#647= <a href="../../lexical/IfcRelAssignsToProduct.htm">IFCRELASSIGNSTOPRODUCT</a>('3Q5arGx_f1TBv9qlup9fDC',#201,$,$,(#644),$,#356);
+#661= <a href="../../lexical/IfcTaskTime.htm">IFCTASKTIME</a>($,.PREDICTED.,$,.WORKTIME.,'P0Y0M0DT8H0M0S',$,$,'2010-09-22T08:00:00','2010-09-22T16:00:00', '2010-09-22T08:00:00','2010-09-22T16:00:00','P0Y0M0DT0H0M0S','P0Y0M0DT0H0M0S',.T.,$,$,$,$,$,$);
+#662= <a href="../../lexical/IfcTask.htm">IFCTASK</a>('0hLKmeFATD$PWRDGqXzqOk',#201,'Wall #2',$,$,$,$,$,$,.F.,$,#661,$);
+#664= <a href="../../lexical/IfcRelAssignsToProduct.htm">IFCRELASSIGNSTOPRODUCT</a>('0$ba11SzL0hQrmYcN5xQqx',#201,$,$,(#662),$,#385);
+#675= <a href="../../lexical/IfcTaskTime.htm">IFCTASKTIME</a>($,.PREDICTED.,$,.WORKTIME.,'P0Y0M0DT8H0M0S',$,$,'2010-09-23T08:00:00','2010-09-23T16:00:00', '2010-09-23T08:00:00','2010-09-23T16:00:00','P0Y0M0DT0H0M0S','P0Y0M0DT0H0M0S',.T.,$,$,$,$,$,$);
+#676= <a href="../../lexical/IfcTask.htm">IFCTASK</a>('0Yz5hS48v9jfiCNjUF0okF',#201,'Wall #3',$,$,$,$,$,$,.F.,$,#675,$);
+#678= <a href="../../lexical/IfcRelAssignsToProduct.htm">IFCRELASSIGNSTOPRODUCT</a>('3gkG6$UaT7GwCw3Fu$NJuW',#201,$,$,(#676),$,#407);
+#689= <a href="../../lexical/IfcTaskTime.htm">IFCTASKTIME</a>($,.PREDICTED.,$,.WORKTIME.,'P0Y0M0DT8H0M0S',$,$,'2010-09-24T08:00:00','2010-09-24T16:00:00', '2010-09-24T08:00:00','2010-09-24T16:00:00','P0Y0M0DT0H0M0S','P0Y0M0DT0H0M0S',.T.,$,$,$,$,$,$);
+#690= <a href="../../lexical/IfcTask.htm">IFCTASK</a>('0kKoBDlp13eBAIY8350FFo',#201,'Wall #4',$,$,$,$,$,$,.F.,$,#689,$);
+#692= <a href="../../lexical/IfcRelAssignsToProduct.htm">IFCRELASSIGNSTOPRODUCT</a>('1ayXYhiTj4fuJRkoMMiKB1',#201,$,$,(#690),$,#429);
+
+/* Sequences of tasks where each wall must be constructed after supporting slab ---------------- */
+#703= <a href="../../lexical/IfcRelSequence.htm">IFCRELSEQUENCE</a>('0ytgSSysP98eeo2xw37OMq',#201,$,$,#621,#644,$,.FINISH_START.,$);
+#723= <a href="../../lexical/IfcRelSequence.htm">IFCRELSEQUENCE</a>('0wK7QBCOv15RnMy6Ia9ykQ',#201,$,$,#621,#662,$,.FINISH_START.,$);
+#728= <a href="../../lexical/IfcRelSequence.htm">IFCRELSEQUENCE</a>('2Y5tFvjSfCngQp$$PYkXhS',#201,$,$,#621,#676,$,.FINISH_START.,$);
+#733= <a href="../../lexical/IfcRelSequence.htm">IFCRELSEQUENCE</a>('2hWL_Juob0BPVRlnbe1v3c',#201,$,$,#621,#690,$,.FINISH_START.,$);
+
+/* Sequences of tasks indicating order of wall construction; otherwise could be omitted if ----- */
+/* scheduled in parallel ----------------------------------------------------------------------- */
+#739= <a href="../../lexical/IfcRelSequence.htm">IFCRELSEQUENCE</a>('0GVHMGhZ58UhwQX6IyHGzD',#201,$,$,#644,#662,$,.FINISH_START.,$);
+#755= <a href="../../lexical/IfcRelSequence.htm">IFCRELSEQUENCE</a>('2cOAlYj8X46PLPMFHuoV8X',#201,$,$,#662,#676,$,.FINISH_START.,$);
+#768= <a href="../../lexical/IfcRelSequence.htm">IFCRELSEQUENCE</a>('3OZBIrkNX0IAUQIs8NADJm',#201,$,$,#676,#690,$,.FINISH_START.,$);
+
+/* Work plan includes a set of related calendars and schedules, -------------------------------- */
+/* each having assigned tasks and resources ---------------------------------------------------- */
+#778= <a href="../../lexical/IfcWorkPlan.htm">IFCWORKPLAN</a>('0eVhmaYyb3sBLb0LoNiW62',#201,'Work Plan #1',$,$,$,'2010-09-23T16:26:16',$,$,$,$,'2010-09-23T00:00:00',$,$);
+#779= <a href="../../lexical/IfcRelDeclares.htm">IFCRELDECLARES</a>('3n6EjscYnB4hf4mKVrfRVJ',#201,'CONTROL',$,#200,(#778));
+
+/* Work calendar indicates work hours of 08:00-16:00 Monday thru Friday; the calendar is applied */
+/* to the root task and indirectly to all descendent tasks unless overridden ------------------- */
+#783= <a href="../../lexical/IfcWorkCalendar.htm">IFCWORKCALENDAR</a>('0LHFCz8r5EQw4GeNNMS$Xp',#201,$,$,$,$,(#789),$,.FIRSTSHIFT.);
+#784= <a href="../../lexical/IfcRelNests.htm">IFCRELNESTS</a>('0if6u97Ln58xH$wewg0rH3',#201,$,$,#778,(#783,#794));
+#787= <a href="../../lexical/IfcTimePeriod.htm">IFCTIMEPERIOD</a>('08:00:00','16:00:00');
+#788= <a href="../../lexical/IfcRecurrencePattern.htm">IFCRECURRENCEPATTERN</a>(.WEEKLY.,$,(1,2,3,4,5),$,$,$,$,(#787));
+#789= <a href="../../lexical/IfcWorkTime.htm">IFCWORKTIME</a>('Standard',$,$,#788,$,$);
+#791= <a href="../../lexical/IfcRelAssignsToControl.htm">IFCRELASSIGNSTOCONTROL</a>('3DnVao$j10NByLyVF3hP9m',#201,$,$,(#598),$,#783);
+
+/* Work schedule specifies a view of tasks using planned times --------------------------------- */
+#794= <a href="../../lexical/IfcWorkSchedule.htm">IFCWORKSCHEDULE</a>('2LoWUCZHr7YvZks8lmqjcw',#201,$,$,$,$,'2010-09-23T16:26:42',$,$,$,$,'2010-09-23T00:00:00',$,.PLANNED.);
+#797= <a href="../../lexical/IfcRelAssignsToControl.htm">IFCRELASSIGNSTOCONTROL</a>('0_6CMgJyT5jviMnquaXCct',#201,$,$,(#598),$,#794);
+
+ENDSEC;
+
+END-ISO-10303-21;
+</code></pre>
+</div>
+<div class="col-md-2">
+<div class="card fluid shadowed">
+<p>
+<a class="button primary edit-github" href="https://github.com/buildingSMART/IFC4.3.x-sample-models/blob/main/models/construction-scheduling/construction-scheduling-task/README.md"><span class="icon-edit inverse"></span> Edit on Github</a>
+</p>
+<p>
+<small>
+<span id="contributors"></span><br/>
+<span id="last-change"></span>
+</small>
+</p>
+<p>
+<small>
+                            Is this page difficult to understand? <a href="https://github.com/buildingSMART/IFC4.3.x-development/issues/371">Let us know!</a>
+</small>
+</p>
+</div>
+<div class="card fluid shadowed hidden" id="section-navigation">
+<p>
+</p><center><small>Jump to section</small></center>
+<ol class="referenced-list small"></ol>
+</div>
+</div>
+</div>
+<div class="row">
+<footer>
+<p>
+<a href="http://creativecommons.org/licenses/by-nd/4.0/" rel="license"><img alt="Creative Commons License" src="../../../lib/i.creativecommons.org/l/by-nd/4.0/88x31.png" style="border-width:0"/></a>
+<small>
+                        Copyright © 1996-2022 buildingSMART International Limited. Some rights reserved. Any technical documentation made available by buildingSMART International Limited is the copyrighted work of buildingSMART International Limited and is owned by buildingSMART International Limited. The Industry Foundation Classes are published under Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0). Read the <a href="https://creativecommons.org/licenses/by-nd/4.0/legalcode">full license text here</a>. For more information please refer to our <a href="https://buildingsmart-1xbd3ajdayi.netdna-ssl.com/wp-content/uploads/2021/06/bSI-Intellectual-Property-Policy.pdf">IP Policy.</a>
+</small>
+</p>
+<a class="button" id="back-to-top"><i data-feather="arrow-up-circle"></i></a>
+</footer>
+</div>
+</div>
+<script>
+        window.appconfig = {
+            'path': 'models/construction-scheduling/construction-scheduling-task/README.md',
+            'base': '/HTML',
+            'repo': 'buildingSMART/IFC4.3.x-sample-models',
+        };
+    </script>
+<script src="../../../lib/unpkg.com/feather-icons"></script>
+<script src="../../../lib/polyfill.io/v3/polyfill.min.js%3Ffeatures=es6"></script>
+<script async="" id="MathJax-script" src="../../../lib/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link href="../../../lib/cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css" rel="stylesheet"/>
+<script src="../../assets/js/highlight.min.js"></script>
+<script src="../../../lib/cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script src="../../assets/js/app.js" type="text/javascript"></script>
+</body>
+</html>

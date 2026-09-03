@@ -1,0 +1,275 @@
+<html lang="en">
+<head>
+<link href="../../assets/css/mini-default.css" rel="stylesheet"/>
+<link href="../../assets/css/style.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta charset="utf-8"/>
+<title>Annex E
+(informative)
+
+Examples - IFC4.3.2.0 Documentation</title>
+<link href="../../assets/img/favicon.ico" rel="icon" type="image/x-icon"/>
+<script>window.is_iso = false;</script>
+</head>
+<body class="annex">
+<div class="container">
+<div class="row">
+<header>
+<p>IFC 4.3.2.0 (IFC4X3_ADD2)
+                        
+                            <small>official</small>
+</p>
+<ul>
+<li>
+<a href="https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/">
+<i data-feather="message-circle"></i>
+                                Help improve the next version
+                            </a>
+</li>
+<li>
+<a href="https://forums.buildingsmart.org/">
+<i data-feather="help-circle"></i>
+                            Get user or developer support
+                        </a>
+</li>
+<!--
+                    <li>
+                        <a href="#todo">
+                            <i data-feather="code"></i>
+                            Get started with software development
+                        </a>
+                    </li>
+                    -->
+</ul>
+</header>
+</div>
+<div class="row">
+<div class="col-md-2">
+<nav>
+<div>
+<a href="../../../index.html">
+                             Cover
+                        </a>
+<a href="../../toc.html">
+                             Contents
+                        </a>
+<a href="../../content/foreword.htm">
+                             Foreword
+                        </a>
+<a href="../../content/introduction.htm">
+                             Introduction
+                        </a>
+</div>
+<div>
+<a href="../../content/scope.htm">
+                            1 Scope
+                        </a>
+<a href="../../content/normative_references.htm">
+                            2 Normative references
+                        </a>
+<a href="../../content/terms_and_definitions.htm">
+                            3 Terms, definitions, and abbreviated terms
+                        </a>
+<a href="../../concepts/content.html">
+                            4 Fundamental concepts and assumptions
+                        </a>
+<a href="../../chapter-5/index.html">
+                            5 Core data schemas
+                        </a>
+<a href="../../chapter-6/index.html">
+                            6 Shared element data schemas
+                        </a>
+<a href="../../chapter-7/index.html">
+                            7 Domain specific data schemas
+                        </a>
+<a href="../../chapter-8/index.html">
+                            8 Resource definition data schemas
+                        </a>
+</div>
+<div>
+<a href="../../annex-a.html">
+                            A Computer interpretable listings
+                        </a>
+<a href="../../annex-b.html">
+                            B Alphabetical listings
+                        </a>
+<a href="../../annex-c.html">
+                            C Inheritance listings
+                        </a>
+<a href="../../annex-d.html">
+                            D Diagrams
+                        </a>
+<a href="../../annex-e.html">
+                            E Examples
+                        </a>
+<a href="../../annex-f.html">
+                            F Change logs
+                        </a>
+</div>
+<div>
+<a href="../../content/bibliography.htm">
+                             Bibliography
+                        </a>
+<a href="../../index.htm">
+                             Index
+                        </a>
+</div>
+</nav>
+</div>
+<div class="col-md-8" id="main-content">
+<h1>Annex E<br/>
+<span style="font-weight:lighter">(informative)</span><br/>
+<br/>
+Examples</h1>
+<h2><a class="anchor" id="E.4.11-Slab-Openings"></a>E.4.11 - Slab Openings<a class="link" href="slab-openings.html#E.4.11-Slab-Openings"><i data-feather="link"></i></a></h2>
+<h2><a class="anchor" id="Example-overview"></a>
+    Example overview
+<a class="link" href="slab-openings.html#Example-overview"><i data-feather="link"></i></a></h2>
+<p>﻿Additional test cases not yet allocated to individual test case groups.</p><p>﻿This example illustrates a slab with extruded solid geometry, based on a material layer set usage definition. It includes one round opening and one rectangular recess. Figure E.A shows the resulting shape.</p>
+<figure><a class="anchor" id="Figure-E.A-Slab-with-opening-and-recess."></a><img alt="slab_with_openings" src="../../figures/examples/slab_with_openings.png"/><figcaption>Figure E.A — Slab with opening and recess.<a class="link" href="slab-openings.html#Figure-E.A-Slab-with-opening-and-recess."><i data-feather="link"></i></a></figcaption></figure>
+<aside class="aside-note"><mark>NOTE</mark>  There is no color information within the file, the displayed color has been set by the target application as a default.
+</aside>
+<ul class="thumbnails">
+</ul>
+<h2><a class="anchor" id="IFC-SPF-source"></a>
+    IFC-SPF source
+<a class="link" href="slab-openings.html#IFC-SPF-source"><i data-feather="link"></i></a></h2>
+<pre><code class="language-step21 hljs">ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION(('ViewDefinition [DesignTransferView_V1]'),'2;1');
+FILE_NAME(
+/* name */ 'slab-openings.ifc',
+/* time_stamp */ '2016-02-04T08:47:55',
+/* author */ ('redacted'),
+/* organization */ ('redacted'),
+/* preprocessor_version */ 'redacted',
+/* originating_system */ 'redacted',
+/* authorization */ 'None');
+
+FILE_SCHEMA (('IFC4X3_ADD2'));
+ENDSEC;
+
+DATA;
+/* general entities required for all IFC data sets, defining the context for the exchange */
+#1= <a href="../../lexical/IfcGeometricRepresentationContext.htm">IFCGEOMETRICREPRESENTATIONCONTEXT</a>($,'Model',3,0.0001,#3,$);
+#2= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.0,0.0,0.0));
+#3= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#2,$,$);
+#4= <a href="../../lexical/IfcGeometricRepresentationSubContext.htm">IFCGEOMETRICREPRESENTATIONSUBCONTEXT</a>('Axis','Model',*,*,*,*,#1,$,.MODEL_VIEW.,$);
+#5= <a href="../../lexical/IfcGeometricRepresentationSubContext.htm">IFCGEOMETRICREPRESENTATIONSUBCONTEXT</a>('Body','Model',*,*,*,*,#1,$,.MODEL_VIEW.,$);
+/* defines the default building (as required as the minimum spatial element)  */
+#50= <a href="../../lexical/IfcBuilding.htm">IFCBUILDING</a>('39t4Pu3nTC4ekXYRIHJB9W',#56,'<a href="../../lexical/IfcBuilding.htm">IfcBuilding</a>',$,$,$,$,$,$,$,$,$);
+#51= <a href="../../lexical/IfcPersonAndOrganization.htm">IFCPERSONANDORGANIZATION</a>(#52,#53,$);
+#52= <a href="../../lexical/IfcPerson.htm">IFCPERSON</a>('redacted','redacted',$,$,$,$,$,$);
+#53= <a href="../../lexical/IfcOrganization.htm">IFCORGANIZATION</a>($,'redacted',$,$,$);
+#54= <a href="../../lexical/IfcApplication.htm">IFCAPPLICATION</a>(#55,'redacted','redacted','redacted');
+#55= <a href="../../lexical/IfcOrganization.htm">IFCORGANIZATION</a>($,'redacted',$,$,$);
+#56= <a href="../../lexical/IfcOwnerHistory.htm">IFCOWNERHISTORY</a>(#51,#54,$,.ADDED.,1454575675,$,$,1454575675);
+#57= <a href="../../lexical/IfcRelContainedInSpatialStructure.htm">IFCRELCONTAINEDINSPATIALSTRUCTURE</a>('3Sa3dTJGn0H8TQIGiuGQd5',#56,'Building','Building Container for Elements',(#303),#50);
+#58= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#2,$,$);
+#100= <a href="../../lexical/IfcProject.htm">IFCPROJECT</a>('0$WU4A9R19$vKWO$AdOnKA',#56,'<a href="../../lexical/IfcProject.htm">IfcProject</a>',$,$,$,$,(#1),#101);
+#101= <a href="../../lexical/IfcUnitAssignment.htm">IFCUNITASSIGNMENT</a>((#102,#103,#104));
+#102= <a href="../../lexical/IfcSIUnit.htm">IFCSIUNIT</a>(*,.LENGTHUNIT.,.MILLI.,.METRE.);
+#103= <a href="../../lexical/IfcSIUnit.htm">IFCSIUNIT</a>(*,.PLANEANGLEUNIT.,$,.RADIAN.);
+#104= <a href="../../lexical/IfcSIUnit.htm">IFCSIUNIT</a>(*,.TIMEUNIT.,$,.SECOND.);
+#105= <a href="../../lexical/IfcRelAggregates.htm">IFCRELAGGREGATES</a>('091a6ewbvCMQ2Vyiqspa7a',#56,'Project Container','Project Container for Buildings',#100,(#50));
+#200= <a href="../../lexical/IfcMaterial.htm">IFCMATERIAL</a>('Concrete','Concrete',$);
+#202= <a href="../../lexical/IfcMaterialLayer.htm">IFCMATERIALLAYER</a>(#200,200.0,.U.,'Core',$,$,$);
+#204= <a href="../../lexical/IfcMaterialLayerSet.htm">IFCMATERIALLAYERSET</a>((#202),'200mm Concrete',$);
+#205= <a href="../../lexical/IfcRelAssociatesMaterial.htm">IFCRELASSOCIATESMATERIAL</a>('2l_enLhI93reVwnim9gXUq',#56,'MatAssoc','Material Associates',(#300),#204);
+#300= <a href="../../lexical/IfcSlabType.htm">IFCSLABTYPE</a>('0RSW$KKbzCZ9QaSm3GoEan',#56,'200mm Concrete',$,$,$,$,$,$,.FLOOR.);
+#302= <a href="../../lexical/IfcRelDeclares.htm">IFCRELDECLARES</a>('1oXuN5qJ93Eggy5n3jcluj',#56,$,$,#100,(#300));
+#303= <a href="../../lexical/IfcSlab.htm">IFCSLAB</a>('1wAj$J2Az2V8wnBiVYd3bU',#56,$,$,$,#304,#315,$,$);
+#304= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>($,#316);
+#305= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#306,$,$);
+#306= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.0,0.0,-200.0));
+#307= <a href="../../lexical/IfcCartesianPointList2D.htm">IFCCARTESIANPOINTLIST2D</a>(((0.0,0.0),(1000.0,0.0),(1399.99999999983,2000.0),(1000.0,4000.0),(0.0,4000.0),(-400.000000000001,2000.0)),$);
+#308= <a href="../../lexical/IfcIndexedPolyCurve.htm">IFCINDEXEDPOLYCURVE</a>(#307,(<a href="../../lexical/IfcLineIndex.htm">IFCLINEINDEX</a>((1,2)),<a href="../../lexical/IfcArcIndex.htm">IFCARCINDEX</a>((2,3,4)),<a href="../../lexical/IfcLineIndex.htm">IFCLINEINDEX</a>((4,5)),<a href="../../lexical/IfcArcIndex.htm">IFCARCINDEX</a>((5,6,1))),.F.);
+#309= <a href="../../lexical/IfcArbitraryClosedProfileDef.htm">IFCARBITRARYCLOSEDPROFILEDEF</a>(.AREA.,'Slab Perim',#308);
+#310= <a href="../../lexical/IfcMaterialLayerSetUsage.htm">IFCMATERIALLAYERSETUSAGE</a>(#204,.AXIS3.,.POSITIVE.,-200.0,$);
+#311= <a href="../../lexical/IfcRelAssociatesMaterial.htm">IFCRELASSOCIATESMATERIAL</a>('2Npx$Qu3X5tPUqWORsru6k',#56,'MatAssoc','Material Associates',(#303),#310);
+#312= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.0,0.0,1.0));
+#313= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#309,$,#312,200.0);
+#314= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#5,'Body','SweptSolid',(#313));
+#315= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#314));
+#316= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#317,$,$);
+#317= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((0.0,0.0,-200.0));
+#318= <a href="../../lexical/IfcCircleProfileDef.htm">IFCCIRCLEPROFILEDEF</a>(.AREA.,'100DIA',$,50.0);
+#319= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#320,$,$);
+#320= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((100.0,300.0,-200.0));
+#321= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.0,0.0,1.0));
+#322= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#318,#319,#321,200.0);
+#323= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#5,'Body','SweptSolid',(#322));
+#324= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#323));
+#325= <a href="../../lexical/IfcOpeningElement.htm">IFCOPENINGELEMENT</a>('15RSTHd8nFVQWMRE7og7sd',#56,'Opening',$,$,#327,#324,$,$);
+#326= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#2,$,$);
+#327= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>($,#326);
+#328= <a href="../../lexical/IfcRelVoidsElement.htm">IFCRELVOIDSELEMENT</a>('0gqEDsyEzFXvY$fc_rUxyO',#56,$,$,#303,#325);
+#329= <a href="../../lexical/IfcRectangleProfileDef.htm">IFCRECTANGLEPROFILEDEF</a>(.AREA.,'RecessRectangle',$,1000.0,500.0);
+#330= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#331,$,$);
+#331= <a href="../../lexical/IfcCartesianPoint.htm">IFCCARTESIANPOINT</a>((500.0,1000.0,-50.0));
+#332= <a href="../../lexical/IfcDirection.htm">IFCDIRECTION</a>((0.0,0.0,1.0));
+#333= <a href="../../lexical/IfcExtrudedAreaSolid.htm">IFCEXTRUDEDAREASOLID</a>(#329,#330,#332,50.0);
+#334= <a href="../../lexical/IfcShapeRepresentation.htm">IFCSHAPEREPRESENTATION</a>(#5,'Body','SweptSolid',(#333));
+#335= <a href="../../lexical/IfcProductDefinitionShape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(#334));
+#336= <a href="../../lexical/IfcOpeningElement.htm">IFCOPENINGELEMENT</a>('0w93HZ19H2D99zbAVNb4o2',#56,'Recess',$,$,#338,#335,$,.RECESS.);
+#337= <a href="../../lexical/IfcAxis2Placement3D.htm">IFCAXIS2PLACEMENT3D</a>(#2,$,$);
+#338= <a href="../../lexical/IfcLocalPlacement.htm">IFCLOCALPLACEMENT</a>($,#337);
+#339= <a href="../../lexical/IfcRelVoidsElement.htm">IFCRELVOIDSELEMENT</a>('3iUkij4q1DmxlXuHzQVJaM',#56,$,$,#303,#336);
+ENDSEC;
+
+END-ISO-10303-21;
+
+</code></pre>
+</div>
+<div class="col-md-2">
+<div class="card fluid shadowed">
+<p>
+<a class="button primary edit-github" href="https://github.com/buildingSMART/IFC4.3.x-sample-models/blob/main/models/building-elements/slab-openings/README.md"><span class="icon-edit inverse"></span> Edit on Github</a>
+</p>
+<p>
+<small>
+<span id="contributors"></span><br/>
+<span id="last-change"></span>
+</small>
+</p>
+<p>
+<small>
+                            Is this page difficult to understand? <a href="https://github.com/buildingSMART/IFC4.3.x-development/issues/371">Let us know!</a>
+</small>
+</p>
+</div>
+<div class="card fluid shadowed hidden" id="section-navigation">
+<p>
+</p><center><small>Jump to section</small></center>
+<ol class="referenced-list small"></ol>
+</div>
+</div>
+</div>
+<div class="row">
+<footer>
+<p>
+<a href="http://creativecommons.org/licenses/by-nd/4.0/" rel="license"><img alt="Creative Commons License" src="../../../lib/i.creativecommons.org/l/by-nd/4.0/88x31.png" style="border-width:0"/></a>
+<small>
+                        Copyright © 1996-2022 buildingSMART International Limited. Some rights reserved. Any technical documentation made available by buildingSMART International Limited is the copyrighted work of buildingSMART International Limited and is owned by buildingSMART International Limited. The Industry Foundation Classes are published under Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0). Read the <a href="https://creativecommons.org/licenses/by-nd/4.0/legalcode">full license text here</a>. For more information please refer to our <a href="https://buildingsmart-1xbd3ajdayi.netdna-ssl.com/wp-content/uploads/2021/06/bSI-Intellectual-Property-Policy.pdf">IP Policy.</a>
+</small>
+</p>
+<a class="button" id="back-to-top"><i data-feather="arrow-up-circle"></i></a>
+</footer>
+</div>
+</div>
+<script>
+        window.appconfig = {
+            'path': 'models/building-elements/slab-openings/README.md',
+            'base': '/HTML',
+            'repo': 'buildingSMART/IFC4.3.x-sample-models',
+        };
+    </script>
+<script src="../../../lib/unpkg.com/feather-icons"></script>
+<script src="../../../lib/polyfill.io/v3/polyfill.min.js%3Ffeatures=es6"></script>
+<script async="" id="MathJax-script" src="../../../lib/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link href="../../../lib/cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css" rel="stylesheet"/>
+<script src="../../assets/js/highlight.min.js"></script>
+<script src="../../../lib/cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script src="../../assets/js/app.js" type="text/javascript"></script>
+</body>
+</html>

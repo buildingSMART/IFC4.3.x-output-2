@@ -1,0 +1,320 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcAxis2Placement3D</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.3");
+//-->
+</script>
+
+<h4 class="std">8.9.3.3 IfcAxis2Placement3D</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Einfügepunkt mit zwei Achsen - dreidimensionaler Raum (3D)</b></td></tr>
+</table>
+ 
+    <p>
+      The <span class="self-ref">IfcAxis2Placement3D</span> provides location and orientations to
+      place items in a three-dimensional space. The attribute
+      <i>Axis</i> defines the Z direction, <i>RefDirection</i>
+      the X direction. The Y direction is derived.
+    </p>
+    <blockquote class="note">
+      NOTE&nbsp; The <i>RefDirection</i> does not have to be
+      orthogonal to <i>Axis</i>.
+    </blockquote>
+    <p>
+      If the attribute values for <i>Axis</i> and
+      <i>RefDirection</i> are not given, the placement defaults to
+      P[1] (x-axis) as [1.,0.,0.], P[2] (y-axis) as [0.,1.,0.] and
+      P[3] (z-axis) as [0.,0.,1.].
+    </p>
+    <table>
+      <tr>
+        <td>
+          <img src="../../../figures/IfcAxis2Placement3D-Layout1.gif" alt=
+          "axis2 placement 2D" border="0" height="300" width="400">
+        </td>
+        <td style="vertical-align:bottom">
+          <blockquote class="note">
+            Figure 314 illustrates the definition of the
+            <span class="self-ref">IfcAxis2Placement3D</span> within the three-dimensional
+            coordinate system.
+          </blockquote>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="figure">Figure 314 &mdash; Axis2 placement 3D</p>
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+    </table>
+    <blockquote class="extDef">
+      NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+      The location and orientation in three dimensional space of
+      three mutually perpendicular axes. An axis2_placement_3D is
+      defined in terms of a point (inherited from placement
+      supertype) and two (ideally orthogonal) axes. It can be used
+      to locate and orientate a non axi-symmetric object in space
+      and to define a placement coordinate system. The entity
+      includes a point which forms the origin of the placement
+      coordinate system. Two direction vectors are required to
+      complete the definition of the placement coordinate system.
+      The axis is the placement Z axis direction and the
+      ref_direction is an approximation to the placement X axis
+      direction.
+    </blockquote>
+    <blockquote class="note">
+      NOTE&nbsp; Entity adapted from
+      <strong>axis2_placement_3d</strong> defined in ISO10303-42.
+    </blockquote>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC1.5.
+    </blockquote>
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcAxis2Placement3D&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcplacement.htm">IfcPlacement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcAxis2Placement3D&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcplacement.htm">IfcPlacement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Axis&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RefDirection&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcAxis2Placement3D
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometryresource/lexical/ifcplacement.htm">IfcPlacement</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Axis</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>;</td></tr>
+<tr valign="top"><td width="20%">RefDirection</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">P</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [3:3] OF <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a> := IfcBuildAxes(Axis, RefDirection);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">LocationIs3D</td><td width="1%"> : </td><td>SELF\IfcPlacement.Location.Dim = 3;</td></tr>  <tr valign="top"><td width="20%">AxisIs3D</td><td width="1%"> : </td><td>(NOT (EXISTS (Axis))) OR (Axis.Dim = 3);</td></tr>  <tr valign="top"><td width="20%">RefDirIs3D</td><td width="1%"> : </td><td>(NOT (EXISTS (RefDirection))) OR (RefDirection.Dim = 3);</td></tr>  <tr valign="top"><td width="20%">AxisToRefDirPosition</td><td width="1%"> : </td><td>(NOT (EXISTS (Axis))) OR (NOT (EXISTS (RefDirection))) OR (IfcCrossProduct(Axis,RefDirection).Magnitude &gt; 0.0);</td></tr>  <tr valign="top"><td width="20%">AxisAndRefDirProvision</td><td width="1%"> : </td><td>NOT ((EXISTS (Axis)) XOR (EXISTS (RefDirection)));</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Axis</span></td><td width="1%"> : </td><td>The exact direction of the local Z Axis.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RefDirection</span></td><td width="1%"> : </td><td>The direction used to determine the direction of the local X Axis. If necessary an adjustment is made to maintain orthogonality to the Axis direction. If Axis and/or RefDirection is omitted, these directions are taken from the geometric coordinate system.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">P</span></td><td width="1%"> : </td><td>The normalized directions of the placement X Axis (P[1]) and the placement Y Axis (P[2]) and the placement Z Axis (P[3]).</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">LocationIs3D</span></td><td width="1%"> : </td><td>The dimensionality of the placement location shall be 3.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">AxisIs3D</span></td><td width="1%"> : </td><td>The Axis when given should only reference a three-dimensional IfcDirection.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RefDirIs3D</span></td><td width="1%"> : </td><td>The RefDirection when given should only reference a three-dimensional IfcDirection.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">AxisToRefDirPosition</span></td><td width="1%"> : </td><td>
+The <i>Axis</i> and <i>RefDirection</i> shall not be parallel or anti-parallel.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">AxisAndRefDirProvision</span></td><td width="1%"> : </td><td>
+Either both, <i>Axis</i> and <i>RefDirection</i> are not given and therefore defaulted, or both shall be given.
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcAxis2Placement3D
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcplacement.htm">IfcPlacement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Location</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := Location.Dim;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Axis</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>;</td></tr>
+<tr valign="top"><td width="20%">RefDirection</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">P</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [3:3] OF <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a> := IfcBuildAxes(Axis, RefDirection);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcaxis2placement3d.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>
