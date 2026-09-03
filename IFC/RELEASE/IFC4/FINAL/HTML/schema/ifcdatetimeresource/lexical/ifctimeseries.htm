@@ -1,0 +1,200 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcTimeSeries</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.5.3.12");
+//-->
+</script>
+
+<h4 class="std">8.5.3.12 IfcTimeSeries</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Séries temporelles</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Serie mit Zeitabständen</b></td></tr>
+</table>
+
+
+<p>A time series is a set of a time-stamped data entries. It allows a natural association of data collected over intervals of time. Time series can be regular or irregular. In regular time series data arrive predictably at predefined intervals.  In irregular time series  some or all time stamps do not follow a repetitive pattern and unpredictable bursts of data may arrive at unspecified points in time.</p>
+
+<p>The modeling of buildings and their performance involves data that are generated and recorded over a period of time.  Such data cover a large spectrum, from weather data to schedules of all kinds to status measurements to reporting to everything else that has a time related aspect. Their correct placement in time is essential for their proper understanding and use, and the <span class="self-ref">IfcTimeSeries</span> subtypes provide the appropriate data structures to accommodate these types of data.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcTimeSeries&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifctimeseries.htm">IfcTimeSeries</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:Entity&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcTimeSeries&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:Entity&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Unit&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcunit.htm">IfcUnit</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Name&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Description&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;StartTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;EndTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TimeSeriesDataType&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifctimeseriesdatatypeenum.htm">IfcTimeSeriesDataTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;DataOrigin&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdataoriginenum.htm">IfcDataOriginEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;UserDefinedDataOrigin&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcTimeSeries
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcdatetimeresource/lexical/ifcirregulartimeseries.htm">IfcIrregularTimeSeries</a>, <a href="../../ifcdatetimeresource/lexical/ifcregulartimeseries.htm">IfcRegularTimeSeries</a>))<b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+<tr valign="top"><td width="20%">StartTime</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">EndTime</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">TimeSeriesDataType</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifctimeseriesdatatypeenum.htm">IfcTimeSeriesDataTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">DataOrigin</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifcdataoriginenum.htm">IfcDataOriginEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">UserDefinedDataOrigin</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Unit</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcunit.htm">IfcUnit</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReference</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcdatetimeresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Name</span></td><td width="1%"> : </td><td>An unique name for the time series.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Description</span></td><td width="1%"> : </td><td>A text description of the data that the series represents.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">StartTime</span></td><td width="1%"> : </td><td>The start time of a time series.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">EndTime</span></td><td width="1%"> : </td><td>The end time of a time series.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">TimeSeriesDataType</span></td><td width="1%"> : </td><td>The time series data type.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">DataOrigin</span></td><td width="1%"> : </td><td>The origin of a time series data.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">UserDefinedDataOrigin</span></td><td width="1%"> : </td><td>Value of the data origin if DataOrigin attribute is USERDEFINED.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Unit</span></td><td width="1%"> : </td><td>
+The unit to be assigned to all values within the time series. Note that mixing units is not allowed. If the value is not given, the global unit for the type of <a href="../../ifcmeasureresource/lexical/ifcvalue.htm">IfcValue</a>, as defined at <i>IfcProject.UnitsInContext</i> is used.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">HasExternalReference</span></td><td width="1%"> : </td><td> 
+Reference to an external reference, e.g. library, classification, or document information, that is associated to the IfcTimeSeries. 
+<blockquote class="change-ifc2x4">IFC4 CHANGE New inverse attribute.</blockquote> 
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcTimeSeries
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcdatetimeresource/lexical/ifctimeseries.htm">IfcTimeSeries</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+<tr valign="top"><td width="20%">StartTime</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">EndTime</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">TimeSeriesDataType</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifctimeseriesdatatypeenum.htm">IfcTimeSeriesDataTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">DataOrigin</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifcdataoriginenum.htm">IfcDataOriginEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">UserDefinedDataOrigin</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Unit</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcunit.htm">IfcUnit</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReference</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifctimeseries.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

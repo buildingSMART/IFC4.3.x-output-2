@@ -1,0 +1,337 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcTaskType</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.3.3.7");
+//-->
+</script>
+
+<h4 class="std">5.3.3.7 IfcTaskType</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Type de tâche</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Aufgabe - Typ</b></td></tr>
+</table>
+ 
+    <p>
+      An <span class="self-ref">IfcTaskType</span> defines a
+      particular type of task that may be specified for use
+      within a work control.
+    </p>
+    <blockquote class="history">
+HISTORY&nbsp; New entity in IFC4
+    </blockquote>
+    <p>
+      An <span class="self-ref">IfcTaskType</span> provides for all forms of types of
+      task that may be specified. It is a reference definition 
+      for a unit of work that may be broken down into (a sequence of) 
+      subtasks. Please note that a reference definition can not be 
+      part of a workflow definition, i.e. <span class="self-ref">IfcTaskType</span> 
+
+      instances define the most abstract level of a reference process 
+      without dependencies to other reference processes.
+    </p>
+    <p>
+      Usage of <span class="self-ref">IfcTaskType</span> defines the parameters for one
+      or more occurrences of <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a>. Parameters may be
+      specified through property sets that may be enumerated in
+      the <a href="../../ifcprocessextension/lexical/ifctasktypeenum.htm">IfcTaskTypeEnum</a> data type or through explict
+      attributes of <span class="self-ref">IfcTaskType</span>. Task occurrences
+      (<a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a> entities) are linked to the task type
+      through the <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> relationship.
+    </p>
+    <p>Figure 107 shows the definition of a task type that is part
+      of a task template library. Please note that in this
+      example the task type is further subdivided into tasks that
+      define task times (for example, duration) and/or a task sequence.
+    </p>
+<table><tr><td><img src="../../../figures/ifctasktype_instantiation_diagram.png"
+      alt="task type instantiation diagram" border="0"></td></tr>
+<tr><td><p class="figure">Figure 107 &mdash; Task type relationships</p></td></tr>
+</table>
+
+<hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifctasktype.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="object-nesting" />
+<p class="use-head">Object Nesting</p>
+<p>The <a href="../../templates/object-nesting.htm">Object Nesting</a> concept applies to this entity.</p>    <p>
+      <span class="self-ref">IfcTaskType</span> may nest other <span class="self-ref">IfcTaskType</span> or
+      <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a> entities using the <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a>
+      relationship. Such nesting indicates decomposed level of
+      detail. Nesting of <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a> entities is used if a
+      task type shall be detailed by a sequence of tasks or if
+      there is a need to include additional time information such
+      as the duration of subtasks. Please note that
+      <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a> entities being contained within an
+      <span class="self-ref">IfcTaskType</span> are linked with their task occurrences
+      via <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> relationships. It is also
+      possible to define a task type for these <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a>
+      entities via <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> relationships. For
+      further information please see the documentation of
+      <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a>.
+    </p>
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcTaskType&quot; type=&quot;ifc:<a href="../../ifcprocessextension/lexical/ifctasktype.htm">IfcTaskType</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifctypeprocess.htm">IfcTypeProcess</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcTaskType&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifctypeprocess.htm">IfcTypeProcess</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcprocessextension/lexical/ifctasktypeenum.htm">IfcTaskTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;WorkMethod&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcTaskType
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifctypeprocess.htm">IfcTypeProcess</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><a href="../../ifcprocessextension/lexical/ifctasktypeenum.htm">IfcTaskTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">WorkMethod</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">CorrectPredefinedType</td><td width="1%"> : </td><td>(PredefinedType &lt;&gt; IfcTaskTypeEnum.USERDEFINED) OR ((PredefinedType = IfcTaskTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcTypeProcess.ProcessType)) ;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcprocessextension/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">PredefinedType</span></td><td width="1%"> : </td><td>
+    Identifies the predefined types of a task type from which 
+    the type required may be set.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">WorkMethod</span></td><td width="1%"> : </td><td>
+    The method of work used in carrying out a task.
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">CorrectPredefinedType</span></td><td width="1%"> : </td><td>The attribute ProcessType must be asserted when the value of PredefinedType is set to USERDEFINED.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcTaskType
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifctypeobject.htm">IfcTypeObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ApplicableOccurrence</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">HasPropertySets</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcpropertysetdefinition.htm">IfcPropertySetDefinition</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Types</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatingType;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifctypeprocess.htm">IfcTypeProcess</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Identification</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">LongDescription</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+<tr valign="top"><td width="20%">ProcessType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">OperatesOn</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstoprocess.htm">IfcRelAssignsToProcess</a> <span class="keyword">FOR</span> RelatingProcess;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcprocessextension/lexical/ifctasktype.htm">IfcTaskType</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><a href="../../ifcprocessextension/lexical/ifctasktypeenum.htm">IfcTaskTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">WorkMethod</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifctasktype.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

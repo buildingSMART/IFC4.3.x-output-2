@@ -1,0 +1,641 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Beam standard case</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<tt class="spf">
+ISO-10303-21;
+HEADER;
+<span style="color:green">/* NOTE a valid model view name has to be asserted, replacing 'notYetAssigned' ----------------- */</span>
+FILE_DESCRIPTION(('ViewDefinition [notYetAssigned]','Comment [manual creation of example file]'),'2;1');
+<span style="color:green">/* NOTE standard header information according to ISO 10303-21 ---------------------------------- */</span>
+FILE_NAME('standard_case_element_beam.ifc','2011-11-07T18:00:00',('Thomas Liebich'),('buildingSMART International'),'IFC text editor','IFC text editor','reference file created for the IFC4 specification');
+<span style="color:green">/* NOTE schema name to be replaced with 'IFC4' after the final release  ------------------------ */</span>
+FILE_SCHEMA(('IFC4'));
+ENDSEC;
+DATA;
+<a id="100">#100</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeamtype.htm">IFCBEAMTYPE</a>('0juf4qyggSstrxA20Qwnsj',$,'IPE220','Beam type',$,$,$,$,$,.BEAM.);
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and profile to the beam type                       */</span>
+<a id="110">#110</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20Q49sj',$,$,$,(<a href="#100" title="">#100</a>),<a href="#111" title="">#111</a>);
+<a id="111">#111</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IFCMATERIALPROFILESET</a>($,$,(<a href="#112" title="">#112</a>),$);
+<a id="112">#112</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofile.htm">IFCMATERIALPROFILE</a>('IPE220',$,<a href="#113" title="">#113</a>,<a href="#120" title="">#120</a>,$,$);
+<a id="113">#113</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterial.htm">IFCMATERIAL</a>('S275J2',$,'Steel');
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="120">#120</a>=<a class="listing-link" href="../../schema/ifcprofileresource/lexical/ifcishapeprofiledef.htm">IFCISHAPEPROFILEDEF</a>(.AREA.,'IPE220',$,110.,220.,5.9,9.2,12.0,$,$);
+<a id="200">#200</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeamtype.htm">IFCBEAMTYPE</a>('0juf4qyggSstrxA20Qdisj',$,'1/2IPE300','Beam type',$,$,$,$,$,.BEAM.);
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and profile to the beam type                       */</span>
+<a id="210">#210</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20Q2fsj',$,$,$,(<a href="#200" title="">#200</a>),<a href="#211" title="">#211</a>);
+<a id="211">#211</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IFCMATERIALPROFILESET</a>($,$,(<a href="#212" title="">#212</a>),$);
+<a id="212">#212</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofile.htm">IFCMATERIALPROFILE</a>('1/2IPE300',$,<a href="#213" title="">#213</a>,<a href="#220" title="">#220</a>,$,$);
+<a id="213">#213</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterial.htm">IFCMATERIAL</a>('S275J2',$,'Steel');
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="220">#220</a>=<a class="listing-link" href="../../schema/ifcprofileresource/lexical/ifctshapeprofiledef.htm">IFCTSHAPEPROFILEDEF</a>(.AREA.,'1/2IPE300',$,150.0,150.0,7.1,10.7,15.0,$,$,$,$);
+<span style="color:green">/* beam A-1 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 1 - bottom left                                          */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="1000">#1000</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('0juf4qyggSI8rxA20Qwnsj',$,'A-1','IPE220','Beam',<a href="#1001" title="">#1001</a>,<a href="#1010" title="">#1010</a>,'A-1',$);
+<a id="1001">#1001</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#1002" title="">#1002</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="1002">#1002</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1003" title="">#1003</a>,<a href="#1004" title="">#1004</a>,<a href="#1005" title="">#1005</a>);
+<a id="1003">#1003</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="1004">#1004</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="1005">#1005</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="1010">#1010</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#1050" title="">#1050</a>,<a href="#1020" title="">#1020</a>));
+<a id="1020">#1020</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#1021" title="">#1021</a>));
+<a id="1021">#1021</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#120" title="">#120</a>,<a href="#1030" title="">#1030</a>,<a href="#1034" title="">#1034</a>,2000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* extrusion position z = default = (0.,0.,1.),x = default = (1.,0.,0.)      */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="1030">#1030</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1031" title="">#1031</a>,$,$);
+<a id="1031">#1031</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((-55.0,110.0,0.));
+<span style="color:green">/* defines cardinal point 1    */</span>
+<a id="1034">#1034</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="1040">#1040</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20QfZsj',$,$,$,(<a href="#1000" title="">#1000</a>),<a href="#1041" title="">#1041</a>);
+<a id="1041">#1041</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#111" title="">#111</a>,1,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="1050">#1050</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#1051" title="">#1051</a>));
+<a id="1051">#1051</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#1052" title="">#1052</a>,<a href="#1053" title="">#1053</a>));
+<a id="1052">#1052</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="1053">#1053</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,2000.));
+<span style="color:green">/* beam A-2 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 2 - bottom center                                        */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="1100">#1100</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('0juf4qyggSI8rxA20sznsj',$,'A-2','IPE220','Beam',<a href="#1101" title="">#1101</a>,<a href="#1110" title="">#1110</a>,'A-2',$);
+<a id="1101">#1101</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#1102" title="">#1102</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="1102">#1102</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1103" title="">#1103</a>,<a href="#1104" title="">#1104</a>,<a href="#1105" title="">#1105</a>);
+<a id="1103">#1103</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,1500.,0.));
+<a id="1104">#1104</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="1105">#1105</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="1110">#1110</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#1150" title="">#1150</a>,<a href="#1120" title="">#1120</a>));
+<a id="1120">#1120</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#1121" title="">#1121</a>));
+<a id="1121">#1121</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#120" title="">#120</a>,<a href="#1130" title="">#1130</a>,<a href="#1134" title="">#1134</a>,2000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* extrusion position z = default = (0.,0.,1.),x = default = (1.,0.,0.)      */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="1130">#1130</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1131" title="">#1131</a>,$,$);
+<a id="1131">#1131</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,110.0,0.));
+<span style="color:green">/* defines cardinal point 2    */</span>
+<a id="1134">#1134</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="1140">#1140</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20QgAsj',$,$,$,(<a href="#1100" title="">#1100</a>),<a href="#1141" title="">#1141</a>);
+<a id="1141">#1141</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#111" title="">#111</a>,2,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="1150">#1150</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#1151" title="">#1151</a>));
+<a id="1151">#1151</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#1152" title="">#1152</a>,<a href="#1153" title="">#1153</a>));
+<a id="1152">#1152</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="1153">#1153</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,2000.));
+<span style="color:green">/* beam A-3 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 3 - bottom right                                         */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="1200">#1200</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('0juf4qyggSI8s4A20sznsj',$,'A-3','IPE220','Beam',<a href="#1201" title="">#1201</a>,<a href="#1210" title="">#1210</a>,'A-3',$);
+<a id="1201">#1201</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#1202" title="">#1202</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="1202">#1202</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1203" title="">#1203</a>,<a href="#1204" title="">#1204</a>,<a href="#1205" title="">#1205</a>);
+<a id="1203">#1203</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,3000.,0.));
+<a id="1204">#1204</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="1205">#1205</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="1210">#1210</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#1250" title="">#1250</a>,<a href="#1220" title="">#1220</a>));
+<a id="1220">#1220</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#1221" title="">#1221</a>));
+<a id="1221">#1221</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#120" title="">#120</a>,<a href="#1230" title="">#1230</a>,<a href="#1234" title="">#1234</a>,2000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* extrusion position z = default = (0.,0.,1.),x = default = (1.,0.,0.)      */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="1230">#1230</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1231" title="">#1231</a>,$,$);
+<a id="1231">#1231</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((55.0,110.0,0.));
+<span style="color:green">/* defines cardinal point 3    */</span>
+<a id="1234">#1234</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="1240">#1240</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('3x0gFSPAr5puQ5WI22xYOm',$,$,$,(<a href="#1200" title="">#1200</a>),<a href="#1241" title="">#1241</a>);
+<a id="1241">#1241</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#111" title="">#111</a>,3,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="1250">#1250</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#1251" title="">#1251</a>));
+<a id="1251">#1251</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#1252" title="">#1252</a>,<a href="#1253" title="">#1253</a>));
+<a id="1252">#1252</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="1253">#1253</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,2000.));
+<span style="color:green">/* beam A-4 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 3 - bottom right                                         */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="1300">#1300</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('0juf4qyggSI8s4A20sznw6',$,'A-4','IPE220','Beam',<a href="#1301" title="">#1301</a>,<a href="#1310" title="">#1310</a>,'A-4',$);
+<a id="1301">#1301</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#1302" title="">#1302</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="1302">#1302</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1303" title="">#1303</a>,<a href="#1304" title="">#1304</a>,<a href="#1305" title="">#1305</a>);
+<a id="1303">#1303</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,4500.,0.));
+<a id="1304">#1304</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="1305">#1305</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="1310">#1310</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#1350" title="">#1350</a>,<a href="#1320" title="">#1320</a>));
+<a id="1320">#1320</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#1321" title="">#1321</a>));
+<a id="1321">#1321</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#120" title="">#120</a>,<a href="#1330" title="">#1330</a>,<a href="#1334" title="">#1334</a>,2000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* extrusion position z = default = (0.,0.,1.),x = default = (1.,0.,0.)      */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="1330">#1330</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1331" title="">#1331</a>,$,$);
+<a id="1331">#1331</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((-55.0,0.,0.));
+<span style="color:green">/* defines cardinal point 4   */</span>
+<a id="1334">#1334</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="1340">#1340</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20QOHsj',$,$,$,(<a href="#1300" title="">#1300</a>),<a href="#1341" title="">#1341</a>);
+<a id="1341">#1341</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#111" title="">#111</a>,4,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="1350">#1350</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#1351" title="">#1351</a>));
+<a id="1351">#1351</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#1352" title="">#1352</a>,<a href="#1353" title="">#1353</a>));
+<a id="1352">#1352</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="1353">#1353</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,2000.));
+<span style="color:green">/* beam A-5 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 5 - mid-depth center                                     */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="1400">#1400</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('0juf4qyggSI8rxA20Qwnab',$,'A-5','IPE220','Beam',<a href="#1401" title="">#1401</a>,<a href="#1410" title="">#1410</a>,'A-5',$);
+<a id="1401">#1401</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#1402" title="">#1402</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="1402">#1402</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1403" title="">#1403</a>,<a href="#1404" title="">#1404</a>,<a href="#1405" title="">#1405</a>);
+<a id="1403">#1403</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,6000.,0.));
+<a id="1404">#1404</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="1405">#1405</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="1410">#1410</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#1450" title="">#1450</a>,<a href="#1420" title="">#1420</a>));
+<a id="1420">#1420</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#1421" title="">#1421</a>));
+<a id="1421">#1421</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#120" title="">#120</a>,<a href="#1430" title="">#1430</a>,<a href="#1434" title="">#1434</a>,2000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* extrusion position z = default = (0.,0.,1.),x = default = (1.,0.,0.)      */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="1430">#1430</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1431" title="">#1431</a>,$,$);
+<a id="1431">#1431</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<span style="color:green">/* defines cardinal point 5   */</span>
+<a id="1434">#1434</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="1440">#1440</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20QRLsj',$,$,$,(<a href="#1400" title="">#1400</a>),<a href="#1441" title="">#1441</a>);
+<a id="1441">#1441</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#111" title="">#111</a>,5,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="1450">#1450</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#1451" title="">#1451</a>));
+<a id="1451">#1451</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#1452" title="">#1452</a>,<a href="#1453" title="">#1453</a>));
+<a id="1452">#1452</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="1453">#1453</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,2000.));
+<span style="color:green">/* beam A-6 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 6 - mid-depth right                                      */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="1500">#1500</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('0juf4qyggSI8rxA20Qwng1',$,'A-6','IPE220','Beam',<a href="#1501" title="">#1501</a>,<a href="#1510" title="">#1510</a>,'A-6',$);
+<a id="1501">#1501</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#1502" title="">#1502</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="1502">#1502</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1503" title="">#1503</a>,<a href="#1504" title="">#1504</a>,<a href="#1505" title="">#1505</a>);
+<a id="1503">#1503</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,7500.,0.));
+<a id="1504">#1504</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="1505">#1505</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="1510">#1510</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#1550" title="">#1550</a>,<a href="#1520" title="">#1520</a>));
+<a id="1520">#1520</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#1521" title="">#1521</a>));
+<a id="1521">#1521</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#120" title="">#120</a>,<a href="#1530" title="">#1530</a>,<a href="#1534" title="">#1534</a>,2000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* extrusion position z = default = (0.,0.,1.),x = default = (1.,0.,0.)      */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="1530">#1530</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1531" title="">#1531</a>,$,$);
+<a id="1531">#1531</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((55.0,0.,0.));
+<span style="color:green">/* defines cardinal point 6   */</span>
+<a id="1534">#1534</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="1540">#1540</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20QMmsj',$,$,$,(<a href="#1500" title="">#1500</a>),<a href="#1541" title="">#1541</a>);
+<a id="1541">#1541</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#111" title="">#111</a>,6,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="1550">#1550</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#1551" title="">#1551</a>));
+<a id="1551">#1551</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#1552" title="">#1552</a>,<a href="#1553" title="">#1553</a>));
+<a id="1552">#1552</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="1553">#1553</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,2000.));
+<span style="color:green">/* beam A-7 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 7 - top left                                             */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="1600">#1600</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('0juf4qyggSI8rxA20Qwn3s',$,'A-7','IPE220','Beam',<a href="#1601" title="">#1601</a>,<a href="#1610" title="">#1610</a>,'A-7',$);
+<a id="1601">#1601</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#1602" title="">#1602</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="1602">#1602</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1603" title="">#1603</a>,<a href="#1604" title="">#1604</a>,<a href="#1605" title="">#1605</a>);
+<a id="1603">#1603</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,9000.,0.));
+<a id="1604">#1604</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="1605">#1605</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="1610">#1610</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#1650" title="">#1650</a>,<a href="#1620" title="">#1620</a>));
+<a id="1620">#1620</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#1621" title="">#1621</a>));
+<a id="1621">#1621</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#120" title="">#120</a>,<a href="#1630" title="">#1630</a>,<a href="#1634" title="">#1634</a>,2000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* extrusion position z = default = (0.,0.,1.),x = default = (1.,0.,0.)      */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="1630">#1630</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1631" title="">#1631</a>,$,$);
+<a id="1631">#1631</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((-55.0,-110.0,0.));
+<span style="color:green">/* defines cardinal point 7   */</span>
+<a id="1634">#1634</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="1640">#1640</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20Qh4sj',$,$,$,(<a href="#1600" title="">#1600</a>),<a href="#1641" title="">#1641</a>);
+<a id="1641">#1641</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#111" title="">#111</a>,7,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="1650">#1650</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#1651" title="">#1651</a>));
+<a id="1651">#1651</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#1652" title="">#1652</a>,<a href="#1653" title="">#1653</a>));
+<a id="1652">#1652</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="1653">#1653</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,2000.));
+<span style="color:green">/* beam A-8 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 8 - top center                                           */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="1700">#1700</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('0juf4qyggSI8rxA20Qwnlq',$,'A-8','IPE220','Beam',<a href="#1701" title="">#1701</a>,<a href="#1710" title="">#1710</a>,'A-8',$);
+<a id="1701">#1701</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#1702" title="">#1702</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="1702">#1702</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1703" title="">#1703</a>,<a href="#1704" title="">#1704</a>,<a href="#1705" title="">#1705</a>);
+<a id="1703">#1703</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,10500.,0.));
+<a id="1704">#1704</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="1705">#1705</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="1710">#1710</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#1750" title="">#1750</a>,<a href="#1720" title="">#1720</a>));
+<a id="1720">#1720</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#1721" title="">#1721</a>));
+<a id="1721">#1721</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#120" title="">#120</a>,<a href="#1730" title="">#1730</a>,<a href="#1734" title="">#1734</a>,2000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* extrusion position z = default = (0.,0.,1.),x = default = (1.,0.,0.)      */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="1730">#1730</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1731" title="">#1731</a>,$,$);
+<a id="1731">#1731</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,-110.0,0.));
+<span style="color:green">/* defines cardinal point 7      */</span>
+<a id="1734">#1734</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="1740">#1740</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20QwKsj',$,$,$,(<a href="#1700" title="">#1700</a>),<a href="#1741" title="">#1741</a>);
+<a id="1741">#1741</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#111" title="">#111</a>,8,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="1750">#1750</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#1751" title="">#1751</a>));
+<a id="1751">#1751</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#1752" title="">#1752</a>,<a href="#1753" title="">#1753</a>));
+<a id="1752">#1752</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="1753">#1753</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,2000.));
+<span style="color:green">/* beam A-9 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 9 - top right                                            */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="1800">#1800</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('0juf4qyggSI8s4A20sznrt',$,'A-9','IPE220','Beam',<a href="#1801" title="">#1801</a>,<a href="#1810" title="">#1810</a>,'A-9',$);
+<a id="1801">#1801</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#1802" title="">#1802</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="1802">#1802</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1803" title="">#1803</a>,<a href="#1804" title="">#1804</a>,<a href="#1805" title="">#1805</a>);
+<a id="1803">#1803</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,12000.,0.));
+<a id="1804">#1804</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="1805">#1805</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="1810">#1810</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#1850" title="">#1850</a>,<a href="#1820" title="">#1820</a>));
+<a id="1820">#1820</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#1821" title="">#1821</a>));
+<a id="1821">#1821</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#120" title="">#120</a>,<a href="#1830" title="">#1830</a>,<a href="#1834" title="">#1834</a>,2000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* extrusion position z = default = (0.,0.,1.),x = default = (1.,0.,0.)      */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="1830">#1830</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1831" title="">#1831</a>,$,$);
+<a id="1831">#1831</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((55.0,-110.0,0.));
+<span style="color:green">/* defines cardinal point 9   */</span>
+<a id="1834">#1834</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="1840">#1840</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20QJksj',$,$,$,(<a href="#1800" title="">#1800</a>),<a href="#1841" title="">#1841</a>);
+<a id="1841">#1841</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#111" title="">#111</a>,9,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="1850">#1850</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#1851" title="">#1851</a>));
+<a id="1851">#1851</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#1852" title="">#1852</a>,<a href="#1853" title="">#1853</a>));
+<a id="1852">#1852</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="1853">#1853</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,2000.));
+<span style="color:green">/* beam B-1 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 1 - bottom left                                          */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="2000">#2000</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('3QbcAsYoB7Hvx$4VHzijYi',$,'B-1','1/2IPE300','Beam',<a href="#2001" title="">#2001</a>,<a href="#2010" title="">#2010</a>,'B-1',$);
+<a id="2001">#2001</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#2002" title="">#2002</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="2002">#2002</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2003" title="">#2003</a>,<a href="#2004" title="">#2004</a>,<a href="#2005" title="">#2005</a>);
+<a id="2003">#2003</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,1500.));
+<a id="2004">#2004</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.98,0.081,0.182));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="2005">#2005</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-0.0001,0.9138,-0.40616));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="2010">#2010</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#2050" title="">#2050</a>,<a href="#2020" title="">#2020</a>));
+<a id="2020">#2020</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#2021" title="">#2021</a>));
+<a id="2021">#2021</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#220" title="">#220</a>,<a href="#2030" title="">#2030</a>,<a href="#2034" title="">#2034</a>,3000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="2030">#2030</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2031" title="">#2031</a>,$,$);
+<a id="2031">#2031</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((-75.0,75.0,0.));
+<span style="color:green">/* defines cardinal point 1   */</span>
+<a id="2034">#2034</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="2040">#2040</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20QbFsj',$,$,$,(<a href="#2000" title="">#2000</a>),<a href="#2041" title="">#2041</a>);
+<a id="2041">#2041</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#211" title="">#211</a>,1,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="2050">#2050</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#2051" title="">#2051</a>));
+<a id="2051">#2051</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#2052" title="">#2052</a>,<a href="#2053" title="">#2053</a>));
+<a id="2052">#2052</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="2053">#2053</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,3000.));
+<span style="color:green">/* beam B-2 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 2 - bottom center                                        */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="2100">#2100</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('3Qb5gsYoB7Hvx$4VHzijYi',$,'B-2','1/2IPE300','Beam',<a href="#2101" title="">#2101</a>,<a href="#2110" title="">#2110</a>,'B-2',$);
+<a id="2101">#2101</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#2102" title="">#2102</a>);
+<span style="color:green">/* set local placement so that the z-axis is co-linear to the beam axis ---- */</span>
+<span style="color:green">/* the y-axis (cross product of x & z axis) is up direction of profile ----- */</span>
+<a id="2102">#2102</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2103" title="">#2103</a>,<a href="#2104" title="">#2104</a>,<a href="#2105" title="">#2105</a>);
+<a id="2103">#2103</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,1500.,1500.));
+<a id="2104">#2104</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.98,0.081,0.182));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="2105">#2105</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-0.0001,0.9138,-0.40616));
+<span style="color:green">/* local x-axis                         */</span>
+<a id="2110">#2110</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#2150" title="">#2150</a>,<a href="#2120" title="">#2120</a>));
+<a id="2120">#2120</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#2121" title="">#2121</a>));
+<a id="2121">#2121</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#220" title="">#220</a>,<a href="#2130" title="">#2130</a>,<a href="#2134" title="">#2134</a>,3000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="2130">#2130</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2131" title="">#2131</a>,$,$);
+<a id="2131">#2131</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,75.0,0.));
+<span style="color:green">/* defines cardinal point 2   */</span>
+<a id="2134">#2134</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="2140">#2140</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20Qqlsj',$,$,$,(<a href="#2100" title="">#2100</a>),<a href="#2141" title="">#2141</a>);
+<a id="2141">#2141</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#211" title="">#211</a>,2,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="2150">#2150</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#2151" title="">#2151</a>));
+<a id="2151">#2151</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#2152" title="">#2152</a>,<a href="#2153" title="">#2153</a>));
+<a id="2152">#2152</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="2153">#2153</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,3000.));
+<span style="color:green">/* beam B-3 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 3 - bottom right                                         */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="2200">#2200</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('3QbcAsYsg7Hvx$4VHzijYi',$,'B-3','1/2IPE300','Beam',<a href="#2201" title="">#2201</a>,<a href="#2210" title="">#2210</a>,'B-3',$);
+<a id="2201">#2201</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#2202" title="">#2202</a>);
+<a id="2202">#2202</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2203" title="">#2203</a>,<a href="#2204" title="">#2204</a>,<a href="#2205" title="">#2205</a>);
+<a id="2203">#2203</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,3000.,1500.));
+<a id="2204">#2204</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.98,0.081,0.182));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="2205">#2205</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-0.0001,0.9138,-0.40616));
+<span style="color:green">/* local x-axis ----------------------  */</span>
+<a id="2210">#2210</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#2250" title="">#2250</a>,<a href="#2220" title="">#2220</a>));
+<a id="2220">#2220</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#2221" title="">#2221</a>));
+<a id="2221">#2221</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#220" title="">#220</a>,<a href="#2230" title="">#2230</a>,<a href="#2234" title="">#2234</a>,3000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="2230">#2230</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2231" title="">#2231</a>,$,$);
+<a id="2231">#2231</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((75.0,75.0,0.));
+<span style="color:green">/* defines cardinal point 3   */</span>
+<a id="2234">#2234</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="2240">#2240</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20Q7isj',$,$,$,(<a href="#2200" title="">#2200</a>),<a href="#2241" title="">#2241</a>);
+<a id="2241">#2241</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#211" title="">#211</a>,3,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="2250">#2250</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#2251" title="">#2251</a>));
+<a id="2251">#2251</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#2252" title="">#2252</a>,<a href="#2253" title="">#2253</a>));
+<a id="2252">#2252</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="2253">#2253</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,3000.));
+<span style="color:green">/* beam B-4 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 4 - mid-depth left                                       */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="2300">#2300</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('3QbcAsYsg7Hvx$4VHzijGT',$,'B-4','1/2IPE300','Beam',<a href="#2301" title="">#2301</a>,<a href="#2310" title="">#2310</a>,'B-4',$);
+<a id="2301">#2301</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#2302" title="">#2302</a>);
+<a id="2302">#2302</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2303" title="">#2303</a>,<a href="#2304" title="">#2304</a>,<a href="#2305" title="">#2305</a>);
+<a id="2303">#2303</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,4500.,1500.));
+<a id="2304">#2304</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.98,0.081,0.182));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="2305">#2305</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-0.0001,0.9138,-0.40616));
+<span style="color:green">/* local x-axis ----------------------  */</span>
+<a id="2310">#2310</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#2350" title="">#2350</a>,<a href="#2320" title="">#2320</a>));
+<a id="2320">#2320</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#2321" title="">#2321</a>));
+<a id="2321">#2321</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#220" title="">#220</a>,<a href="#2330" title="">#2330</a>,<a href="#2334" title="">#2334</a>,3000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="2330">#2330</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2331" title="">#2331</a>,$,$);
+<a id="2331">#2331</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((-75.0,0.,0.));
+<span style="color:green">/* defines cardinal point 4   */</span>
+<a id="2334">#2334</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="2340">#2340</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20Q4nsj',$,$,$,(<a href="#2300" title="">#2300</a>),<a href="#2341" title="">#2341</a>);
+<a id="2341">#2341</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#211" title="">#211</a>,4,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="2350">#2350</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#2351" title="">#2351</a>));
+<a id="2351">#2351</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#2352" title="">#2352</a>,<a href="#2353" title="">#2353</a>));
+<a id="2352">#2352</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="2353">#2353</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,3000.));
+<span style="color:green">/* beam B-5 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 5 - mid-depth centre                                     */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="2400">#2400</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('3QbcAsYsg7Hvx$4VHzijdF',$,'B-5','1/2IPE300','Beam',<a href="#2401" title="">#2401</a>,<a href="#2410" title="">#2410</a>,'B-5',$);
+<a id="2401">#2401</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#2402" title="">#2402</a>);
+<a id="2402">#2402</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2403" title="">#2403</a>,<a href="#2404" title="">#2404</a>,<a href="#2405" title="">#2405</a>);
+<a id="2403">#2403</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,6000.,1500.));
+<a id="2404">#2404</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.98,0.081,0.182));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="2405">#2405</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-0.0001,0.9138,-0.40616));
+<span style="color:green">/* local x-axis ----------------------  */</span>
+<a id="2410">#2410</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#2450" title="">#2450</a>,<a href="#2420" title="">#2420</a>));
+<a id="2420">#2420</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#2421" title="">#2421</a>));
+<a id="2421">#2421</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#220" title="">#220</a>,<a href="#2430" title="">#2430</a>,<a href="#2434" title="">#2434</a>,3000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="2430">#2430</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2431" title="">#2431</a>,$,$);
+<a id="2431">#2431</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<span style="color:green">/* defines cardinal point 5   */</span>
+<a id="2434">#2434</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="2440">#2440</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20Q41sj',$,$,$,(<a href="#2400" title="">#2400</a>),<a href="#2441" title="">#2441</a>);
+<a id="2441">#2441</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#211" title="">#211</a>,5,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="2450">#2450</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#2451" title="">#2451</a>));
+<a id="2451">#2451</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#2452" title="">#2452</a>,<a href="#2453" title="">#2453</a>));
+<a id="2452">#2452</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="2453">#2453</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,3000.));
+<span style="color:green">/* beam B-6 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 6 - mid-depth right                                      */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="2500">#2500</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('3QbcAsYsg7Hvx$4VHzij3V',$,'B-6','1/2IPE300','Beam',<a href="#2501" title="">#2501</a>,<a href="#2510" title="">#2510</a>,'B-6',$);
+<a id="2501">#2501</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#2502" title="">#2502</a>);
+<a id="2502">#2502</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2503" title="">#2503</a>,<a href="#2504" title="">#2504</a>,<a href="#2505" title="">#2505</a>);
+<a id="2503">#2503</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,7500.,1500.));
+<a id="2504">#2504</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.98,0.081,0.182));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="2505">#2505</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-0.0001,0.9138,-0.40616));
+<span style="color:green">/* local x-axis ----------------------  */</span>
+<a id="2510">#2510</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#2550" title="">#2550</a>,<a href="#2520" title="">#2520</a>));
+<a id="2520">#2520</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#2521" title="">#2521</a>));
+<a id="2521">#2521</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#220" title="">#220</a>,<a href="#2530" title="">#2530</a>,<a href="#2534" title="">#2534</a>,3000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="2530">#2530</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2531" title="">#2531</a>,$,$);
+<a id="2531">#2531</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((75.,0.,0.));
+<span style="color:green">/* defines cardinal point 6      */</span>
+<a id="2534">#2534</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="2540">#2540</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20QURsj',$,$,$,(<a href="#2500" title="">#2500</a>),<a href="#2541" title="">#2541</a>);
+<a id="2541">#2541</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#211" title="">#211</a>,6,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="2550">#2550</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#2551" title="">#2551</a>));
+<a id="2551">#2551</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#2552" title="">#2552</a>,<a href="#2553" title="">#2553</a>));
+<a id="2552">#2552</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="2553">#2553</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,3000.));
+<span style="color:green">/* beam B-7 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 7 - top left                                             */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="2600">#2600</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('3QbcAsYsg7Hvx$4VHzij71',$,'B-7','1/2IPE300','Beam',<a href="#2601" title="">#2601</a>,<a href="#2610" title="">#2610</a>,'B-7',$);
+<a id="2601">#2601</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#2602" title="">#2602</a>);
+<a id="2602">#2602</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2603" title="">#2603</a>,<a href="#2604" title="">#2604</a>,<a href="#2605" title="">#2605</a>);
+<a id="2603">#2603</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,9000.,1500.));
+<a id="2604">#2604</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.98,0.081,0.182));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="2605">#2605</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-0.0001,0.9138,-0.40616));
+<span style="color:green">/* local x-axis ----------------------  */</span>
+<a id="2610">#2610</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#2650" title="">#2650</a>,<a href="#2620" title="">#2620</a>));
+<a id="2620">#2620</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#2621" title="">#2621</a>));
+<a id="2621">#2621</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#220" title="">#220</a>,<a href="#2630" title="">#2630</a>,<a href="#2634" title="">#2634</a>,3000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="2630">#2630</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2631" title="">#2631</a>,$,$);
+<a id="2631">#2631</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((-75.0,-75.0,0.));
+<span style="color:green">/* defines cardinal point 7 - */</span>
+<a id="2634">#2634</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="2640">#2640</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20Qw9sj',$,$,$,(<a href="#2600" title="">#2600</a>),<a href="#2641" title="">#2641</a>);
+<a id="2641">#2641</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#211" title="">#211</a>,7,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="2650">#2650</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#2651" title="">#2651</a>));
+<a id="2651">#2651</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#2652" title="">#2652</a>,<a href="#2653" title="">#2653</a>));
+<a id="2652">#2652</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="2653">#2653</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,3000.));
+<span style="color:green">/* beam B-8 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 3 - top center                                           */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="2700">#2700</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('3QbcAsYsg7Hvx$4VHzijvb',$,'B-8','1/2IPE300','Beam',<a href="#2701" title="">#2701</a>,<a href="#2710" title="">#2710</a>,'B-8',$);
+<a id="2701">#2701</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#2702" title="">#2702</a>);
+<a id="2702">#2702</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2703" title="">#2703</a>,<a href="#2704" title="">#2704</a>,<a href="#2705" title="">#2705</a>);
+<a id="2703">#2703</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,10500.,1500.));
+<a id="2704">#2704</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.98,0.081,0.182));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="2705">#2705</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-0.0001,0.9138,-0.40616));
+<span style="color:green">/* local x-axis ----------------------  */</span>
+<a id="2710">#2710</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#2750" title="">#2750</a>,<a href="#2720" title="">#2720</a>));
+<a id="2720">#2720</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#2721" title="">#2721</a>));
+<a id="2721">#2721</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#220" title="">#220</a>,<a href="#2730" title="">#2730</a>,<a href="#2734" title="">#2734</a>,3000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="2730">#2730</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2731" title="">#2731</a>,$,$);
+<a id="2731">#2731</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,-75.0,0.));
+<span style="color:green">/* defines cardinal point 8   */</span>
+<a id="2734">#2734</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="2740">#2740</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20QOcsj',$,$,$,(<a href="#2700" title="">#2700</a>),<a href="#2741" title="">#2741</a>);
+<a id="2741">#2741</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#211" title="">#211</a>,8,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="2750">#2750</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#2751" title="">#2751</a>));
+<a id="2751">#2751</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#2752" title="">#2752</a>,<a href="#2753" title="">#2753</a>));
+<a id="2752">#2752</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="2753">#2753</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,3000.));
+<span style="color:green">/* beam B-9 - beam axis along global x axis -------------------------------- */</span>
+<span style="color:green">/* cardinal point = 9 - top right                                            */</span>
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 - IfcBeamStandardCase --------- */</span>
+<a id="2800">#2800</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm">IFCBEAM</a>('3QbcAsYsg7Hvx$4VHzijp1',$,'B-9','1/2IPE300','Beam',<a href="#2801" title="">#2801</a>,<a href="#2810" title="">#2810</a>,'B-9',$);
+<a id="2801">#2801</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100025" title="">#100025</a>,<a href="#2802" title="">#2802</a>);
+<a id="2802">#2802</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2803" title="">#2803</a>,<a href="#2804" title="">#2804</a>,<a href="#2805" title="">#2805</a>);
+<a id="2803">#2803</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,12000.,1500.));
+<a id="2804">#2804</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.98,0.081,0.182));
+<span style="color:green">/* local z-axis co-linear to beam axis  */</span>
+<a id="2805">#2805</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-0.0001,0.9138,-0.40616));
+<span style="color:green">/* local x-axis ----------------------  */</span>
+<a id="2810">#2810</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#2850" title="">#2850</a>,<a href="#2820" title="">#2820</a>));
+<a id="2820">#2820</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Body','SweptSolid',(<a href="#2821" title="">#2821</a>));
+<a id="2821">#2821</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#220" title="">#220</a>,<a href="#2830" title="">#2830</a>,<a href="#2834" title="">#2834</a>,3000.);
+<span style="color:green">/* extrusion body is placed with no rotation inside local placement -------- */</span>
+<span style="color:green">/* translation provides the cardinal point offset -------------------------- */</span>
+<a id="2830">#2830</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#2831" title="">#2831</a>,$,$);
+<a id="2831">#2831</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((75.0,-75.0,0.));
+<span style="color:green">/* defines cardinal point 9 - */</span>
+<a id="2834">#2834</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<span style="color:green">/* enhanced definitions intruduced in IFC2x4 ------------------------------- */</span>
+<span style="color:green">/* assignment of material and cardinal point to the beam occurrence          */</span>
+<a id="2840">#2840</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IFCRELASSOCIATESMATERIAL</a>('0juf4qyggSstrxA20Qw6sj',$,$,$,(<a href="#2800" title="">#2800</a>),<a href="#2841" title="">#2841</a>);
+<a id="2841">#2841</a>=<a class="listing-link" href="../../schema/ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IFCMATERIALPROFILESETUSAGE</a>(<a href="#211" title="">#211</a>,9,$);
+<span style="color:green">/* end of enhanced definitions --------------------------------------------- */</span>
+<a id="2850">#2850</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#100011" title="">#100011</a>,'Axis','Curve3D',(<a href="#2851" title="">#2851</a>));
+<a id="2851">#2851</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcpolyline.htm">IFCPOLYLINE</a>((<a href="#2852" title="">#2852</a>,<a href="#2853" title="">#2853</a>));
+<a id="2852">#2852</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="2853">#2853</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,3000.));
+<a id="90000">#90000</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IFCRELCONTAINEDINSPATIALSTRUCTURE</a>('2aq$Crcs_xJvtg9lbm2bMM',$,'Physical model',$,(<a href="#1000" title="">#1000</a>,<a href="#1100" title="">#1100</a>,<a href="#1200" title="">#1200</a>,<a href="#1300" title="">#1300</a>,<a href="#1400" title="">#1400</a>,<a href="#1500" title="">#1500</a>,<a href="#1600" title="">#1600</a>,<a href="#1700" title="">#1700</a>,<a href="#1800" title="">#1800</a>,<a href="#2000" title="">#2000</a>,<a href="#2100" title="">#2100</a>,<a href="#2200" title="">#2200</a>,<a href="#2300" title="">#2300</a>,<a href="#2400" title="">#2400</a>,<a href="#2500" title="">#2500</a>,<a href="#2600" title="">#2600</a>,<a href="#2700" title="">#2700</a>,<a href="#2800" title="">#2800</a>),<a href="#100023" title="">#100023</a>);
+<a id="90010">#90010</a>=<a class="listing-link" href="../../schema/ifckernel/lexical/ifcreldefinesbytype.htm">IFCRELDEFINESBYTYPE</a>('2aq$Crcs_xJvd69lbm2bMM',$,'beam typing',$,(<a href="#1000" title="">#1000</a>,<a href="#1100" title="">#1100</a>,<a href="#1200" title="">#1200</a>,<a href="#1300" title="">#1300</a>,<a href="#1400" title="">#1400</a>,<a href="#1500" title="">#1500</a>,<a href="#1600" title="">#1600</a>,<a href="#1700" title="">#1700</a>,<a href="#1800" title="">#1800</a>),<a href="#100" title="">#100</a>);
+<a id="90020">#90020</a>=<a class="listing-link" href="../../schema/ifckernel/lexical/ifcreldefinesbytype.htm">IFCRELDEFINESBYTYPE</a>('2aq$Crcs_xJvN69lbm2bMM',$,'beam typing',$,(<a href="#2000" title="">#2000</a>,<a href="#2100" title="">#2100</a>,<a href="#2200" title="">#2200</a>,<a href="#2300" title="">#2300</a>,<a href="#2400" title="">#2400</a>,<a href="#2500" title="">#2500</a>,<a href="#2600" title="">#2600</a>,<a href="#2700" title="">#2700</a>,<a href="#2800" title="">#2800</a>),<a href="#200" title="">#200</a>);
+<span style="color:green">/* --------------------------------------------------------------------------------------------- */</span>
+<span style="color:green">/* general entities required for all IFC data sets, defining the context for the exchange ------ */</span>
+<a id="100001">#100001</a>=<a class="listing-link" href="../../schema/ifcactorresource/lexical/ifcperson.htm">IFCPERSON</a>($,'Liebich',$,$,$,$,$,$);
+<a id="100002">#100002</a>=<a class="listing-link" href="../../schema/ifcactorresource/lexical/ifcorganization.htm">IFCORGANIZATION</a>($,'AEC3',$,$,$);
+<a id="100003">#100003</a>=<a class="listing-link" href="../../schema/ifcactorresource/lexical/ifcpersonandorganization.htm">IFCPERSONANDORGANIZATION</a>(<a href="#100001" title="">#100001</a>,<a href="#100002" title="">#100002</a>,$);
+<a id="100004">#100004</a>=<a class="listing-link" href="../../schema/ifcutilityresource/lexical/ifcapplication.htm">IFCAPPLICATION</a>(<a href="#100002" title="">#100002</a>,'Unknown','SDS/2 Version 6.300 on NT','Unknown');
+<a id="100005">#100005</a>=<a class="listing-link" href="../../schema/ifcutilityresource/lexical/ifcownerhistory.htm">IFCOWNERHISTORY</a>(<a href="#100003" title="">#100003</a>,<a href="#100004" title="">#100004</a>,$,.NOTDEFINED.,$,$,$,1320688800);
+<a id="100010">#100010</a>=<a class="listing-link" href="../../schema/ifckernel/lexical/ifcproject.htm">IFCPROJECT</a>('32DJhIf6esIeAOIlD4Xw2m',<a href="#100005" title="">#100005</a>,'Test model for beam cardinal points',$,$,$,$,(<a href="#100011" title="">#100011</a>),<a href="#100060" title="">#100060</a>);
+<a id="100011">#100011</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcgeometricrepresentationcontext.htm">IFCGEOMETRICREPRESENTATIONCONTEXT</a>($,'Model',3,1.0E-5,<a href="#100040" title="">#100040</a>,$);
+<a id="100020">#100020</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcsite.htm">IFCSITE</a>('10cTefjFQoJexBQrSqFcWZ',$,'Site',$,$,<a href="#100022" title="">#100022</a>,$,$,.ELEMENT.,$,$,$,$,$);
+<a id="100021">#100021</a>=<a class="listing-link" href="../../schema/ifckernel/lexical/ifcrelaggregates.htm">IFCRELAGGREGATES</a>('0ZdtoJM$VsHBqD_feRfxAg',$,$,$,<a href="#100010" title="">#100010</a>,(<a href="#100020" title="">#100020</a>));
+<a id="100022">#100022</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>($,<a href="#100040" title="">#100040</a>);
+<a id="100023">#100023</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcbuilding.htm">IFCBUILDING</a>('0Xwup04AK2G8Mt0WNZVy_Z',$,'Building',$,$,<a href="#100025" title="">#100025</a>,$,$,.ELEMENT.,$,$,$);
+<a id="100024">#100024</a>=<a class="listing-link" href="../../schema/ifckernel/lexical/ifcrelaggregates.htm">IFCRELAGGREGATES</a>('1FUTCayKJbIQqDNnZzXu07',$,$,$,<a href="#100020" title="">#100020</a>,(<a href="#100023" title="">#100023</a>));
+<a id="100025">#100025</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#100022" title="">#100022</a>,<a href="#100040" title="">#100040</a>);
+<a id="100040">#100040</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#100041" title="">#100041</a>,<a href="#100044" title="">#100044</a>,<a href="#100042" title="">#100042</a>);
+<a id="100041">#100041</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="100042">#100042</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<a id="100043">#100043</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<a id="100044">#100044</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<a id="100048">#100048</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,-1.));
+<a id="100059">#100059</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesiantransformationoperator3d.htm">IFCCARTESIANTRANSFORMATIONOPERATOR3D</a>($,$,<a href="#100041" title="">#100041</a>,1.,$);
+<a id="100060">#100060</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcunitassignment.htm">IFCUNITASSIGNMENT</a>((<a href="#100061" title="">#100061</a>,<a href="#100062" title="">#100062</a>,<a href="#100063" title="">#100063</a>,<a href="#100064" title="">#100064</a>,<a href="#100065" title="">#100065</a>,<a href="#100066" title="">#100066</a>,<a href="#100067" title="">#100067</a>,<a href="#100068" title="">#100068</a>));
+<a id="100061">#100061</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcsiunit.htm">IFCSIUNIT</a>(,.LENGTHUNIT.,.MILLI.,.METRE.);
+<a id="100062">#100062</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcsiunit.htm">IFCSIUNIT</a>(,.PLANEANGLEUNIT.,$,.RADIAN.);
+<a id="100063">#100063</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcsiunit.htm">IFCSIUNIT</a>(,.MASSUNIT.,.KILO.,.GRAM.);
+<a id="100064">#100064</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcsiunit.htm">IFCSIUNIT</a>(,.TIMEUNIT.,$,.SECOND.);
+<a id="100065">#100065</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcsiunit.htm">IFCSIUNIT</a>(,.AREAUNIT.,$,.SQUARE_METRE.);
+<a id="100066">#100066</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcsiunit.htm">IFCSIUNIT</a>(,.PRESSUREUNIT.,$,.PASCAL.);
+<a id="100067">#100067</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcsiunit.htm">IFCSIUNIT</a>(,.FORCEUNIT.,$,.NEWTON.);
+<a id="100068">#100068</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcsiunit.htm">IFCSIUNIT</a>(,.THERMODYNAMICTEMPERATUREUNIT.,$,.DEGREE_CELSIUS.);
+<a id="100069">#100069</a>=<a class="listing-link" href="../../schema/ifckernel/lexical/ifcreldeclares.htm">IFCRELDECLARES</a>('3P3zL0KYv4C9D9h3OX$dey',$,$,$,<a href="#100010" title="">#100010</a>,(<a href="#100" title="">#100</a>,<a href="#200" title="">#200</a>));
+ENDSEC;
+END-ISO-10303-21;
+</tt><p></p>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcOffsetCurve2D</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.32");
+//-->
+</script>
+
+<h4 class="std">8.9.3.32 IfcOffsetCurve2D</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Décalage de courbe 2D</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Versetzte Kurve im zweidimensionalen Raum (2D)</b></td></tr>
+</table>
+ 
+<p>An <span class="self-ref">IfcOffsetCurve2D</span> is a curve defined by an offset in 2D space from its <i>BasisCurve</i>.</p>
+<blockquote class="extDef">NOTE Definition according to ISO/CD 10303-42:1992<br>
+An offset curve 2d is a curve at a constant distance from a basis curve in two-dimensional space. This entity defines a
+simple plane-offset curve by offsetting by distance along the normal to basis curve in the plane of basis curve. The
+underlying curve shall have a well-defined tangent direction at every point. In the case of a composite curve, the
+transition code between each segment shall be cont same gradient or cont same gradient same curvature.
+<blockquote class="note">NOTE&nbsp; The offset curve 2d may differ in nature from the basis curve; the offset of a non
+self- intersecting curve can be self-intersecting. Care should be taken to ensure that the offset to a continuous curve
+does not become discontinuous.</blockquote>
+The offset curve 2d takes its parameterization from the basis curve. The offset curve 2d
+is parameterized as:
+<blockquote>
+<img src="../../../figures/IfcOffsetCurve2d-Math1.gif" alt="Math" width="281" height="22" border="0">
+</blockquote>
+where <b>T</b> is the unit tangent vector to the basis curve <b>C</b>(<i>u</i>) at
+parameter value <i>u</i>, and <i>d</i> is distance. The underlying curve shall be two-dimensional.
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>offset_curve_2d</strong> defined in ISO
+10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcOffsetCurve2D&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcoffsetcurve2d.htm">IfcOffsetCurve2D</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcOffsetCurve2D&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;BasisCurve&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Distance&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SelfIntersect&quot; type=&quot;ifc:logical&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcOffsetCurve2D
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">BasisCurve</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>;</td></tr>
+<tr valign="top"><td width="20%">Distance</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">SelfIntersect</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">DimIs2D</td><td width="1%"> : </td><td>BasisCurve.Dim = 2;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">BasisCurve</span></td><td width="1%"> : </td><td>The curve that is being offset.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Distance</span></td><td width="1%"> : </td><td>The distance of the offset curve from the basis curve. distance may be positive, negative or zero. A positive value of distance defines an offset in the direction which is normal to the curve in the sense of an anti-clockwise rotation through 90 degrees from the tangent vector T at the given point. (This is in the direction of orthogonal complement(T).)</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SelfIntersect</span></td><td width="1%"> : </td><td>An indication of whether the offset curve self-intersects; this is for information only.</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">DimIs2D</span></td><td width="1%"> : </td><td>The underlying curve shall be defined in two-dimensional space.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcOffsetCurve2D
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := IfcCurveDim(SELF);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcoffsetcurve2d.htm">IfcOffsetCurve2D</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">BasisCurve</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>;</td></tr>
+<tr valign="top"><td width="20%">Distance</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">SelfIntersect</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcoffsetcurve2d.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

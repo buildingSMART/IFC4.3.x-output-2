@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcChangeActionEnum</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.21.2.2");
+//-->
+</script>
+
+<h4 class="std">8.21.2.2 IfcChangeActionEnum</h4>
+
+
+<p><span class="self-ref">IfcChangeActionEnum</span> identifies the type of change that might have occurred to the object during the last session (for example, added, modified, deleted). This information is required in a partial model exchange scenario so that an application or model server will know how an object might have been affected by the previous application. Valid enumerations are:</p>
+
+
+<ul>
+
+<li>NOCHANGE: Object has not been modified.</li>
+
+<li>MODIFIED: A modification to the object has been made by the user and application defined by the LastModifyingUser and LastModifyingApplication respectively.</li>
+
+<li>ADDED: The object has been created by the user and application defined by the OwningUser and OwningApplication respectively.</li>
+
+<li>DELETED: The object has been deleted by the user and application defined by the LastModifyingUser and LastModifyingApplication respectively.</li>
+
+<li>NOTDEFINED: The change action is not known or has not been defined.</li>
+</ul>
+
+
+
+<p>Consider Application A will create an IFC dataset that it wants to publish to others for modification and have the ability to subsequently merge these changes back into the original model. Before publication, it may want to set the <span class="self-ref">IfcChangeActionEnum</span> to NOCHANGE to establish a baseline so that other application changes can be easily identified. Application B then receives this IFC dataset and adds a new object and sets <span class="self-ref">IfcChangeActionEnum</span> to ADDED with Application B defined as the OwningApplication. Application B then modifies an existing object and (re)defines the LastModifiedDate to the time of the modification, LastModifyingUser to the <a href="../../ifcactorresource/lexical/ifcpersonandorganization.htm">IfcPersonAndOrganization</a> making the change, and sets the LastModifyingApplication to Application B. When Application A receives this modified dataset, it can determine which objects have been added and modified by Application B and either merge or reject these changes as necessary. Consequently, the intent is that an application only modifies the value of <span class="self-ref">IfcChangeActionEnum</span> when it does something to the object, with the further intent that a model server is responsible for clearing the <span class="self-ref">IfcChangeActionEnum</span> back to NOCHANGE when it is ready to be republished.</p>
+
+
+
+<blockquote class="history">
+
+HISTORY&nbsp; New enumeration in IFC2.0. 
+</blockquote>
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Enumerators MODIFIEDADDED and  MODIFIEDDELETED have been removed
+</blockquote>
+
+
+
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:simpleType name=&quot;IfcChangeActionEnum&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;nochange&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;modified&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;added&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;deleted&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;notdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">TYPE</span> IfcChangeActionEnum = <span class="keyword">ENUMERATION OF</span> (
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+NOCHANGE, <br/>MODIFIED, <br/>ADDED, <br/>DELETED, <br/>NOTDEFINED);  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_TYPE;</span>
+  </td>
+ </tr>
+</table>
+  </td>
+ </tr>
+</table>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcutilityresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</span>
+<p><a href="../../../link/ifcchangeactionenum.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

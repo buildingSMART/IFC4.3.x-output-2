@@ -1,0 +1,263 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcZShapeProfileDef</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.15.3.27");
+//-->
+</script>
+
+<h4 class="std">8.15.3.27 IfcZShapeProfileDef</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Définition de section d'un profil en Z</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Z-Profil - parametrische Definition</b></td></tr>
+</table>
+
+
+<p><span class="self-ref">IfcZShapeProfileDef</span> defines
+a section profile that provides the defining parameters of a Z-shape
+section to be used by the swept area solid. Its parameters and
+orientation relative to the position coordinate system are according to
+the following illustration. The centre of the position coordinate
+system is in the profile's centre of the bounding box.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Type of <i>FilletRadius</i> and <i>EdgeRadius</i> relaxed to allow for zero radius.
+</blockquote>
+
+<p>Figure 377 illustrates parameters of the Z-shape profile definition.</p>
+
+<table><tr><td>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td width="420">
+<img
+ src="../../../figures/IfcZShapeProfileDef.gif" alt="Z-shape profile"
+ border="0" height="300" width="400">
+
+      </td>
+      <td valign="top">
+
+<p><u>Position</u><br>
+The parameterized profile defines its own position coordinate system.
+The underlying coordinate system is defined by the swept area solid
+that uses the profile definition. It is the xy plane of:</p>
+      <ul>
+        <li style="font-style: italic;">IfcSweptAreaSolid.Position</li>
+      </ul>
+<p>By using offsets of the position location, the parameterized profile
+can be positioned centric (using x,y offsets = 0.), or at any position
+relative to the profile.</p>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+</td></tr>
+<tr><td><p class="figure">Figure 377 &mdash; Z-shape profile</p></td></tr>
+</table>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcZShapeProfileDef&quot; type=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifczshapeprofiledef.htm">IfcZShapeProfileDef</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcparameterizedprofiledef.htm">IfcParameterizedProfileDef</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcZShapeProfileDef&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcparameterizedprofiledef.htm">IfcParameterizedProfileDef</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Depth&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;FlangeWidth&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;WebThickness&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;FlangeThickness&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;FilletRadius&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcnonnegativelengthmeasure.htm">IfcNonNegativeLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;EdgeRadius&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcnonnegativelengthmeasure.htm">IfcNonNegativeLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcZShapeProfileDef
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcprofileresource/lexical/ifcparameterizedprofiledef.htm">IfcParameterizedProfileDef</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Depth</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">FlangeWidth</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">WebThickness</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">FlangeThickness</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">FilletRadius</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnonnegativelengthmeasure.htm">IfcNonNegativeLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">EdgeRadius</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnonnegativelengthmeasure.htm">IfcNonNegativeLengthMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">ValidFlangeThickness</td><td width="1%"> : </td><td>FlangeThickness &lt; (Depth / 2.);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcprofileresource/diagram_0006.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Depth</span></td><td width="1%"> : </td><td>Web length, see illustration above (= h). </td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">FlangeWidth</span></td><td width="1%"> : </td><td>Flange length, see illustration above (= b). </td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">WebThickness</span></td><td width="1%"> : </td><td>Constant wall thickness of web, see illustration above (= ts). </td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">FlangeThickness</span></td><td width="1%"> : </td><td>Constant wall thickness of flange, see illustration above (= tg). </td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">FilletRadius</span></td><td width="1%"> : </td><td>Fillet radius according the above illustration (= r1).</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">EdgeRadius</span></td><td width="1%"> : </td><td>Edge radius according the above illustration (= r2).</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">ValidFlangeThickness</span></td><td width="1%"> : </td><td>The flange thickness shall be smaller than half of the depth.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcZShapeProfileDef
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ProfileType</td><td width="1%"> : </td><td><a href="../../ifcprofileresource/lexical/ifcprofiletypeenum.htm">IfcProfileTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">ProfileName</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReference</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+<tr valign="top"><td width="20%">HasProperties</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcprofileresource/lexical/ifcprofileproperties.htm">IfcProfileProperties</a> <span class="keyword">FOR</span> ProfileDefinition;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcprofileresource/lexical/ifcparameterizedprofiledef.htm">IfcParameterizedProfileDef</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Position</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometryresource/lexical/ifcaxis2placement2d.htm">IfcAxis2Placement2D</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcprofileresource/lexical/ifczshapeprofiledef.htm">IfcZShapeProfileDef</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Depth</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">FlangeWidth</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">WebThickness</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">FlangeThickness</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">FilletRadius</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnonnegativelengthmeasure.htm">IfcNonNegativeLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">EdgeRadius</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnonnegativelengthmeasure.htm">IfcNonNegativeLengthMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifczshapeprofiledef.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

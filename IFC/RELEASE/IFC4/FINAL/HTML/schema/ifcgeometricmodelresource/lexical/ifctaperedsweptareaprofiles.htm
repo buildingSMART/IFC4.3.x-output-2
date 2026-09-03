@@ -1,0 +1,70 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcTaperedSweptAreaProfiles</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.4.2");
+//-->
+</script>
+
+<h4 class="std">8.8.4.2 IfcTaperedSweptAreaProfiles</h4>
+<p>
+
+ <p> This function checks whether the
+start and end profile in a tapered extrusion are topologically
+similar, i.e. whether both have the same number of vertices and
+edges.</p>
+<p>It returnes TRUE if:</p>
+<ul>
+<li>The start profile is defined by a paramterized profile
+definition and
+<ul>
+<li>the end profile is either a derived profile, using the start
+profile as its parent profile, or</li>
+<li>the end profile is besed on the same subtype of the
+paramterized profile definition as the start profile</li>
+</ul>
+</li>
+<li>The start profile is defined by an arbitrary bounded curve
+bounding a plane and
+<ul>
+<li>the end profile is a derived profile using the start profile
+as its parent profile</li>
+</ul>
+</li>
+</ul>
+<blockquote><small><font color="#0000FF">HISTORY  New function in
+IFC2x Edition 4.</font></small></blockquote>
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcTaperedSweptAreaProfiles<br/>
+
+(StartArea, EndArea : IfcProfileDef)<br/> : LOGICAL;<br/><br/>LOCAL<br/>&nbsp;&nbsp;&nbsp;Result : LOGICAL := FALSE;<br/>END_LOCAL;<br/>&nbsp;&nbsp;&nbsp;<br/>IF ('IFCPROFILERESOURCE.IFCPARAMETERIZEDPROFILEDEF' IN TYPEOF(StartArea)) THEN<br/>&nbsp;&nbsp;&nbsp;IF ('IFCPROFILERESOURCE.IFCDERIVEDPROFILEDEF' IN TYPEOF(EndArea)) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := (StartArea :=: EndArea\IfcDerivedProfileDef.ParentProfile);<br/>&nbsp;&nbsp;&nbsp;ELSE<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := (TYPEOF(StartArea) = TYPEOF(EndArea));<br/>&nbsp;&nbsp;&nbsp;END_IF;<br/>ELSE<br/>&nbsp;&nbsp;&nbsp;IF ('IFCPROFILERESOURCE.IFCDERIVEDPROFILEDEF' IN TYPEOF(EndArea)) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := (StartArea :=: EndArea\IfcDerivedProfileDef.ParentProfile);<br/>&nbsp;&nbsp;&nbsp;ELSE<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FALSE;<br/>&nbsp;&nbsp;&nbsp;END_IF;<br/>END_IF;<br/><br/>RETURN(Result);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifctaperedsweptareaprofiles.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

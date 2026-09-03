@@ -1,0 +1,186 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcPropertyDependencyRelationship</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.16.3.7");
+//-->
+</script>
+
+<h4 class="std">8.16.3.7 IfcPropertyDependencyRelationship</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Merkmal - Abhängigkeitsrelation</b></td></tr>
+</table>
+ 
+
+<p>An <span class="self-ref">IfcPropertyDependencyRelationship</span> describes an identified dependency between the value of one property and that of another.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Made subtype of <a href="../../ifcexternalreferenceresource/lexical/ifcresourcelevelrelationship.htm">IfcResourceLevelRelationship</a> (attribute order changed).
+</blockquote>
+
+<p class="use-head">Use Definition</p>
+<p>Whilst the <span class="self-ref">IfcPropertyDependencyRelationship</span> may be used to describe the dependency, and it may do so in terms of the expression of how the dependency operates, it is not possible through the current IFC model for the value of the related property to be actually derived from the value of the relating property. The determination of value according to the dependency is required to be performed by an application that can then use the Expression attribute to flag the form of the dependency.</p>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcPropertyDependencyRelationship&quot; type=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcpropertydependencyrelationship.htm">IfcPropertyDependencyRelationship</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifcresourcelevelrelationship.htm">IfcResourceLevelRelationship</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcPropertyDependencyRelationship&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifcresourcelevelrelationship.htm">IfcResourceLevelRelationship</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;DependingProperty&quot; type=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;DependantProperty&quot; type=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Expression&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcPropertyDependencyRelationship
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcresourcelevelrelationship.htm">IfcResourceLevelRelationship</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">DependingProperty</td><td width="1%"> : </td><td><a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a>;</td></tr>
+<tr valign="top"><td width="20%">DependantProperty</td><td width="1%"> : </td><td><a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a>;</td></tr>
+<tr valign="top"><td width="20%">Expression</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">NoSelfReference</td><td width="1%"> : </td><td>DependingProperty :&lt;&gt;: DependantProperty;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcpropertyresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">DependingProperty</span></td><td width="1%"> : </td><td>
+The property on which the relationship depends.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">DependantProperty</span></td><td width="1%"> : </td><td>
+The dependant property.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Expression</span></td><td width="1%"> : </td><td>Expression that further describes the nature of the dependency relation.</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">NoSelfReference</span></td><td width="1%"> : </td><td>
+The <i>DependingProperty</i> shall not point to the same instance as the <i>DependantProperty</i>.
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcPropertyDependencyRelationship
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcexternalreferenceresource/lexical/ifcresourcelevelrelationship.htm">IfcResourceLevelRelationship</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpropertyresource/lexical/ifcpropertydependencyrelationship.htm">IfcPropertyDependencyRelationship</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">DependingProperty</td><td width="1%"> : </td><td><a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a>;</td></tr>
+<tr valign="top"><td width="20%">DependantProperty</td><td width="1%"> : </td><td><a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a>;</td></tr>
+<tr valign="top"><td width="20%">Expression</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcpropertydependencyrelationship.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

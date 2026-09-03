@@ -1,0 +1,369 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcDistributionSystem</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.2.3.9");
+//-->
+</script>
+
+<h4 class="std">6.2.3.9 IfcDistributionSystem</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Système de distribution</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>haustechnische Anlage</b></td></tr>
+</table>
+
+<p>A distribution system is a network designed to receive, store, maintain, distribute, or control the flow of a distribution media. A common example is a heating hot water system that consists of a pump, a tank, and an interconnected piping system for distributing hot water to terminals.</p>
+
+<p>The group <span class="self-ref">IfcDistributionSystem</span>
+defines the occurrence of a specialized system for use within the context of building services.</p>
+
+
+<p>Important functionalities for the description of a distribution system are derived from existing IFC entities:</p>
+
+<ul><li>From <a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a> it inherits the ability to couple the distribution system via <a href="../../ifcproductextension/lexical/ifcrelservicesbuildings.htm">IfcRelServicesBuildings</a> to one or more <a href="../../ifcproductextension/lexical/ifcspatialelement.htm">IfcSpatialElement</a> subtypes as necessary.</li></ul>
+
+<ul><li>From <a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a> it inherits the inverse attribute <i>IsGroupedBy</i>, pointing to the relationship entity <a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a>. This allows to group distribution elements (instances of <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> subtypes), and in special cases ports directly (instances of <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a>).</li></ul>
+
+<ul><li>From <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a> it inherits the inverse attribute <i>IsDecomposedBy</i> pointing to the relationship entity <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>. It provides the hierarchy between the separate (partial) distribution systems.  For example, an electrical main circuit may be aggregated into branch circuits.</li></ul>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; For electrical power systems, <i>IfcElectricalCircuit</i> has been used for low-voltage (12-1000 V) power circuits and has been replaced by <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncircuit.htm">IfcDistributionCircuit</a> in IFC4; <span class="self-ref">IfcDistributionSystem</span> with PredefinedType 'ELECTRICAL' should be used for overall power systems, and <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncircuit.htm">IfcDistributionCircuit</a> with PredefinedType 'ELECTRICAL' should be used for each switched circuit.
+</blockquote>
+
+
+
+<hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcdistributionsystem.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="property-sets-for-objects" />
+<p class="use-head">Property Sets for Objects</p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept applies to this entity as shown in Table 221.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>Name</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionsystemcommon.htm">Pset_DistributionSystemCommon</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">ELECTRICAL</a></td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionsystemtypeelectrical.htm">Pset_DistributionSystemTypeElectrical</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">VENTILATION</a></td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionsystemtypeventilation.htm">Pset_DistributionSystemTypeVentilation</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_servicelifefactors.htm">Pset_ServiceLifeFactors</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 221 &mdash; IfcDistributionSystem Property Sets for Objects</td></tr></table>
+
+
+<br/><br/>
+
+<a name="object-aggregation" />
+<p class="use-head">Object Aggregation</p>
+<p>The <a href="../../templates/object-aggregation.htm">Object Aggregation</a> concept applies to this entity as shown in Table 222.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>RelatedObjects</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">ELECTRICAL</a></td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a></td><td>Indicates electrical subsystems within the system.</td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">ELECTRICAL</a></td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncircuit.htm">IfcDistributionCircuit</a></td><td>Indicates electrical circuits within the system.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 222 &mdash; IfcDistributionSystem Object Aggregation</td></tr></table>
+
+
+<br/><br/>
+
+<a name="group-assignment" />
+<p class="use-head">Group Assignment</p>
+<p>The <a href="../../templates/group-assignment.htm">Group Assignment</a> concept applies to this entity as shown in Table 223.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a></td><td>Indicates devices that are part of the system, where any ports of the same PredefinedType are considered part of the system implicitly.</td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a></td><td>Indicates port that is explicitly part of the system, which overrides any system assignment of the containing device.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 223 &mdash; IfcDistributionSystem Group Assignment</td></tr></table>
+
+
+
+<p>For the most common case of an <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> subtype containing ports of a particular <i>PredefinedType</i> that all belong to the same distribution system, the <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> is assigned to the <span class="self-ref">IfcDistributionSystem</span> via the <a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a> relationship, where <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a>'s are implied as part of the corresponding system based on their <i>PredefinedType</i>.  An <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> may belong to multiple systems, however only one <span class="self-ref">IfcDistributionSystem</span> of a particular <i>PredefinedType</i>.</p>
+
+<p>For rare cases where an <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> subtype contains ports of the same <i>PredefinedType</i> yet different ports belong to different systems, alternatively each <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a> may be directly assigned to a single <span class="self-ref">IfcDistributionSystem</span> via the <a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a> relationship, where the <i>PredefinedType</i> must match.  Such assignment indicates that the <span class="self-ref">IfcDistributionSystem</span> assigned from the <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a> overrides any such system of the same <i>PredefinedType</i> assigned from the containing <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a>, if any.</p>
+
+<p>Additionally, an <span class="self-ref">IfcDistributionSystem</span> may in turn be assigned to an <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a> indicating the host or origination of the system using <a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a>.</p>
+
+<blockquote class="example">
+EXAMPLE&nbsp; A gas-powered hot water heater may have three ports: GAS, DOMESTICCOLDWATER, and DOMESTICHOTWATER.  The heater is a member of two systems (GAS and DOMESTICCOLDWATER), and hosts one system (DOMESTICHOTWATER) at the corresponding port.
+</blockquote>
+
+<p>Figure 237 illustrates a distribution system for an electrical circuit.</p>
+
+<table>
+<tr><td><img alt="Instance diagram for electrical circuit" src="../../../figures/IfcDistributionSystem-01.png" ></td></tr>
+<tr><td><p class="figure">Figure 237 &mdash; Distribution system assignment</p></td></tr>
+</table>
+
+
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcDistributionSystem&quot; type=&quot;ifc:<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcDistributionSystem&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LongName&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">IfcDistributionSystemEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcDistributionSystem
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncircuit.htm">IfcDistributionCircuit</a>)
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LongName</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">IfcDistributionSystemEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgserviceelements/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">LongName</span></td><td width="1%"> : </td><td>
+Long name for a system, used for informal purposes. It should be used, if available, in conjunction with the inherited <i>Name</i> attribute.
+<blockquote class="note">NOTE&nbsp; In many scenarios the <i>Name</i> attribute refers to the short name or number of a distribution system or branch circuit, and the <i>LongName</i> refers to a descriptive name.
+</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PredefinedType</span></td><td width="1%"> : </td><td>Predefined types of distribution systems.</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcDistributionSystem
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDeclaredBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">IsTypedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsGroupedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a> <span class="keyword">FOR</span> RelatingGroup;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ServicesBuildings</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelservicesbuildings.htm">IfcRelServicesBuildings</a> <span class="keyword">FOR</span> RelatingSystem;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LongName</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">IfcDistributionSystemEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcdistributionsystem.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

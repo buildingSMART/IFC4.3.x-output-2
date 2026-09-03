@@ -1,0 +1,182 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcEventTime</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.5.3.1");
+//-->
+</script>
+
+<h4 class="std">8.5.3.1 IfcEventTime</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Zeitliche Information einers Ereignis</b></td></tr>
+</table>
+ 
+    <p>
+      <span class="self-ref">IfcEventTime</span> captures the time-related information about an event
+      including the different types of event dates (i.e. actual,
+      scheduled, early, and late).
+    </p>
+    <p>
+      All given values should be provided by the application,
+      that is, the IFC schema does not deal with dependencies between
+      process time values. At this stage there is also no
+      consistency check through where rules that guarantee a
+      meaningful population of date values. Thus, an application
+      is responsible to provide reasonable values and, if an
+      application receives event dates, has to make consistency
+      checks by their own.
+    </p>
+    <p>
+      <span class="self-ref">IfcEventTime</span> furthermore provides a generic
+      mechanism to differentiate between user given time values
+      and time values derived from user given time values and
+      other constraints such as work calendars and assigned
+      resources (derived from the process graph). The data origin flag 
+      is provided as a single attribute applying to all date time related attributes 
+      of <span class="self-ref">IfcEventTime</span>.
+    </p>
+    <blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote>
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcEventTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifceventtime.htm">IfcEventTime</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcEventTime&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ActualDate&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;EarlyDate&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LateDate&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ScheduleDate&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcEventTime
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ActualDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">EarlyDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">LateDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">ScheduleDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcdatetimeresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">ActualDate</span></td><td width="1%"> : </td><td>
+     The date on which an event actually occurs. It is a measured value.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">EarlyDate</span></td><td width="1%"> : </td><td>
+     The earliest date on which an event can occur. It is a calculated value.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">LateDate</span></td><td width="1%"> : </td><td>
+     The latest date on which an event can occur. It is a calculated value.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ScheduleDate</span></td><td width="1%"> : </td><td>
+    The date on which an event is scheduled to occur. 
+    The value might be measured or somehow calculated, which is defined by
+    <i>ScheduleDataOrigin</i>.
+
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcEventTime
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">DataOrigin</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdataoriginenum.htm">IfcDataOriginEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">UserDefinedDataOrigin</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcdatetimeresource/lexical/ifceventtime.htm">IfcEventTime</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ActualDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">EarlyDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">LateDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">ScheduleDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifceventtime.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

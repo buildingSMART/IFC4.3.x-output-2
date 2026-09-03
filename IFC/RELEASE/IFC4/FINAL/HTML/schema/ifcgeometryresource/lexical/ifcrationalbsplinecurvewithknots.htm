@@ -1,0 +1,374 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcRationalBSplineCurveWithKnots</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.42");
+//-->
+</script>
+
+<h4 class="std">8.9.3.42 IfcRationalBSplineCurveWithKnots</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Courbes Bsplines rationnelles avec nœuds</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Rationale Bézier-Spline - Kurve mit Kontrollpunkten</b></td></tr>
+</table>
+
+<p>A rational B-spline curve with knots is a B-spline curve
+described in terms of control points and basic functions. It
+describes weights in addition to the control points defined at the
+supertype <a href="../../ifcgeometryresource/lexical/ifcbsplinecurve.htm">IfcBSplineCurve</a>.</p>
+
+<p>All weights shall be positive and the curve is given by:</p>
+
+<blockquote><img src="../../../figures/IfcRationalBSplineCurveWithKnots-Math1.gif" alt="Math"border="0"></blockquote>
+<p>where</p>
+<table>
+<tr>
+<td width="100" align="right"><i>k</i>+1</td>
+<td>number of control points</td>
+</tr>
+<tr>
+<td align="right">P<sub><i>i</i></sub></td>
+<td>control points</td>
+</tr>
+<tr>
+<td align="right"><i>w<sub>i</sub></i></td>
+<td>weights</td>
+</tr>
+<tr>
+<td align="right"><i>d</i></td>
+<td>degree</td>
+</tr>
+</table>
+
+<blockquote class="note">
+NOTE&nbsp; Entity adapted from <strong>rational_b_spline_curve</strong> in ISO 10303-42.
+</blockquote>
+
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC4.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcRationalBSplineCurveWithKnots&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcrationalbsplinecurvewithknots.htm">IfcRationalBSplineCurveWithKnots</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcbsplinecurvewithknots.htm">IfcBSplineCurveWithKnots</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcRationalBSplineCurveWithKnots&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcbsplinecurvewithknots.htm">IfcBSplineCurveWithKnots</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;WeightsData&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;xs:double&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;2&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRationalBSplineCurveWithKnots
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometryresource/lexical/ifcbsplinecurvewithknots.htm">IfcBSplineCurveWithKnots</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">WeightsData</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <span class="self-ref">REAL</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Weights</td><td width="1%"> : </td><td><span class="keyword">ARRAY</span> [0:UpperIndexOnControlPoints] OF <span class="self-ref">REAL</span> := IfcListToArray(WeightsData,0,SELF\IfcBSplineCurve.UpperIndexOnControlPoints);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">SameNumOfWeightsAndPoints</td><td width="1%"> : </td><td>SIZEOF(WeightsData) = SIZEOF(SELF\IfcBSplineCurve.ControlPointsList);</td></tr>  <tr valign="top"><td width="20%">WeightsGreaterZero</td><td width="1%"> : </td><td>IfcCurveWeightsPositive(SELF);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0007.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">WeightsData</span></td><td width="1%"> : </td><td>
+The supplied values of the weights.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Weights</span></td><td width="1%"> : </td><td>
+The array of weights associated with the control points. This is derived from the weights data.
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">SameNumOfWeightsAndPoints</span></td><td width="1%"> : </td><td>There shall be the same number of weights as control points.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">WeightsGreaterZero</span></td><td width="1%"> : </td><td>All the weights shall have values greater than 0.0.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRationalBSplineCurveWithKnots
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := IfcCurveDim(SELF);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcbsplinecurve.htm">IfcBSplineCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Degree</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span>;</td></tr>
+<tr valign="top"><td width="20%">ControlPointsList</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveForm</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcbsplinecurveform.htm">IfcBSplineCurveForm</a>;</td></tr>
+<tr valign="top"><td width="20%">ClosedCurve</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+<tr valign="top"><td width="20%">SelfIntersect</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">UpperIndexOnControlPoints</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := (SIZEOF(ControlPointsList) - 1);</td></tr>
+<tr valign="top"><td width="20%">ControlPoints</td><td width="1%"> : </td><td><span class="keyword">ARRAY</span> [0:UpperIndexOnControlPoints] OF <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a> := IfcListToArray(ControlPointsList,0,UpperIndexOnControlPoints);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcbsplinecurvewithknots.htm">IfcBSplineCurveWithKnots</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">KnotMultiplicities</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <span class="self-ref">INTEGER</span>;</td></tr>
+<tr valign="top"><td width="20%">Knots</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">KnotSpec</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcknottype.htm">IfcKnotType</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">UpperIndexOnKnots</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := SIZEOF(Knots);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrationalbsplinecurvewithknots.htm">IfcRationalBSplineCurveWithKnots</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">WeightsData</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <span class="self-ref">REAL</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Weights</td><td width="1%"> : </td><td><span class="keyword">ARRAY</span> [0:UpperIndexOnControlPoints] OF <span class="self-ref">REAL</span> := IfcListToArray(WeightsData,0,SELF\IfcBSplineCurve.UpperIndexOnControlPoints);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcrationalbsplinecurvewithknots.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

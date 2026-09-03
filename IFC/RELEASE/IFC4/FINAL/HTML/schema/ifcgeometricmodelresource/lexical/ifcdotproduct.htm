@@ -1,0 +1,44 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcDotProduct</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.4.1");
+//-->
+</script>
+
+<h4 class="std">8.8.4.1 IfcDotProduct</h4>
+<p>
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcDotProduct<br/>
+
+&nbsp;&nbsp;(Arg1, Arg2 : IfcDirection) <br/>&nbsp;&nbsp;&nbsp;&nbsp;: REAL;<br/>LOCAL<br/>&nbsp;&nbsp;Scalar : REAL;<br/>&nbsp;&nbsp;Vec1, Vec2 : IfcDirection;<br/>&nbsp;&nbsp;Ndim&nbsp;&nbsp;&nbsp;: INTEGER;<br/>END_LOCAL;<br/><br/>&nbsp;&nbsp;IF NOT EXISTS (Arg1) OR NOT EXISTS (Arg2) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;Scalar := ?;<br/>&nbsp;&nbsp;ELSE<br/>&nbsp;&nbsp;&nbsp;&nbsp;IF (Arg1.Dim &lt;&gt; Arg2.Dim) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scalar := ?;<br/>&nbsp;&nbsp;&nbsp;&nbsp;ELSE<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec1 := IfcNormalise(Arg1);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vec2 := IfcNormalise(Arg2);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ndim := Arg1.Dim;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scalar := 0.0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT i := 1 TO Ndim;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scalar := Scalar + Vec1.DirectionRatios[i]*Vec2.DirectionRatios[i];<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;RETURN (Scalar);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifcdotproduct.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

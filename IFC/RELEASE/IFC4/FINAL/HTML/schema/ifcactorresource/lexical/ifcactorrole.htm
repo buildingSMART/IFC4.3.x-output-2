@@ -1,0 +1,206 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcActorRole</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.1.3.1");
+//-->
+</script>
+
+<h4 class="std">8.1.3.1 IfcActorRole</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Rôle d'acteur</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Rolle des Akteurs</b></td></tr>
+</table>
+
+
+<p>This entity indicates a role which is performed by an actor, either a person, an organization or a 
+person related to an organization.</p>
+
+<blockquote class="note">
+NOTE&nbsp; The list of roles of the enumeration values of the <i>Role</i> attribute can never
+be complete. Therefore using enumeration value USERDEFINED, the user can provide any role as a value 
+of the attribute <i>UserDefinedRole</i>.
+</blockquote>
+
+<blockquote class="note">
+NOTE&nbsp; Entity adapted from <strong>organization_role</strong> and <strong>person_role</strong> defined in ISO&nbsp;10303-41.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC1.5.1.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcActorRole&quot; type=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcactorrole.htm">IfcActorRole</a>&quot; substitutionGroup=&quot;ifc:Entity&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcActorRole&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:Entity&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Role&quot; type=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcroleenum.htm">IfcRoleEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;UserDefinedRole&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Description&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcActorRole<b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Role</td><td width="1%"> : </td><td><a href="../../ifcactorresource/lexical/ifcroleenum.htm">IfcRoleEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">UserDefinedRole</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReference</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">WR1</td><td width="1%"> : </td><td>(Role &lt;&gt; IfcRoleEnum.USERDEFINED) OR
+((Role = IfcRoleEnum.USERDEFINED) AND
+  EXISTS(SELF.UserDefinedRole));</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcactorresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Role</span></td><td width="1%"> : </td><td>The name of the role played by an actor. If the Role has value USERDEFINED, then
+the user defined role shall be provided as a value of the attribute UserDefinedRole.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">UserDefinedRole</span></td><td width="1%"> : </td><td>Allows for specification of user defined roles beyond the 
+enumeration values provided by Role attribute of type IfcRoleEnum. 
+When a value is provided for attribute UserDefinedRole in parallel 
+the attribute Role shall have enumeration value USERDEFINED.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Description</span></td><td width="1%"> : </td><td>A textual description relating the nature of the role played by an actor.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">HasExternalReference</span></td><td width="1%"> : </td><td>
+Reference to external information, e.g. library, classification, or document information, which is associated with the actor role.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New inverse attribute.</blockquote>
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">WR1</span></td><td width="1%"> : </td><td>
+
+If the attribute <i>Role</i> has the enumeration value USERDEFINED then a value for the attribute <i>UserDefinedRole</i> shall be asserted.
+
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcActorRole
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcactorresource/lexical/ifcactorrole.htm">IfcActorRole</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Role</td><td width="1%"> : </td><td><a href="../../ifcactorresource/lexical/ifcroleenum.htm">IfcRoleEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">UserDefinedRole</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReference</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcactorrole.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

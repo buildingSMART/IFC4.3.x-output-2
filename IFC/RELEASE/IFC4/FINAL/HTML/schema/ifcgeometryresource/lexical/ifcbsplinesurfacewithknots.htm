@@ -1,0 +1,393 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcBSplineSurfaceWithKnots</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.10");
+//-->
+</script>
+
+<h4 class="std">8.9.3.10 IfcBSplineSurfaceWithKnots</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Bézier-Spline-Fläche mit (gegebenen) Kontrollpunkten</b></td></tr>
+</table>
+
+<p>The <span class="self-ref">IfcBSplineSurfaceWithKnots</span> is a general form of rational or polynomial parametric surface in which the
+knot values are explicitly given.</p>
+<blockquote class="extDef">
+NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+This is a B-spline surface in which the knot values are explicitly given. This subtype shall be used to represent
+non-uniform B-spline surfaces, and may also be used for other knot types.<br>
+All knot multiplicities except the first and the last shall be in the range
+1,....,<i>d</i>; the first and last may have a maximum value of <i>d</i> + 1. In evaluating the basis functions, a knot
+<i>u</i> of, e.g., multiplicity 3 is interpreted as a sequence <i>u</i>, <i>u</i>, <i>u</i>, in the knot array.
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>b_spline_surface_with_knots</strong> defined in
+ISO10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote>
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcBSplineSurfaceWithKnots&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcbsplinesurfacewithknots.htm">IfcBSplineSurfaceWithKnots</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcbsplinesurface.htm">IfcBSplineSurface</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcBSplineSurfaceWithKnots&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcbsplinesurface.htm">IfcBSplineSurface</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;UMultiplicities&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;xs:long&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;2&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;VMultiplicities&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;xs:long&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;2&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;UKnots&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;2&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;VKnots&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;2&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;KnotSpec&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcknottype.htm">IfcKnotType</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBSplineSurfaceWithKnots
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcgeometryresource/lexical/ifcrationalbsplinesurfacewithknots.htm">IfcRationalBSplineSurfaceWithKnots</a>)
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometryresource/lexical/ifcbsplinesurface.htm">IfcBSplineSurface</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">UMultiplicities</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <span class="self-ref">INTEGER</span>;</td></tr>
+<tr valign="top"><td width="20%">VMultiplicities</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <span class="self-ref">INTEGER</span>;</td></tr>
+<tr valign="top"><td width="20%">UKnots</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">VKnots</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">KnotSpec</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcknottype.htm">IfcKnotType</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">KnotVUpper</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := SIZEOF(VKnots);</td></tr>
+<tr valign="top"><td width="20%">KnotUUpper</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := SIZEOF(UKnots);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">UDirectionConstraints</td><td width="1%"> : </td><td>IfcConstraintsParamBSpline (
+  SELF\IfcBSplineSurface.UDegree, KnotUUpper, 
+  SELF\IfcBSplineSurface.UUpper, UMultiplicities, UKnots);</td></tr>  <tr valign="top"><td width="20%">VDirectionConstraints</td><td width="1%"> : </td><td>IfcConstraintsParamBSpline (
+  SELF\IfcBSplineSurface.VDegree, KnotVUpper, 
+  SELF\IfcBSplineSurface.VUpper, VMultiplicities, VKnots);</td></tr>  <tr valign="top"><td width="20%">CorrespondingULists</td><td width="1%"> : </td><td>SIZEOF(UMultiplicities) = KnotUUpper;</td></tr>  <tr valign="top"><td width="20%">CorrespondingVLists</td><td width="1%"> : </td><td>SIZEOF(VMultiplicities) = KnotVUpper;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0010.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">UMultiplicities</span></td><td width="1%"> : </td><td>
+The multiplicities of the knots in the <i>u</i> parameter direction.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">VMultiplicities</span></td><td width="1%"> : </td><td>
+The multiplicities of the knots in the <i>v</i> parameter direction.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">UKnots</span></td><td width="1%"> : </td><td>
+The list of the distinct knots in the <i>u</i> parameter direction.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">VKnots</span></td><td width="1%"> : </td><td>
+The list of the distinct knots in the <i>v</i> parameter direction.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">KnotSpec</span></td><td width="1%"> : </td><td>
+The description of the knot type.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">KnotVUpper</span></td><td width="1%"> : </td><td>
+The number of distinct knots in the <i>v</i> parameter direction.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">KnotUUpper</span></td><td width="1%"> : </td><td>
+The number of distinct knots in the <i>u</i> parameter direction.
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">UDirectionConstraints</span></td><td width="1%"> : </td><td>
+The function returns TRUE when the parameter constraints are verified for the <i>u</i> direction.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">VDirectionConstraints</span></td><td width="1%"> : </td><td>
+The function returns TRUE when the parameter constraints are verified for the <i>v</i> direction.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CorrespondingULists</span></td><td width="1%"> : </td><td>
+The number of <i>UMultiplicities</i> shall be the same as the number of <i>UKnots</i>.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CorrespondingVLists</span></td><td width="1%"> : </td><td>
+The number of <i>VMultiplicities</i> shall be the same as the number of <i>VKnots</i>.
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBSplineSurfaceWithKnots
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := 3;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcboundedsurface.htm">IfcBoundedSurface</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcbsplinesurface.htm">IfcBSplineSurface</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">UDegree</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span>;</td></tr>
+<tr valign="top"><td width="20%">VDegree</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span>;</td></tr>
+<tr valign="top"><td width="20%">ControlPointsList</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>;</td></tr>
+<tr valign="top"><td width="20%">SurfaceForm</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcbsplinesurfaceform.htm">IfcBSplineSurfaceForm</a>;</td></tr>
+<tr valign="top"><td width="20%">UClosed</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+<tr valign="top"><td width="20%">VClosed</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+<tr valign="top"><td width="20%">SelfIntersect</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">UUpper</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := SIZEOF(ControlPointsList) - 1;</td></tr>
+<tr valign="top"><td width="20%">VUpper</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := SIZEOF(ControlPointsList[1]) - 1;</td></tr>
+<tr valign="top"><td width="20%">ControlPoints</td><td width="1%"> : </td><td><span class="keyword">ARRAY</span> [0:UUpper] OF <span class="keyword">ARRAY</span> [0:VUpper] OF <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a> := IfcMakeArrayOfArray(ControlPointsList,
+0,UUpper,0,VUpper);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcbsplinesurfacewithknots.htm">IfcBSplineSurfaceWithKnots</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">UMultiplicities</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <span class="self-ref">INTEGER</span>;</td></tr>
+<tr valign="top"><td width="20%">VMultiplicities</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <span class="self-ref">INTEGER</span>;</td></tr>
+<tr valign="top"><td width="20%">UKnots</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">VKnots</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">KnotSpec</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcknottype.htm">IfcKnotType</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">KnotVUpper</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := SIZEOF(VKnots);</td></tr>
+<tr valign="top"><td width="20%">KnotUUpper</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := SIZEOF(UKnots);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcbsplinesurfacewithknots.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

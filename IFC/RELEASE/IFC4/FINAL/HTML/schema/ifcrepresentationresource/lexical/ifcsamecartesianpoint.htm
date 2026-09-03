@@ -1,0 +1,48 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcSameCartesianPoint</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.4.3");
+//-->
+</script>
+
+<h4 class="std">8.18.4.3 IfcSameCartesianPoint</h4>
+<p>
+
+<p>The function compares two <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>'s and ensures that they are the same (taking an arbitrary epsilon precision factor into account).</p>
+
+<blockquote class="history">HISTORY&nbsp; New function in IFC2x2</blockquote> 
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcSameCartesianPoint<br/>
+
+	(cp1, cp2 : IfcCartesianPoint; Epsilon : REAL)<br/>	: LOGICAL;<br/>&nbsp;&nbsp;<br/>&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;cp1x : REAL := cp1.Coordinates[1];<br/>&nbsp;&nbsp;&nbsp;&nbsp;cp1y : REAL := cp1.Coordinates[2];<br/>&nbsp;&nbsp;&nbsp;&nbsp;cp1z : REAL := 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;cp2x : REAL := cp2.Coordinates[1];<br/>&nbsp;&nbsp;&nbsp;&nbsp;cp2y : REAL := cp2.Coordinates[2];<br/>&nbsp;&nbsp;&nbsp;&nbsp;cp2z : REAL := 0;<br/>&nbsp;&nbsp;END_LOCAL;<br/><br/>&nbsp;&nbsp;IF (SIZEOF(cp1.Coordinates) &gt; 2) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;cp1z := cp1.Coordinates[3];<br/>&nbsp;&nbsp;END_IF;<br/><br/>&nbsp;&nbsp;IF (SIZEOF(cp2.Coordinates) &gt; 2) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;cp2z := cp2.Coordinates[3];<br/>&nbsp;&nbsp;END_IF;<br/><br/>&nbsp;&nbsp;RETURN (IfcSameValue(cp1x,cp2x,Epsilon) AND<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcSameValue(cp1y,cp2y,Epsilon) AND<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcSameValue(cp1z,cp2z,Epsilon));
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifcsamecartesianpoint.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

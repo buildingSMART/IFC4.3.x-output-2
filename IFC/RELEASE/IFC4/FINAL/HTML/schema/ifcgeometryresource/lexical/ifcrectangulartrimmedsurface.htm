@@ -1,0 +1,265 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcRectangularTrimmedSurface</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.44");
+//-->
+</script>
+
+<h4 class="std">8.9.3.44 IfcRectangularTrimmedSurface</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Rechteckig begrenzte Oberfläche</b></td></tr>
+</table>
+ 
+
+<p>The <span class="self-ref">IfcRectangularTrimmedSurface</span> is a surface created by bounding its <i>BasisSurface</i> along two pairs of parallel curves defined within the parametric space of the referenced surface.</p>
+
+<blockquote class="extDef">
+NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+The trimmed surface is a simple bounded surface in which the boundaries are the constant parametric lines <i>u</i><sub>1</sub> = u1, <i>u</i><sub>2</sub> = u2, <i>v</i><sub>1</sub> = v1 and <i>v</i><sub>2</sub> = v2. All these values shall be within the parametric range of the referenced surface. Cyclic properties of the parameter range are assumed.
+The rectangular trimmed surface inherits its parameterization directly from the basis surface and has parameter ranges from 0 to |<i>u</i><sub>2</sub> - <i>u</i><sub>1</sub>| and 0 to|<i>v</i><sub>2</sub>-<i>v</i><sub>1</sub>|.</blockquote>
+
+<blockquote class="note">
+NOTE&nbsp; If the surface is closed in a given parametric direction, the values of <i>u</i><sub>2</sub> or <i>v</i><sub>2</sub> may require to be increased by the cyclic range.
+</blockquote> 
+<blockquote class="example">
+EXAMPLE&nbsp; 370 degrees is equivalent to 10 degrees, for those surfaces whose parametric form is defined using circular functions (sine and cosine).</blockquote>
+
+<blockquote class="note">
+NOTE&nbsp; Entity adapted from <strong>rectangular_trimmed_surface</strong> in ISO 10303-42.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x.
+</blockquote>
+
+<p class="spec-head">Informal Propositions:</p> 
+<ol> 
+<li>The domain of the trimmed surface shall be within the domain of the surface being trimmed.</li> 
+</ol> 
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcRectangularTrimmedSurface&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcrectangulartrimmedsurface.htm">IfcRectangularTrimmedSurface</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcboundedsurface.htm">IfcBoundedSurface</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcRectangularTrimmedSurface&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcboundedsurface.htm">IfcBoundedSurface</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;BasisSurface&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;U1&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;V1&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;U2&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;V2&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Usense&quot; type=&quot;xs:boolean&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Vsense&quot; type=&quot;xs:boolean&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRectangularTrimmedSurface
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometryresource/lexical/ifcboundedsurface.htm">IfcBoundedSurface</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">BasisSurface</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>;</td></tr>
+<tr valign="top"><td width="20%">U1</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">V1</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">U2</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">V2</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">Usense</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+<tr valign="top"><td width="20%">Vsense</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">U1AndU2Different</td><td width="1%"> : </td><td>U1 &lt;&gt; U2;</td></tr>  <tr valign="top"><td width="20%">V1AndV2Different</td><td width="1%"> : </td><td>V1 &lt;&gt; V2;</td></tr>  <tr valign="top"><td width="20%">UsenseCompatible</td><td width="1%"> : </td><td>(('IFCGEOMETRYRESOURCE.IFCELEMENTARYSURFACE' IN TYPEOF(BasisSurface)) AND
+         (NOT ('IFCGEOMETRYRESOURCE.IFCPLANE' IN TYPEOF(BasisSurface)))) OR
+         ('IFCGEOMETRYRESOURCE.IFCSURFACEOFREVOLUTION' IN TYPEOF(BasisSurface)) OR
+         (Usense = (U2 &gt; U1));</td></tr>  <tr valign="top"><td width="20%">VsenseCompatible</td><td width="1%"> : </td><td>Vsense = (V2 &gt; V1);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0009.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">BasisSurface</span></td><td width="1%"> : </td><td>Surface being trimmed.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">U1</span></td><td width="1%"> : </td><td>First u parametric value.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">V1</span></td><td width="1%"> : </td><td>First v parametric value.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">U2</span></td><td width="1%"> : </td><td>Second u parametric value.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">V2</span></td><td width="1%"> : </td><td>Second v parametric value.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Usense</span></td><td width="1%"> : </td><td>Flag to indicate whether the direction of the first parameter of the trimmed surface agrees with or opposes the sense of u in the basis surface.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Vsense</span></td><td width="1%"> : </td><td>Flag to indicate whether the direction of the second parameter of the trimmed surface agrees with or opposes the sense of v in the basis surface.</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">U1AndU2Different</span></td><td width="1%"> : </td><td>U1 and U2 shall have different values.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">V1AndV2Different</span></td><td width="1%"> : </td><td>V1 and V2 shall have different values.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">UsenseCompatible</span></td><td width="1%"> : </td><td>With exception of those surfaces closed in the U parameter, direction Usense shall be compatible with the ordered parameter values for U.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">VsenseCompatible</span></td><td width="1%"> : </td><td>Vsense shall be compatible with the ordered parameter values for V.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRectangularTrimmedSurface
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := 3;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcboundedsurface.htm">IfcBoundedSurface</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrectangulartrimmedsurface.htm">IfcRectangularTrimmedSurface</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">BasisSurface</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>;</td></tr>
+<tr valign="top"><td width="20%">U1</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">V1</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">U2</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">V2</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;</td></tr>
+<tr valign="top"><td width="20%">Usense</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+<tr valign="top"><td width="20%">Vsense</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcrectangulartrimmedsurface.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

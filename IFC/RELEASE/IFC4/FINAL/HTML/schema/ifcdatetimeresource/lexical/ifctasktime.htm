@@ -1,0 +1,264 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcTaskTime</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.5.3.9");
+//-->
+</script>
+
+<h4 class="std">8.5.3.9 IfcTaskTime</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Propriétés temporelles de tâche</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Zeitliche Information einer Tätigkeit</b></td></tr>
+</table>
+ 
+
+<p><span class="self-ref">IfcTaskTime</span> captures the time-related information about a task including the different types (actual or scheduled) of starting and ending times.</p>
+
+<p>All given values should be provided by the application; the IFC schema does not deal with dependencies between task time values. There is also no consistency check through where rules that guarantee a meaningful population of time values. Thus, an application is responsible to provide reasonable values and, if an application receives task times, has to make consistency checks by their own.</p>
+
+<p><span class="self-ref">IfcTaskTime</span> furthermore provides a generic mechanism to differentiate between user given time values and time values derived from user given time values and other constraints such as work calendars and assigned resources.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC4, adapted from <i>IfcScheduleTimeControl</i>.  Differently to <i>IfcScheduleTimeControl</i> it is also possible to differentiate duration time measures between the two possible types; (1) work time and (2) elapsed time.
+</blockquote>
+
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcTaskTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifctasktime.htm">IfcTaskTime</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcTaskTime&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;DurationType&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifctaskdurationenum.htm">IfcTaskDurationEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ScheduleDuration&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ScheduleStart&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ScheduleFinish&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;EarlyStart&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;EarlyFinish&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LateStart&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LateFinish&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;FreeFloat&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TotalFloat&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;IsCritical&quot; type=&quot;xs:boolean&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;StatusTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ActualDuration&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ActualStart&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ActualFinish&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RemainingTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Completion&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcTaskTime
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcdatetimeresource/lexical/ifctasktimerecurring.htm">IfcTaskTimeRecurring</a>)
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">DurationType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifctaskdurationenum.htm">IfcTaskDurationEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">ScheduleDuration</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;</td></tr>
+<tr valign="top"><td width="20%">ScheduleStart</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">ScheduleFinish</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">EarlyStart</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">EarlyFinish</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">LateStart</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">LateFinish</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">FreeFloat</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;</td></tr>
+<tr valign="top"><td width="20%">TotalFloat</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;</td></tr>
+<tr valign="top"><td width="20%">IsCritical</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="self-ref">BOOLEAN</span>;</td></tr>
+<tr valign="top"><td width="20%">StatusTime</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">ActualDuration</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;</td></tr>
+<tr valign="top"><td width="20%">ActualStart</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">ActualFinish</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">RemainingTime</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;</td></tr>
+<tr valign="top"><td width="20%">Completion</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcdatetimeresource/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">DurationType</span></td><td width="1%"> : </td><td>
+Enables to specify the type of duration values for <i>ScheduleDuration</i>, <i>ActualDuration</i> and <i>RemainingTime</i>. The duration type is either work time or elapsed time.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ScheduleDuration</span></td><td width="1%"> : </td><td>
+
+The amount of time which is scheduled for completion of a task. The value might be measured or somehow calculated, which is defined by
+<i>ScheduleDataOrigin</i>. The value is either given as elapsed time or work time, which is defined by <i>DurationType</i>.
+
+<blockquote class="note">NOTE&nbsp; Scheduled Duration may be calculated as the time from scheduled start date to scheduled finish date.</blockquote>
+
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ScheduleStart</span></td><td width="1%"> : </td><td>
+The date on which a task is scheduled to be started. The value might be measured or somehow calculated, which is defined by
+<i>ScheduleDataOrigin</i>.
+<blockquote class="note">NOTE&nbsp;  The scheduled start date must be greater than or equal to the earliest start date.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ScheduleFinish</span></td><td width="1%"> : </td><td>
+The date on which a task is scheduled to be finished. The value might be measured or somehow calculated, which is defined by <i>ScheduleDataOrigin</i>.
+<blockquote class="note">NOTE&nbsp;  The scheduled finish date must be greater than or equal to the earliest finish date.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">EarlyStart</span></td><td width="1%"> : </td><td>
+     The earliest date on which a task can be started. It is a calculated value.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">EarlyFinish</span></td><td width="1%"> : </td><td>
+The earliest date on which a task can be finished. It is a calculated value.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">LateStart</span></td><td width="1%"> : </td><td>
+The latest date on which a task can be started. It is a calculated value.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">LateFinish</span></td><td width="1%"> : </td><td>
+The latest date on which a task can be finished. It is a calculated value.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">FreeFloat</span></td><td width="1%"> : </td><td>
+The amount of time during which the start or finish of a task may be varied without any effect on the overall programme of work. It is a calculated elapsed time value.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">TotalFloat</span></td><td width="1%"> : </td><td>
+The difference between the duration available to carry out a task and the scheduled duration of the task. It is a calculated elapsed time value.
+<blockquote class="note">NOTE&nbsp;  Total Float time may be calculated as being the difference between the scheduled duration of a task and the available duration from earliest start to latest finish. Float time may be either positive, zero or negative. Where it is zero or negative, the task becomes critical.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">IsCritical</span></td><td width="1%"> : </td><td>
+A flag which identifies whether a scheduled task is a critical item within the programme.
+<blockquote class="note">NOTE&nbsp;  A task becomes critical when the float time becomes zero or negative.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">StatusTime</span></td><td width="1%"> : </td><td>
+The date or time at which the status of the tasks within the schedule is analyzed.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ActualDuration</span></td><td width="1%"> : </td><td>
+The actual duration of the task. It is a measured value. The value is either given as elapsed time or work time, which is defined by <i>DurationType</i>.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ActualStart</span></td><td width="1%"> : </td><td>
+The date on which a task is actually started. It is a measured value.
+<blockquote class="note">NOTE&nbsp;  The scheduled start date must be greater than or equal to the earliest start date. No constraint is applied to the actual start date with respect to the scheduled start date since a task may be started earlier than had originally been scheduled if circumstances allow.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ActualFinish</span></td><td width="1%"> : </td><td>
+The date on which a task is actually finished.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RemainingTime</span></td><td width="1%"> : </td><td>
+The amount of time remaining to complete a task. It is a predicted value. The value is either given as elapsed time or work time, which is defined by <i>DurationType</i>.
+<blockquote class="note">NOTE&nbsp; The time remaining in which to complete a task may be determined both for tasks which have not yet started and those which have. Remaining time for a task not yet started has the same value as the scheduled duration. For a task already started, remaining time is calculated as the difference between the scheduled finish and the point of analysis.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Completion</span></td><td width="1%"> : </td><td>
+The extent of completion expressed as a ratio or percentage. It is a measured value.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcTaskTime
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">DataOrigin</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdataoriginenum.htm">IfcDataOriginEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">UserDefinedDataOrigin</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcdatetimeresource/lexical/ifctasktime.htm">IfcTaskTime</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">DurationType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifctaskdurationenum.htm">IfcTaskDurationEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">ScheduleDuration</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;</td></tr>
+<tr valign="top"><td width="20%">ScheduleStart</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">ScheduleFinish</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">EarlyStart</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">EarlyFinish</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">LateStart</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">LateFinish</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">FreeFloat</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;</td></tr>
+<tr valign="top"><td width="20%">TotalFloat</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;</td></tr>
+<tr valign="top"><td width="20%">IsCritical</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="self-ref">BOOLEAN</span>;</td></tr>
+<tr valign="top"><td width="20%">StatusTime</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">ActualDuration</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;</td></tr>
+<tr valign="top"><td width="20%">ActualStart</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">ActualFinish</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">RemainingTime</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;</td></tr>
+<tr valign="top"><td width="20%">Completion</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifctasktime.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

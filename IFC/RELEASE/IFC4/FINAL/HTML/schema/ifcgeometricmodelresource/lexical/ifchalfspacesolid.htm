@@ -1,0 +1,237 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcHalfSpaceSolid</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.20");
+//-->
+</script>
+
+<h4 class="std">8.8.3.20 IfcHalfSpaceSolid</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Halbraum Festkörper</b></td></tr>
+</table>
+ 
+<p>A half space solid divides the domain into two by a base surface. Normally, the base surface is a plane and devides
+the infinitive space into two and indicates the side of the half-space by agreeing or disagreeing to the normal of the
+plane.</p>
+<p>Figure 291 illustrates the definition of the <span class="self-ref">IfcHalfSpaceSolid</span> within a given coordinate system. The base
+surface is given by an unbounded plane, the red boundary is shown for visualization purposes only.</p>
+<table cellpadding="2" cellspacing="2" summary="illustration">
+<tr>
+<td><img src="../../../figures/IfcHalfSpaceSolid-Layout1.gif" alt="half space solid" width="400" height="300" border="0"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 291 &mdash; Half space solid geometry</p>
+</td>
+</tr>
+</table>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+A half space solid is defined by the half space which is the regular subset of the domain which lies on one side of an
+unbounded surface. The side of the surface which is in the half space is determined by the surface normal and the
+agreement flag. If the agreement flag is TRUE, then the subset is the one the normal points away from. If the agreement
+flag is FALSE, then the subset is the one the normal points into.<br>
+<br>
+For a valid half space solid the surface shall divide the domain into exactly two subsets. Also, within the domain the
+surface shall be manifold and all surface normals shall point into the same subset.<br>
+<br>
+NOTE&nbsp; A half space is not a subtype of solid model, half space solids are only useful as operands in Boolean
+expressions.</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>half_space_solid</strong> defined in ISO
+10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.5</blockquote>
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>The base surface shall divide the domain into exactly two subsets. If the half space solid is of subtype boxed half
+space (<a href="../../ifcgeometricmodelresource/lexical/ifcboxedhalfspace.htm">IfcBoxedHalfSpace</a>), the domain in question is that of the attribute enclosure. In all other cases the
+domain is all of space and the base surface shall be unbounded.</li>
+<li>The base surface shall be an unbounded surface (subtype of <a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a>).</li>
+</ol>
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcHalfSpaceSolid&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcHalfSpaceSolid&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;BaseSurface&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;AgreementFlag&quot; type=&quot;xs:boolean&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcHalfSpaceSolid
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcgeometricmodelresource/lexical/ifcboxedhalfspace.htm">IfcBoxedHalfSpace</a>, <a href="../../ifcgeometricmodelresource/lexical/ifcpolygonalboundedhalfspace.htm">IfcPolygonalBoundedHalfSpace</a>))
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">BaseSurface</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>;</td></tr>
+<tr valign="top"><td width="20%">AgreementFlag</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := 3;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">BaseSurface</span></td><td width="1%"> : </td><td>Surface defining side of half space.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">AgreementFlag</span></td><td width="1%"> : </td><td>The agreement flag is TRUE if the normal to the BaseSurface points away from the material of the IfcHalfSpaceSolid. Otherwise it is FALSE.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Dim</span></td><td width="1%"> : </td><td>The space dimensionality of this class, it is always 3</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcHalfSpaceSolid
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">BaseSurface</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>;</td></tr>
+<tr valign="top"><td width="20%">AgreementFlag</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := 3;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifchalfspacesolid.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

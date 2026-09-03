@@ -1,0 +1,191 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcSectionReinforcementProperties</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.15.3.23");
+//-->
+</script>
+
+<h4 class="std">8.15.3.23 IfcSectionReinforcementProperties</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Bewehrungsquerschnitt - Merkmale der Bewehrung</b></td></tr>
+</table>
+
+
+<p><span class="self-ref">IfcSectionReinforcementProperties</span> defines the cross section properties of reinforcement for a single longitudinal piece of a cross section with a specific reinforcement usage type. </p> 
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote> 
+
+<p>Several sets of cross section reinforcement properties represented by instances of <i>IfcReinforcementProperties</i> may be attached to the section reinforcement properties
+(<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcementdefinitionproperties.htm">IfcReinforcementDefinitionProperties</a> of <i>IfcStructuralElementsDomain</i> schema),
+one for each combination of steel grades and reinforcement bar types and sizes.</p>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcSectionReinforcementProperties&quot; type=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcsectionreinforcementproperties.htm">IfcSectionReinforcementProperties</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcpredefinedproperties.htm">IfcPreDefinedProperties</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcSectionReinforcementProperties&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcpredefinedproperties.htm">IfcPreDefinedProperties</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;SectionDefinition&quot; type=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcsectionproperties.htm">IfcSectionProperties</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;CrossSectionReinforcementDefinitions&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcreinforcementbarproperties.htm">IfcReinforcementBarProperties</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcreinforcementbarproperties.htm">IfcReinforcementBarProperties</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;set&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LongitudinalStartPosition&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LongitudinalEndPosition&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TransversePosition&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ReinforcementRole&quot; type=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcreinforcingbarroleenum.htm">IfcReinforcingBarRoleEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcSectionReinforcementProperties
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpropertyresource/lexical/ifcpredefinedproperties.htm">IfcPreDefinedProperties</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LongitudinalStartPosition</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">LongitudinalEndPosition</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">TransversePosition</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ReinforcementRole</td><td width="1%"> : </td><td><a href="../../ifcprofileresource/lexical/ifcreinforcingbarroleenum.htm">IfcReinforcingBarRoleEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">SectionDefinition</td><td width="1%"> : </td><td><a href="../../ifcprofileresource/lexical/ifcsectionproperties.htm">IfcSectionProperties</a>;</td></tr>
+<tr valign="top"><td width="20%">CrossSectionReinforcementDefinitions</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcprofileresource/lexical/ifcreinforcementbarproperties.htm">IfcReinforcementBarProperties</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcprofileresource/diagram_0008.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">LongitudinalStartPosition</span></td><td width="1%"> : </td><td>The start position in longitudinal direction for the section reinforcement properties.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">LongitudinalEndPosition</span></td><td width="1%"> : </td><td>The end position in longitudinal direction for the section reinforcement properties.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">TransversePosition</span></td><td width="1%"> : </td><td>The position for the section reinforcement properties in transverse direction.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ReinforcementRole</span></td><td width="1%"> : </td><td>The role, purpose or usage of the reinforcement, i.e. the kind of loads and stresses it is intended to carry, defined for the section reinforcement properties.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SectionDefinition</span></td><td width="1%"> : </td><td>Definition of the cross section profile and longitudinal section type.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CrossSectionReinforcementDefinitions</span></td><td width="1%"> : </td><td>The set of reinforcment properties attached to a section reinforcement properties definition.</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcSectionReinforcementProperties
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpropertyresource/lexical/ifcpropertyabstraction.htm">IfcPropertyAbstraction</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReferences</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpropertyresource/lexical/ifcpredefinedproperties.htm">IfcPreDefinedProperties</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcprofileresource/lexical/ifcsectionreinforcementproperties.htm">IfcSectionReinforcementProperties</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LongitudinalStartPosition</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">LongitudinalEndPosition</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">TransversePosition</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ReinforcementRole</td><td width="1%"> : </td><td><a href="../../ifcprofileresource/lexical/ifcreinforcingbarroleenum.htm">IfcReinforcingBarRoleEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">SectionDefinition</td><td width="1%"> : </td><td><a href="../../ifcprofileresource/lexical/ifcsectionproperties.htm">IfcSectionProperties</a>;</td></tr>
+<tr valign="top"><td width="20%">CrossSectionReinforcementDefinitions</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcprofileresource/lexical/ifcreinforcementbarproperties.htm">IfcReinforcementBarProperties</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcsectionreinforcementproperties.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

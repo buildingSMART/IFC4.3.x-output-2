@@ -1,0 +1,217 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcProperty</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.16.3.4");
+//-->
+</script>
+
+<h4 class="std">8.16.3.4 IfcProperty</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Propriété</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Merkmal</b></td></tr>
+</table>
+ 
+
+<p><span class="self-ref">IfcProperty</span> is an abstract generalization for all types of properties that can be associated with IFC objects through the property set mechanism.</p> 
+
+<blockquote class="history"> 
+HISTORY&nbsp; New entity in IFC1.0.
+</blockquote> 
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcProperty&quot; type=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcpropertyabstraction.htm">IfcPropertyAbstraction</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcProperty&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcpropertyabstraction.htm">IfcPropertyAbstraction</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Name&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Description&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcProperty
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcpropertyresource/lexical/ifccomplexproperty.htm">IfcComplexProperty</a>, <a href="../../ifcpropertyresource/lexical/ifcsimpleproperty.htm">IfcSimpleProperty</a>))
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpropertyresource/lexical/ifcpropertyabstraction.htm">IfcPropertyAbstraction</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PartOfPset</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcpropertyset.htm">IfcPropertySet</a> <span class="keyword">FOR</span> HasProperties;</td></tr>
+<tr valign="top"><td width="20%">PropertyForDependance</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcpropertyresource/lexical/ifcpropertydependencyrelationship.htm">IfcPropertyDependencyRelationship</a> <span class="keyword">FOR</span> DependingProperty;</td></tr>
+<tr valign="top"><td width="20%">PropertyDependsOn</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcpropertyresource/lexical/ifcpropertydependencyrelationship.htm">IfcPropertyDependencyRelationship</a> <span class="keyword">FOR</span> DependantProperty;</td></tr>
+<tr valign="top"><td width="20%">PartOfComplex</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcpropertyresource/lexical/ifccomplexproperty.htm">IfcComplexProperty</a> <span class="keyword">FOR</span> HasProperties;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcpropertyresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Name</span></td><td width="1%"> : </td><td>
+Name for this property. This label is the significant name string that defines the semantic meaning for the property.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Description</span></td><td width="1%"> : </td><td>
+Informative text to explain the property.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PartOfPset</span></td><td width="1%"> : </td><td>
+Reference to the <a href="../../ifckernel/lexical/ifcpropertyset.htm">IfcPropertySet</a> by which the <span class="self-ref">IfcProperty</span> is referenced.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New inverse attribute to navigate from <span class="self-ref">IfcProperty</span> to <a href="../../ifckernel/lexical/ifcpropertyset.htm">IfcPropertySet</a> with upward compatibility for file based exchange.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PropertyForDependance</span></td><td width="1%"> : </td><td>The property on whose value that of another property depends.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PropertyDependsOn</span></td><td width="1%"> : </td><td>The relating property on which the value of the property depends.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PartOfComplex</span></td><td width="1%"> : </td><td>
+Reference to the <a href="../../ifcpropertyresource/lexical/ifccomplexproperty.htm">IfcComplexProperty</a> in which the <span class="self-ref">IfcProperty</span> is contained.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The cardinality has changed to 0..n to allow reuse of instances of <span class="self-ref">IfcProperty</span> in several <a href="../../ifcpropertyresource/lexical/ifccomplexproperty.htm">IfcComplexProperty</a> with upward compatibility for file based exchange.</blockquote>
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcProperty
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpropertyresource/lexical/ifcpropertyabstraction.htm">IfcPropertyAbstraction</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReferences</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PartOfPset</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcpropertyset.htm">IfcPropertySet</a> <span class="keyword">FOR</span> HasProperties;</td></tr>
+<tr valign="top"><td width="20%">PropertyForDependance</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcpropertyresource/lexical/ifcpropertydependencyrelationship.htm">IfcPropertyDependencyRelationship</a> <span class="keyword">FOR</span> DependingProperty;</td></tr>
+<tr valign="top"><td width="20%">PropertyDependsOn</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcpropertyresource/lexical/ifcpropertydependencyrelationship.htm">IfcPropertyDependencyRelationship</a> <span class="keyword">FOR</span> DependantProperty;</td></tr>
+<tr valign="top"><td width="20%">PartOfComplex</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcpropertyresource/lexical/ifccomplexproperty.htm">IfcComplexProperty</a> <span class="keyword">FOR</span> HasProperties;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcproperty.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

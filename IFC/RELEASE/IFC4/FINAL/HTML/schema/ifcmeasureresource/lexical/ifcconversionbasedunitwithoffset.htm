@@ -1,0 +1,201 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcConversionBasedUnitWithOffset</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.11.3.3");
+//-->
+</script>
+
+<h4 class="std">8.11.3.3 IfcConversionBasedUnitWithOffset</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Unité basée sur une mesure avec unité et avec décalage</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Auf Umrechnung basierte Einheit mit Abzug</b></td></tr>
+</table>
+
+
+<p><span class="self-ref">IfcConversionBasedUnitWithOffset</span> is a unit which is converted from another unit by applying a conversion factor and an offset.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC4.
+</blockquote>
+
+<p>Example: The temperature unit Fahrenheit is based on the temperature unit Kelvin as follows:</p>
+
+<blockquote><i>f</i>&nbsp;=&nbsp;<i>k</i>&nbsp;&middot;&nbsp;1.8&nbsp;&ndash;&nbsp;459.67</blockquote>
+
+<p>wherein <i>k</i> is an absolute temperature expressed in Kelvin and <i>f</i> is the same temperature in Fahrenheit.  The following entity instances provide Fahrenheit as a unit:</p>
+
+<blockquote><code>
+IfcConversionBasedUnitWithOffset(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;IfcDimensionalExponents(0, 0, 0, 0, 1, 0, 0),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THERMODYNAMICTEMPERATUREUNIT,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Fahrenheit',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;IfcMeasureWithUnit(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcThermodynamicTemperatureMeasure(1.8),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcSiUnit(THERMODYNAMICTEMPERATUREUNIT, ?, KELVIN)),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-459.67);
+</code></blockquote>
+
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcConversionBasedUnitWithOffset&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcconversionbasedunitwithoffset.htm">IfcConversionBasedUnitWithOffset</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcconversionbasedunit.htm">IfcConversionBasedUnit</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcConversionBasedUnitWithOffset&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcconversionbasedunit.htm">IfcConversionBasedUnit</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ConversionOffset&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcConversionBasedUnitWithOffset
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcmeasureresource/lexical/ifcconversionbasedunit.htm">IfcConversionBasedUnit</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ConversionOffset</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcmeasureresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">ConversionOffset</span></td><td width="1%"> : </td><td>
+
+A positive or negative offset to add after the inherited <i>ConversionFactor</i> was applied.
+
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcConversionBasedUnitWithOffset
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcmeasureresource/lexical/ifcnamedunit.htm">IfcNamedUnit</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dimensions</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcdimensionalexponents.htm">IfcDimensionalExponents</a>;</td></tr>
+<tr valign="top"><td width="20%">UnitType</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">IfcUnitEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcmeasureresource/lexical/ifcconversionbasedunit.htm">IfcConversionBasedUnit</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">ConversionFactor</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcmeasurewithunit.htm">IfcMeasureWithUnit</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReference</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcmeasureresource/lexical/ifcconversionbasedunitwithoffset.htm">IfcConversionBasedUnitWithOffset</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ConversionOffset</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcconversionbasedunitwithoffset.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

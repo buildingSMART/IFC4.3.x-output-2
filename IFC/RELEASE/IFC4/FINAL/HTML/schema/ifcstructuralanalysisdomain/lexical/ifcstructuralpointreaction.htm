@@ -1,0 +1,352 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcStructuralPointReaction</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.7.3.21");
+//-->
+</script>
+
+<h4 class="std">7.7.3.21 IfcStructuralPointReaction</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Auflagerreaktion</b></td></tr>
+</table>
+
+
+<p>This entity defines a reaction which occurs at a point.
+A point reaction is typically connected with a point connection.
+It may also be connected with a curve member or curve connection,
+or surface member or surface connection.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Attributes in the supertypes <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a> and <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralreaction.htm">IfcStructuralReaction</a> changed.  Use definitions changed, informal propositions added.
+</blockquote>
+
+<p><b><u>Coordinate Systems</u></b>:</p>
+
+<p>See definitions at <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a>.</p>
+
+<p><b><u>Topology Use Definitions</u></b>:</p>
+
+<p>Standard Case:<br>
+If connected with a point item, instances of <span class="self-ref">IfcStructuralPointReaction</span>
+shall not have an <i>ObjectPlacement</i> nor a <i>Representation</i>.
+It is implied that the placement and representation of the reaction is the same
+as the structural item.</p>
+
+<p>Special Case 1:<br>
+If connected with a curve item or surface item, instances of <span class="self-ref">IfcStructuralPointReaction</span>
+shall have an <i>ObjectPlacement</i> and <i>Representation</i>, containing an <a href="../../ifctopologyresource/lexical/ifcvertexpoint.htm">IfcVertexPoint</a>.
+See <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a> for further definitions.</p>
+
+<blockquote class="note">NOTE&nbsp; In order to model concentrated reactions on a curve or surface item,
+<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvereaction.htm">IfcStructuralCurveReaction</a> or <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfaceaction.htm">IfcStructuralSurfaceAction</a> of type DISCRETE is
+preferable since they do not require an extra topology representation in this case.
+An <span class="self-ref">IfcStructuralPointReaction</span> should be used for a concentrated reaction on a curve or surface
+item only when an explicit vertex point representation is actually desired.</blockquote>
+
+<p>Special Case 2:<br>
+If not connected with a structural item (which may happen in an incomplete or
+conceptual model), a point action should have an <i>ObjectPlacement</i> and
+<i>Representation</i>, containing an <a href="../../ifctopologyresource/lexical/ifcvertexpoint.htm">IfcVertexPoint</a>.
+See <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a> for further definitions.</p>
+
+<hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcstructuralpointreaction.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="structural-activity" />
+<p class="use-head">Structural Activity</p>
+<p>The <a href="../../templates/structural-activity.htm">Structural Activity</a> concept applies to this entity as shown in Table 635.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>AppliedLoad</b></th><th><b>RelatingElement</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadsingleforce.htm">IfcStructuralLoadSingleForce</a></td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralpointconnection.htm">IfcStructuralPointConnection</a></td><td>Force and moment reactions at supported point connections.</td></tr>
+<tr><td><a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadsingledisplacement.htm">IfcStructuralLoadSingleDisplacement</a></td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralpointconnection.htm">IfcStructuralPointConnection</a></td><td>Translation and rotation at point connections.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 635 &mdash; IfcStructuralPointReaction Structural Activity</td></tr></table>
+
+
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcStructuralPointReaction&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralpointreaction.htm">IfcStructuralPointReaction</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralreaction.htm">IfcStructuralReaction</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcStructuralPointReaction&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralreaction.htm">IfcStructuralReaction</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcStructuralPointReaction
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralreaction.htm">IfcStructuralReaction</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">SuitableLoadType</td><td width="1%"> : </td><td>SIZEOF(['IFCSTRUCTURALLOADRESOURCE.IFCSTRUCTURALLOADSINGLEFORCE', 'IFCSTRUCTURALLOADRESOURCE.IFCSTRUCTURALLOADSINGLEDISPLACEMENT'] * TYPEOF(SELF\IfcStructuralActivity.AppliedLoad)) = 1;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralanalysisdomain/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">SuitableLoadType</span></td><td width="1%"> : </td><td>A structural point reaction shall have as a result either a single force or a single displacement.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcStructuralPointReaction
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDeclaredBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">IsTypedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectPlacement</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>;</td></tr>
+<tr valign="top"><td width="20%">Representation</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ReferencedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a> <span class="keyword">FOR</span> RelatingProduct;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">AppliedLoad</td><td width="1%"> : </td><td><a href="../../ifcstructuralloadresource/lexical/ifcstructuralload.htm">IfcStructuralLoad</a>;</td></tr>
+<tr valign="top"><td width="20%">GlobalOrLocal</td><td width="1%"> : </td><td><a href="../../ifcrepresentationresource/lexical/ifcglobalorlocalenum.htm">IfcGlobalOrLocalEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">AssignedToStructuralItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectsstructuralactivity.htm">IfcRelConnectsStructuralActivity</a> <span class="keyword">FOR</span> RelatedStructuralActivity;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralreaction.htm">IfcStructuralReaction</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralpointreaction.htm">IfcStructuralPointReaction</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="spec-head">Examples:</p>
+<ul>
+<li><a href="../../../annex/annex-e/structural-curve-member.htm">Structural curve member</a></li>
+</ul>
+<p><a href="../../../link/ifcstructuralpointreaction.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

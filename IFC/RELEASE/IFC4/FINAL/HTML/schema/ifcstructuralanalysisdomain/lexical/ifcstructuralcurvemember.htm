@@ -1,0 +1,424 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcStructuralCurveMember</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.7.3.10");
+//-->
+</script>
+
+<h4 class="std">7.7.3.10 IfcStructuralCurveMember</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Stab / Seil / Balken mit konstantem Profil / Querschnitt</b>: lineares statisches Bauteil mit Beanspruchung auf Zug, Druck, Biegung oder Torsion</td></tr>
+</table>
+
+
+<p>Instances of <span class="self-ref">IfcStructuralCurveMember</span> describe edge members, i.e. structural analysis idealizations of beams, columns, rods etc..  Curve members may be straight or curved.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Attribute <i>Axis</i> and WHERE rule added.  Use definitions changed.
+</blockquote>
+
+<p><b><u>Coordinate Systems</u></b>:</p>
+
+<p>See definitions at <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralitem.htm">IfcStructuralItem</a>.  The local coordinate system is established by the reference curve given by topology representation and by the attribute <i>Axis</i>.  The local x axis is parallel with the tangent on the reference curve.  The local z axis is located in the surface which is created by sweeping <i>Axis</i> along the reference curve and is directed according to <i>Axis</i>.  The local y axis is directed such that x,y,z form a right-handed Cartesian coordinate system.</p>
+
+
+<hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcstructuralcurvemember.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="structural-connectivity" />
+<p class="use-head">Structural Connectivity</p>
+<p>The <a href="../../templates/structural-connectivity.htm">Structural Connectivity</a> concept applies to this entity as shown in Table 628.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>StructuralConnection</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralpointconnection.htm">IfcStructuralPointConnection</a></td><td>Point connections at each end of the member.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 628 &mdash; IfcStructuralCurveMember Structural Connectivity</td></tr></table>
+
+
+<br/><br/>
+
+<a name="material-profile-set-usage" />
+<p class="use-head">Material Profile Set Usage</p>
+<p>The <a href="../../templates/material-profile-set-usage.htm">Material Profile Set Usage</a> concept applies to this entity.</p><p>The material of direct instances <span class="self-ref">IfcStructuralCurveMember</span> (in contrast to instances of the subtype <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemembervarying.htm">IfcStructuralCurveMemberVarying</a>) is defined by <a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IfcMaterialProfileSetUsage</a> and attached by the <i>IfcRelAssociatesMaterial.RelatingMaterial</i>.  It is accessible by the inverse <i>HasAssociations</i> relationship.  Composite profile beams can be represented by refering to several <a href="../../ifcmaterialresource/lexical/ifcmaterialprofile.htm">IfcMaterialProfile</a>s within the <a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a> that is referenced from the <a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IfcMaterialProfileSetUsage</a>.  In case of tapered members, the material profile usage subtype <i>IfcMaterialProfileSetUsageDual</i> is used which specifies <a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a>s separately at the start and the end of the tapered member.</p>
+
+<p>The material (<a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a>) in each <a href="../../ifcmaterialresource/lexical/ifcmaterialprofile.htm">IfcMaterialProfile</a>(<i>Set</i>) is specified minimally by a name which corresponds with an agreed upon standardized structural material designation.  An external reference to the source which specifies the material designation should be provided.  Alternatively, structural material properties may be provided by means of <i>IfcMechanicalMaterialProperties</i> and <i>IfcExtendedMaterialProperties</i>.</p>
+
+<p>The profile (<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>) in each <a href="../../ifcmaterialresource/lexical/ifcmaterialprofile.htm">IfcMaterialProfile</a>(<i>Set</i>) is specified minimally by a name which corresponds with an agreed upon standardized structural profile designation.  An external reference to the source which specifies the profile designation should be provided.  Alternatively or additionally, explicit profile geometry should be provided by using respective subtypes of <a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>.  Alternatively or additionally, structural profile properties may be provided by means of subtypes of <a href="../../ifcprofileresource/lexical/ifcprofileproperties.htm">IfcProfileProperties</a>.</p>
+
+<p>An <a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a> is a two-dimensional geometric object with a x<sub>p</sub>,y<sub>p</sub> coordinate system.  The profile is inserted into the curve member model thus that the origin of x<sub>p</sub>,y<sub>p</sub> is located at the member's reference curve and that x<sub>p</sub>,y<sub>p</sub> are parallel with and directed like the local y,z.</p>
+
+<blockquote class="note">NOTE&nbsp;  Due to convention in structural mechanics, axis names of <span class="self-ref">IfcStructuralCurveMember</span> differ from axis names of building elements like <a href="../../ifcsharedbldgelements/lexical/ifcbeamstandardcase.htm">IfcBeamStandardCase</a>:  The extrusion axis of <span class="self-ref">IfcStructuralCurveMember</span> is called x while the extrusion axis of <a href="../../ifcsharedbldgelements/lexical/ifcbeamstandardcase.htm">IfcBeamStandardCase</a> is called z.  Hence x,y,z of <span class="self-ref">IfcStructuralCurveMember</span> correspond with z,x,y of <a href="../../ifcsharedbldgelements/lexical/ifcbeamstandardcase.htm">IfcBeamStandardCase</a>.</blockquote>
+
+<p>If the profile is meant to be inserted centrically in terms of structural section properties, it is necessary that the origin of x<sub>p</sub>,y<sub>p</sub> is identical with the geometric centroid of the profile (commonly also called centre of gravity).  If subtypes of <a href="../../ifcprofileresource/lexical/ifcparameterizedprofiledef.htm">IfcParameterizedProfileDef</a> are used which are only singly symmetric or are asymmetric, an explicit translation by <i>IfcParameterizedProfileDef.Position.Location</i> is required then.</p>
+
+<p>If the profile is inserted at its geometric centroid, <i>IfcMaterialProfileSetUsage.CardinalPoint</i> shall be set to 10.</p>
+
+<p>Otherwise, the profile is inserted eccentrically and a different cardinal point should be set accordingly.</p>
+
+<blockquote class="note">NOTE&nbsp;  Another eccentricity model is available independently of eccentric profile specification:  The reference curve of the member may be located eccentrically relative to the reference points of the connected <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralpointconnection.htm">IfcStructuralPointConnection</a>s.  The connection relationship is then established by <a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectswitheccentricity.htm">IfcRelConnectsWithEccentricity</a>.  Whether one or the other or both eccentricity models may be used is subject to information requirements and local agreements.</blockquote>
+
+
+<br/><br/>
+
+<a name="reference-topology" />
+<p class="use-head">Reference Topology</p>
+<p>The <a href="../../templates/reference-topology.htm">Reference Topology</a> concept applies to this entity as shown in Table 629.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RepresentationType</b></th><th><b>Topology</b></th></tr>
+<tr><td>Edge</td><td><a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 629 &mdash; IfcStructuralCurveMember Reference Topology</td></tr></table>
+
+<p>Direct instances of <span class="self-ref">IfcStructuralCurveMember</span> shall have a topology representation which consists of one instance of <a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a> or a subtype, representing the reference curve of the curve member.  See definitions at <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralitem.htm">IfcStructuralItem</a> for further specifications.</p>
+
+<p class="spec-head">Informal Propositions:</p>
+
+<ol>
+  <li>The reference curve must not be parallel with <i>Axis</i> at any point within the curve member's domain.</li>
+</ol>
+
+
+<p>The local coordinate system is established by the reference curve given by topology representation and by the attribute <i>Axis</i>.  The local x axis is parallel with the tangent on the reference curve.  The local z axis is located in the surface which is created by sweeping <i>Axis</i> along the reference curve and is directed according to <i>Axis</i>.  The local y axis is directed such that x,y,z form a right-handed Cartesian coordinate system.</p>
+
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcStructuralCurveMember&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemember.htm">IfcStructuralCurveMember</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralmember.htm">IfcStructuralMember</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcStructuralCurveMember&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralmember.htm">IfcStructuralMember</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Axis&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemembertypeenum.htm">IfcStructuralCurveMemberTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcStructuralCurveMember
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemembervarying.htm">IfcStructuralCurveMemberVarying</a>)
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralmember.htm">IfcStructuralMember</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemembertypeenum.htm">IfcStructuralCurveMemberTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">Axis</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">HasObjectType</td><td width="1%"> : </td><td>(PredefinedType &lt;&gt; IfcStructuralCurveMemberTypeEnum.USERDEFINED) OR EXISTS(SELF\IfcObject.ObjectType);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralanalysisdomain/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">PredefinedType</span></td><td width="1%"> : </td><td>Type of member with respect to its load carrying behavior in this analysis idealization.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Axis</span></td><td width="1%"> : </td><td>
+
+Direction which is used in the definition of the local z axis.  <i>Axis</i> is specified relative to the so-called global coordinate system, i.e. the <i>SELF\IfcProduct.ObjectPlacement</i>.
+
+<blockquote class="note">NOTE&nbsp; It is desirable and usually possible that many instances of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveconnection.htm">IfcStructuralCurveConnection</a> and <span class="self-ref">IfcStructuralCurveMember</span> share a common instance of <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a> as their <i>Axis</i> attribute.</blockquote>
+
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">HasObjectType</span></td><td width="1%"> : </td><td>The attribute ObjectType shall be given if the predefined type is set to USERDEFINED.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcStructuralCurveMember
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDeclaredBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">IsTypedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectPlacement</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>;</td></tr>
+<tr valign="top"><td width="20%">Representation</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ReferencedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a> <span class="keyword">FOR</span> RelatingProduct;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralitem.htm">IfcStructuralItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">AssignedStructuralActivity</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectsstructuralactivity.htm">IfcRelConnectsStructuralActivity</a> <span class="keyword">FOR</span> RelatingElement;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralmember.htm">IfcStructuralMember</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ConnectedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectsstructuralmember.htm">IfcRelConnectsStructuralMember</a> <span class="keyword">FOR</span> RelatingStructuralMember;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemember.htm">IfcStructuralCurveMember</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemembertypeenum.htm">IfcStructuralCurveMemberTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">Axis</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="spec-head">Examples:</p>
+<ul>
+<li><a href="../../../annex/annex-e/structural-curve-member.htm">Structural curve member</a></li>
+</ul>
+<p><a href="../../../link/ifcstructuralcurvemember.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

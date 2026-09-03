@@ -1,0 +1,52 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcBuild2Axes</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.4.2");
+//-->
+</script>
+
+<h4 class="std">8.9.4.2 IfcBuild2Axes</h4>
+<p>
+
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+This function returns two orthogonal directions. u[1] is in the direction of ref_direction and u[2] is perpendicular to u[1]. A default value of
+(1.0,0.0,0.0) is supplied for ref_direction if the input data is incomplete.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; Function adapted from <strong>build_2axes</strong> defined in ISO 10303-42.</blockquote>
+
+<blockquote class="history">HISTORY&nbsp; New function in IFC1.5</blockquote>
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcBuild2Axes<br/>
+
+&nbsp;&nbsp;(RefDirection : IfcDirection)<br/>&nbsp;&nbsp;&nbsp;&nbsp;: LIST [2:2] OF IfcDirection;<br/>LOCAL<br/>&nbsp;&nbsp;D : IfcDirection := NVL(IfcNormalise(RefDirection),<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcDirection([1.0,0.0]));<br/>END_LOCAL;<br/>&nbsp;&nbsp;RETURN([D, IfcOrthogonalComplement(D)]);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifcbuild2axes.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

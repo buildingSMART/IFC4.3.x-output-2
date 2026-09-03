@@ -1,0 +1,169 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcBoundaryFaceCondition</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.19.3.3");
+//-->
+</script>
+
+<h4 class="std">8.19.3.3 IfcBoundaryFaceCondition</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Condition de face limite</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Randbedingung an einer Fläche</b></td></tr>
+</table>
+
+
+<p>Describes linearly elastic support conditions or connection conditions.</p>
+
+<p>Applicability:</p>
+<ul>
+  <li>Surface supports and connections.</li>
+</ul>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x2.<br>
+IFC 2x4 change: Attributes <i>LinearStiffnessX/Y/Z</i> renamed to <i>TranslationalStiffnessX/Y/Z</i>.</font></blockquote>
+
+<blockquote class="change-ifc2x4">IFC4 change All attribute data types changed from numeric to SELECT between Boolean and numeric.  Stiffnesses may now also be negative, for example to capture destabilizing effects in boundary conditions.  The IFC2x3 convention of -1. representing infinite stiffness is no longer valid and must not be used.  Infinite stiffness, i.e. fixed supports, are now modeled by the Boolean value TRUE.</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcBoundaryFaceCondition&quot; type=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcboundaryfacecondition.htm">IfcBoundaryFaceCondition</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcboundarycondition.htm">IfcBoundaryCondition</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcBoundaryFaceCondition&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcboundarycondition.htm">IfcBoundaryCondition</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;TranslationalStiffnessByAreaX&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcmodulusofsubgradereactionselect.htm">IfcModulusOfSubgradeReactionSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;TranslationalStiffnessByAreaY&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcmodulusofsubgradereactionselect.htm">IfcModulusOfSubgradeReactionSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;TranslationalStiffnessByAreaZ&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcmodulusofsubgradereactionselect.htm">IfcModulusOfSubgradeReactionSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBoundaryFaceCondition
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcstructuralloadresource/lexical/ifcboundarycondition.htm">IfcBoundaryCondition</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">TranslationalStiffnessByAreaX</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralloadresource/lexical/ifcmodulusofsubgradereactionselect.htm">IfcModulusOfSubgradeReactionSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">TranslationalStiffnessByAreaY</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralloadresource/lexical/ifcmodulusofsubgradereactionselect.htm">IfcModulusOfSubgradeReactionSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">TranslationalStiffnessByAreaZ</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralloadresource/lexical/ifcmodulusofsubgradereactionselect.htm">IfcModulusOfSubgradeReactionSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralloadresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">TranslationalStiffnessByAreaX</span></td><td width="1%"> : </td><td>Translational stiffness value in x-direction of the coordinate system defined by the instance which uses this resource object.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">TranslationalStiffnessByAreaY</span></td><td width="1%"> : </td><td>Translational stiffness value in y-direction of the coordinate system defined by the instance which uses this resource object.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">TranslationalStiffnessByAreaZ</span></td><td width="1%"> : </td><td>Translational stiffness value in z-direction of the coordinate system defined by the instance which uses this resource object.</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBoundaryFaceCondition
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralloadresource/lexical/ifcboundarycondition.htm">IfcBoundaryCondition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralloadresource/lexical/ifcboundaryfacecondition.htm">IfcBoundaryFaceCondition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">TranslationalStiffnessByAreaX</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralloadresource/lexical/ifcmodulusofsubgradereactionselect.htm">IfcModulusOfSubgradeReactionSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">TranslationalStiffnessByAreaY</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralloadresource/lexical/ifcmodulusofsubgradereactionselect.htm">IfcModulusOfSubgradeReactionSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">TranslationalStiffnessByAreaZ</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralloadresource/lexical/ifcmodulusofsubgradereactionselect.htm">IfcModulusOfSubgradeReactionSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcboundaryfacecondition.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

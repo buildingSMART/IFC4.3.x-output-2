@@ -1,0 +1,464 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcElementAssembly</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.11");
+//-->
+</script>
+
+<h4 class="std">5.4.3.11 IfcElementAssembly</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Assemblage d'éléments</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>zusammengesetztes Element</b></td></tr>
+</table>
+
+<p>The <span class="self-ref">IfcElementAssembly</span> represents complex element assemblies aggregated from several
+elements, such as discrete elements, building elements, or other elements.</p>
+
+<blockquote class="example">EXAMPLE Steel construction assemblies, such as trusses and different kinds of frames, can be represented by the
+<span class="self-ref">IfcElementAssembly</span> entity. Other examples include slab fields aggregated from a number of precast concrete slabs or
+reinforcement units made from several reinforcement bars. Also bathroom units, staircase sections and other premanufactured or
+precast elements are examples of the general <span class="self-ref">IfcElementAssembly</span> entity</blockquote>
+
+<blockquote class="note">NOTE&nbsp; The <span class="self-ref">IfcElementAssembly</span> is a general purpose entity that is required to be decomposed. Also
+other subtypes of IfcElement can be decomposed, with some dedicated entities such as <a href="../../ifcsharedbldgelements/lexical/ifcwallelementedcase.htm">IfcWallElementedCase</a> and
+<a href="../../ifcsharedbldgelements/lexical/ifcslabelementedcase.htm">IfcSlabElementedCase</a>.</blockquote>
+
+<p>The assembly structure can be nested, i.e. an <span class="self-ref">IfcElementAssembly</span> could be an aggregated part within another <span class="self-ref">IfcElementAssembly</span>.</p>
+<blockquote class="note">NOTE&nbsp; View definitions and/or implementer agreements may restrict the number of allowed levels of
+nesting.</blockquote>
+
+<p>The geometry of an <span class="self-ref">IfcElementAssembly</span> is generally
+formed from its components, in which case it does not need to
+have an explicit geometric representation. In some cases it may
+be useful to also expose an own explicit representation of the 
+aggregate.</p>
+
+<blockquote class="note">NOTE&nbsp; View definitions or implementer
+agreements may further constrain the applicability of certain
+shape representations at the <span class="self-ref">IfcElementAssembly</span> in respect
+of the shape representations of its parts.</blockquote>
+
+
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x2.</blockquote>
+
+<p class="spec-head">Informal Propositions:</p>
+
+<ol>
+ 
+<li>The <span class="self-ref">IfcElementAssembly</span> shall have an aggregation
+relationship to the contained parts, i.e. the (INV)
+<i>IsDecomposedBy</i> relationship shall be utilzed.</li>
+
+</ol>
+
+
+<hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+<li><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>: <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a>, <a href="../../templates/product-placement.htm">Product Placement</a>, <a href="../../templates/box-geometry.htm">Box Geometry</a>, <a href="../../templates/footprint-geometry.htm">FootPrint Geometry</a>, <a href="../../templates/body-surfaceorsolidmodel-geometry.htm">Body SurfaceOrSolidModel Geometry</a>, <a href="../../templates/body-surfacemodel-geometry.htm">Body SurfaceModel Geometry</a>, <a href="../../templates/body-tessellation-geometry.htm">Body Tessellation Geometry</a>, <a href="../../templates/body-brep-geometry.htm">Body Brep Geometry</a>, <a href="../../templates/body-advancedbrep-geometry.htm">Body AdvancedBrep Geometry</a>, <a href="../../templates/body-csg-geometry.htm">Body CSG Geometry</a>, <a href="../../templates/mapped-geometry.htm">Mapped Geometry</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcelementassembly.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="object-typing" />
+<p class="use-head">Object Typing</p>
+<p>The <a href="../../templates/object-typing.htm">Object Typing</a> concept applies to this entity as shown in Table 46.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelementassemblytype.htm">IfcElementAssemblyType</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 46 &mdash; IfcElementAssembly Object Typing</td></tr></table>
+
+
+<br/><br/>
+
+<a name="object-aggregation" />
+<p class="use-head">Object Aggregation</p>
+<p>The <a href="../../templates/object-aggregation.htm">Object Aggregation</a> concept applies to this entity as shown in Table 47.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>RelatedObjects</b></th><th><b>Description</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgelements/lexical/ifcmember.htm">IfcMember</a></td><td>Members within the assembly.</td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td><td>Plates within the assembly.</td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponent.htm">IfcElementComponent</a></td><td>Components within the assembly.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 47 &mdash; IfcElementAssembly Object Aggregation</td></tr></table>
+
+<p>The <span class="self-ref">IfcElementAssembly</span> shall represent an aggregate,
+i.e. it should have other elements, being subtypes of
+<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>, 
+as contained (sub)parts. The table above only represents a selection of subtypes of <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a> that are legitimate as parts in an 
+<span class="self-ref">IfcElementAssembly</span></p>
+<ul>
+  
+<li>The <span class="self-ref">IfcElementAssembly</span> is an aggregate i.e. being
+composed by other elements and acting as an assembly using the
+objectified relationship <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>, refering to it
+by its inverse attribute
+<i>SELF\IfcObjectDefinition.IsDecomposedBy</i>. Components of an
+assembly are described by instances of subtypes of
+<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>.</li>
+  
+<li>In this case, the contained subtypes of <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>
+shall not be additionally contained in the project spatial
+hierarchy, i.e. the inverse attribute
+<i>SELF\IfcElement.ContainedInStructure</i> of those
+<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>'s shall be <i>NIL.</i></li>
+
+</ul>
+
+
+<p>Figure 118 illustrates spatial containment and element aggregation relationships.</p>
+
+<table border="0" cellpadding="2" cellspacing="2" summary=
+"containment">
+
+ <tr>
+  <td><img src="../../../figures/IfcElementAssembly-Containment.png" alt="containment relationships" width="500" height="250" border="0"></td>
+ </tr>
+ 
+<tr><td><p class="figure">Figure 118 &mdash; Element assembly containment</p></td>
+ </tr>
+
+</table>
+
+
+
+<br/><br/>
+
+<a name="spatial-containment" />
+<p class="use-head">Spatial Containment</p>
+<p>The <a href="../../templates/spatial-containment.htm">Spatial Containment</a> concept applies to this entity as shown in Table 48.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Structure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>Default spatial container</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>Spatial container for element assemblies not assignable to a building storey</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></td><td>Spatial container for element assemblies that are placed on site (outside of building)</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 48 &mdash; IfcElementAssembly Spatial Containment</td></tr></table>
+
+<p>The <span class="self-ref">IfcElementAssembly</span> should have a relationship for its 
+containment in the hierachical spatial structure of the project. Only if the <span class="self-ref">IfcElementAssembly</span> is itself a part of another assembly this relationship should be omitted.</p>
+
+
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcElementAssembly&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcElementAssembly&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;AssemblyPlace&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcassemblyplaceenum.htm">IfcAssemblyPlaceEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelementassemblytypeenum.htm">IfcElementAssemblyTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcElementAssembly
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">AssemblyPlace</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcassemblyplaceenum.htm">IfcAssemblyPlaceEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcelementassemblytypeenum.htm">IfcElementAssemblyTypeEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">CorrectPredefinedType</td><td width="1%"> : </td><td>NOT(EXISTS(PredefinedType)) OR
+ (PredefinedType &lt;&gt; IfcElementAssemblyTypeEnum.USERDEFINED) OR
+ ((PredefinedType = IfcElementAssemblyTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));</td></tr>  <tr valign="top"><td width="20%">CorrectTypeAssigned</td><td width="1%"> : </td><td>(SIZEOF(IsTypedBy) = 0) OR
+  ('IFCPRODUCTEXTENSION.IFCELEMENTASSEMBLYTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">AssemblyPlace</span></td><td width="1%"> : </td><td>A designation of where the assembly is intended to take place defined by an Enum.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PredefinedType</span></td><td width="1%"> : </td><td>
+Predefined generic types for a element assembly that are specified in an enumeration. There might be property sets defined specifically for each predefined type.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attribute has been changed to be optional.</blockquote>
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">CorrectPredefinedType</span></td><td width="1%"> : </td><td>
+Either the <i>PredefinedType</i> attribute is unset (e.g. because an <a href="../../ifcproductextension/lexical/ifcelementassemblytype.htm">IfcElementAssemblyType</a> is associated), or the inherited attribute <i>ObjectType</i> shall be provided, if the <i>PredefinedType</i> is set to USERDEFINED.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CorrectTypeAssigned</span></td><td width="1%"> : </td><td>
+Either there is no element assembly type object associated, i.e. the <i>IsTypedBy</i> inverse relationship is not provided, or the associated type object has to be of type <a href="../../ifcproductextension/lexical/ifcelementassemblytype.htm">IfcElementAssemblyType</a>.
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcElementAssembly
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDeclaredBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">IsTypedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectPlacement</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>;</td></tr>
+<tr valign="top"><td width="20%">Representation</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ReferencedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a> <span class="keyword">FOR</span> RelatingProduct;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Tag</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">FillsVoids</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a> <span class="keyword">FOR</span> RelatedBuildingElement;</td></tr>
+<tr valign="top"><td width="20%">ConnectedTo</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a> <span class="keyword">FOR</span> RelatingElement;</td></tr>
+<tr valign="top"><td width="20%">IsInterferedByElements</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelinterfereselements.htm">IfcRelInterferesElements</a> <span class="keyword">FOR</span> RelatedElement;</td></tr>
+<tr valign="top"><td width="20%">InterferesElements</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelinterfereselements.htm">IfcRelInterferesElements</a> <span class="keyword">FOR</span> RelatingElement;</td></tr>
+<tr valign="top"><td width="20%">HasProjections</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelprojectselement.htm">IfcRelProjectsElement</a> <span class="keyword">FOR</span> RelatingElement;</td></tr>
+<tr valign="top"><td width="20%">ReferencedInStructures</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelreferencedinspatialstructure.htm">IfcRelReferencedInSpatialStructure</a> <span class="keyword">FOR</span> RelatedElements;</td></tr>
+<tr valign="top"><td width="20%">HasOpenings</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelvoidselement.htm">IfcRelVoidsElement</a> <span class="keyword">FOR</span> RelatingBuildingElement;</td></tr>
+<tr valign="top"><td width="20%">IsConnectionRealization</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelconnectswithrealizingelements.htm">IfcRelConnectsWithRealizingElements</a> <span class="keyword">FOR</span> RealizingElements;</td></tr>
+<tr valign="top"><td width="20%">ProvidesBoundaries</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a> <span class="keyword">FOR</span> RelatedBuildingElement;</td></tr>
+<tr valign="top"><td width="20%">ConnectedFrom</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a> <span class="keyword">FOR</span> RelatedElement;</td></tr>
+<tr valign="top"><td width="20%">ContainedInStructure</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a> <span class="keyword">FOR</span> RelatedElements;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">AssemblyPlace</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcassemblyplaceenum.htm">IfcAssemblyPlaceEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcelementassemblytypeenum.htm">IfcElementAssemblyTypeEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcelementassembly.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

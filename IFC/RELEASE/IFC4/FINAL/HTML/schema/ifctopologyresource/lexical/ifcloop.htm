@@ -1,0 +1,154 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcLoop</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.20.3.11");
+//-->
+</script>
+
+<h4 class="std">8.20.3.11 IfcLoop</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Boucle</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Schleife - Topologie</b></td></tr>
+</table>
+
+<p> </p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+A loop is a topological entity constructed from a single vertex, or by stringing together connected
+(oriented) edges, or linear segments beginning and ending at the same vertex. It is typically used to bound a face lying on a surface. A loop has
+dimensionality of 0 or 1. The domain of a 0-dimensional loop is a single point. The domain of a 1-dimensional loop is a connected, oriented curve, but need not
+to be manifold. As the loop is a circle, the location of its beginning/ending point is arbitrary. The domain of the loop includes its bounds, an 0 &le; &Xi;
+&lt; &infin;. 
+A loop is represented by a single vertex, or by an ordered collection of oriented edges, or by an ordered collection of points. A loop is a graph, so
+<i>M</i> and the graph genus <i>G<sup>l</sup></i> may be determined by the graph traversal algorithm. Since <i>M</i> = 1, the Euler equation (1) reduces
+in this case to  
+<blockquote><img src="../../../figures/IfcLoop-Math1.gif" height="31" width="180"></blockquote> 
+where <i>V</i> and <i>E<sub>l</sub></i> are the number of unique vertices and oriented edges in the loop and <i>G<sup>l</sup></i> is the genus of the loop.
+</blockquote> 
+
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>loop</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x.</blockquote> 
+<p class="spec-head">Informal Propositions:</p> 
+<ol> 
+ <li>A loop has a finite extent.</li> 
+ <li>A loop describes a closed (topological) curve with coincident start and end vertices.</li> 
+</ol>
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcLoop&quot; type=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcloop.htm">IfcLoop</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcLoop&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLoop
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifctopologyresource/lexical/ifcedgeloop.htm">IfcEdgeLoop</a>, <a href="../../ifctopologyresource/lexical/ifcpolyloop.htm">IfcPolyLoop</a>, <a href="../../ifctopologyresource/lexical/ifcvertexloop.htm">IfcVertexLoop</a>))
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifctopologyresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLoop
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifcloop.htm">IfcLoop</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcloop.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcRelProjectsElement</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.37");
+//-->
+</script>
+
+<h4 class="std">5.4.3.37 IfcRelProjectsElement</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Hinzufügen / Addition von Teil zu Element - Relation</b></td></tr>
+</table>
+
+<p>The <span class="self-ref">IfcRelProjectsElement</span> is an objectified relationship
+between an element and one projection element that creates a
+modifier to the shape of the element. The relationship is defined
+to be a 1:1 relationship, if an element has more than one
+projection, several relationship objects have to be used, each
+pointing to a different projection element. The
+<span class="self-ref">IfcRelProjectsElement</span> establishes an aggregation
+relationship between the main element and a sub ordinary addition
+feature.</p>
+<blockquote class="note">
+NOTE&nbsp; In contrary the
+<a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> relationship established an aggregation
+of equal parts to a whole.
+</blockquote>
+<p>The <span class="self-ref">IfcRelProjectsElement</span> implies a Boolean operation of
+addition for the geometric bodies of the element and the feature
+element. As with all decomposition relationships it determines:</p>
+<ul>
+<li>existence dependency - the <i>RelatedFeatureElement</i>
+cannot exist without the <i>RelatingElement</i></li>
+<li>hierarchical and non-cyclical relationship - the
+<span class="self-ref">IfcRelProjectsElement</span> can only alter a single
+<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a></li>
+<li>no spatial containment - the <a href="../../ifcproductextension/lexical/ifcfeatureelementaddition.htm">IfcFeatureElementAddition</a>
+as related element never participates in the hiearchical spatial
+containment relationship
+<a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a></li>
+</ul>
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Supertype changed to IfcRelDecomposes.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcRelProjectsElement&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelprojectselement.htm">IfcRelProjectsElement</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcreldecomposes.htm">IfcRelDecomposes</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcRelProjectsElement&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcreldecomposes.htm">IfcRelDecomposes</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatingElement&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatedFeatureElement&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcfeatureelementaddition.htm">IfcFeatureElementAddition</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelProjectsElement
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifcreldecomposes.htm">IfcRelDecomposes</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingElement</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>;</td></tr>
+<tr valign="top"><td width="20%">RelatedFeatureElement</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcfeatureelementaddition.htm">IfcFeatureElementAddition</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0008.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">RelatingElement</span></td><td width="1%"> : </td><td>
+Element at which a projection is created by the associated <a href="../../ifcproductextension/lexical/ifcprojectionelement.htm">IfcProjectionElement</a>.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RelatedFeatureElement</span></td><td width="1%"> : </td><td>
+Reference to the <a href="../../ifcproductextension/lexical/ifcfeatureelementaddition.htm">IfcFeatureElementAddition</a> that defines an addition to the volume of the element, by using a Boolean addition operation. An example is a projection at the associated element.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelProjectsElement
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcrelationship.htm">IfcRelationship</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcreldecomposes.htm">IfcRelDecomposes</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcrelprojectselement.htm">IfcRelProjectsElement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingElement</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>;</td></tr>
+<tr valign="top"><td width="20%">RelatedFeatureElement</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcfeatureelementaddition.htm">IfcFeatureElementAddition</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcrelprojectselement.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

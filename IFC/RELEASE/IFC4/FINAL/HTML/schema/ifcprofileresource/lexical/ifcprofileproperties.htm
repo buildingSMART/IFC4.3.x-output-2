@@ -1,0 +1,214 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcProfileProperties</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.15.3.17");
+//-->
+</script>
+
+<h4 class="std">8.15.3.17 IfcProfileProperties</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Propriétés de section de profil</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Profil - Merkmale</b></td></tr>
+</table>
+
+    <p>
+      This is a collection of properties applicable to section
+      profile definitions.
+    </p>
+
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC2x2.
+    </blockquote>
+    <blockquote class="change-ifc2x4">
+      IFC4 CHANGE&nbsp; Entity made non-abstract. Subtypes
+      <i>IfcGeneralProfileProperties</i>,
+      <i>IfcStructuralProfileProperties</i>, and
+      <i>IfcStructuralSteelProfileProperties</i> deleted. Attribute
+      <i>ProfileName</i> deleted, use
+      <i>ProfileDefinition.ProfileName</i> instead. Attribute
+      <i>ProfileDefinition</i> made mandatory. Attributes
+      <i>Name</i>, <i>Description</i>, and <i>HasProperties</i>
+      added (inherited from <a href="../../ifcpropertyresource/lexical/ifcextendedproperties.htm">IfcExtendedProperties</a>).
+    </blockquote>
+
+    <p class="use-head">
+      Property use definitions
+    </p>
+    <p>
+      The following sets of material property definitions are part
+      of this IFC release. They are direct instantiations of
+      <i>IfcProperties</i> with the <i>Name</i> attribute
+      holding the property set name.
+    </p>
+
+<ul>
+<li><a href="../../ifcprofileresource/pset/pset_profilemechanical.htm">Pset_ProfileMechanical</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcprofileresource/pset/pset_profilearbitraryhollowcore.htm">Pset_ProfileArbitraryHollowCore</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcprofileresource/pset/pset_profilearbitrarydoublet.htm">Pset_ProfileArbitraryDoubleT</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+</ul>
+
+<p>Figure 368 illustrates properties of <span class="self-ref">Pset_ProfileMechanical</span>.</p>
+<table>
+<tr><td><image src="../../../figures/ifcprofileproperties_mechanical.png" alt="Mechanical profile properties"/></td></tr>
+<tr><td><p class="figure">Figure 368 &mdash; Mechanical profile properties</p></td></tr>
+</table>
+
+<p>Figure 369 illustrates properties of <i>Pset_Profile_ArbitraryDoubleT</i>.</p>
+<table>
+<tr><td><image src="../../../figures/ifcprofileproperties_double_t.png" alt="Double T profile properties"/></td></tr>
+<tr><td><p class="figure">Figure 369 &mdash; Hollow core profile properties</p></td></tr>
+</table>
+
+<p>Figure 370 illustrates properties of <i>Pset_Profile_ArbitraryHollowCore</i>.</p>
+<table>
+<tr><td><image src="../../../figures/ifcprofileproperties_hollow_core.png" alt="Hollow core profile properties"/></td></tr>
+<tr><td><p class="figure">Figure 370 &mdash; Double T profile properties</p></td></tr>
+</table>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcProfileProperties&quot; type=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcprofileproperties.htm">IfcProfileProperties</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcextendedproperties.htm">IfcExtendedProperties</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcProfileProperties&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcextendedproperties.htm">IfcExtendedProperties</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcProfileProperties
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpropertyresource/lexical/ifcextendedproperties.htm">IfcExtendedProperties</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ProfileDefinition</td><td width="1%"> : </td><td><a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcprofileresource/diagram_0008.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">ProfileDefinition</span></td><td width="1%"> : </td><td>Profile definition which is qualified by these properties.</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcProfileProperties
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpropertyresource/lexical/ifcpropertyabstraction.htm">IfcPropertyAbstraction</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReferences</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpropertyresource/lexical/ifcextendedproperties.htm">IfcExtendedProperties</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+<tr valign="top"><td width="20%">Properties</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcprofileresource/lexical/ifcprofileproperties.htm">IfcProfileProperties</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ProfileDefinition</td><td width="1%"> : </td><td><a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcprofileproperties.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

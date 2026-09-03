@@ -1,0 +1,164 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcObjectPlacement</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.7.3.10");
+//-->
+</script>
+
+<h4 class="std">8.7.3.10 IfcObjectPlacement</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Positionnement d'objet</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Objektpositionierung</b></td></tr>
+</table>
+ 
+<p><span class="self-ref">IfcObjectPlacement</span> is an abstract supertype for the special types defining the object coordinate system. The
+<span class="self-ref">IfcObjectPlacement</span> has to be provided for each product that has a shape representation.</p>
+<p>The object placement can be given:</p>
+<ul>
+<li>absolute: by an axis2 placement, relative to the world coordinate system,</li>
+<li>relative: by an axis2 placement, relative to the object placement of another product,</li>
+<li>by grid reference: by the virtual intersection and reference direction given by two axes of a design grid.</li>
+</ul>
+<p>In any case the object placement has to unambiguously define the object coordinate system as either two-dimensional axis placement (<a href="../../ifcgeometryresource/lexical/ifcaxis2placement2d.htm">IfcAxis2Placement2D</a>) or three-dimensional axis placement (<a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>). The axis placement may have to be calculated.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcObjectPlacement&quot; type=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:Entity&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcObjectPlacement&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:Entity&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcObjectPlacement
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcgeometricconstraintresource/lexical/ifcgridplacement.htm">IfcGridPlacement</a>, <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a>))<b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PlacesObject</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:?] <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a> <span class="keyword">FOR</span> ObjectPlacement;</td></tr>
+<tr valign="top"><td width="20%">ReferencedByPlacements</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a> <span class="keyword">FOR</span> PlacementRelTo;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricconstraintresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">PlacesObject</span></td><td width="1%"> : </td><td>
+The <span class="self-ref">IfcObjectPlacement</span> shall be used to provide a placement and 
+an object coordinate system for instances of <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>. 
+<blockquote class="note">
+   If an <span class="self-ref">IfcObjectPlacement</span> is shared by many instances of <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a> 
+   it does not apply a semantic meaning of being a shared placement that needs to be 
+   maintained. The same instance of <span class="self-ref">IfcObjectPlacement</span> could simply be used to
+   reduce exchange file size.
+</blockquote>
+<blockquote class="change-ifc2x3">
+   IFC2x3 CHANGE&nbsp; New inverse attribute.
+</blockquote>
+<blockquote class="change-ifc2x4">
+   IFC4 CHANGE&nbsp; The cardinality has changed to 0..n to allow reuse of instances of 
+   <span class="self-ref">IfcObjectPlacement</span> as placement object in one to many products. It takes also
+   into account that it can act as a placement for <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralanalysismodel.htm">IfcStructuralAnalysisModel</a>.
+</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ReferencedByPlacements</span></td><td width="1%"> : </td><td>Placements that are given relative to this placement of an object.</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcObjectPlacement
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PlacesObject</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:?] <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a> <span class="keyword">FOR</span> ObjectPlacement;</td></tr>
+<tr valign="top"><td width="20%">ReferencedByPlacements</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a> <span class="keyword">FOR</span> PlacementRelTo;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcobjectplacement.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcCurveStyleFontAndScaling</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.12.3.7");
+//-->
+</script>
+
+<h4 class="std">8.12.3.7 IfcCurveStyleFontAndScaling</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Linienstilsatz mit verschiedenem Maßstab</b></td></tr>
+</table>
+
+
+<p>The <span class="self-ref">IfcCurveStyleFontAndScaling</span> allows for the reuse of the same curve style definition in several sizes. The definition of the <i>CurveFontScale</i> is the scaling of a base curve style pattern to be used as a new or derived curve style pattern.</p>
+
+<blockquote class="note">
+NOTE&nbsp; The <i>CurveFontScale</i> should not be mixed up with the target plot scale.
+</blockquote>
+
+<p>An example for <span class="self-ref">IfcCurveStyleFontAndScaling</span> is the sizing of a basic curve style dash pattern 'dash' (visible 0.01m, invisible 0.005m) into 'dash large' with&nbsp;<i>CurveFontScale</i> = 2 (resulting in&nbsp;visible 0.02m, invisible 0.01m), and into 'dash small'&nbsp;with&nbsp;<i>CurveFontScale</i> = 0.5 (resulting in&nbsp;visible 0.005m, invisible 0.0025m).</p>
+
+<blockquote class="extDef">
+NOTE&nbsp; Definition according to ISO/CD 10303-46:1992<br>
+A curve style font and scaling is a curve style font and a scalar factor for that font, so that a given curve style font may be applied at various scales.</blockquote>
+<blockquote class="note">
+NOTE&nbsp; Corresponding ISO 10303 name: curve_style_font_and_scaling. Please refer to ISO/IS 10303-46:1994 for the final definition of the formal standard.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcCurveStyleFontAndScaling&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifccurvestylefontandscaling.htm">IfcCurveStyleFontAndScaling</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcCurveStyleFontAndScaling&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;CurveFont&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifccurvestylefontselect.htm">IfcCurveStyleFontSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Name&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;CurveFontScaling&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCurveStyleFontAndScaling
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveFont</td><td width="1%"> : </td><td><a href="../../ifcpresentationappearanceresource/lexical/ifccurvestylefontselect.htm">IfcCurveStyleFontSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveFontScaling</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationappearanceresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Name</span></td><td width="1%"> : </td><td>Name that may be assigned with the scaling of a curve font.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CurveFont</span></td><td width="1%"> : </td><td>The curve font to be scaled.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CurveFontScaling</span></td><td width="1%"> : </td><td>The scale factor.</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCurveStyleFontAndScaling
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifccurvestylefontandscaling.htm">IfcCurveStyleFontAndScaling</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveFont</td><td width="1%"> : </td><td><a href="../../ifcpresentationappearanceresource/lexical/ifccurvestylefontselect.htm">IfcCurveStyleFontSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveFontScaling</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifccurvestylefontandscaling.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

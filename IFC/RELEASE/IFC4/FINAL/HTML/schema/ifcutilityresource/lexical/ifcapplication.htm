@@ -1,0 +1,145 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcApplication</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.21.3.1");
+//-->
+</script>
+
+<h4 class="std">8.21.3.1 IfcApplication</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Application</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Software-Programm</b></td></tr>
+</table>
+
+
+<p><span class="self-ref">IfcApplication</span> holds the information about an IFC compliant application developed by an application developer. The <span class="self-ref">IfcApplication</span> utilizes a short identifying name as provided by the application developer.</p>
+	
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.5.
+</blockquote>
+
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcApplication&quot; type=&quot;ifc:<a href="../../ifcutilityresource/lexical/ifcapplication.htm">IfcApplication</a>&quot; substitutionGroup=&quot;ifc:Entity&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcApplication&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:Entity&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ApplicationDeveloper&quot; type=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcorganization.htm">IfcOrganization</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Version&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ApplicationFullName&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ApplicationIdentifier&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcApplication<b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ApplicationDeveloper</td><td width="1%"> : </td><td><a href="../../ifcactorresource/lexical/ifcorganization.htm">IfcOrganization</a>;</td></tr>
+<tr valign="top"><td width="20%">Version</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">ApplicationFullName</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">ApplicationIdentifier</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">UNIQUE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">UR1</td><td width="1%"> : </td><td>ApplicationIdentifier;</td></tr>  <tr valign="top"><td width="20%">UR2</td><td width="1%"> : </td><td>ApplicationFullName, Version;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcutilityresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">ApplicationDeveloper</span></td><td width="1%"> : </td><td>Name of the application developer.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Version</span></td><td width="1%"> : </td><td>The version number of this software as specified by the developer of the application.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ApplicationFullName</span></td><td width="1%"> : </td><td>The full name of the application as specified by the application developer.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ApplicationIdentifier</span></td><td width="1%"> : </td><td>Short identifying name for the application.</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcApplication
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcutilityresource/lexical/ifcapplication.htm">IfcApplication</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ApplicationDeveloper</td><td width="1%"> : </td><td><a href="../../ifcactorresource/lexical/ifcorganization.htm">IfcOrganization</a>;</td></tr>
+<tr valign="top"><td width="20%">Version</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">ApplicationFullName</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">ApplicationIdentifier</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcapplication.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

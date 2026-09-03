@@ -1,0 +1,165 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcRelDefines</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.1.3.38");
+//-->
+</script>
+
+<h4 class="std">5.1.3.38 IfcRelDefines</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Définition</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Definiert - Relation (allgemein)</b></td></tr>
+</table>
+
+
+<p>A generic and abstract relationship which subtypes are used to:</p>
+<ul>
+<li>assign a object type to an object occurrence</li>
+<li>assign a property set to an object instance</li>
+<li>assign a property set template to a property set</li>
+</ul>
+
+<blockquote class="example">
+EXAMPLE&nbsp; Several instances of windows within
+the IFC project model may be of the same (catalogue or
+manufacturer) type. Thereby they share the same properties. This
+relationship is established by the subtype
+<a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> of <span class="self-ref">IfcRelDefines</span> relationship
+assigning an <a href="../../ifcarchitecturedomain/lexical/ifcwindowstyle.htm">IfcWindowStyle</a> to multiple occurrences
+<a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a>.
+</blockquote>
+
+<blockquote class="example">
+EXAMPLE&nbsp; The (same) property set, e.g. 
+Pset_ProductManufacturerInfo, keeping the manufacturer name,
+label and production year of a product, can be assigned to one,
+or many instances of furnishing. This relationship is established
+by the subtype <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> of
+<span class="self-ref">IfcRelDefines</span> relationship assigning an
+<a href="../../ifckernel/lexical/ifcpropertyset.htm">IfcPropertySet</a> to one or more instances of
+<a href="../../ifcproductextension/lexical/ifcfurnishingelement.htm">IfcFurnishingElement</a>.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; The attribute <i>RelatedObjects</i> had been demoted to the subtypes <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> and
+<a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a>.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcRelDefines&quot; type=&quot;ifc:<a href="../../ifckernel/lexical/ifcreldefines.htm">IfcRelDefines</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcrelationship.htm">IfcRelationship</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcRelDefines&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcrelationship.htm">IfcRelationship</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelDefines
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a>, <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a>, <a href="../../ifckernel/lexical/ifcreldefinesbytemplate.htm">IfcRelDefinesByTemplate</a>, <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a>))
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifcrelationship.htm">IfcRelationship</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifckernel/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelDefines
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcrelationship.htm">IfcRelationship</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcreldefines.htm">IfcRelDefines</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcreldefines.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

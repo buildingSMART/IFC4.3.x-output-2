@@ -1,0 +1,222 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcIndexedColourMap</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.12.3.18");
+//-->
+</script>
+
+<h4 class="std">8.12.3.18 IfcIndexedColourMap</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Liste von Indizes für Farbwerte</b></td></tr>
+</table>
+  
+    <p>
+      The <span class="self-ref">IfcIndexedColourMap</span> provides the assignment of
+      colour information to individual faces. It is used for
+      colouring faces of tessellated face sets.
+    </p>
+    <p>
+      The <span class="self-ref">IfcIndexedColourMap</span> defines an index into an
+      indexed list of colour information. The <i>Colours</i> are
+      a two-dimensional list of colours provided by three RGB
+      values [0 .. 1]. The <i>ColourIndex</i> attribute
+      corresponds to the <i>CoordIndex</i> of the
+      <a href="../../ifcgeometricmodelresource/lexical/ifctessellatedfaceset.htm">IfcTessellatedFaceSet</a> defining the
+      corresponding index list of faces.
+    </p>
+    <p>
+      Figure 337 shows the use of <a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a> with colours per face.
+    </p>
+    <table summary="">
+      <tr>
+        <td colspan="2">
+          <img src="../../../figures/IfcIndexedColourMap_01.png" width="760"
+          height="400" alt="IfcIndexedColourMap_01">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <p class="figure">Figure 337 &mdash; Indexed colour map
+          </p>
+        </td>
+      </tr>
+    </table>
+    <p>
+      Figure 338 illustrates an <a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a> represented by<br/>
+      <i>IfcTriangulatedFaceSet.CoordIndex</i>: ((1,6,5),
+      (1,2,6), (6,2,7), (7,2,3), (7,8,6), (6,8,5), (5,8,1),
+      (1,8,4), (4,2,1), (2,4,3), (4,8,7), (7,3,4))<br>
+      <i>IfcCartesianPointList.CoordList</i>: ((0.,0.,0.),
+      (1.,0.,0.), (1.,1.,0.), (0.,1.,0.), (0.,0.,2.), (1.,0.,2.),
+      (1.,1.,2.), (0.,1.,2.))<br>
+      <i>IfcIndexedColourMap.ColourIndex</i>: (1, 1, 2, 2, 3, 3,
+      1, 1, 1, 1, 1, 1, )<br>
+      <i>IfcColourRgbList.ColourList</i>: ((1.,0.,0.),
+      (0.,1.,0.), (1.,1.,0.))
+    </p>
+    <table>
+      <tr>
+        <td>
+          <img src="../../../figures/IfcIndexedColourMap_example-01.png"
+          width="275" height="350" alt=
+          "IfcIndexedColourMap_example-01">
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="figure">Figure 338 &mdash; Indexed colour map geometry 
+          </p>
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+    </table>
+
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC4.
+    </blockquote>
+  
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcIndexedColourMap&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcindexedcolourmap.htm">IfcIndexedColourMap</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcIndexedColourMap&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Overrides&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacestyleshading.htm">IfcSurfaceStyleShading</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Colours&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifccolourrgblist.htm">IfcColourRgbList</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ColourIndex&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;xs:long&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcIndexedColourMap
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">MappedTo</td><td width="1%"> : </td><td><a href="../../ifcgeometricmodelresource/lexical/ifctessellatedfaceset.htm">IfcTessellatedFaceSet</a>;</td></tr>
+<tr valign="top"><td width="20%">Overrides</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacestyleshading.htm">IfcSurfaceStyleShading</a>;</td></tr>
+<tr valign="top"><td width="20%">Colours</td><td width="1%"> : </td><td><a href="../../ifcpresentationappearanceresource/lexical/ifccolourrgblist.htm">IfcColourRgbList</a>;</td></tr>
+<tr valign="top"><td width="20%">ColourIndex</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="self-ref">INTEGER</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationappearanceresource/diagram_0011.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">MappedTo</span></td><td width="1%"> : </td><td>
+Reference to the <a href="../../ifcgeometricmodelresource/lexical/ifctessellatedfaceset.htm">IfcTessellatedFaceSet</a> to which it applies the colours.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Overrides</span></td><td width="1%"> : </td><td>
+Indication that the <span class="self-ref">IfcIndexedColourMap</span> overrides the surface colour information that might be assigned as an <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> to the <a href="../../ifcgeometricmodelresource/lexical/ifctessellatedfaceset.htm">IfcTessellatedFaceSet</a>.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Colours</span></td><td width="1%"> : </td><td>
+Indexable list of RGB colours.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ColourIndex</span></td><td width="1%"> : </td><td>
+Index into the <a href="../../ifcpresentationappearanceresource/lexical/ifccolourrgblist.htm">IfcColourRgbList</a> for each face of the <a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a>. The colour is applied uniformly to the face.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcIndexedColourMap
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcindexedcolourmap.htm">IfcIndexedColourMap</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">MappedTo</td><td width="1%"> : </td><td><a href="../../ifcgeometricmodelresource/lexical/ifctessellatedfaceset.htm">IfcTessellatedFaceSet</a>;</td></tr>
+<tr valign="top"><td width="20%">Overrides</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacestyleshading.htm">IfcSurfaceStyleShading</a>;</td></tr>
+<tr valign="top"><td width="20%">Colours</td><td width="1%"> : </td><td><a href="../../ifcpresentationappearanceresource/lexical/ifccolourrgblist.htm">IfcColourRgbList</a>;</td></tr>
+<tr valign="top"><td width="20%">ColourIndex</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="self-ref">INTEGER</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcindexedcolourmap.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

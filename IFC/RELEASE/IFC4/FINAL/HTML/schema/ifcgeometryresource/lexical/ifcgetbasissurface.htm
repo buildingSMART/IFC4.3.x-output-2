@@ -1,0 +1,52 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcGetBasisSurface</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.4.10");
+//-->
+</script>
+
+<h4 class="std">8.9.4.10 IfcGetBasisSurface</h4>
+<p>
+
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+This function returns the basis surface for a curve as a a set of surfaces. For
+a curve which is not a curve on surface an empty set is
+returned.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; Function adapted from <strong>get_basis_surface</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New function in IFC1.5</blockquote>
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcGetBasisSurface<br/>
+
+(C : IfcCurveOnSurface) : SET[0:2] OF IfcSurface;<br/><br/>&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;Surfs : SET[0:2] OF IfcSurface;<br/>&nbsp;&nbsp;&nbsp;&nbsp;N : INTEGER;<br/>&nbsp;&nbsp;END_LOCAL;<br/><br/>&nbsp;&nbsp;Surfs := [];<br/>&nbsp;&nbsp;IF 'IFCGEOMETRYRESOURCE.IFCPCURVE' IN TYPEOF (C) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;Surfs := [C\IfcPCurve.BasisSurface];<br/>&nbsp;&nbsp;ELSE<br/>&nbsp;&nbsp;&nbsp;&nbsp;IF 'IFCGEOMETRYRESOURCE.IFCCOMPOSITECURVEONSURFACE' IN TYPEOF (C) THEN<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;(* For an IfcCompositeCurveOnSurface the BasisSurface is the intersection<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of the BasisSurface of all the segments. *)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;N := SIZEOF(C\IfcCompositeCurve.Segments);<br/>&nbsp;&nbsp;&nbsp;&nbsp;Surfs := IfcGetBasisSurface(C\IfcCompositeCurve.Segments[1].ParentCurve);<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF N &gt; 1 THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPEAT i := 2 TO N;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Surfs := Surfs * IfcGetBasisSurface(C\IfcCompositeCurve.Segments[1].ParentCurve);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;RETURN(Surfs);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifcgetbasissurface.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

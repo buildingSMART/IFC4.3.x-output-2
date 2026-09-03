@@ -1,0 +1,170 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcCurrencyRelationship</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.4.3.3");
+//-->
+</script>
+
+<h4 class="std">8.4.3.3 IfcCurrencyRelationship</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Währung - Relation</b></td></tr>
+</table>
+ 
+
+<p><span class="self-ref">IfcCurrencyRelationship</span> defines the rate of exchange
+that applies between two designated currencies at a particular time
+and as published by a particular source.</p>
+
+<p>An <span class="self-ref">IfcCurrencyRelationship</span> is used where there may be a need to reference an <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a> in one currency to an <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a> in another currency. It takes account of fact that currency exchange rates may vary by requiring the recording the date and time of the currency exchange rate used and the source that publishes the rate. There may be many sources and there are different strategies for currency conversion (spot rate, forward buying of currency at a fixed rate).</p>
+<p>The source for the currency exchange is defined as an instance of <a href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.htm">IfcLibraryInformation</a> that includes a name and a URL.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.</span>
+</blockquote>
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Subtyped from <a href="../../ifcexternalreferenceresource/lexical/ifcresourcelevelrelationship.htm">IfcResourceLevelRelationship</a>, attribute order changed.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcCurrencyRelationship&quot; type=&quot;ifc:<a href="../../ifccostresource/lexical/ifccurrencyrelationship.htm">IfcCurrencyRelationship</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifcresourcelevelrelationship.htm">IfcResourceLevelRelationship</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcCurrencyRelationship&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifcresourcelevelrelationship.htm">IfcResourceLevelRelationship</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatingMonetaryUnit&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcmonetaryunit.htm">IfcMonetaryUnit</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatedMonetaryUnit&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcmonetaryunit.htm">IfcMonetaryUnit</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RateSource&quot; type=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.htm">IfcLibraryInformation</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ExchangeRate&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RateDateTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCurrencyRelationship
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcresourcelevelrelationship.htm">IfcResourceLevelRelationship</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingMonetaryUnit</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcmonetaryunit.htm">IfcMonetaryUnit</a>;</td></tr>
+<tr valign="top"><td width="20%">RelatedMonetaryUnit</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcmonetaryunit.htm">IfcMonetaryUnit</a>;</td></tr>
+<tr valign="top"><td width="20%">ExchangeRate</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">RateDateTime</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">RateSource</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.htm">IfcLibraryInformation</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifccostresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">RelatingMonetaryUnit</span></td><td width="1%"> : </td><td>The monetary unit from which an exchange is derived. For instance, in the case of a conversion from GBP to USD, the relating monetary unit is GBP.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RelatedMonetaryUnit</span></td><td width="1%"> : </td><td>The monetary unit to which an exchange results. For instance, in the case of a conversion from GBP to USD, the related monetary unit is USD.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ExchangeRate</span></td><td width="1%"> : </td><td>The currently agreed ratio of the amount of a related monetary unit that is equivalent to a unit amount of the relating monetary unit in a currency relationship. For instance, in the case of a conversion from GBP to USD, the value of the exchange rate may be 1.486 (USD) : 1 (GBP).</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RateDateTime</span></td><td width="1%"> : </td><td> 
+The date and time at which an exchange rate applies.
+<blockquote class="change-ifc2x4">IFC4 CHANGE Type changed from IfcDateTimeSelect. Attribute made optional.</blockquote> 
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RateSource</span></td><td width="1%"> : </td><td>The source from which an exchange rate is obtained.</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCurrencyRelationship
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcexternalreferenceresource/lexical/ifcresourcelevelrelationship.htm">IfcResourceLevelRelationship</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifccostresource/lexical/ifccurrencyrelationship.htm">IfcCurrencyRelationship</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingMonetaryUnit</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcmonetaryunit.htm">IfcMonetaryUnit</a>;</td></tr>
+<tr valign="top"><td width="20%">RelatedMonetaryUnit</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcmonetaryunit.htm">IfcMonetaryUnit</a>;</td></tr>
+<tr valign="top"><td width="20%">ExchangeRate</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">RateDateTime</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">RateSource</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.htm">IfcLibraryInformation</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifccurrencyrelationship.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

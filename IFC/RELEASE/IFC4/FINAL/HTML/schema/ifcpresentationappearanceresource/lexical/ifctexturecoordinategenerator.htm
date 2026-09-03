@@ -1,0 +1,219 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcTextureCoordinateGenerator</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.12.3.41");
+//-->
+</script>
+
+<h4 class="std">8.12.3.41 IfcTextureCoordinateGenerator</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Générateur de coordonnées de texture</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Texturkoordinaten - Generator</b></td></tr>
+</table>
+
+    <p>
+      The <span class="self-ref">IfcTextureCoordinateGenerator</span> describes a
+      procedurally defined mapping function with input parameter to
+      map 2D texture coordinates to 3D geometry vertices. The
+      allowable <i>Mode</i> values and input <i>Parameter</i>
+      need to be agreed upon in view definitions and implementer
+      agreements.
+    </p>
+    <blockquote class="note">
+NOTE&nbsp; It is recommended to use
+        the texture coordinate generation modes as defined in
+        X3D.
+    </blockquote>
+    <blockquote class="extDef">
+        NOTE&nbsp; Definition according to
+        ISO/IEC 19775-1:<br><br>
+				The TextureCoordinateGenerator supports the automatic
+				generation of texture coordinates for geometric shapes.<br>
+      The mode field describes the algorithm used to compute
+      texture coordinates.
+        <ul class="std" style=" font-size:inherit;">
+          <li style=" font-size:inherit;">SPHERE,
+          </li>
+          <li style=" font-size:inherit;">CAMERASPACENORMAL,
+          </li>
+          <li style=" font-size:inherit;">CAMERASPACEPOSITION,
+          </li>
+          <li style=" font-size:inherit;">CAMERASPACEREFLECTIONVECTOR,
+          </li>
+          <li style=" font-size:inherit;">SPHERE-LOCAL,
+          </li>
+          <li style=" font-size:inherit;">COORD,
+          </li>
+          <li style=" font-size:inherit;">COORD-EYE,
+          </li>
+          <li style=" font-size:inherit;">NOISE,
+          </li>
+          <li style=" font-size:inherit;">NOISE-EYE,
+          </li>
+          <li style=" font-size:inherit;">SPHERE-REFLECT,
+          </li>
+          <li style=" font-size:inherit;">SPHERE-REFLECT-LOCAL
+          </li>
+        </ul>
+		</blockquote>
+    <blockquote class="note">
+      NOTE&nbsp; The definitions of texturing within this standard
+      have been developed in dependence on the texture component of
+      X3D. See ISO/IEC 19775-1.2:2008 X3D Architecture and base
+      components Edition 2, Part 1, 18 Texturing component for the
+      definitions in the international standard.
+    </blockquote>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC2x2.
+    </blockquote>
+    <blockquote class="change-ifc2x2">
+      IFC2x2 Add2 CHANGE&nbsp; The attribute Texture has been
+      deleted.
+    </blockquote>
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcTextureCoordinateGenerator&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifctexturecoordinategenerator.htm">IfcTextureCoordinateGenerator</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifctexturecoordinate.htm">IfcTextureCoordinate</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcTextureCoordinateGenerator&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifctexturecoordinate.htm">IfcTextureCoordinate</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Mode&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Parameter&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcTextureCoordinateGenerator
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpresentationappearanceresource/lexical/ifctexturecoordinate.htm">IfcTextureCoordinate</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Mode</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Parameter</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationappearanceresource/diagram_0010.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Mode</span></td><td width="1%"> : </td><td>
+The <i>Mode</i> attribute describes the algorithm used to compute texture coordinates.
+<blockquote class="note">NOTE&nbsp; The applicable values for the <i>Mode</i> attribute are determined by view definitions or implementer agreements. It is recommended to use the modes described in ISO/IES 19775-1.2:2008 X3D Architecture and base components Edition 2, Part 1. See <a href="http://www.web3d.org/x3d/specifications/ISO-IEC-19775-1.2-X3D-AbstractSpecification/Part01/components/texturing.html#TextureCoordinateGenerator">18.4.8 TextureCoordinateGenerator</a> for recommended values.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Parameter</span></td><td width="1%"> : </td><td>
+The parameters used as arguments by the function as specified by <i>Mode</i>.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp: Data type restricted to REAL.</blockquote>
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcTextureCoordinateGenerator
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifctexturecoordinate.htm">IfcTextureCoordinate</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Maps</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacetexture.htm">IfcSurfaceTexture</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifctexturecoordinategenerator.htm">IfcTextureCoordinateGenerator</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Mode</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Parameter</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifctexturecoordinategenerator.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

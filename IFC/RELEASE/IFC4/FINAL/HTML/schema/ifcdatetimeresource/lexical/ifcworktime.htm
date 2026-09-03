@@ -1,0 +1,166 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcWorkTime</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.5.3.14");
+//-->
+</script>
+
+<h4 class="std">8.5.3.14 IfcWorkTime</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Période de travail</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Arbeitszeit</b></td></tr>
+</table>
+
+
+<p><span class="self-ref">IfcWorkTime</span> defines time periods that are used by <a href="../../ifcprocessextension/lexical/ifcworkcalendar.htm">IfcWorkCalendar</a> for either describing working times or non-working exception times. Besides start and finish dates, a set of time periods can be given by various types of recurrence patterns.</p>
+
+<p>A work time should have a meaningful name that describes the time periods (for example, working week, holiday name). Non-recurring time periods should have a start date (<i>IfcWorkTime.Start</i>) and a finish date (<i>IfcWorkTime.Finish</i>). In that case it is assumed that the time period begins at 0:00 on the start date and ends at 24:00 on the finish date.</p>
+
+<p>The start and finish date is optional if a recurrence pattern is given (<i>IfcWorkTime.RecurrencePattern</i>).  They then restrict never-ending recurrence patterns.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC4.
+</blockquote>
+
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcWorkTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcworktime.htm">IfcWorkTime</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcWorkTime&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RecurrencePattern&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcrecurrencepattern.htm">IfcRecurrencePattern</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Start&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Finish&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcWorkTime
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RecurrencePattern</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcrecurrencepattern.htm">IfcRecurrencePattern</a>;</td></tr>
+<tr valign="top"><td width="20%">Start</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>;</td></tr>
+<tr valign="top"><td width="20%">Finish</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcdatetimeresource/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">RecurrencePattern</span></td><td width="1%"> : </td><td>
+    Recurrence pattern that defines a time period, which, if given, is
+    valid within the time period defined by
+    <i>IfcWorkTime.Start</i> and <i>IfcWorkTime.Finish</i>.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Start</span></td><td width="1%"> : </td><td>
+    Start date of the work time (0:00), that might be further
+    restricted by a recurrence pattern.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Finish</span></td><td width="1%"> : </td><td>
+    End date of the work time (24:00), that might be further
+    restricted by a recurrence pattern.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcWorkTime
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">DataOrigin</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdataoriginenum.htm">IfcDataOriginEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">UserDefinedDataOrigin</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcdatetimeresource/lexical/ifcworktime.htm">IfcWorkTime</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RecurrencePattern</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcrecurrencepattern.htm">IfcRecurrencePattern</a>;</td></tr>
+<tr valign="top"><td width="20%">Start</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>;</td></tr>
+<tr valign="top"><td width="20%">Finish</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcworktime.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

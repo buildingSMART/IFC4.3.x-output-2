@@ -1,0 +1,184 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcMapConversion</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.3.5");
+//-->
+</script>
+
+<h4 class="std">8.18.3.5 IfcMapConversion</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Konvertierung in kartographische Koordinaten</b></td></tr>
+</table>
+
+
+<p>The map conversion deals with transforming the local engineering coordinate system, often called world coordinate system, into the coordinate reference system of the underlying map.</p>
+
+<blockquote class="note">
+NOTE&nbsp; The <span class="self-ref">IfcMapConversion</span> does not handle the projection of a map from the geodetic coordinate reference system.
+</blockquote>
+
+<p>The map conversion allows to convert the local origin of the local engineering coordinate system to its place within a map (easting, northing, orthogonal height) and to rotate the x-axis of the local engineering coordinate system within the horizontal (easting/westing) plane of the map.</p>
+
+<blockquote class="note">
+NOTE&nbsp; The z axis of the local engineering coordinate system is always parallel to the z axis of the map coordinate system.
+</blockquote>
+
+<p>The scale factor can be used when the length unit for the 3 axes of the map coordinate system are not identical with the length unit established for this project (see <i>IfcProject.UnitsInContext</i>), if omitted, the scale factor 1.0 is assumed.</p>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcMapConversion&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcmapconversion.htm">IfcMapConversion</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifccoordinateoperation.htm">IfcCoordinateOperation</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcMapConversion&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifccoordinateoperation.htm">IfcCoordinateOperation</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Eastings&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Northings&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;OrthogonalHeight&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;XAxisAbscissa&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;XAxisOrdinate&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Scale&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcMapConversion
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcrepresentationresource/lexical/ifccoordinateoperation.htm">IfcCoordinateOperation</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Eastings</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">Northings</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">OrthogonalHeight</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">XAxisAbscissa</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+<tr valign="top"><td width="20%">XAxisOrdinate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+<tr valign="top"><td width="20%">Scale</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcrepresentationresource/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Eastings</span></td><td width="1%"> : </td><td>Specifies the location along the easting of the coordinate system of the target map coordinate reference system.
+<blockquote class="note">NOTE&nbsp; for right-handed Cartesian coordinate systems this would establish the location along the x axis.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Northings</span></td><td width="1%"> : </td><td>Specifies the location along the northing of the coordinate system of the target map coordinate reference system.
+<blockquote class="note">NOTE&nbsp; for right-handed Cartesian coordinate systems this would establish the location along the y axis</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">OrthogonalHeight</span></td><td width="1%"> : </td><td><EPM-HTML>Orthogonal height relativ to the vertical datum specified.
+<blockquote class="note">NOTE&nbsp; for right-handed Cartesian coordinate systems this would establish the location along the z axis</blockquote>
+<EPM-HTML></td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">XAxisAbscissa</span></td><td width="1%"> : </td><td> Specifies the value along the easing axis of the end point of a vector indicating the position of the local x axis of the engineering coordinate reference system.
+<blockquote class="note">NOTE&nbsp;1 for right-handed Cartesian coordinate systems this would establish the location along the x axis</blockquote>
+<blockquote class="note">NOTE&nbsp;2 together with the <i>XAxisOrdinate</i> it provides the direction of the local x axis within the horizontal plane of the map coordinate system</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">XAxisOrdinate</span></td><td width="1%"> : </td><td> Specifies the value along the northing axis of the end point of a vector indicating the position of the local x axis of the engineering coordinate reference system.
+<blockquote class="note">NOTE&nbsp;1 for right-handed Cartesian coordinate systems this would establish the location along the y axis</blockquote>
+<blockquote class="note"NOTE&nbsp; together with the <i>XAxisAbscissa</i> it provides the direction of the local x axis within the horizontal plane of the map coordinate system.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Scale</span></td><td width="1%"> : </td><td>Scale to be used, when the units of the CRS are not identical to the units of the engineering coordinate system. If omited, the value of 1.0 is assumed.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcMapConversion
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcrepresentationresource/lexical/ifccoordinateoperation.htm">IfcCoordinateOperation</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">SourceCRS</td><td width="1%"> : </td><td><a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystemselect.htm">IfcCoordinateReferenceSystemSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">TargetCRS</td><td width="1%"> : </td><td><a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystem.htm">IfcCoordinateReferenceSystem</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcrepresentationresource/lexical/ifcmapconversion.htm">IfcMapConversion</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Eastings</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">Northings</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">OrthogonalHeight</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">XAxisAbscissa</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+<tr valign="top"><td width="20%">XAxisOrdinate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+<tr valign="top"><td width="20%">Scale</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcmapconversion.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

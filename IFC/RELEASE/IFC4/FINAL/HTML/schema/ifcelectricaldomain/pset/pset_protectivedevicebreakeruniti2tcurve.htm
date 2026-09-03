@@ -1,0 +1,104 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>Pset_ProtectiveDeviceBreakerUnitI2TCurve</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.4.4.43");
+//-->
+</script>
+
+<h4 class="std">7.4.4.43 Pset_ProtectiveDeviceBreakerUnitI2TCurve</h4>
+<p><span class="self-ref">PSET_TYPEDRIVENOVERRIDE</span>
+/
+<a href="../../ifcelectricaldomain/lexical/ifcprotectivedevice.htm">IfcProtectiveDevice</a>
+</p><table>
+<tr><td><image src="../../../img/locale-en.png" /></td><td> A coherent set of attributes representing a curve for let-through energy of a protective device. Note - A protective device may be associated with different instances of this pSet providing information related to different  basic characteristics<br /></td></tr>
+<tr><td><image src="../../../img/locale-ja.png" /></td><td> 保護装置の通電エネルギーの曲線を表す一連のプロパティセット。
+注記-保護装置は、根本的な特性に関連付けられた提供されたプロパティの情報は、　異なる実態に関連しているかもしれません。　　　　　　　　　　　　　　　　　</td></tr>
+</table>
+<p><a href="http://lookup.bsdd.buildingsmart.com/api/4.0/IfdPSet/2hgeW0qVWHuO00025QrE$V/ifcVersion/2x4" target="ifd"><img border="0" src="../../../img/external.png" title="Link to IFD"/> buildingSMART Data Dictionary</a></p>
+
+<p><a href="../../../psd/Pset_ProtectiveDeviceBreakerUnitI2TCurve.xml"><img border="0" src="../../../img/diagram.png" title="Link to PSD-XML"/> PSD-XML</a></p>
+
+
+<ul>
+
+<li><b>VoltageLevel</b><br/>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+<span class="self-ref">PEnum_VoltageLevels: U230, U400, U440, U525, U690, U1000, OTHER, NOTKNOWN, UNSET</span>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>VoltageLevel</b>: The voltage levels of the protective device for which the data of the instance is valid. More than one value may be selected in the enumeration.<br /></td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ja.png" /></td><td><b>電圧レベル</b>: 保護装置が作動する電圧レベルを選択。
+[U230,U400,U525,U690,U1000,その他,不明,無]</td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ko.png" /></td><td><b>전압 레벨</b>: 보호 장치가 작동 전압 레벨을 선택합니다. [U230, U400, U525, U690, U1000, 기타 알 수 없음, 무</td></tr>
+</table>
+<ul>
+
+</ul>
+
+<li><b>NominalCurrent</b><br/>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcelectriccurrentmeasure.htm">IfcElectricCurrentMeasure</a>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>NominalCurrent</b>: A set of nominal currents in [A] for which the data of this instance is valid. At least one value shall be provided. Any value in the set shall not exceed the value of the 
+UltimateRatedCurrent associated with the same breaker unit.<br /></td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ja.png" /></td><td><b>定格電流</b>: 定格電流[A]を少なくても1つ値をセットしなければならない。
+ セット内の任意の値の値を超えてはならない。
+ 定格電流は、同じブレーカ部に関連付けられている。</td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ko.png" /></td><td><b>정격전류</b>: 정격 전류 [A]를 적어도 1 개의 값을 설정해야한다.   동일한 차단기부와 연결된 정격전류는세트 내의 임의의 값은 초과할 수 없다.</td></tr>
+</table>
+<ul>
+
+</ul>
+
+<li><b>BreakerUnitCurve</b><br/>
+<span class="self-ref">P_TABLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcelectriccurrentmeasure.htm">IfcElectricCurrentMeasure</a>
+/
+<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>BreakerUnitCurve</b>: A curve that establishes the let through energy of a breaker unit when a particular prospective current is applied.  Note that the breaker unit curve is defined within a Cartesian coordinate system and this fact must be asserted within the property set:
+
+(1) Defining value: ProspectiveCurrent: A list of minimum 2 and maximum 16 numbers providing the currents in [A] for points in the current/I2t log/log coordinate space. The curve is drawn as a straight line between two consecutive points.
+(2) Defined value: LetThroughEnergy: A list of minimum 2 and maximum 16 numbers providing the let-through energy, I2t, in [A2s] for points in the current/I2t log/log coordinate space. The curve is drawn as a straight line between two consecutive points.<br /></td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ja.png" /></td><td><b>遮断機曲線</b>: 適用された電流と通過する遮断機のエネルギーを示した曲線
+ （1）定義値：ProspectiveCurrent（固有電流）：
+   電流/I2tで示される最小2から最大8のリストで電流[A]を定義します。
+   カーブが連続する2つの点を結ぶ直線として描かれています。
+
+
+ （2）定義値：LetThroughEnergy：
+   電流/I2tで示される最小2から最大8のリストで通過エネルギー電流[[A2s]を定義します。
+   カーブが連続する2つの点を結ぶ直線として描かれています。</td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ko.png" /></td><td><b>차단기 곡선</b>: 적용된 전류 통과 차단기의 에너지를 나타낸 곡선  (1) 정의 값 : ProspectiveCurrent (고유 전류) :    전류 / I2t에 표시된 최소 2에서 최대 8 개의 목록에서 전류 [A]를 정의합니다.    커브가 연속되는 두 개의 점을 연결하는 직선으로 그려져 있습니다.  (2) 정의 값 : LetThroughEnergy :    전류 / I2t에 표시된 최소 2에서 최대 8 개의 목록에서 통과 에너지 전류 [A2s을 정의합니다.    커브가 연속되는 두 개의 점을 연결하는 직선으로 그려져 있습니다.</td></tr>
+</table>
+<ul>
+
+</ul>
+
+</ul>
+
+<p><a href="../../../link/pset_protectivedevicebreakeruniti2tcurve.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

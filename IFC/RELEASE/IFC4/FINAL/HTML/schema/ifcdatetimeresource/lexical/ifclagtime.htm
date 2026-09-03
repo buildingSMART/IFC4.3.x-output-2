@@ -1,0 +1,196 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcLagTime</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.5.3.4");
+//-->
+</script>
+
+<h4 class="std">8.5.3.4 IfcLagTime</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Décalage entre processus</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Zeitlicher Abstand</b></td></tr>
+</table>
+
+
+<p><span class="self-ref">IfcLagTime</span> describes the time parameters that may exist within a sequence relationship between two processes.</p>
+
+    <p>
+      An <span class="self-ref">IfcLagTime</span> provides information about the
+      time lag that exists between the predecessor and successor
+      process in a sequence. The assertion of the time lag is
+      optional for a sequence but for work schedules that
+      specifically deal with processes occurring at particular
+      times, it should be asserted.
+    </p>
+    <p>
+      A lag time has a duration type. This allows the
+      identification of whether elapsed time or work time is
+      being measured (where work time is the estimate of the time
+      required to complete the process and elapsed time being the
+      amount of time actually allocated to the process)
+    </p>
+    <p>
+      The form of measurement of the duration can be captured.
+      Allowed values for this are MEASURED, PREDICTED or
+      SIMULATED. The selection of this value depends on the use
+      of the schedule. A NOTDEFINED value is also allowed.
+    </p>
+    <p>
+      The value of the time lag may be selected as being either a
+      percentage ratio or an actual time measure. If selected as
+      a ratio, the percentage should apply to the duration of the
+      predecessor process (relating process) such that e.g. a
+      value of 0.5 (50%) would indicate that the successor task
+      should start when the predecessor task is 50% complete (if
+      a START-START sequence type is used) or should wait for 50%
+      of the duration of the predecessor process to have elapsed
+      after the finish of the predecessor process in case of a
+      FINISH-START sequence type.
+    </p>
+    <p>
+      The time unit for the task duration may also be set and
+      this may be set to any allowed unit of time measure.
+    </p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC4.
+</blockquote>
+
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcLagTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifclagtime.htm">IfcLagTime</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcLagTime&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;LagValue&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifctimeorratioselect.htm">IfcTimeOrRatioSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;DurationType&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifctaskdurationenum.htm">IfcTaskDurationEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLagTime
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LagValue</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifctimeorratioselect.htm">IfcTimeOrRatioSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">DurationType</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifctaskdurationenum.htm">IfcTaskDurationEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcdatetimeresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">LagValue</span></td><td width="1%"> : </td><td>
+    Value of the time lag selected as being either a ratio or a
+    time measure.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">DurationType</span></td><td width="1%"> : </td><td>
+    The allowed types of task duration that specify the lag time
+    measurement (work time or elapsed time).
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLagTime
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcdatetimeresource/lexical/ifcschedulingtime.htm">IfcSchedulingTime</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">DataOrigin</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdataoriginenum.htm">IfcDataOriginEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">UserDefinedDataOrigin</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcdatetimeresource/lexical/ifclagtime.htm">IfcLagTime</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LagValue</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifctimeorratioselect.htm">IfcTimeOrRatioSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">DurationType</td><td width="1%"> : </td><td><a href="../../ifcdatetimeresource/lexical/ifctaskdurationenum.htm">IfcTaskDurationEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifclagtime.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

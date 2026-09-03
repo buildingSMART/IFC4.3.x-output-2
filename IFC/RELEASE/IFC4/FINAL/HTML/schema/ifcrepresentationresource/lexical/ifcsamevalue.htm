@@ -1,0 +1,49 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcSameValue</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.4.6");
+//-->
+</script>
+
+<h4 class="std">8.18.4.6 IfcSameValue</h4>
+<p>
+
+<p>The function compares two numerical values and ensures that they are the same (with an epsilon precision factor).<br>
+In the function the following arbitrary ad-hoc value is used: 0.000001 for the default precision (1E-6)</p>
+
+<blockquote class="history">HISTORY&nbsp; New function in IFC2x2</blockquote>
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcSameValue<br/>
+
+	(Value1, Value2 : REAL; Epsilon : REAL)<br/>	: LOGICAL;<br/>&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;ValidEps&nbsp;&nbsp;&nbsp;&nbsp;: REAL;<br/>&nbsp;&nbsp;&nbsp;&nbsp;DefaultEps&nbsp;&nbsp;: REAL := 0.000001;<br/>&nbsp;&nbsp;END_LOCAL;<br/>&nbsp;&nbsp;<br/>&nbsp;&nbsp;ValidEps := NVL(Epsilon, DefaultEps);<br/>&nbsp;&nbsp;RETURN ((Value1 + ValidEps &gt; Value2) AND (Value1 &lt; Value2 + ValidEps));
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifcsamevalue.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

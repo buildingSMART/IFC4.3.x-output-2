@@ -1,0 +1,53 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcDeriveDimensionalExponents</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.11.4.3");
+//-->
+</script>
+
+<h4 class="std">8.11.4.3 IfcDeriveDimensionalExponents</h4>
+<p>
+
+
+<P><U>Definition from ISO/CD 10303-41:1992</U>: The function determines the dimensional exponents of a unit. 
+For named units the dimensions attribute is returned and for derived units the dimensional exponents are 
+calculated from its elements.
+<P>
+Argument definitions:<BR>
+X: (input) the unit that the dimensional exponents are being derived from.
+
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcDeriveDimensionalExponents<br/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;(UnitElements : SET [1:?] Of IfcDerivedUnitElement)<br/>&nbsp;&nbsp;&nbsp;&nbsp;: IfcDimensionalExponents;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;Result : IfcDimensionalExponents :=<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcDimensionalExponents(0, 0, 0, 0, 0, 0, 0);&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_LOCAL;<br/>&nbsp;&nbsp;&nbsp;&nbsp;REPEAT i := LOINDEX(UnitElements) TO HIINDEX(UnitElements);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result.LengthExponent := Result.LengthExponent +<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(UnitElements[i].Exponent *<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnitElements[i].Unit.Dimensions.LengthExponent);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result.MassExponent := Result.MassExponent&nbsp;&nbsp;+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(UnitElements[i].Exponent *<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnitElements[i].Unit.Dimensions.MassExponent);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result.TimeExponent := Result.TimeExponent +<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(UnitElements[i].Exponent *<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnitElements[i].Unit.Dimensions.TimeExponent);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result.ElectricCurrentExponent := Result.ElectricCurrentExponent +<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(UnitElements[i].Exponent *<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnitElements[i].Unit.Dimensions.ElectricCurrentExponent);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result.ThermodynamicTemperatureExponent := Result.ThermodynamicTemperatureExponent +<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(UnitElements[i].Exponent *<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnitElements[i].Unit.Dimensions.ThermodynamicTemperatureExponent);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result.AmountOfSubstanceExponent := Result.AmountOfSubstanceExponent +<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(UnitElements[i].Exponent *<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnitElements[i].Unit.Dimensions.AmountOfSubstanceExponent);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result.LuminousIntensityExponent := Result.LuminousIntensityExponent +<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(UnitElements[i].Exponent *<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnitElements[i].Unit.Dimensions.LuminousIntensityExponent);<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;RETURN (Result);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifcderivedimensionalexponents.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

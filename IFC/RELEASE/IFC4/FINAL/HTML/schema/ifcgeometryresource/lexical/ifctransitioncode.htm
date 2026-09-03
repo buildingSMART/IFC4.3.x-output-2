@@ -1,0 +1,101 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcTransitionCode</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.2.5");
+//-->
+</script>
+
+<h4 class="std">8.9.2.5 IfcTransitionCode</h4>
+
+<p>The <span class="self-ref">IfcTransitionCode</span> indicated the continuity between consecutive segments of a curve or surface.</p>
+<blockquote class="example">EXAMPLE&nbsp; In ContSameGradient the tangent vectors of successive segments will have the
+same direction, but may have different magnitude.</blockquote>
+<p>Figure 311 illustrates transition types</p>
+<blockquote class="note">NOTE&nbsp; The figure is quoted from ISO 10303-42.</blockquote>
+<table summary="illustration">
+<tr>
+<td><img src="../../../figures/IfcTransitionCode.gif" alt="transition code" width="457" height="247" border="0"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 311 &mdash; Transition code</p>
+</td>
+</tr>
+</table>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+This type conveys the continuity properties of a composite curve or surface. The continuity referred to is geometric,
+not parametric continuity.</blockquote>
+<blockquote class="note">NOTE&nbsp; Type adapted from <strong>transition_code</strong> defined in ISO
+10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New Type in IFC1.0</blockquote>
+<p class="spec-head">Enumerated Item Definitions:</p>
+<ul>
+<li><strong>discontinuous</strong>: The segments do not join. This is permitted only at the boundary of the curve or
+surface to indicate that it is not closed.</li>
+<li><strong>continuous</strong>: The segments join but no condition on their tangents is implied.</li>
+<li><strong>contsamegradient</strong>: The segments join and their tangent vectors or tangent planes are parallel and
+have the same direction at the joint: equality of derivatives is not required.</li>
+<li><strong>contsamegradientsamecurvature</strong>: For a curve, the segments join, their tangent vectors are parallel
+and in the same direction and their curvatures are equal at the joint: equality of derivatives is not required. For a
+surface this implies that the principle curvatures are the same and the principle directions are coincident along the
+common boundary.</li>
+</ul>
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:simpleType name=&quot;IfcTransitionCode&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;discontinuous&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;continuous&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;contsamegradient&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;contsamegradientsamecurvature&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">TYPE</span> IfcTransitionCode = <span class="keyword">ENUMERATION OF</span> (
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+DISCONTINUOUS, <br/>CONTINUOUS, <br/>CONTSAMEGRADIENT, <br/>CONTSAMEGRADIENTSAMECURVATURE);  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_TYPE;</span>
+  </td>
+ </tr>
+</table>
+  </td>
+ </tr>
+</table>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0006.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</span>
+<p><a href="../../../link/ifctransitioncode.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

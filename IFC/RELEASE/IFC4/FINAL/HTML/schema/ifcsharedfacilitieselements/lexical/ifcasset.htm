@@ -1,0 +1,336 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcAsset</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.4.3.1");
+//-->
+</script>
+
+<h4 class="std">6.4.3.1 IfcAsset</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Biens</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Sachvermögen</b></td></tr>
+</table>
+ 
+ 
+<p>An asset is a uniquely identifiable grouping of elements acting as a single entity that has a financial value or that can be operated on as a single unit.</p> 
+ 
+<p>An asset is generally the level of granularity at which maintenance operations are undertaken. An asset is a group that can contain one or more elements. Whilst the financial value of a component or element can be defined, financial value is also defined for accounting purposes at the level of the asset.<br/>  <br/>There are a number of actors that can be associated with an asset, each actor having a role. Actors within the scope of the project are indicated using the <a href="../../ifckernel/lexical/ifcrelassignstoactor.htm">IfcRelAssignsToActor</a> relationship in which case roles should be defined through the <a href="../../ifcactorresource/lexical/ifcactorrole.htm">IfcActorRole</a> class; otherwise principal actors are identified as attributes of the class. In the existence of both, direct attributes take precedence.<br/>  <br/>There are a number of costs that can be associated with an asset, each cost having a role. These are specified through the <i>OriginalValue</i>, <i>CurrentValue</i>, <i>TotalReplacementCost</i> and <i>DepreciatedValue</i> attributes.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; All attributes made optional and date values changed to use <a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>.
+</blockquote>
+ 
+ <hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcasset.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="property-sets-for-objects" />
+<p class="use-head">Property Sets for Objects</p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept applies to this entity as shown in Table 233.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>Name</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_asset.htm">Pset_Asset</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 233 &mdash; IfcAsset Property Sets for Objects</td></tr></table>
+
+
+<br/><br/>
+
+<a name="object-classification" />
+<p class="use-head">Object Classification</p>
+<p>The <a href="../../templates/object-classification.htm">Object Classification</a> concept applies to this entity.</p><p>The operating function of an asset within an organization may be particularly valuable in situations where one organization provides and maintains core services and another organization adds and maintains terminal services. It can classify who owns and is responsible for the asset. Operating function can be designated through the use of one or more classification references.</p>
+<br/><br/>
+
+<a name="group-assignment" />
+<p class="use-head">Group Assignment</p>
+<p>The <a href="../../templates/group-assignment.htm">Group Assignment</a> concept applies to this entity as shown in Table 234.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a></td><td>Physical elements that comprise the asset.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 234 &mdash; IfcAsset Group Assignment</td></tr></table>
+
+
+
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcAsset&quot; type=&quot;ifc:<a href="../../ifcsharedfacilitieselements/lexical/ifcasset.htm">IfcAsset</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcAsset&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;OriginalValue&quot; type=&quot;ifc:<a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;CurrentValue&quot; type=&quot;ifc:<a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;TotalReplacementCost&quot; type=&quot;ifc:<a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Owner&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;User&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ResponsiblePerson&quot; type=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;DepreciatedValue&quot; type=&quot;ifc:<a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Identification&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;IncorporationDate&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcAsset
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Identification</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">OriginalValue</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;</td></tr>
+<tr valign="top"><td width="20%">CurrentValue</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;</td></tr>
+<tr valign="top"><td width="20%">TotalReplacementCost</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;</td></tr>
+<tr valign="top"><td width="20%">Owner</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">User</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">ResponsiblePerson</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a>;</td></tr>
+<tr valign="top"><td width="20%">IncorporationDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>;</td></tr>
+<tr valign="top"><td width="20%">DepreciatedValue</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedfacilitieselements/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Identification</span></td><td width="1%"> : </td><td>A unique identification assigned to an asset that enables its differentiation from other assets.
+<blockquote class="note">NOTE&nbsp; The asset identifier is unique within the asset register. It differs from the globally unique id assigned to the instance of an entity populating a database.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">OriginalValue</span></td><td width="1%"> : </td><td>The cost value of the asset at the time of purchase</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CurrentValue</span></td><td width="1%"> : </td><td>The current cost value of the asset</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">TotalReplacementCost</span></td><td width="1%"> : </td><td>The total cost of replacement of the asset</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Owner</span></td><td width="1%"> : </td><td>The name of the person or organization that 'owns' the asset</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">User</span></td><td width="1%"> : </td><td>The name of the person or organization that 'uses' the asset</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ResponsiblePerson</span></td><td width="1%"> : </td><td>The person designated to be responsible for the asset.
+<blockquote class="note">NOTE&nbsp; In some regulations (for example, UK Health and Safety at Work Act, Electricity at Work Regulations), management of assets must have a person identified as being responsible and to whom regulatory, insurance and other organizations communicate. In places where there is not a legal requirement, the responsible person would be the asset manager but would not have a legal status.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">IncorporationDate</span></td><td width="1%"> : </td><td> 
+The date on which an asset was incorporated into the works, installed, constructed, erected or completed.
+<blockquote class="note">NOTE&nbsp; This is the date on which an asset is considered to start depreciating.</blockquote>
+<blockquote class="history">IFC4 CHANGE&nbsp; Type changed from IfcDateTimeSelect.</blockquote> 
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">DepreciatedValue</span></td><td width="1%"> : </td><td>The current value of an asset within the accounting rules and procedures of an organization</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcAsset
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDeclaredBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">IsTypedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsGroupedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a> <span class="keyword">FOR</span> RelatingGroup;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcsharedfacilitieselements/lexical/ifcasset.htm">IfcAsset</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Identification</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">OriginalValue</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;</td></tr>
+<tr valign="top"><td width="20%">CurrentValue</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;</td></tr>
+<tr valign="top"><td width="20%">TotalReplacementCost</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;</td></tr>
+<tr valign="top"><td width="20%">Owner</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">User</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">ResponsiblePerson</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a>;</td></tr>
+<tr valign="top"><td width="20%">IncorporationDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>;</td></tr>
+<tr valign="top"><td width="20%">DepreciatedValue</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcasset.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

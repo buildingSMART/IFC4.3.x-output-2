@@ -1,0 +1,244 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcLibraryInformation</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.6.3.9");
+//-->
+</script>
+
+<h4 class="std">8.6.3.9 IfcLibraryInformation</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Information de bibliothèque</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Bibliothek</b></td></tr>
+</table>
+
+    <p>
+      An <span class="self-ref">IfcLibraryInformation</span> describes a library where a
+      library is a structured store of information, normally
+      organized in a manner which allows information lookup through
+      an index or reference value. <span class="self-ref">IfcLibraryInformation</span>
+      provides the library <i>Name</i> and optional
+      <i>Description</i>, <i>Version</i>, <i>VersionDate</i>
+      and <i>Publisher</i> attributes. A <i>Location</i> may be
+      added for electronic access to the library.
+    </p>
+    <p>
+      In a broder sense, <span class="self-ref">IfcLibraryInformation</span> includes
+      the meta data for capture the revision information when
+      checking in library and other data into a revision control
+      system.
+    </p>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC2x.
+    </blockquote>
+    <blockquote class="change-ifc2x4">
+      IFC4 CHANGE&nbsp; <i>Location</i> and <i>Description</i>
+      attributes added; <i>Publisher</i> and <i>VersionDate</i> 
+      data type changed; <i>HasLibraryReferences</i> inverse attribute
+      added (previous LibraryReference changed to inverse).
+    </blockquote>
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcLibraryInformation&quot; type=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.htm">IfcLibraryInformation</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifcexternalinformation.htm">IfcExternalInformation</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcLibraryInformation&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifcexternalinformation.htm">IfcExternalInformation</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Publisher&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Name&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Version&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;VersionDate&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Location&quot; type=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifcurireference.htm">IfcURIReference</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Description&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLibraryInformation
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalinformation.htm">IfcExternalInformation</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Version</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Publisher</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">VersionDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">Location</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcexternalreferenceresource/lexical/ifcurireference.htm">IfcURIReference</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LibraryInfoForObjects</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:?] <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociateslibrary.htm">IfcRelAssociatesLibrary</a> <span class="keyword">FOR</span> RelatingLibrary;</td></tr>
+<tr valign="top"><td width="20%">HasLibraryReferences</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifclibraryreference.htm">IfcLibraryReference</a> <span class="keyword">FOR</span> ReferencedLibrary;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcexternalreferenceresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Name</span></td><td width="1%"> : </td><td>The name which is used to identify the library</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Version</span></td><td width="1%"> : </td><td>Identifier for the library version used for reference</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Publisher</span></td><td width="1%"> : </td><td>
+Information of the organization that acts as the library publisher.
+<blockquote class="change-ifc2x4">
+  IFC4 CHANGE&nbsp; The data type has been changed to <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>.
+</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">VersionDate</span></td><td width="1%"> : </td><td>
+Date of the referenced version of the library.
+<blockquote class="change-ifc2x4">
+  IFC4 CHANGE&nbsp; The data type has been changed to <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>, the date and time string according to ISO8601.
+</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Location</span></td><td width="1%"> : </td><td>
+Resource identifier or locator, provided as URI, URN or URL, of the library information for online references.
+<blockquote class="change-ifc2x4">
+  IFC4 CHANGE&nbsp; New attribute added at the end of the attribute list.
+</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Description</span></td><td width="1%"> : </td><td>
+Additional description provided for the library revision information.
+<blockquote class="change-ifc2x4">
+  IFC4 CHANGE&nbsp; New attribute added at the end of the attribute list.
+</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">LibraryInfoForObjects</span></td><td width="1%"> : </td><td>
+The library information with which objects are associated.
+<blockquote class="change-ifc2x4">
+  IFC4 CHANGE&nbsp; New inverse attribute.
+</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">HasLibraryReferences</span></td><td width="1%"> : </td><td>The library references to which the library information applies</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLibraryInformation
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalinformation.htm">IfcExternalInformation</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.htm">IfcLibraryInformation</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Version</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Publisher</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">VersionDate</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">Location</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcexternalreferenceresource/lexical/ifcurireference.htm">IfcURIReference</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LibraryInfoForObjects</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:?] <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociateslibrary.htm">IfcRelAssociatesLibrary</a> <span class="keyword">FOR</span> RelatingLibrary;</td></tr>
+<tr valign="top"><td width="20%">HasLibraryReferences</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifclibraryreference.htm">IfcLibraryReference</a> <span class="keyword">FOR</span> ReferencedLibrary;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="spec-head">Examples:</p>
+<ul>
+<li><a href="../../../annex/annex-e/air-terminal-library-object.htm">Air terminal library object</a></li>
+</ul>
+<p><a href="../../../link/ifclibraryinformation.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

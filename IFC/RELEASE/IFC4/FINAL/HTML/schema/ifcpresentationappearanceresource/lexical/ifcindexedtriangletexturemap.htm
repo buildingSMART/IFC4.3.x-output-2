@@ -1,0 +1,262 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcIndexedTriangleTextureMap</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.12.3.20");
+//-->
+</script>
+
+<h4 class="std">8.12.3.20 IfcIndexedTriangleTextureMap</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Liste von Indizes für Texturen auf Dreiecken</b></td></tr>
+</table>
+  
+    <p>
+      The <span class="self-ref">IfcIndexedTriangleTextureMap</span> provides the
+      mapping of the 2-dimensional texture coordinates to the
+      surface onto which it is mapped. It is used for mapping the
+      texture to triangles of the <a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a>.
+    </p>
+    <p>
+      The <span class="self-ref">IfcIndexedTriangleTextureMap</span> defines an index
+      into an indexed list of texture coordinates. The
+      <i>TexCoordIndex</i> is a two-dimensional list, where
+    </p>
+    <ul>
+      <li>first dimension is the unbounded list of faces
+      corresponding to the list of triangles defined by
+      <i>CoordIndex</i> at <a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a>;
+      </li>
+      <li>second dimension is the fixed list of three indices to
+      texture vertices cooresponding to the fixed list of indices
+      to vertices at <a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a>
+      </li>
+    </ul>
+    <p>
+      The <i>TexCoords</i> defined at supertype
+      <a href="../../ifcpresentationappearanceresource/lexical/ifcindexedtexturemap.htm">IfcIndexedTextureMap</a> are a two-dimensional list of
+      texture coordinates provided by two parameter values. Each
+      index of the second dimension list of <i>TexCoordIndex</i>
+      points to a texture vertex in <i>TexCoords</i>.
+    </p>
+    <p>
+      Figure 339 shows the use of <a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a> with textures.
+    </p>
+    <table summary="">
+      <tr>
+        <td>
+          <img src="../../../figures/IfcIndexedTriangleTextureMap_01.png"
+          width="760" height="400" alt=
+          "IfcIndexedTriangleTextureMap_01">
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="figure">Figure 339 &mdash; Indexed triangle texture map
+          </p>
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+    </table>
+    <p>
+     Figure 340 illustrates an <a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a> represented by <br/>
+      <i>IfcTriangulatedFaceSet.CoordIndex</i>: ((1,6,5), (1,2,6), (6,2,7), (7,2,3),
+      (7,8,6), (6,8,5), (5,8,1), (1,8,4), (4,2,1), (2,4,3),
+      (4,8,7), (7,3,4))<br>
+      <i>IfcCartesianPointList.CoordList</i>: ((0.,0.,0.), (1.,0.,0.),
+      (1.,1.,0.), (0.,1.,0.), (0.,0.,2.), (1.,0.,2.), (1.,1.,2.),
+      (0.,1.,2.))<br>
+      <i>IfcIndexedTriangleTextureMap.TexCoordsIndex</i>: ((1 4 3), (1 2 4), (3 1 4), (4 1 2), (8 7 6), (6 7 5), (4 3 2), (2 3 1), 
+      (5 8 7), (8 5 6), (2 4 3), (3 1 2))<br>
+      <i>IfcTextureVertexList.TexCoordsList</i>: ((0. -0.5), (1. -0.5), (0. 1.5), (1. 1.5), 
+      (0. 0.), (0. 1.), (1. 0.), (1. 1.))
+    </p>
+    <table summary="">
+      <tr>
+        <td>
+          <img src=
+          "../../../figures/IfcIndexedTriangleTextureMap_example-01.png"
+          width="500" height="350" alt=
+          "IfcIndexedTriangleTextureMap_example-01">
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="figure">Figure 340 &mdash; Indexed triangle texture map geometry 
+          </p>
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+    </table>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC4.
+    </blockquote>
+  
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcIndexedTriangleTextureMap&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcindexedtriangletexturemap.htm">IfcIndexedTriangleTextureMap</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcindexedtexturemap.htm">IfcIndexedTextureMap</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcIndexedTriangleTextureMap&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcindexedtexturemap.htm">IfcIndexedTextureMap</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TexCoordIndex&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;xs:long&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;3&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcIndexedTriangleTextureMap
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcindexedtexturemap.htm">IfcIndexedTextureMap</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">TexCoordIndex</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="keyword">LIST</span> [3:3] OF <span class="self-ref">INTEGER</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationappearanceresource/diagram_0010.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">TexCoordIndex</span></td><td width="1%"> : </td><td>
+Index into the <a href="../../ifcpresentationappearanceresource/lexical/ifctexturevertexlist.htm">IfcTextureVertexList</a> for each vertex of the triangles representing the <a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a>.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcIndexedTriangleTextureMap
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifctexturecoordinate.htm">IfcTextureCoordinate</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Maps</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacetexture.htm">IfcSurfaceTexture</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcindexedtexturemap.htm">IfcIndexedTextureMap</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">MappedTo</td><td width="1%"> : </td><td><a href="../../ifcgeometricmodelresource/lexical/ifctessellatedfaceset.htm">IfcTessellatedFaceSet</a>;</td></tr>
+<tr valign="top"><td width="20%">TexCoords</td><td width="1%"> : </td><td><a href="../../ifcpresentationappearanceresource/lexical/ifctexturevertexlist.htm">IfcTextureVertexList</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcindexedtriangletexturemap.htm">IfcIndexedTriangleTextureMap</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">TexCoordIndex</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="keyword">LIST</span> [3:3] OF <span class="self-ref">INTEGER</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcindexedtriangletexturemap.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

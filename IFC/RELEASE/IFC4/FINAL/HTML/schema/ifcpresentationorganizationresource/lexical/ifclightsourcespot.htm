@@ -1,0 +1,245 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcLightSourceSpot</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.14.3.8");
+//-->
+</script>
+
+<h4 class="std">8.14.3.8 IfcLightSourceSpot</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Source de lumière ponctuelle</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Lichtquelle - Spot</b></td></tr>
+</table>
+
+
+<blockquote class="extDef">
+NOTE&nbsp; Definition according to ISO 10303-46:<br>
+The light source spot entity is a subtype of light source. Spot light source entities have a light source colour, position, direction, attenuation coefficients, concentration exponent, and spread angle. If a point lies outside the cone of influence of a light source of this type as determined by the light source position, direction and spread angle its colour is not affected by that light source.</blockquote> 
+
+<blockquote class="note"> 
+NOTE&nbsp; The <span class="self-ref">IfcLightSourceSpot</span> adds the <i>BeamWidthAngle</i> which defines the inner cone in which the light source emits light at uniform full intensity. The light source's emission intensity drops off from the inner solid angle (<i>BeamWidthAngle</i>) to the outer solid angle (<i>SpreadAngle</i>).
+</blockquote> 
+
+<blockquote class="extDef">
+NOTE&nbsp; Definition according to ISO/IEC 14772-1:1997:<br>
+The Spot light node defines a light source that emits light from a specific point along a specific direction vector and constrained within a solid angle. Spot lights may illuminate geometry nodes that respond to light sources and intersect the solid angle defined by the Spot light. Spot light nodes are specified in the local coordinate system and are affected by ancestors' transformations. Figure 351 shows the definition of spot light.
+
+<table>
+<tr><td><img src="../../../figures/IfcLightSourceSpot_Fig1.gif" alt="spot light" align="bottom" width="450" height="350" border="0"></td></tr>
+<tr><td><p class="figure">Figure 351 &mdash; Light source spot</p></td></tr>
+</table>
+</blockquote> 
+
+<blockquote class="note"> 
+NOTE&nbsp; Corresponding ISO 10303 entity: light_source_spot. Please refer to ISO/IS 10303-46:1994, p. 33 for the final definition of the formal standard.
+</blockquote>
+
+<blockquote class="note">
+NOTE&nbsp; In addition to the attributes as defined in ISO10303-46 the additional property from ISO/IEC 14772-1:1997 (VRML) <i>Radius</i>, <i>BeamWidth</i>, and <i>QuadricAttenuation</i> are added to this subtype and the <i>AmbientIntensity</i> and <i>Intensity</i> are inherited from the supertype.
+</blockquote> 
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x, renamed and enhanced in IFC2x2.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcLightSourceSpot&quot; type=&quot;ifc:<a href="../../ifcpresentationorganizationresource/lexical/ifclightsourcespot.htm">IfcLightSourceSpot</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpresentationorganizationresource/lexical/ifclightsourcepositional.htm">IfcLightSourcePositional</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcLightSourceSpot&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpresentationorganizationresource/lexical/ifclightsourcepositional.htm">IfcLightSourcePositional</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Orientation&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ConcentrationExponent&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SpreadAngle&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositiveplaneanglemeasure.htm">IfcPositivePlaneAngleMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;BeamWidthAngle&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositiveplaneanglemeasure.htm">IfcPositivePlaneAngleMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLightSourceSpot
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpresentationorganizationresource/lexical/ifclightsourcepositional.htm">IfcLightSourcePositional</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Orientation</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>;</td></tr>
+<tr valign="top"><td width="20%">ConcentrationExponent</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+<tr valign="top"><td width="20%">SpreadAngle</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveplaneanglemeasure.htm">IfcPositivePlaneAngleMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">BeamWidthAngle</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveplaneanglemeasure.htm">IfcPositivePlaneAngleMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationorganizationresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Orientation</span></td><td width="1%"> : </td><td>Definition from ISO/CD 10303-46:1992: This is the direction of the axis of the cone of the light source specified in the coordinate space of the representation being projected..
+Definition from VRML97 - ISO/IEC 14772-1:1997: The direction field specifies the direction vector of the light's central axis defined in the local coordinate system.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ConcentrationExponent</span></td><td width="1%"> : </td><td>Definition from ISO/CD 10303-46:1992: This real is the exponent on the cosine of the angle between the line that starts at the position of the spot light source and is in the direction of the orientation of the spot light source and a line that starts at the position of the spot light source and goes through a point on the surface being shaded.
+NOTE&nbsp; This attribute does not exists in ISO/IEC 14772-1:1997.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SpreadAngle</span></td><td width="1%"> : </td><td>Definition from ISO/CD 10303-46:1992: This planar angle measure is the angle between the line that starts at the position of the spot light source and is in the direction of the spot light source and any line on the boundary of the cone of influence.
+Definition from VRML97 - ISO/IEC 14772-1:1997: The cutOffAngle (name of spread angle in VRML) field specifies the outer bound of the solid angle. The light source does not emit light outside of this solid angle.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">BeamWidthAngle</span></td><td width="1%"> : </td><td>Definition from VRML97 - ISO/IEC 14772-1:1997: The beamWidth field specifies an inner solid angle in which the light source emits light at uniform full intensity. The light source's emission intensity drops off from the inner solid angle (beamWidthAngle) to the outer solid angle (spreadAngle).
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLightSourceSpot
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationorganizationresource/lexical/ifclightsource.htm">IfcLightSource</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">LightColour</td><td width="1%"> : </td><td><a href="../../ifcpresentationappearanceresource/lexical/ifccolourrgb.htm">IfcColourRgb</a>;</td></tr>
+<tr valign="top"><td width="20%">AmbientIntensity</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">Intensity</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationorganizationresource/lexical/ifclightsourcepositional.htm">IfcLightSourcePositional</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Position</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>;</td></tr>
+<tr valign="top"><td width="20%">Radius</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ConstantAttenuation</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+<tr valign="top"><td width="20%">DistanceAttenuation</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+<tr valign="top"><td width="20%">QuadricAttenuation</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationorganizationresource/lexical/ifclightsourcespot.htm">IfcLightSourceSpot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Orientation</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>;</td></tr>
+<tr valign="top"><td width="20%">ConcentrationExponent</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>;</td></tr>
+<tr valign="top"><td width="20%">SpreadAngle</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveplaneanglemeasure.htm">IfcPositivePlaneAngleMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">BeamWidthAngle</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveplaneanglemeasure.htm">IfcPositivePlaneAngleMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifclightsourcespot.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

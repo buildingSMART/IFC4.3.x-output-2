@@ -1,0 +1,178 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcStyledRepresentation</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.3.15");
+//-->
+</script>
+
+<h4 class="std">8.18.3.15 IfcStyledRepresentation</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Repräsentation mit Stilinformationen</b></td></tr>
+</table>
+
+
+<p>The <span class="self-ref">IfcStyledRepresentation</span> represents the concept of a styled presentation being a representation of a product or a product component, like material. within a representation context. This representation context does not need to be (but may be) a geometric representation context.</p>
+
+<blockquote class="note">
+NOTE&nbsp; Current usage of <span class="self-ref">IfcStyledRepresentation</span> is restricted to the assignment of presentation information to an material. The <span class="self-ref">IfcStyledRepresentation</span> includes only presentation styles (<a href="../../ifcpresentationappearanceresource/lexical/ifccurvestyle.htm">IfcCurveStyle</a>, <i>FillAreaStyle</i>, <a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacestyle.htm">IfcSurfaceStyle</a>) that define how a material should be presented within a particular (eventually view and scale dependent) representation context. All instances of <span class="self-ref">IfcStyledRepresentation</span> are referenced by <a href="../../ifcrepresentationresource/lexical/ifcmaterialdefinitionrepresentation.htm">IfcMaterialDefinitionRepresentation</a>, and assigned to <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a> by <i>IfcMaterialDefinitionRepresentation.RepresentedMaterial</i>.
+</blockquote>
+
+<p>A styled representation has to include one or several styled items with the associated style information (curve, symbol, text, fill area, or surface styles). It shall not contain the geometric representation items that are styled.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcStyledRepresentation&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcstyledrepresentation.htm">IfcStyledRepresentation</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcstylemodel.htm">IfcStyleModel</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcStyledRepresentation&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcstylemodel.htm">IfcStyleModel</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcStyledRepresentation
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcrepresentationresource/lexical/ifcstylemodel.htm">IfcStyleModel</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">OnlyStyledItems</td><td width="1%"> : </td><td>SIZEOF(QUERY(temp &lt;* SELF\IfcRepresentation.Items | 
+  (NOT('IFCPRESENTATIONAPPEARANCERESOURCE.IFCSTYLEDITEM' IN TYPEOF(temp)))
+)) = 0;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcrepresentationresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">OnlyStyledItems</span></td><td width="1%"> : </td><td>
+Only <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a>'s (or subtypes) are allowed as members in the list of <i>Items</i>, inherited from <a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>.
+<blockquote class="change-ifc2x3">IFC2x3 CHANGE&nbsp; New where rule to ensure the usage for material definition representations, and other non-shape representations</blockquote>
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcStyledRepresentation
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ContextOfItems</td><td width="1%"> : </td><td><a href="../../ifcrepresentationresource/lexical/ifcrepresentationcontext.htm">IfcRepresentationContext</a>;</td></tr>
+<tr valign="top"><td width="20%">RepresentationIdentifier</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">RepresentationType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Items</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RepresentationMap</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcgeometryresource/lexical/ifcrepresentationmap.htm">IfcRepresentationMap</a> <span class="keyword">FOR</span> MappedRepresentation;</td></tr>
+<tr valign="top"><td width="20%">LayerAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">OfProductRepresentation</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a> <span class="keyword">FOR</span> Representations;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcrepresentationresource/lexical/ifcstylemodel.htm">IfcStyleModel</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcrepresentationresource/lexical/ifcstyledrepresentation.htm">IfcStyledRepresentation</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcstyledrepresentation.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

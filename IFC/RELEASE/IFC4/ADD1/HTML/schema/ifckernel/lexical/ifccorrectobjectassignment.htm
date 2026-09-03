@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcCorrectObjectAssignment</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 1 index3 4 index4 0 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.1.4.1");
+//-->
+</script>
+
+<h4 class="num">IfcCorrectObjectAssignment</h4>
+<section>
+<h5 class="num">Semantic definitions at the function</h5>
+<details open="open"><summary>Function Definition</summary><p>
+This function checks, whether the correct object types are used within the IfcRelAssigns relationship (or one of its subtypes).
+<blockquote class="history">
+HISTORY&nbsp; New function in IFC2x
+</blockquote></p>
+</details>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<details open="open"><summary>EXPRESS Specification</summary><span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcCorrectObjectAssignment<br/>
+
+&nbsp;&nbsp;(Constraint: IfcObjectTypeEnum; Objects : SET[1:?] OF IfcObjectDefinition)<br/>&nbsp;&nbsp;: LOGICAL ;<br/>&nbsp;&nbsp;<br/>LOCAL<br/>&nbsp;&nbsp;Count : INTEGER := 0;<br/>END_LOCAL;<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;IF NOT(EXISTS(Constraint)) THEN <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(TRUE);<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;CASE Constraint OF<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcObjectTypeEnum.NOTDEFINED : RETURN(TRUE);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcObjectTypeEnum.PRODUCT :<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Objects | NOT('IFCKERNEL.IFCPRODUCT' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Count = 0);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcObjectTypeEnum.PROCESS :<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Objects | NOT('IFCKERNEL.IFCPROCESS' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Count = 0);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcObjectTypeEnum.CONTROL :<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Objects | NOT('IFCKERNEL.IFCCONTROL' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Count = 0);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcObjectTypeEnum.RESOURCE :<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Objects | NOT('IFCKERNEL.IFCRESOURCE' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Count = 0);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcObjectTypeEnum.ACTOR :<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Objects | NOT('IFCKERNEL.IFCACTOR' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Count = 0);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcObjectTypeEnum.GROUP :<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Objects | NOT('IFCKERNEL.IFCGROUP' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Count = 0);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfcObjectTypeEnum.PROJECT :<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Objects | NOT('IFCKERNEL.IFCPROJECT' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Count = 0);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHERWISE : RETURN(?);<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_CASE;<br/>
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+</details>
+</section>
+<p><a href="../../../link/ifccorrectobjectassignment.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

@@ -1,0 +1,200 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcMaterialProfileSetUsageTapering</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.10.3.14");
+//-->
+</script>
+
+<h4 class="std">8.10.3.14 IfcMaterialProfileSetUsageTapering</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Gruppe von Profilen mit Material - Verwendung (bei Verjüngung)</b></td></tr>
+</table>
+
+
+<p><span class="self-ref">IfcMaterialProfileSetUsageTapering</span> specifies dual material profile sets in association with tapered prismatic (beam- or column-like) elements.</p>
+
+<blockquote class="history">
+HISTORY  New entity in IFC4
+</blockquote>
+
+<p class="use-head">Usage with tapered building elements</p>
+<p>The inherited attribute <i>ForProfileSet</i> specifies the
+profile and material at the start of the member,
+<i>ForProfileEndSet</i> at its end. Start and end correspond to
+the extrusion direction in the shape model of the shape
+representation of the element or element type.</p>
+<p>Both material profile sets should refer to the same material,
+that is, only differ with respect to their profiles.</p>
+
+<p class="use-head">Usage with structural analysis curve members</p>
+<p><span class="self-ref">IfcMaterialProfileSetUsageTapering</span> may be used with the
+structural analysis idealization
+(<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemember.htm">IfcStructuralCurveMember</a>) of uniform members as well as
+of tapered members.</p>
+<p>In case of uniform members, <i>ForProfileSet</i> and
+<i>ForProfileEndSet</i> refer to the same material profile set.
+In case of tapered members, <i>ForProfileSet</i> specifies the
+profile and material at the start of the member,
+<i>ForProfileEndSet</i> at its end. Start and end correspond to
+the edge direction in the topological representation of the curve
+member.</p>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcMaterialProfileSetUsageTapering&quot; type=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusagetapering.htm">IfcMaterialProfileSetUsageTapering</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IfcMaterialProfileSetUsage</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcMaterialProfileSetUsageTapering&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IfcMaterialProfileSetUsage</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ForProfileEndSet&quot; type=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;CardinalEndPoint&quot; type=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifccardinalpointreference.htm">IfcCardinalPointReference</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcMaterialProfileSetUsageTapering
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IfcMaterialProfileSetUsage</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ForProfileEndSet</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a>;</td></tr>
+<tr valign="top"><td width="20%">CardinalEndPoint</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmaterialresource/lexical/ifccardinalpointreference.htm">IfcCardinalPointReference</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcmaterialresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">ForProfileEndSet</span></td><td width="1%"> : </td><td>
+The second <a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a> set to which the usage is applied.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CardinalEndPoint</span></td><td width="1%"> : </td><td>
+Index reference to a significant point in the second section profile. Describes how this section is aligned relative to the axis of the member it is associated with. This parametric specification of profile alignment can be provided redundantly to the explicit alignment defined by ForProfileSet.MaterialProfiles[*].Profile.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcMaterialProfileSetUsageTapering
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcmaterialresource/lexical/ifcmaterialusagedefinition.htm">IfcMaterialUsageDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">AssociatedTo</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a> <span class="keyword">FOR</span> RelatingMaterial;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IfcMaterialProfileSetUsage</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ForProfileSet</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a>;</td></tr>
+<tr valign="top"><td width="20%">CardinalPoint</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmaterialresource/lexical/ifccardinalpointreference.htm">IfcCardinalPointReference</a>;</td></tr>
+<tr valign="top"><td width="20%">ReferenceExtent</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusagetapering.htm">IfcMaterialProfileSetUsageTapering</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ForProfileEndSet</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a>;</td></tr>
+<tr valign="top"><td width="20%">CardinalEndPoint</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmaterialresource/lexical/ifccardinalpointreference.htm">IfcCardinalPointReference</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcmaterialprofilesetusagetapering.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

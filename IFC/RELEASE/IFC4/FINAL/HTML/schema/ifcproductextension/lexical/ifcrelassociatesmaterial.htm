@@ -1,0 +1,319 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcRelAssociatesMaterial</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.29");
+//-->
+</script>
+
+<h4 class="std">5.4.3.29 IfcRelAssociatesMaterial</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Association de matériau</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Ordnet Material zu - Relation</b></td></tr>
+</table>
+
+<p><span class="self-ref">IfcRelAssociatesMaterial</span> is an objectified relationship between a
+material definition and elements or element types to which this
+material definition applies.</p>
+
+<p>The material definition can be:</p>
+<ul>
+<li>assigned to an element occurrence as a specific usage of a
+layer set or profile set</li>
+<li>assigned to an element occurrence or element type as a layer
+set, profile set, constituent set or a single material</li>
+</ul>
+<p>Materials can be arranged by layers and applied to layered
+elements. Typical elements are walls and slabs.</p>
+<ul>
+<li>An <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>, for layered elements with an
+indication of the layering direction and individual layer
+thicknesses</li>
+<li>An <a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>, i.e. a material layer set
+with positioning information along the reference axis or surface
+of the element.
+
+<blockquote class="note">
+NOTE&nbsp; As a material layer set usage is an
+occurrence based information, that applies to each individual
+element, it cannot be assigned to an element
+type.
+</blockquote>
+
+</li>
+</ul>
+<p>Material can be applied to profiles. Typical elements using
+profile material are beam, column, member</p>
+<ul>
+<li>An <a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a>, i.e. a set of material
+assigned to a set of profiles, with a single material assigned to
+a single profile as the default.</li>
+<li>An <a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IfcMaterialProfileSetUsage</a>, i.e. a material profile
+set with positioning information relative to the element axis,
+also refered to as cardinal point.
+<blockquote class="note">
+NOTE&nbsp; As a material profile set usage is an
+occurrence based information, that applies to each individual
+element, it cannot be assigned to an element
+type.
+</blockquote>
+
+</li>
+</ul>
+<p>Materials can be arranged by identified parts of a component
+based element. Typical elements are dorrs/windows (with
+components such as lining, framing and glazing), or distribution
+elements.</p>
+<ul>
+<li>An <a href="../../ifcmaterialresource/lexical/ifcmaterialconstituentset.htm">IfcMaterialConstituentSet</a>, for component based
+elements with an indication of the component by keyword to which
+the material consituent applies.
+<blockquote class="note">
+NOTE&nbsp; See the material use definitions at each
+applicable subtype of <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a> or <a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>
+for a provision of these keywords.
+</blockquote>
+</li>
+</ul>
+
+<p>As a fallback, or in cases where only a single material
+information is needed, material information can be directly
+associated</p>
+<ul>
+<li>A single <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a> for any element where the
+material use definition does not prohibits its direct
+association</li>
+<li>An <a href="../../ifcmaterialresource/lexical/ifcmateriallist.htm">IfcMaterialList</a>, e.g. for composite elements,
+without an information, how the different materials are arranged.
+
+<blockquote class="deprecated">
+DEPRECATED&nbsp; The use of <a href="../../ifcmaterialresource/lexical/ifcmateriallist.htm">IfcMaterialList</a> is deprecated in IFC4 onwards. Use
+<a href="../../ifcmaterialresource/lexical/ifcmaterialconstituentset.htm">IfcMaterialConstituentSet</a> instead.
+</blockquote>
+
+</li>
+</ul>
+<p>The <span class="self-ref">IfcRelAssociatesMaterial</span> relationship is a special
+type of the <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> relationship. It can be
+applied to subtypes of <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a> and subtypes of
+<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>.</p>
+<ul>
+<li>The <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a> has an inverse relation to its material
+definition by the <i>HasAssociations</i> attribute, inherited
+from <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.</li>
+<li>The <a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a> has an inverse relation to its
+material definition by the <i>HasAssociations</i> attribute,
+inherited from <a href="../../ifckernel/lexical/ifcpropertydefinition.htm">IfcPropertyDefinition</a>.</li>
+</ul>
+<p>If both, the element occurrence (by an instance of
+<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>) and the element type (by an instance of
+<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>, connected through
+<a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a>) have an associated material, then the
+material associated to the element occurrence overrides the
+material associated to the element type.</p>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x.</blockquote>
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>An <a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a> shall not be associated
+with a subtype of <a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>, it should only be
+associated with individual occurrences</li>
+<li>An <a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IfcMaterialProfileSetUsage</a> shall not be associated
+with a subtype of <a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>, it should only be
+associated with individual occurrences</li>
+</ol>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcRelAssociatesMaterial&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcRelAssociatesMaterial&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatingMaterial&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcmaterialselect.htm">IfcMaterialSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelAssociatesMaterial
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingMaterial</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifcmaterialselect.htm">IfcMaterialSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">NoVoidElement</td><td width="1%"> : </td><td>SIZEOF(QUERY(temp &lt;* SELF\IfcRelAssociates.RelatedObjects | 
+  ('IFCPRODUCTEXTENSION.IFCFEATUREELEMENTSUBTRACTION' IN TYPEOF(temp)) OR 
+  ('IFCPRODUCTEXTENSION.IFCVIRTUALELEMENT' IN TYPEOF(temp)) 
+)) = 0;</td></tr>  <tr valign="top"><td width="20%">AllowedElements</td><td width="1%"> : </td><td>SIZEOF(QUERY(temp &lt;* SELF\IfcRelAssociates.RelatedObjects | (
+  SIZEOF(TYPEOF(temp) * [   
+    'IFCPRODUCTEXTENSION.IFCELEMENT', 
+    'IFCPRODUCTEXTENSION.IFCELEMENTTYPE',
+    'IFCSHAREDBLDGELEMENTS.IFCWINDOWSTYLE',
+    'IFCSHAREDBLDGELEMENTS.IFCDOORSTYLE',
+    'IFCSTRUCTURALANALYSISDOMAIN.IFCSTRUCTURALMEMBER',
+    'IFCPRODUCTEXTENSION.IFCPORT']) = 0) 
+)) = 0;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0010.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">RelatingMaterial</span></td><td width="1%"> : </td><td>
+Material definition assigned to the elements or element types. 
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">NoVoidElement</span></td><td width="1%"> : </td><td>
+The material information must not be associated to a substraction feature (such as an opening) or to a virtual element. 
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">AllowedElements</span></td><td width="1%"> : </td><td>
+The material information, using <a href="../../ifcmaterialresource/lexical/ifcmaterialselect.htm">IfcMaterialSelect</a> should be associated to an element occurrence (including structural members) or an element type (including the door and window styles). Also port can have assigned materials, here indicating the fluid flowing from the port.
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelAssociatesMaterial
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcrelationship.htm">IfcRelationship</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatedObjects</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcdefinitionselect.htm">IfcDefinitionSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingMaterial</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifcmaterialselect.htm">IfcMaterialSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcrelassociatesmaterial.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcMlsTotalThickness</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.10.4.1");
+//-->
+</script>
+
+<h4 class="std">8.10.4.1 IfcMlsTotalThickness</h4>
+<p>
+Function Semantic Definition
+Calculates the total thickness of a material layer set.
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcMlsTotalThickness<br/>
+
+(LayerSet : IfcMaterialLayerSet) : IfcLengthMeasure;<br/>&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;Max : IfcLengthMeasure := LayerSet.MaterialLayers[1].LayerThickness;&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;END_LOCAL;<br/><br/>&nbsp;&nbsp;IF SIZEOF(LayerSet.MaterialLayers) &gt; 1 THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;REPEAT i := 2 TO HIINDEX(LayerSet.MaterialLayers);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max := Max + LayerSet.MaterialLayers[i].LayerThickness;<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;RETURN (Max);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifcmlstotalthickness.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

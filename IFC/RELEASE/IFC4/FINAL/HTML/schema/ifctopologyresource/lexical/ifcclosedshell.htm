@@ -1,0 +1,180 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcClosedShell</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.20.3.2");
+//-->
+</script>
+
+<h4 class="std">8.20.3.2 IfcClosedShell</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Enveloppe fermée</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Geschlossene Hülle</b></td></tr>
+</table>
+ 
+<p> </p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+A closed shell is a shell of the dimensionality 2 which typically serves as a bound for a region in R3. A
+closed shell has no boundary, and has non-zero finite extent. If the shell has a domain with coordinate space R3, it divides that space into two connected
+regions, one finite and the other infinite. In this case, the topological normal of the shell is defined as being directed from the finite to the
+infinite region. <br><br> 
+The shell is represented by a collection of faces. The domain of the shell, if present, contains all those faces, together with their bounds.
+Associated with each face in the shell is a logical value which indicates whether the face normal agrees with (TRUE) or is opposed to (FALSE) the shell
+normal. The logical value can be applied directly as a BOOLEAN attribute of an oriented face, or be defaulted to TRUE if the shell boundary attribute member
+is a face without the orientation attribute. <br><br> 
+The combinatorial restrictions on closed shells and geometrical restrictions on their domains are designed to ensure that any domain associated
+with a closed shell is a closed, orientable manifold. The domain of a closed shell, if present, is a connected, closed, oriented 2-manifold. It is always
+topologically equivalent to an <i>H</i>-fold torus for some <i>H</i> &ge; 0. The number <i>H</i> is referred to as the
+surface genus of the shell. If a shell of genus <i>H</i> has a domain within coordinate space <i>R<sup>3</sup></i>, then the finite region of space inside
+it is topologically equivalent to a solid ball with <i>H</i> tunnels drilled through it.<br><br> 
+The Euler equation applies with <i>B</i>=0, because in this case there are no holes. As in the case of open shells, the surface genus <i>H</i>
+may not be known a priori, but shall be an integer &ge; 0. Thus a necessary, but not sufficient, condition
+for a well-formed closed shell is the following: 
+<blockquote><img src="../../../figures/IfcOpenShell-Math1.gif" width="240" height="18"></blockquote>
+</blockquote> 
+
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>closed_shell</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote> 
+
+<p class="spec-head">Informal Propositions:</p> 
+<ol> 
+<li>Every edge shall be referenced exactly twice by the loops of the face. </li> 
+<li>Each oriented edge shall be unique. </li> 
+<li>No edge shall be referenced by more than two faces. </li> 
+<li>Distinct faces of the shell do not intersect, but may share edges or vertices. </li> 
+<li>Distinct edges do not intersect but may share vertices. </li> 
+<li>Each face reference shall be unique. </li> 
+<li>The loops of the shell shall not be a mixture of poly loop and other loop types. Note: this is given, since only poly loop is defined as face bound definition.</li> 
+<li>The closed shell shall be an oriented arcwise connected 2-manifold.</li> 
+<li>The Euler equation shall be satisfied. Note: Please refer to ISO 10303-42 for the equation.</li> 
+</ol> 
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcClosedShell&quot; type=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcclosedshell.htm">IfcClosedShell</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcconnectedfaceset.htm">IfcConnectedFaceSet</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcClosedShell&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcconnectedfaceset.htm">IfcConnectedFaceSet</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcClosedShell
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifctopologyresource/lexical/ifcconnectedfaceset.htm">IfcConnectedFaceSet</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifctopologyresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcClosedShell
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifcconnectedfaceset.htm">IfcConnectedFaceSet</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">CfsFaces</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifctopologyresource/lexical/ifcface.htm">IfcFace</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifcclosedshell.htm">IfcClosedShell</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcclosedshell.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

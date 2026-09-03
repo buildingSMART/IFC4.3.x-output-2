@@ -1,0 +1,240 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcBoxedHalfSpace</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.7");
+//-->
+</script>
+
+<h4 class="std">8.8.3.7 IfcBoxedHalfSpace</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Eingerahmter Halbraum</b></td></tr>
+</table>
+
+<p>The <span class="self-ref">IfcBoxedHalfSpace</span> is used (as its supertype <a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>) only within Boolean operations.
+It divides the domain into exactly two subsets, where the domain in question is that of the attribute
+<i>Enclosure</i>.</p>
+<p>The purpose of the attribute <i>Enclosure</i> is to provide a search box for the other operand in the Boolean
+operation. It shall be sufficiently large to fully enclose the resulting solid after the Boolean operation with the
+half space. It however does not alter the final result. The result of the Boolean operation would be the same, as if
+executed by the supertype <a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>. See Figure 285 below.</p>
+<table summary="boxed half space">
+<tr>
+<td><img src="../../../figures/IfcBoxedHalfSpace_01.png" alt="correct use of enclosure" border="0"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 285 &mdash; Boxed half space operands</p>
+</td>
+</tr>
+</table>
+<p>The <a href="../../ifcgeometricmodelresource/lexical/ifcboundingbox.htm">IfcBoundingBox</a> that provides the enclosure is given for the
+convenience of the receiving application to enable the use of size box comparison for efficiency (for example, to check
+first whether size boxes intersect, if not no calculations has to be done to check whether the solids of the entities
+intersect).</p>
+<table summary="boxed half space">
+<tr>
+<td width="600" valign="top" align="left"><img src="../../../figures/IfcBoxedHalfSpace-Layout1.png" border="0" height="480"
+width="600" alt="boxed half space"></td>
+<td>The <i>Enclosure</i> therefore helps to prevent dealing with infinite-size related issues. The enclosure box is
+positioned within the object coordinate system, established by the <i>ObjectPlacement</i> of the element represented
+(for example, by <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a>). Figure 286 shows the <i>Enclosure</i> box being sufficiently large to
+fully enclose the Boolean result.</td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 286 &mdash; Boxed half space geometry</p>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+This entity is a subtype of the half space solid which is trimmed by a surrounding rectangular box. The box has its
+edges parallel to the coordinate axes of the geometric coordinate system.<br>
+The purpose of the box is to facilitate CSG computations by producing a solid of finite size.</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>boxed_half_space</strong> defined in ISO
+10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.5.1</blockquote>
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Usage correct, position coordinate system for <i>Enclosure</i>
+is the object coordinate system.</blockquote>
+
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcBoxedHalfSpace&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcboxedhalfspace.htm">IfcBoxedHalfSpace</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcBoxedHalfSpace&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Enclosure&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcboundingbox.htm">IfcBoundingBox</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBoxedHalfSpace
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Enclosure</td><td width="1%"> : </td><td><a href="../../ifcgeometricmodelresource/lexical/ifcboundingbox.htm">IfcBoundingBox</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Enclosure</span></td><td width="1%"> : </td><td>
+The box which bounds the resulting solid of the Boolean operation involving the half space solid for computational purposes only.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBoxedHalfSpace
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">BaseSurface</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>;</td></tr>
+<tr valign="top"><td width="20%">AgreementFlag</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := 3;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometricmodelresource/lexical/ifcboxedhalfspace.htm">IfcBoxedHalfSpace</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Enclosure</td><td width="1%"> : </td><td><a href="../../ifcgeometricmodelresource/lexical/ifcboundingbox.htm">IfcBoundingBox</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcboxedhalfspace.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

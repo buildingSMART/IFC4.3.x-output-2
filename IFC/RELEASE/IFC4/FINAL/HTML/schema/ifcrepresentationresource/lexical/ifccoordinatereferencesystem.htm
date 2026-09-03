@@ -1,0 +1,171 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcCoordinateReferenceSystem</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.3.2");
+//-->
+</script>
+
+<h4 class="std">8.18.3.2 IfcCoordinateReferenceSystem</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Système de coordonnées de référence</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Koordinatenbezugssystem</b></td></tr>
+</table>
+
+
+    <p>
+      The <span class="self-ref">IfcCoordinateReferenceSystem</span> is a definition of a
+      coordinate reference system by means of qualified identifiers
+      only. The interpretation of the identifier is expected to be
+      well-known to the receiving software.
+    </p>
+    <blockquote class="extDef">NOTE&nbsp; 
+      Definition from OpenGIS Abstract Specification, Topic 2:<br>
+      A coordinate reference system is a coordinate system which
+      is related to the real world by a datum. The coordinate
+      system is composed of a set of coordinate axes with specified
+      units of measure. The datum specifies the relationship of a
+      coordinate system to the earth. The resulting combination of
+      coordinate system and datum is a coordinate reference system.
+    </blockquote>
+    <blockquote class="note">
+      NOTE&nbsp; One widely-used, publicly-available authority is
+      the European Petroleum Survey Group (EPSG), and use of this
+      authority is currently specified in several OGC
+      Implementation Specifications. Software used to transport IFC
+      engineering models into GIS applications (and vice versa) is
+      expected to have knowledge about the OGC Implementation
+      Specifications.
+    </blockquote>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC4.
+    </blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcCoordinateReferenceSystem&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystem.htm">IfcCoordinateReferenceSystem</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:Entity&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcCoordinateReferenceSystem&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:Entity&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Name&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Description&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;GeodeticDatum&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;VerticalDatum&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCoordinateReferenceSystem
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcrepresentationresource/lexical/ifcprojectedcrs.htm">IfcProjectedCRS</a>)<b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+<tr valign="top"><td width="20%">GeodeticDatum</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">VerticalDatum</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcrepresentationresource/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Name</span></td><td width="1%"> : </td><td>Name by which the coordinate reference system is identified.
+<blockquote class="note">NOTE&nbsp; The name shall be taken from the list recognized by the European Petroleum Survey Group EPSG.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Description</span></td><td width="1%"> : </td><td>Informal description of this coordinate reference system.<br</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">GeodeticDatum</span></td><td width="1%"> : </td><td>
+Name by which this datum is identified. The geodetic datum is associated with the coordinate reference system and indicates the shape and size of the rotation ellipsoid and this ellipsoid's connection and orientation to the actual globe/earth. Examples for geodetic datums include:
+<ul>
+  <li>ED50</li>
+  <li>EUREF89</li>
+  <li>WSG84</li>
+<ul>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">VerticalDatum</span></td><td width="1%"> : </td><td>Name by which the vertical datum is identified. The vertical datum is associated with the height axis of the coordinate reference system and indicates the reference plane and fundamental point defining the origin of a height system. Examples for vertical datums include:
+<ul>
+  <li>height above mean sea level at Dover in 1952</li>
+  <li>other sea levels</li>
+</ul>
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCoordinateReferenceSystem
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystem.htm">IfcCoordinateReferenceSystem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+<tr valign="top"><td width="20%">GeodeticDatum</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">VerticalDatum</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifccoordinatereferencesystem.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

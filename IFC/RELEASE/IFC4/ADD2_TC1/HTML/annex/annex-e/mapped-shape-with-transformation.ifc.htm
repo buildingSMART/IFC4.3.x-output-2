@@ -1,0 +1,115 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Mapped shape with transformation</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<tt class="spf">
+ISO-10303-21;
+HEADER;
+<span style="color:green">/* NOTE a valid model view name has to be asserted, replacing 'notYetAssigned' ----------------- */</span>
+FILE_DESCRIPTION(('ViewDefinition [notYetAssigned]','Comment [manual creation of example file]'),'2;1');
+<span style="color:green">/* NOTE standard header information according to ISO 10303-21 ---------------------------------- */</span>
+FILE_NAME('mapped_shape_transformation.ifc','2011-11-07T18:00:00',('Thomas Liebich'),('buildingSMART International'),'IFC text editor','IFC text editor','reference file created for the IFC4 specification');
+<span style="color:green">/* NOTE schema name to be replaced with 'IFC4' after the final release  ------------------------ */</span>
+FILE_SCHEMA(('IFC4'));
+ENDSEC;
+DATA;
+<span style="color:green">/* --------------------------------------------------------------------------------------------- */</span>
+<span style="color:green">/* general entities required for all IFC data sets, defining the context for the exchange ------ */</span>
+<a id="100">#100</a>=<a class="listing-link" href="../../schema/ifckernel/lexical/ifcproject.htm">IFCPROJECT</a>('0xScRe4drECQ4DMSqUjd6d',<a href="#110" title="">#110</a>,'proxy with transformed mapped representation',$,$,$,$,(<a href="#201" title="">#201</a>),<a href="#301" title="">#301</a>);
+<span style="color:green">/* single owner history sufficient if not otherwise required by the view definition ------------ */</span>
+<span style="color:green">/* provides the person and application creating the data set, and the time it is created ------- */</span>
+<a id="110">#110</a>=<a class="listing-link" href="../../schema/ifcutilityresource/lexical/ifcownerhistory.htm">IFCOWNERHISTORY</a>(<a href="#111" title="">#111</a>,<a href="#115" title="">#115</a>,$,.ADDED.,1320688800,$,$,1320688800);
+<a id="111">#111</a>=<a class="listing-link" href="../../schema/ifcactorresource/lexical/ifcpersonandorganization.htm">IFCPERSONANDORGANIZATION</a>(<a href="#112" title="">#112</a>,<a href="#113" title="">#113</a>,$);
+<a id="112">#112</a>=<a class="listing-link" href="../../schema/ifcactorresource/lexical/ifcperson.htm">IFCPERSON</a>($,'Liebich','Thomas',$,$,$,$,$);
+<a id="113">#113</a>=<a class="listing-link" href="../../schema/ifcactorresource/lexical/ifcorganization.htm">IFCORGANIZATION</a>($,'buildingSMART International',$,$,$);
+<a id="115">#115</a>=<a class="listing-link" href="../../schema/ifcutilityresource/lexical/ifcapplication.htm">IFCAPPLICATION</a>(<a href="#113" title="">#113</a>,'1.0','IFC text editor','ifcTE');
+<span style="color:green">/* each IFC data set containing geometry has to define a geometric representation context ------ */</span>
+<span style="color:green">/* the attribute 'ContextType' has to be 'Model' for 3D model geometry ------------------------- */</span>
+<a id="201">#201</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcgeometricrepresentationcontext.htm">IFCGEOMETRICREPRESENTATIONCONTEXT</a>($,'Model',3,1.0E-5,<a href="#210" title="">#210</a>,$);
+<span style="color:green">/* the attribute 'ContextIdentifier' has to be 'Body' for the main 3D shape representation ----- */</span>
+<a id="202">#202</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IFCGEOMETRICREPRESENTATIONSUBCONTEXT</a>('Body','Model',,,,,<a href="#201" title="">#201</a>,$,.MODEL_VIEW.,$);
+<a id="210">#210</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#901" title="">#901</a>,$,$);
+<span style="color:green">/* each IFC data set containing geometry has to define at absolute minimum length and angle ---- */</span>
+<span style="color:green">/* here length is milli metre as SI unit, and plane angle is 'degree' as non SI unit ----------- */</span>
+<a id="301">#301</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcunitassignment.htm">IFCUNITASSIGNMENT</a>((<a href="#311" title="">#311</a>,<a href="#312" title="">#312</a>));
+<a id="311">#311</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcsiunit.htm">IFCSIUNIT</a>(,.LENGTHUNIT.,.MILLI.,.METRE.);
+<a id="312">#312</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcconversionbasedunit.htm">IFCCONVERSIONBASEDUNIT</a>(<a href="#313" title="">#313</a>,.PLANEANGLEUNIT.,'degree',<a href="#314" title="">#314</a>);
+<a id="313">#313</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcdimensionalexponents.htm">IFCDIMENSIONALEXPONENTS</a>(0,0,0,0,0,0,0);
+<a id="314">#314</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcmeasurewithunit.htm">IFCMEASUREWITHUNIT</a>(<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcplaneanglemeasure.htm">IFCPLANEANGLEMEASURE</a>(0.017453293),<a href="#315" title="">#315</a>);
+<a id="315">#315</a>=<a class="listing-link" href="../../schema/ifcmeasureresource/lexical/ifcsiunit.htm">IFCSIUNIT</a>(,.PLANEANGLEUNIT.,$,.RADIAN.);
+<span style="color:green">/* each IFC data set containing elements in a building context has to include a building ------- */</span>
+<span style="color:green">/* at absolute minimum (could have a site and stories as well) --------------------------------- */</span>
+<a id="500">#500</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcbuilding.htm">IFCBUILDING</a>('2FCZDorxHDT8NI01kdXi8P',$,'Test Building',$,$,<a href="#511" title="">#511</a>,$,$,.ELEMENT.,$,$,$);
+<span style="color:green">/* if the building is the uppermost spatial structure element it defines the absolut position -- */</span>
+<a id="511">#511</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>($,<a href="#512" title="">#512</a>);
+<span style="color:green">/* no rotation - z and x axes set to '$' are therefore identical to "world coordinate system" -- */</span>
+<a id="512">#512</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#901" title="">#901</a>,$,$);
+<span style="color:green">/* if the building is the uppermost spatial structure element it is assigned to the project ---- */</span>
+<a id="519">#519</a>=<a class="listing-link" href="../../schema/ifckernel/lexical/ifcrelaggregates.htm">IFCRELAGGREGATES</a>('2YBqaV_8L15eWJ9DA1sGmT',$,$,$,<a href="#100" title="">#100</a>,(<a href="#500" title="">#500</a>));
+<span style="color:green">/* shared coordinates - it is permissable to share common instances to reduce file size -------- */</span>
+<a id="901">#901</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((0.,0.,0.));
+<a id="902">#902</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,0.,0.));
+<a id="903">#903</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,1.,0.));
+<a id="904">#904</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,1.));
+<a id="905">#905</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-1.,0.,0.));
+<a id="906">#906</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,-1.,0.));
+<a id="907">#907</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((0.,0.,-1.));
+<span style="color:green">/* --------------------------------------------------------------------------------------------- */</span>
+<span style="color:green">/* proxy element with mapped representation, assigned to the building -------------------------- */</span>
+<span style="color:green">/* --------------------------------------------------------------------------------------------- */</span>
+<a id="1000">#1000</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbuildingelementproxy.htm">IFCBUILDINGELEMENTPROXY</a>('1kTvXnbbzCWw8lcMd1dR4o',$,'P-1','sample proxy',$,<a href="#1001" title="">#1001</a>,<a href="#1010" title="">#1010</a>,$,$);
+<span style="color:green">/* proxy element placement relative to the building -------------------------------------------- */</span>
+<a id="1001">#1001</a>=<a class="listing-link" href="../../schema/ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IFCLOCALPLACEMENT</a>(<a href="#511" title="">#511</a>,<a href="#1002" title="">#1002</a>);
+<span style="color:green">/* set local placement to 1 meter on x-axis, and 0 on y, and 0 on z axes ----------------------- */</span>
+<span style="color:green">/* no rotation - z and x axes set to '$' are therefore identical to those of building ---------- */</span>
+<a id="1002">#1002</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#1003" title="">#1003</a>,$,$);
+<a id="1003">#1003</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesianpoint.htm">IFCCARTESIANPOINT</a>((1000.,0.,0.));
+<span style="color:green">/* proxy element shape representation ---------------------------------------------------------- */</span>
+<a id="1010">#1010</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IFCPRODUCTDEFINITIONSHAPE</a>($,$,(<a href="#1020" title="">#1020</a>));
+<span style="color:green">/* a single shape representation of type 'MappedRepresentation' is included -------------------- */</span>
+<a id="1020">#1020</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#202" title="">#202</a>,'Body','MappedRepresentation',(<a href="#1021" title="">#1021</a>));
+<a id="1021">#1021</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcmappeditem.htm">IFCMAPPEDITEM</a>(<a href="#5010" title="">#5010</a>,<a href="#1022" title="">#1022</a>);
+<span style="color:green">/* Cartesian transformation of the mapped item ------------------------------------------------- */</span>
+<span style="color:green">/* with rotation by 45' in xy plane and non uniform scaling: x=0.5, y=0.5, z=1.0 --------------- */</span>
+<a id="1022">#1022</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifccartesiantransformationoperator3dnonuniform.htm">IFCCARTESIANTRANSFORMATIONOPERATOR3DNONUNIFORM</a>(<a href="#1023" title="">#1023</a>,<a href="#1024" title="">#1024</a>,<a href="#901" title="">#901</a>,0.5,<a href="#904" title="">#904</a>,0.5,1.);
+<a id="1023">#1023</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((1.,1.,0.));
+<a id="1024">#1024</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcdirection.htm">IFCDIRECTION</a>((-1.,1.,0.));
+<span style="color:green">/* --------------------------------------------------------------------------------------------- */</span>
+<span style="color:green">/* proxy element type with swept solid shape representation ------------------------------------ */</span>
+<span style="color:green">/* --------------------------------------------------------------------------------------------- */</span>
+<a id="5000">#5000</a>=<a class="listing-link" href="../../schema/ifcsharedbldgelements/lexical/ifcbuildingelementproxytype.htm">IFCBUILDINGELEMENTPROXYTYPE</a>('241tWGhBr3rvJJzQGOOY_x',$,'Type-P',$,$,$,(<a href="#5010" title="">#5010</a>),$,$,.NOTDEFINED.);
+<a id="5010">#5010</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcrepresentationmap.htm">IFCREPRESENTATIONMAP</a>(<a href="#5011" title="">#5011</a>,<a href="#5100" title="">#5100</a>);
+<a id="5011">#5011</a>=<a class="listing-link" href="../../schema/ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IFCAXIS2PLACEMENT3D</a>(<a href="#901" title="">#901</a>,$,$);
+<a id="5100">#5100</a>=<a class="listing-link" href="../../schema/ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IFCSHAPEREPRESENTATION</a>(<a href="#202" title="">#202</a>,'Body','SweptSolid',(<a href="#5021" title="">#5021</a>));
+<span style="color:green">/* based on a profile (or cross section) of 1m by 1m being extruded by 2m ---------------------- */</span>
+<a id="5021">#5021</a>=<a class="listing-link" href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IFCEXTRUDEDAREASOLID</a>(<a href="#5022" title="">#5022</a>,$,<a href="#904" title="">#904</a>,2000.);
+<a id="5022">#5022</a>=<a class="listing-link" href="../../schema/ifcprofileresource/lexical/ifcrectangleprofiledef.htm">IFCRECTANGLEPROFILEDEF</a>(.AREA.,'1m x 1m rectangle',$,1000.,1000.);
+<span style="color:green">/* extrusion body is placed centric with no rotation inside the object coordinate placement ---- */</span>
+<span style="color:green">/* extrusion position z = default = (0.,0.,1.), x = default = (1.,0.,0.) ----------------------- */</span>
+<span style="color:green">/* since IFC4 this is the default, therefore the Position can be nil --------------------------- */</span>
+<span style="color:green">/* proxy element assigned to the building ------------------------------------------------------ */</span>
+<a id="10000">#10000</a>=<a class="listing-link" href="../../schema/ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IFCRELCONTAINEDINSPATIALSTRUCTURE</a>('2TnxZkTXT08eDuMuhUUFNy',$,'Physical model',$,(<a href="#1000" title="">#1000</a>),<a href="#500" title="">#500</a>);
+<span style="color:green">/* proxy type - assignment to proxy occurrence ------------------------------------------------- */</span>
+<a id="10100">#10100</a>=<a class="listing-link" href="../../schema/ifckernel/lexical/ifcreldefinesbytype.htm">IFCRELDEFINESBYTYPE</a>('0DR6_plxf08eQ9Y0V0n$sV',$,$,$,(<a href="#1000" title="">#1000</a>),<a href="#5000" title="">#5000</a>);
+<span style="color:green">/* proxy type - declared within the project ---------------------------------------------------- */</span>
+<a id="10200">#10200</a>=<a class="listing-link" href="../../schema/ifckernel/lexical/ifcreldeclares.htm">IFCRELDECLARES</a>('1J7MBi$pT9ogxwD7fkPsrp',$,$,$,<a href="#100" title="">#100</a>,(<a href="#5000" title="">#5000</a>));
+ENDSEC;
+END-ISO-10303-21;
+</tt><p></p>
+  </body>
+</html>

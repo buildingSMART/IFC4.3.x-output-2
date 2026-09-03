@@ -1,0 +1,794 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcDoor</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.3.16");
+//-->
+</script>
+
+<h4 class="std">6.1.3.16 IfcDoor</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Tür</b></td></tr>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Porte</b></td></tr>
+</table>
+ 
+<p>The door is a building element that is predominately used to
+provide controlled access for people and goods. It includes
+constructions with hinged, pivoted, sliding, and additionally
+revolving and folding operations. A door consists of a lining and
+one or several panels.</p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO 6707-1: 
+construction for closing an opening, intended primarily for access
+with hinged, pivoted or sliding operation.</blockquote>
+<p>The <span class="self-ref">IfcDoor</span> defines a particular occurrence of a door
+inserted in the spatial context of a project. A door can:</p>
+<ul>
+<li>be inserted as a filler in an opening using the
+<a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a> relationship, then the <span class="self-ref">IfcDoor</span> has
+an inverse attribute <i>FillsVoids</i> provided;
+<blockquote class="note">NOTE&nbsp; View definitions or implementer
+agreements may restrict the relationship to only include one door
+into one opening</blockquote>
+</li>
+<li>be part of an element assembly, in general an
+<a href="../../ifcsharedbldgelements/lexical/ifccurtainwall.htm">IfcCurtainWall</a>, using the <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>
+relationship, then the <span class="self-ref">IfcDoor</span> has an inverse attribute
+<i>Decomposes</i> is provided;</li>
+<li>be a "free standing" door, then the <span class="self-ref">IfcDoor</span> has no
+inverse attributes <i>FillsVoids</i> or <i>Decomposes</i>
+provided.</li>
+</ul>
+<p>The IFC specification provides two entities for door
+occurrences:</p>
+<ul>
+<li><a href="../../ifcsharedbldgelements/lexical/ifcdoorstandardcase.htm">IfcDoorStandardCase</a> used for all occurrences of doors,
+that have a 'Profile' shape representation defined to which a set
+of shape parameters for lining and framing properties apply.
+Additionally it requires the provision of an <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>
+that references one <a href="../../ifcarchitecturedomain/lexical/ifcdoorliningproperties.htm">IfcDoorLiningProperties</a> and on to many
+<a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelproperties.htm">IfcDoorPanelProperties</a>;
+<blockquote class="note">
+NOTE&nbsp; see <a href="../../ifcsharedbldgelements/lexical/ifcdoorstandardcase.htm">IfcDoorStandardCase</a>
+for all specific constraints imposed by this subtype.</blockquote>
+</li>
+<li><span class="self-ref">IfcDoor</span> used for all other occurrences of doors,
+particularly for doors having only 'Brep', or 'SurfaceModel'
+geometry without applying shape parameters.</li>
+</ul>
+<p>The actual parameters of the door and/or its shape are defined
+by the <span class="self-ref">IfcDoor</span> as the occurrence definition (or project
+instance), or by the <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a> as the specific definition (or
+project type). The following parameters are given:</p>
+<ul>
+<li>at the <span class="self-ref">IfcDoor</span> or <a href="../../ifcsharedbldgelements/lexical/ifcdoorstandardcase.htm">IfcDoorStandardCase</a> for
+occurrence specific parameters. The <span class="self-ref">IfcDoor</span> specifies:</li>
+<li style="list-style: none">
+<ul>
+<li>the door width and height</li>
+<li>the door opening direction (by the y-axis of the <i>ObjectPlacement</i>)</li>
+</ul></li>
+<li>at the <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>, to
+which the <span class="self-ref">IfcDoor</span> is related by the inverse relationship
+<i>IsTypedBy</i> pointing to <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a>, for type
+parameters common to all occurrences of the same type.</li>
+<li style="list-style: none">
+<ul>
+<li>the operation type (single swing, double swing, revolving,
+etc.)</li>
+<li>the door hinge side (by using two different styles for right
+and left opening doors)</li>
+<li>the construction material type</li>
+<li>the particular attributes for the lining by the
+<a href="../../ifcarchitecturedomain/lexical/ifcdoorliningproperties.htm">IfcDoorLiningProperties</a></li>
+<li>the particular attributes for the panels by the
+<a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelproperties.htm">IfcDoorPanelProperties</a></li>
+</ul>
+</li>
+</ul>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0.</blockquote>
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attributes
+<i>PredefinedType</i> and <i>OperationType</i> are added, the
+applicable type object has been changed to
+<a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>.</blockquote>
+
+<p>The geometric representation of <span class="self-ref">IfcDoor</span> is given by the
+<a href="../../ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IfcProductDefinitionShape</a>, allowing multiple geometric
+representations. The <span class="self-ref">IfcDoor</span> may get its parameter and shape
+from the <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>. If an <a href="../../ifcgeometryresource/lexical/ifcrepresentationmap.htm">IfcRepresentationMap</a> (a
+block definition) is defined for the <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>, then the
+<span class="self-ref">IfcDoor</span> inserts it through the <a href="../../ifcgeometryresource/lexical/ifcmappeditem.htm">IfcMappedItem</a>.</p>
+
+<p>The&nbsp;geometric representation of <span class="self-ref">IfcDoor</span> is defined
+using the following (potentially&nbsp;multiple)
+<a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>'s for its
+<a href="../../ifcrepresentationresource/lexical/ifcproductdefinitionshape.htm">IfcProductDefinitionShape</a>:</p>
+<ul>
+<li><u>Profile</u>: A&nbsp;<font color="#0000FF">'Curve3D'</font>
+consisting of a single losed curve defining the outer boundary of
+the door (lining). The door parametric representation uses this
+profile in order to apply the door lining and panel parameter. If
+not provided, the profile of the <a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a> is
+taken.</li>
+<li><u>FootPrint</u>: A 'GeometricCurveSet', or 'Annotation2D'
+representation defining the 2D shape of the door</li>
+<li><u>Body</u>: A 'SweptSolid', 'SurfaceModel', or 'Brep'
+representation defining the 3D shape of the door.</li>
+</ul>
+<p>In addition the parametric representation of a (limited) door
+shape is available by applying the parameters from
+<a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a> referencing <a href="../../ifcarchitecturedomain/lexical/ifcdoorliningproperties.htm">IfcDoorLiningProperties</a> and
+<a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelproperties.htm">IfcDoorPanelProperties</a>. The purpose of the parameter is
+described at those entities and below (door opening operation by
+door type).</p>
+
+<p class="use-head">Parameteric Representation using parameters at
+<a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a></p>
+<p>The parameters that defines the shape of the <span class="self-ref">IfcDoor</span>, are
+given at the <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a> and the property sets, which are
+included in the <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>. The <span class="self-ref">IfcDoor</span> only defines
+the local placement which determines the opening direction of the
+door. The overall size of the <span class="self-ref">IfcDoor</span> to be used to apply
+the lining or panel parameter provided by the <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a> is
+determined by the IfcShapeRepresentation with the
+RepresentationIdentifier = 'Profile'.</p>
+<blockquote class="note">NOTE&nbsp; The <i>OverallWidth</i> and
+<i>OverallHeight</i> parameters are for informational purpose
+only.</blockquote>
+<p>The opening direction is determined by the local placement of
+<span class="self-ref">IfcDoor</span> and the <i>OperationType</i> of the door style as
+shown in Figure 185.</p>
+<blockquote class="note">NOTE&nbsp; There are different definitions
+in various countries on what a left opening or left hung or left
+swing door is (same for right). Therefore the IFC definition may
+derivate from the local standard and need to be mapped
+appropriately.</blockquote>
+<table>
+<tr>
+<td>
+<table border="1" cellpadding="2" cellspacing="2" style=
+" width:90%;">
+<thead>
+<tr>
+<td align="left" valign="top"><small><b>Opening
+directions</b></small></td>
+<td align="left" valign="top">
+<small><b>Definitions</b></small></td>
+<td align="left" valign="top"><small><b>Reference to other
+standards</b></small></td>
+</tr>
+</thead>
+<tbody>
+<tr valign="top">
+<td><small><img alt="fig 1" src="../../../figures/IfcDoor-Fig01.gif" height=
+"130" width="150"><br></small></td>
+<td align="left"><small>The door panel (for swinging doors) opens
+always into the direction of the positive Y axis of the local
+placement. The determination of whether the door opens to the left
+or to the right is done at the level of the <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>.
+Here it is a left side opening door given
+by&nbsp;<i>IfcDoorType.OperationType</i> =
+SingleSwingLeft</small></td>
+<td align="left"><small>refered to as LEFT HAND (LH) in US *<br>
+<br>
+refered to as DIN-R (right hung) in Germany</small></td>
+</tr>
+<tr valign="top">
+<td><small><img alt="fig 2" src="../../../figures/IfcDoor-Fig02.gif" height=
+"130" width="150"><br></small></td>
+<td align="left"><small>If the door should open to the other side,
+then the local placement has to be changed. It is still a left side
+opening door, given by <i>IfcDoorType.OperationType</i> =
+SingleSwingLeft</small></td>
+<td align="left"><small>refered to as RIGHT HAND REVERSE (RHR) in
+US *<br>
+<br>
+refered to as DIN-R (right hung) in Germany</small></td>
+</tr>
+<tr valign="top">
+<td><img alt="fig 3" src="../../../figures/IfcDoor-Fig03.gif" height="130"
+width="150"></td>
+<td align="left"><small>If the door panel (for swinging doors)
+opens to the right, a separate door style needs to be used (here
+<i>IfcDoorTypee.OperationType</i> = SingleSwingRight) and it always
+opens into the direction of the positive Y axis of the local
+placement.&nbsp;</small></td>
+<td align="left"><small>refered to as RIGHT HAND (RH) in US *<br>
+<br>
+refered to as DIN-L (left hung) in Germany</small></td>
+</tr>
+<tr valign="top">
+<td align="left" valign="top"><small><img alt="fig 4" src=
+"../../../figures/IfcDoor-Fig04.gif" height="130" width=
+"150"><br></small></td>
+<td align="left"><small>If the door panel (for swinging doors)
+opens to the right, and into the opposite directions, the local
+placement of the door need to change. The door style is given by
+<i>IfcDoorType.OperationType</i> = SingleSwingRight.</small></td>
+<td align="left"><small>refered to as LEFT HAND REVERSE (LHR) in US
+*<br>
+<br>
+refered to as DIN-L (left hung) in Germany</small></td>
+</tr>
+</tbody>
+<tfoot>
+<tr valign="top">
+<td align="right" colspan="3"><small>* it assumes that the
+'inside/private/primary' space is above (top in the pictures) and
+the 'outside/public/secondary' space is below (bottom in the
+pictures).</small></td>
+</tr>
+</tfoot>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 185 &mdash; Door swing</p>
+</td>
+</tr>
+</table>
+
+
+
+<hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+<li><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>: <a href="../../templates/box-geometry.htm">Box Geometry</a>, <a href="../../templates/footprint-geometry.htm">FootPrint Geometry</a>, <a href="../../templates/body-surfaceorsolidmodel-geometry.htm">Body SurfaceOrSolidModel Geometry</a>, <a href="../../templates/body-surfacemodel-geometry.htm">Body SurfaceModel Geometry</a>, <a href="../../templates/body-tessellation-geometry.htm">Body Tessellation Geometry</a>, <a href="../../templates/body-brep-geometry.htm">Body Brep Geometry</a>, <a href="../../templates/body-advancedbrep-geometry.htm">Body AdvancedBrep Geometry</a>, <a href="../../templates/body-csg-geometry.htm">Body CSG Geometry</a>, <a href="../../templates/mapped-geometry.htm">Mapped Geometry</a></li>
+<li><a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>: <a href="../../templates/product-assignment.htm">Product Assignment</a>, <a href="../../templates/surface-3d-geometry.htm">Surface 3D Geometry</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcdoor.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="object-typing" />
+<p class="use-head">Object Typing</p>
+<p>The <a href="../../templates/object-typing.htm">Object Typing</a> concept applies to this entity as shown in Table 119.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a></td><td>&nbsp;</td></tr>
+<tr><td><a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a></td><td><blockquote class="note">NOTE&nbsp;This type is deprecated</blockquote></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 119 &mdash; IfcDoor Object Typing</td></tr></table>
+
+
+<br/><br/>
+
+<a name="property-sets-for-objects" />
+<p class="use-head">Property Sets for Objects</p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept applies to this entity as shown in Table 120.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>Name</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgelements/pset/pset_doorcommon.htm">Pset_DoorCommon</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcstructuralelementsdomain/pset/pset_concreteelementgeneral.htm">Pset_ConcreteElementGeneral</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcstructuralelementsdomain/pset/pset_precastconcreteelementfabrication.htm">Pset_PrecastConcreteElementFabrication</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcstructuralelementsdomain/pset/pset_precastconcreteelementgeneral.htm">Pset_PrecastConcreteElementGeneral</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_condition.htm">Pset_Condition</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pset_environmentalimpactindicators.htm">Pset_EnvironmentalImpactIndicators</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pset_environmentalimpactvalues.htm">Pset_EnvironmentalImpactValues</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_manufactureroccurrence.htm">Pset_ManufacturerOccurrence</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_manufacturertypeinformation.htm">Pset_ManufacturerTypeInformation</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedmgmtelements/pset/pset_packinginstructions.htm">Pset_PackingInstructions</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_servicelife.htm">Pset_ServiceLife</a></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_warranty.htm">Pset_Warranty</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 120 &mdash; IfcDoor Property Sets for Objects</td></tr></table>
+
+
+<br/><br/>
+
+<a name="quantity-sets" />
+<p class="use-head">Quantity Sets</p>
+<p>The <a href="../../templates/quantity-sets.htm">Quantity Sets</a> concept applies to this entity as shown in Table 121.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Name</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/qset/qto_doorbasequantities.htm">Qto_DoorBaseQuantities</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 121 &mdash; IfcDoor Quantity Sets</td></tr></table>
+
+
+<br/><br/>
+
+<a name="material-constituents" />
+<p class="use-head">Material Constituents</p>
+<p>The <a href="../../templates/material-constituents.htm">Material Constituents</a> concept applies to this entity as shown in Table 122.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Description</b></th></tr>
+<tr><td>Lining</td><td>Indicates that the material constituent applies to the door lining.</td></tr>
+<tr><td>Framing</td><td>Indicates that the material constituent applies to the door panel(s); if not provided, the 'Lining' material information applies to panel(s) as well.</td></tr>
+<tr><td>Glazing</td><td>Indicates that the material constituent applies to the glazing part.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 122 &mdash; IfcDoor Material Constituents</td></tr></table>
+
+<p>The material of the <span class="self-ref">IfcDoor</span> is defined by the
+<a href="../../ifcmaterialresource/lexical/ifcmaterialconstituentset.htm">IfcMaterialConstituentSet</a> or as fall back by
+<a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a> and attached by the
+<a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a><i>.RelatingMaterial</i>. It is
+accessible by the inverse <i>HasAssociations</i> relationship.</p>
+<p>If the fall back single <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a> is referenced, it
+applies to the lining and framing of the door.</p>
+
+
+<br/><br/>
+
+<a name="spatial-containment" />
+<p class="use-head">Spatial Containment</p>
+<p>The <a href="../../templates/spatial-containment.htm">Spatial Containment</a> concept applies to this entity as shown in Table 123.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Structure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>Default spatial container </td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>Spatial container for the element if it cannot be assigned to a building storey</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></td><td>Spatial container for the element in case that it is placed on site (outside of building)</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>In particular use cases, a door maybe assigned directly to space</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 123 &mdash; IfcDoor Spatial Containment</td></tr></table>
+
+<p>The <span class="self-ref">IfcDoor</span>, as any subtype of <a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>, 
+may participate alternatively in one of the two different containment relationships:</p>
+<ul>
+<li>the <span class="self-ref">Spatial Containment</span> (defined here), or</li>
+<li>the <span class="self-ref">Element Composition</span>.</li>
+</ul>
+
+<p>The <span class="self-ref">IfcDoor</span> may also be connected to the <a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a> in which it is placed as a filler. In this case, the spatial containment relationship shall be provided, see Figure 186.</p>
+<table>
+ 
+<tr valign="bottom">
+  
+<td><img src="../../../figures/IfcDoor_Containment-01.png" alt="Containment"
+width="500" height="460" border="0"></td>
+  
+<td>
+<blockquote class="note">NOTE&nbsp; The containment shall be
+defined independently of the filling relationship, that is, even if
+
+   the <span class="self-ref">IfcDoor</span> is a filling of an opening established by
+<a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a>, it is also contained in the spatial
+structure by
+   <a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a>.</blockquote>
+</td>
+
+ </tr>
+
+ <tr>
+  
+<td>
+<p class="figure">Figure 186 &mdash; Door spatial containment</p>
+</td>
+
+  <td>&nbsp;</td>
+ 
+</tr>
+
+</table>
+
+
+<br/><br/>
+
+<a name="product-placement" />
+<p class="use-head">Product Placement</p>
+<p>The <a href="../../templates/product-placement.htm">Product Placement</a> concept applies to this entity as shown in Table 124.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Relative</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a></td><td><a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a></td><td>Relative placement according to position and rotation relative to container.</td></tr>
+<tr><td><a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a></td><td>&nbsp;</td><td>Absolute placement according to position and rotation of world coordinate system.</td></tr>
+<tr><td><a href="../../ifcgeometricconstraintresource/lexical/ifcgridplacement.htm">IfcGridPlacement</a></td><td>&nbsp;</td><td>Placement according to grid intersection.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 124 &mdash; IfcDoor Product Placement</td></tr></table>
+
+<p>The following restriction is imposed:</p>
+
+<ol>
+<li>The <i>PlacementRelTo</i> relationship of
+<a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a> shall point to the local placement of the
+same element (if given), in which the <span class="self-ref">IfcDoor</span> is used as a
+filling (normally an <a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>), as provided by the
+<a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a> relationship;</li>
+<li>If the <span class="self-ref">IfcDoor</span> is part of an assembly, e.g. an
+<a href="../../ifcsharedbldgelements/lexical/ifccurtainwall.htm">IfcCurtainWall</a>, then the <i>PlacementRelTo</i>
+relationship of <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a> shall point (if given) to
+the local placement of that assembly;</li>
+<li>If the <span class="self-ref">IfcDoor</span> is not inserted into an
+<a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>, then the <i>PlacementRelTo</i>
+relationship of <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a> shall point (if given) to
+the local placement of the same <a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>
+that is used in the <i>ContainedInStructure</i> inverse attribute
+or to a referenced spatial structure element at a higher
+level.</li>
+</ol>
+
+<blockquote class="note">NOTE&nbsp; The product placement is used to determine the opening direction of the door.</blockquote>
+<br/><br/>
+
+<a name="profile-3d-geometry" />
+<p class="use-head">Profile 3D Geometry</p>
+<p>The <a href="../../templates/profile-3d-geometry.htm">Profile 3D Geometry</a> concept applies to this entity.</p><p>The door profile is represented by a three-dimensional closed
+curve within a particular shape representation. The profile is used 
+to apply the parameter of the parametric door 
+representation. Only a single closed
+ curve shall be contained in the set of
+<i>IfcShapeRepresentation.Items</i>.
+
+<p>A 'Profile' representation has to be provided if a parametric 
+representation is applied to the door.</p>
+
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcDoor&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcDoor&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;OverallHeight&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;OverallWidth&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcdoortypeenum.htm">IfcDoorTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;OperationType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcdoortypeoperationenum.htm">IfcDoorTypeOperationEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;UserDefinedOperationType&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcDoor
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcsharedbldgelements/lexical/ifcdoorstandardcase.htm">IfcDoorStandardCase</a>)
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">OverallHeight</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">OverallWidth</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgelements/lexical/ifcdoortypeenum.htm">IfcDoorTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">OperationType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgelements/lexical/ifcdoortypeoperationenum.htm">IfcDoorTypeOperationEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">UserDefinedOperationType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">CorrectStyleAssigned</td><td width="1%"> : </td><td>(SIZEOF(IsTypedBy) = 0) 
+OR ('IFCSHAREDBLDGELEMENTS.IFCDOORTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">OverallHeight</span></td><td width="1%"> : </td><td>Overall measure of the height, it reflects the Z Dimension of a bounding box, enclosing the <strike>body of the</strike> door opening. If omitted, the <i>OverallHeight</i> should be taken from the geometric representation of the <i>IfcOpening</i> in which the door is inserted. 
+  <blockquote class="note">NOTE&nbsp; The body of the door might be taller then the door opening (e.g. in cases where the door lining includes a casing). In these cases the <i>OverallHeight</i> shall still be given as the door opening height, and not as the total height of the door lining.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">OverallWidth</span></td><td width="1%"> : </td><td>Overall measure of the width, it reflects the X Dimension of a bounding box, enclosing the <strike>body of the</strike> door opening. If omitted, the <i>OverallWidth</i> should be taken from the geometric representation of the <i>IfcOpening</i> in which the door is inserted. 
+  <blockquote class="note">NOTE&nbsp; The body of the door might be wider then the door opening (e.g. in cases where the door lining includes a casing). In these cases the <i>OverallWidth</i> shall still be given as the door opening width, and not as the total width of the door lining.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PredefinedType</span></td><td width="1%"> : </td><td>
+Predefined generic type for a door that is specified in an enumeration. There may be a property set given specificly for the predefined types.
+<blockquote class="note">NOTE&nbsp; The <i>PredefinedType</i> shall only be used, if no <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a> is assigned, providing its own <i>IfcDoorType.PredefinedType</i>.</blockquote>
+<blockquote class="change-ifc2x4">IFC4 CHANGE  The attribute has been added at the end of the entity definition.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">OperationType</span></td><td width="1%"> : </td><td>
+Type defining the general layout and operation of the door type in terms of the partitioning of panels and panel operations. 
+<blockquote class="note">NOTE&nbsp; The <i>OperationType</i> shall only be used, if no type object <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a> is assigned, providing its own <i>IfcDoorType.OperationType</i>.
+  </blockquote>
+  <blockquote class="change-ifc2x4">IFC4 CHANGE  The attribute has been added at the end of the entity definition.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">UserDefinedOperationType</span></td><td width="1%"> : </td><td>
+Designator for the user defined operation type, shall only be provided, if the value of <i>OperationType</i> is set to USERDEFINED.
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">CorrectStyleAssigned</span></td><td width="1%"> : </td><td>
+Either there is no door type object associated, i.e. the <i>IsTypedBy</i> inverse relationship is not provided, or the associated type object has to be of type <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>.
+<blockquote class="note">NOTEnbsp; The deprecated type <a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a> is still included for backward compatibility reasons.
+  </blockquote>
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcDoor
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDeclaredBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">IsTypedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectPlacement</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>;</td></tr>
+<tr valign="top"><td width="20%">Representation</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ReferencedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a> <span class="keyword">FOR</span> RelatingProduct;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Tag</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">FillsVoids</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a> <span class="keyword">FOR</span> RelatedBuildingElement;</td></tr>
+<tr valign="top"><td width="20%">ConnectedTo</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a> <span class="keyword">FOR</span> RelatingElement;</td></tr>
+<tr valign="top"><td width="20%">IsInterferedByElements</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelinterfereselements.htm">IfcRelInterferesElements</a> <span class="keyword">FOR</span> RelatedElement;</td></tr>
+<tr valign="top"><td width="20%">InterferesElements</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelinterfereselements.htm">IfcRelInterferesElements</a> <span class="keyword">FOR</span> RelatingElement;</td></tr>
+<tr valign="top"><td width="20%">HasProjections</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelprojectselement.htm">IfcRelProjectsElement</a> <span class="keyword">FOR</span> RelatingElement;</td></tr>
+<tr valign="top"><td width="20%">ReferencedInStructures</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelreferencedinspatialstructure.htm">IfcRelReferencedInSpatialStructure</a> <span class="keyword">FOR</span> RelatedElements;</td></tr>
+<tr valign="top"><td width="20%">HasOpenings</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelvoidselement.htm">IfcRelVoidsElement</a> <span class="keyword">FOR</span> RelatingBuildingElement;</td></tr>
+<tr valign="top"><td width="20%">IsConnectionRealization</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelconnectswithrealizingelements.htm">IfcRelConnectsWithRealizingElements</a> <span class="keyword">FOR</span> RealizingElements;</td></tr>
+<tr valign="top"><td width="20%">ProvidesBoundaries</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a> <span class="keyword">FOR</span> RelatedBuildingElement;</td></tr>
+<tr valign="top"><td width="20%">ConnectedFrom</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a> <span class="keyword">FOR</span> RelatedElement;</td></tr>
+<tr valign="top"><td width="20%">ContainedInStructure</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a> <span class="keyword">FOR</span> RelatedElements;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasCoverings</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcsharedbldgelements/lexical/ifcrelcoversbldgelements.htm">IfcRelCoversBldgElements</a> <span class="keyword">FOR</span> RelatingBuildingElement;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">OverallHeight</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">OverallWidth</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgelements/lexical/ifcdoortypeenum.htm">IfcDoorTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">OperationType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgelements/lexical/ifcdoortypeoperationenum.htm">IfcDoorTypeOperationEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">UserDefinedOperationType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcdoor.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

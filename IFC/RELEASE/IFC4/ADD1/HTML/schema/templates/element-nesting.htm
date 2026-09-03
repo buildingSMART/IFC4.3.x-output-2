@@ -1,0 +1,55 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Element Nesting</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-4.htm#4.5.2.2");
+//-->
+</script>
+
+<h4 class="std">4.5.2.2 Element Nesting</h4>
+<p>Provision of a nesting structure where the element, representing the host, has connectable components represented by other elements.</p>
+
+<p>The nesting structure then provides the following:</p>
+<ul>
+<li><i>Placement</i> &mdash; the common object coordinate system to which the components are placed relative</li>
+<li><a href="body-geometry.htm">Body Geometry</a> &mdash; geometry of the nesting element is independent from the <a href="body-geometry.htm">Body Geometry</a> of nested parts;</li>
+</ul>
+
+<p>The hosted component should not be contained in the spatial hierarchy, i.e. the concept <a href="spatial-containment.htm">Spatial Containment</a> shall not be used at the level of hosted components. The hosted component is contained in the spatial structure by the spatial containment of its host.</p>
+
+<p>Examples of element nesting include:</p>
+<ul>
+<li>Doors having holes pre-drilled to attach knobs</li>
+<li>Sinks having holes pre-drilled to attach faucets</li>
+<li>Junction boxes having one or more gangs where switches, outlets, or fixtures may be attached</li>
+</ul>
+
+<p>Element nesting should be used for cases where the hosting element has a specific position for attaching other elements of a particular type or form factor where there is no port connection. Ports should be used for scenarios where there is any distribution flow between objects (e.g. electricity, liquid, air/gas). For all other physical connections, the <a href="../ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a> relationship and its subtypes should be used.</p>
+<blockquote class="EXAMPLE">EXAMPLE&nbsp; Electric distribution boards would use ports to connect to contained circuit breakers rather than nesting, because there is an electrical connection between the board and each breaker.</blockquote>
+
+<p>A general rule for using nesting as opposed to aggregation is based on the contents of the manufactured product as ordered according to its specified article number.  If the product includes the component (regardless of whether it comes assembled), then it should use aggregation. If the product does not include any such component but is specifically designed for attaching to other components, then it should use nesting.</p>
+<p class="fig-ref">Figure 36 illustrates an instance diagram.</p>
+<table><tr><td><img alt="Element Nesting" src="./diagrams/element-nesting.png" usemap="#f36"><map name="f36"><area shape="rect" coords="8,8,176,404" href="../ifcproductextension/lexical/ifcelement.htm" alt="IfcElement" /><area shape="rect" coords="208,8,376,92" href="../ifckernel/lexical/ifcrelnests.htm" alt="IfcRelNests" /><area shape="rect" coords="408,8,576,404" href="../ifcproductextension/lexical/ifcelement.htm" alt="IfcElement" /><area shape="rect" coords="608,8,776,68" href="../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm" alt="IfcLocalPlacement" /></map></td></tr><tr><td><p class="figure">Figure 36 &mdash; Element Nesting</p></td></tr></table>
+
+<p><a href="../../link/element-nesting.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

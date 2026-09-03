@@ -1,0 +1,209 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcSurfaceReinforcementArea</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.19.3.20");
+//-->
+</script>
+
+<h4 class="std">8.19.3.20 IfcSurfaceReinforcementArea</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Oberfläche - Bewehrungsfläche</b></td></tr>
+</table>
+
+
+<p>Describes required or provided reinforcement area of surface members.</p>
+
+<blockquote class="note">NOTE&nbsp; Member design parameters like concrete cover, effective depth, orientation of meshes or rebars (two, optionally three directions) etc. are not specified in <i>IfcStructuralLoadResource</i> schema.  They shall be specified at the level of structural members.</blockquote>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcSurfaceReinforcementArea&quot; type=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcsurfacereinforcementarea.htm">IfcSurfaceReinforcementArea</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadorresult.htm">IfcStructuralLoadOrResult</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcSurfaceReinforcementArea&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadorresult.htm">IfcStructuralLoadOrResult</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SurfaceReinforcement1&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;2&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:maxLength value=&quot;3&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SurfaceReinforcement2&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;2&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:maxLength value=&quot;3&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ShearReinforcement&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcratiomeasure.htm">IfcRatioMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcSurfaceReinforcementArea
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadorresult.htm">IfcStructuralLoadOrResult</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">SurfaceReinforcement1</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [2:3] OF <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">SurfaceReinforcement2</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [2:3] OF <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ShearReinforcement</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcratiomeasure.htm">IfcRatioMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">SurfaceAndOrShearAreaSpecified</td><td width="1%"> : </td><td>EXISTS(SurfaceReinforcement1) OR EXISTS(SurfaceReinforcement2) OR EXISTS(ShearReinforcement);</td></tr>  <tr valign="top"><td width="20%">NonnegativeArea1</td><td width="1%"> : </td><td>(NOT EXISTS(SurfaceReinforcement1)) OR (
+    (SurfaceReinforcement1[1] &gt;= 0.) AND
+    (SurfaceReinforcement1[2] &gt;= 0.) AND
+    ((SIZEOF(SurfaceReinforcement1) = 1) OR (SurfaceReinforcement1[1] &gt;= 0.))
+);</td></tr>  <tr valign="top"><td width="20%">NonnegativeArea2</td><td width="1%"> : </td><td>(NOT EXISTS(SurfaceReinforcement2)) OR (
+    (SurfaceReinforcement2[1] &gt;= 0.) AND
+    (SurfaceReinforcement2[2] &gt;= 0.) AND
+    ((SIZEOF(SurfaceReinforcement2) = 1) OR (SurfaceReinforcement2[1] &gt;= 0.))
+);</td></tr>  <tr valign="top"><td width="20%">NonnegativeArea3</td><td width="1%"> : </td><td>(NOT EXISTS(ShearReinforcement)) OR (ShearReinforcement &gt;= 0.);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralloadresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">SurfaceReinforcement1</span></td><td width="1%"> : </td><td>Reinforcement at the face of the member which is located at the side of the positive local z direction of the surface member.  Specified as area per length, e.g. square metre per metre (hence length measure, e.g. metre).  The reinforcement area may be specified for two or three directions of reinforcement bars.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SurfaceReinforcement2</span></td><td width="1%"> : </td><td>Reinforcement at the face of the member which is located at the side of the negative local z direction of the surface member.  Specified as area per length, e.g. square metre per metre (hence length measure, e.g. metre).  The reinforcement area may be specified for two or three directions of reinforcement bars.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ShearReinforcement</span></td><td width="1%"> : </td><td>Shear reinforcement.  Specified as area per area, e.g. square metre per square metre (hence ratio measure, i.e. unitless).</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">SurfaceAndOrShearAreaSpecified</span></td><td width="1%"> : </td><td>At least one of the reinforcement area attributes shall be specified.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">NonnegativeArea1</span></td><td width="1%"> : </td><td>Surface reinforcement area must not be less than 0.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">NonnegativeArea2</span></td><td width="1%"> : </td><td>Surface reinforcement area must not be less than 0.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">NonnegativeArea3</span></td><td width="1%"> : </td><td>Shear reinforcement area must not be less than 0.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcSurfaceReinforcementArea
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralloadresource/lexical/ifcstructuralload.htm">IfcStructuralLoad</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadorresult.htm">IfcStructuralLoadOrResult</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralloadresource/lexical/ifcsurfacereinforcementarea.htm">IfcSurfaceReinforcementArea</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">SurfaceReinforcement1</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [2:3] OF <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">SurfaceReinforcement2</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [2:3] OF <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ShearReinforcement</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcratiomeasure.htm">IfcRatioMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcsurfacereinforcementarea.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

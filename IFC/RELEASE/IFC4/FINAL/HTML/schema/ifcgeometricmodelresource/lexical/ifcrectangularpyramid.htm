@@ -1,0 +1,308 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcRectangularPyramid</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.23");
+//-->
+</script>
+
+<h4 class="std">8.8.3.23 IfcRectangularPyramid</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Rechteckige Pyramide</b></td></tr>
+</table>
+
+<p>The <span class="self-ref">IfcRectangularPyramid</span> is a Construction Solid Geometry (CSG) 3D primitive. It is a solid with a
+rectangular base and a point called apex as the top. The tapers from the base to the top. The axis from the center of
+the base to the apex is perpendicular to the base. The inherited <i>Position</i> attribute defines the
+<i>IfcAxisPlacement3D</i> and provides the location and orientation of the pyramid:</p>
+<ul>
+<li><i>SELF\IfcCsgPrimitive3D.Position</i>: The location and orientation of the axis system for the
+primitive.&nbsp;</li>
+<li><i>SELF\IfcCsgPrimitive3D.Position.Location</i>: The center of the circular area being the bottom face of the
+cone.</li>
+<li><i>SELF\IfcCsgPrimitive3D.Position.Position[3]:</i> The z-axis of the inherited placement coordinate system
+provides the center axis of the <a href="../../ifcgeometricmodelresource/lexical/ifcrightcircularcone.htm">IfcRightCircularCone</a>, and the apex is at the <i>Height</i> value applied to
+the positive direction of the z-axis. The <i>BottomRadius</i> defines the circular base at the xy-plane of the
+placement coordinate system.</li>
+</ul>
+<p>As shown in Figure 293, the pyramid is positioned within its own placement coordinate system. The origin is the
+center of the bottom rectangle, that lies in the XY plane. The apex lies on the positive z axis at [0, 0,
+<i>Height</i>].</p>
+<table summary="geometry" border="0">
+<tr>
+<td><img alt="cone1" src="../../../figures/ifcrectangularpyramid-layout1.png" height="300" width="400"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 293 &mdash; Rectangular pyramid geometry</p>
+</td>
+</tr>
+</table>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x3</blockquote>
+<p class="use-head">Texture use definition</p>
+<p>On each triangular side face, textures are aligned facing upright. Textures are stretched or repeated to the extent
+of the base of each face according to RepeatS. Textures are stretched or repeated towards the top point according to
+Repeat T, where the top point has coordinates of (0.5,1.0) if RepeatT is False.</p>
+<p>On the bottom face, textures are aligned facing front-to-back.</p>
+<p>Figure 294 illustrates default texture mapping with a clamped texture (RepeatS=False and RepeatT=False). The image
+on the left shows the texture where the S axis points to the right and the T axis points up. The image on the right
+shows the texture applied to the geometry where the X axis points back to the right, the Y axis points back to the
+left, and the Z axis points up.</p>
+<p>&nbsp;</p>
+<table summary="texture" class="gridtable">
+<tr valign="top">
+<td><img alt="texture" src="../../../figures/IfcRectangularPyramid-Texture.png"></td>
+</tr>
+<tr>
+<td>
+<table summary="texture" width="512" class="gridtable">
+<tr>
+<th>Side</th>
+<th>Normal</th>
+<th>Origin&nbsp;X</th>
+<th>Origin&nbsp;Y</th>
+<th>Origin&nbsp;Z</th>
+<th>S&nbsp;Axis</th>
+<th>T&nbsp;Axis</th>
+</tr>
+<tr>
+<td>Left</td>
+<td>-X</td>
+<td>0</td>
+<td>+YLength</td>
+<td>0</td>
+<td>-Y</td>
+<td>(towards top point)</td>
+</tr>
+<tr>
+<td>Right</td>
+<td>+X</td>
+<td>+Xlength</td>
+<td>0</td>
+<td>0</td>
+<td>+Y</td>
+<td>(towards top point)</td>
+</tr>
+<tr>
+<td>Front</td>
+<td>-Y</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>+X</td>
+<td>(towards top point)</td>
+</tr>
+<tr>
+<td>Back</td>
+<td>+Y</td>
+<td>+XLength</td>
+<td>+YLength</td>
+<td>0</td>
+<td>-X</td>
+<td>(towards top point)</td>
+</tr>
+<tr>
+<td>Bottom</td>
+<td>-Z</td>
+<td>+XLength</td>
+<td>0</td>
+<td>0</td>
+<td>-X</td>
+<td>+Y</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 294 &mdash; Rectangular pyramid textures</p>
+</td>
+</tr>
+</table>
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcRectangularPyramid&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcrectangularpyramid.htm">IfcRectangularPyramid</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifccsgprimitive3d.htm">IfcCsgPrimitive3D</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcRectangularPyramid&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifccsgprimitive3d.htm">IfcCsgPrimitive3D</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;XLength&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;YLength&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Height&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRectangularPyramid
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometricmodelresource/lexical/ifccsgprimitive3d.htm">IfcCsgPrimitive3D</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">XLength</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">YLength</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">Height</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">XLength</span></td><td width="1%"> : </td><td>
+The length of the base measured along the placement X axis. It is provided by the inherited axis placement through <i>SELF\IfcCsgPrimitive3D.Position.P[1]</i>.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">YLength</span></td><td width="1%"> : </td><td>
+The length of the base measured along the placement Y axis. It is provided by the inherited axis placement through <i>SELF\IfcCsgPrimitive3D.Position.P[2]</i>.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Height</span></td><td width="1%"> : </td><td>
+The height of the apex above the plane of the base, measured in the direction of the placement Z axis, the <i>SELF\IfcCsgPrimitive3D.Position.P[2]</i>.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRectangularPyramid
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometricmodelresource/lexical/ifccsgprimitive3d.htm">IfcCsgPrimitive3D</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Position</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := 3;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometricmodelresource/lexical/ifcrectangularpyramid.htm">IfcRectangularPyramid</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">XLength</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">YLength</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">Height</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcrectangularpyramid.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

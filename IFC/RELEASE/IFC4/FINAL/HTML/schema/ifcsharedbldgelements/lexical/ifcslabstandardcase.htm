@@ -1,0 +1,550 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcSlabStandardCase</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.3.40");
+//-->
+</script>
+
+<h4 class="std">6.1.3.40 IfcSlabStandardCase</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Decke / Dachfläche / Bodenplatte - Standard</b></td></tr>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Dalle standard</b></td></tr>
+</table>
+ 
+<p>The standard slab, <span class="self-ref">IfcSlabStandardCase</span>, defines a slab with certain constraints
+for the provision of material usage, parameters and with certain constraints for the geometric representation. The
+<span class="self-ref">IfcSlabStandardCase</span> handles all cases of slabs, that:</p>
+<ul>
+<li>have a reference to the <a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a> defining the material layers of the slab with thicknesses</li>
+<li>are based on an extrusion of a planar surface as defined by the slab profile</li>
+<li>have a constant thickness along the extrusion direction</li>
+<li>are consistent in using the correct material layer set offset to the base planar surface in regard to the shape
+representation</li>
+<li>are extruded either perpendicular or slanted to the plane surface</li>
+</ul>
+<p>The definitions of slab openings and niches are the same as given at the supertype <a href="../../ifcsharedbldgelements/lexical/ifcslab.htm">IfcSlab</a>. The same agreements to the
+special types of slabs, as defined in the <i>PredefinedType</i> attribute apply as well.</p>
+
+
+<blockquote class="note">NOTE&nbsp; If the <span class="self-ref">IfcSlabStandardCase</span> is of type Landing
+and is used within an <a href="../../ifcsharedbldgelements/lexical/ifcstair.htm">IfcStair</a> or <a href="../../ifcsharedbldgelements/lexical/ifcramp.htm">IfcRamp</a>, the
+special agreements to handle stair and ramp geometry will also
+affect the geometric representation of the
+<span class="self-ref">IfcSlabStandardCase</span>.</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC4.
+</blockquote>
+
+
+ <hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+<li><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>: <a href="../../templates/box-geometry.htm">Box Geometry</a>, <a href="../../templates/footprint-geometry.htm">FootPrint Geometry</a>, <a href="../../templates/body-surfaceorsolidmodel-geometry.htm">Body SurfaceOrSolidModel Geometry</a>, <a href="../../templates/body-surfacemodel-geometry.htm">Body SurfaceModel Geometry</a>, <a href="../../templates/body-tessellation-geometry.htm">Body Tessellation Geometry</a>, <a href="../../templates/body-brep-geometry.htm">Body Brep Geometry</a>, <a href="../../templates/body-advancedbrep-geometry.htm">Body AdvancedBrep Geometry</a>, <a href="../../templates/body-csg-geometry.htm">Body CSG Geometry</a>, <a href="../../templates/mapped-geometry.htm">Mapped Geometry</a></li>
+<li><a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>: <a href="../../templates/surface-3d-geometry.htm">Surface 3D Geometry</a></li>
+<li><a href="../../ifcsharedbldgelements/lexical/ifcslab.htm">IfcSlab</a>: <a href="../../templates/object-typing.htm">Object Typing</a>, <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a>, <a href="../../templates/quantity-sets.htm">Quantity Sets</a>, <a href="../../templates/material-layer-set.htm">Material Layer Set</a>, <a href="../../templates/spatial-containment.htm">Spatial Containment</a>, <a href="../../templates/surface-geometry.htm">Surface Geometry</a>, <a href="../../templates/element-voiding.htm">Element Voiding</a>, <a href="../../templates/product-assignment.htm">Product Assignment</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcslabstandardcase.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="material-layer-set-usage" />
+<p class="use-head">Material Layer Set Usage</p>
+<p>The <a href="../../templates/material-layer-set-usage.htm">Material Layer Set Usage</a> concept applies to this entity.</p><p>
+Multi-layer slabs can be represented by refering to several
+<a href="../../ifcmaterialresource/lexical/ifcmateriallayer.htm">IfcMaterialLayer</a>'s within the <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>
+that is referenced from the
+<a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>.&nbsp;</p>
+
+<p>Material information can also be given at the
+<a href="../../ifcsharedbldgelements/lexical/ifcslabtype.htm">IfcSlabType</a>, defining the common attribute data for all
+occurrences of the same type. It is then accessible by the 
+inverse <i>IsDefinedBy</i> relationship pointing to
+<i>IfcSlabType.HasAssociations</i> and via
+<i>IfcRelAssociatesMaterial.RelatingMaterial</i>. The <span class="self-ref">IfcSlabStandardCase</span> defines in addition that the
+<a href="../../ifcsharedbldgelements/lexical/ifcslabtype.htm">IfcSlabType</a> should have a unique <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>,
+that is referenced by the&nbsp;<a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>
+assigned to all occurrences of this <a href="../../ifcsharedbldgelements/lexical/ifcslabtype.htm">IfcSlabType</a>.</p>
+<p>&nbsp;</p>
+
+
+
+<table>
+
+ <tr>
+  <td><img src="../../../figures/IfcSlab_MaterialUsage-01.png" alt="Material layer set and usage" height="220" width="501"></td>
+  
+<td><blockquote class="example">EXAMPLE&nbsp; Figure 211 illustrates assignment of <a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a> and <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a> to the <span class="self-ref">IfcSlabStandardCase</span> as the slab occurrence and to the <a href="../../ifcsharedbldgelements/lexical/ifcslabtype.htm">IfcSlabType</a>. The same <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a> shall be shared by many occurrences of <a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>. This relationship shall be consistent to the relationship between the <a href="../../ifcsharedbldgelements/lexical/ifcslabtype.htm">IfcSlabType</a> and the <span class="self-ref">IfcSlabStandardCase</span>.</blockquote></td>
+ </tr>
+ 
+<tr><td><p class="figure">Figure 211 &mdash; Slab type definition</p></td>
+  <td>&nbsp;</td>
+ </tr>
+
+</table>
+
+
+
+
+
+<p>Figure 212 illustrates slab material usage, where the following conventions shall be met:</p>
+
+<ul>
+
+ <li>The reference coordinate system is the coordinate system established by the <i>IfcExtrudedAreaSolid.Position</i>.</li>
+ 
+<li>The reference plane is the plane defined by the extruded profile of <i>IfcExtrudedAreaSolid.SweptSolid</i>. The <i>IfcMaterialLayerSetUsage.OffsetFromReferenceLine</i> is given as a distance from this plane.</li>
+
+ <li>The <i>IfcMaterialLayerSetUsage.DirectionSense</i> defines how the <a href="../../ifcmaterialresource/lexical/ifcmateriallayer.htm">IfcMaterialLayer</a>'s are assigned to the reference plane. POSITIVE means in direction to the positive z-axis of the reference coordinate system.</li>
+<li>The <i>IfcMaterialLayerSetUsage.OffsetFromReferenceLine</i> is the distance parallel to the reference plane and always perpendicular to the base (XY) plane of the reference coordinate system. This is independent of a potential non-perpendicular extrusion given by <i>IfcExtrudedAreaSolid.ExtrudedDirection</i> &lt;&gt; 0.,0.,1. A positive value of <i>IfcMaterialLayerSetUsage.OffsetFromReferenceLine</i> would then point into the positive z-axis of the reference coordinate system.</li>
+<li>The <i>Thickness</i> of each <a href="../../ifcmaterialresource/lexical/ifcmateriallayer.htm">IfcMaterialLayer</a> shall be the parallel distance (measured perpendicular to the base plane). The <i>TotalThickness</i> of the <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a> is the sum of all layer thicknesses and in case of a perpendicular extrusion identical with <i>IfcExtrudedAreaSolid.Depth</i></li>
+<li>The <i>IfcMaterialLayerSetUsage.LayerSetDirection</i> is always AXIS3.</li>
+</ul>
+
+
+
+<table summary="material use definition for standard slabs">
+
+ <tr>
+  <td align="left" valign="top" width="610">
+<img src="../../../figures/IfcMaterialLayerSetUsage_Slab-01.png" alt=
+"slab material layer set" width="601" height="321" border="0">
+</td></tr>
+<tr><td align="left" valign="top" width="610">
+<img src="../../../figures/IfcMaterialLayerSetUsage_RoofSlab-01.png" alt=
+"roof slab material layer set" width="600" height="400" border=
+"0"></td></tr>
+<tr><td><p class="figure">Figure 212 &mdash; Slab material layers</p></td></tr>
+</table>
+
+
+<br/><br/>
+
+<a name="product-placement" />
+<p class="use-head">Product Placement</p>
+<p>The <a href="../../templates/product-placement.htm">Product Placement</a> concept applies to this entity as shown in Table 172.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Relative</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a></td><td><a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a></td><td>Relative placement according to position and rotation relative to container.</td></tr>
+<tr><td><a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a></td><td>&nbsp;</td><td>Absolute placement according to position and rotation of world coordinate system.</td></tr>
+<tr><td><a href="../../ifcgeometricconstraintresource/lexical/ifcgridplacement.htm">IfcGridPlacement</a></td><td>&nbsp;</td><td>Placement according to grid intersection.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 172 &mdash; IfcSlabStandardCase Product Placement</td></tr></table>
+
+<p>The following restriction is imposed:</p>
+
+<ul>
+<li>The local placement shall provide the location and directions 
+for the standard slab, the x/y plane is the plane for the 
+profile, and the z-axis is the extrusion axis for the slab body.</li>
+</ul>
+
+<br/><br/>
+
+<a name="body-sweptsolid-geometry" />
+<p class="use-head">Body SweptSolid Geometry</p>
+<p>The <a href="../../templates/body-sweptsolid-geometry.htm">Body SweptSolid Geometry</a> concept applies to this entity.</p><p>The following additional constraints apply to the swept solid
+representation:</p>
+
+<ul>
+
+ <li><u>Solid</u>: <a href="../../ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IfcExtrudedAreaSolid</a> is required,</li>
+<li><u>Profile</u>: <i>IfcArbitraryClosedProfileDef,
+IfcRectangleProfileDef, IfcCircleProfileDef,
+IfcEllipseProfileDef</i> shall be supported.</li>
+
+ <li><u>Extrusion</u>: The profile can be extruded perpendicularly
+or non-perpendicularly to the plane of the swept profile.</li>
+ <li><u>Material</u>: The definition of the
+<a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>, particularly of the
+<i>OffsetFromReferenceLine</i> and the
+<i>ForLayerSet.TotalThickness</i>, has to be consistent to the
+'SweptSolid' representation.</li>
+</ul>
+<p>&nbsp;</p>
+
+
+<table>
+ 
+<tr>
+  <td><img src="../../../figures/IfcSlab_Standard-Layout1.gif" alt="standard slab" border="0" height="274" width="399"></td>
+  <td>
+
+<blockquote class="example">EXAMPLE&nbsp; Figure 213 illustrates a 'SweptSolid' geometric representation. The following interpretation of dimension parameter applies for polygonal slabs (in ground floor view):
+ <i>IfcArbitraryClosedProfileDef.OuterCurve</i>: closed bounded curve interpreted as area (or foot print) of the slab.</blockquote>
+
+</td>
+ </tr>
+
+ <tr>
+  <td><p class="figure">Figure 213 &mdash; Slab body extrusion</p></td>
+  <td>&nbsp;</td>
+ </tr>
+
+</table>
+<br/><br/>
+
+<a name="body-clipping-geometry" />
+<p class="use-head">Body Clipping Geometry</p>
+<p>The <a href="../../templates/body-clipping-geometry.htm">Body Clipping Geometry</a> concept applies to this entity.</p>
+
+<p>The following constraints apply to the 'Clipping'
+representation:</p>
+<ul>
+<li><u>Solid</u>: see 'SweptSolid' shape representation,</li>
+<li><u>Profile</u>:&nbsp;see 'SweptSolid' shape
+representation,</li>
+<li><u>Extrusion</u>:&nbsp;see 'SweptSolid' shape
+representation,</li>
+<li><u>Material</u>:&nbsp;see 'SweptSolid' shape
+representation,</li>
+<li><u>Boolean result</u>: The <a href="../../ifcgeometricmodelresource/lexical/ifcbooleanclippingresult.htm">IfcBooleanClippingResult</a>
+shall be supported, allowing for Boolean differences between the
+swept solid (here <a href="../../ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IfcExtrudedAreaSolid</a>) and one or several
+<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>.</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+
+ <tr>
+  <td><img src="../../../figures/IfcSlab_Advanced-Layout1.gif" alt="advanced slab" border=
+"0" height="274" width="399"></td>
+  <td>
+
+<blockquote class="example">EXAMPLE&nbsp; Figure 214 illustrates a 'Clipping' geometric representation with definition of a roof slab using advanced geometric representation. The profile is extruded non-perpendicular and the slab body is clipped at the eave.</blockquote>
+
+</td>
+ </tr>
+
+ <tr>
+  <td><p class="figure">Figure 214 &mdash; Slab body clipping</p></td>
+  <td>&nbsp;</td>
+ </tr>
+
+</table>
+
+
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcSlabStandardCase&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcslabstandardcase.htm">IfcSlabStandardCase</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcslab.htm">IfcSlab</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcSlabStandardCase&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcslab.htm">IfcSlab</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcSlabStandardCase
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcsharedbldgelements/lexical/ifcslab.htm">IfcSlab</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">HasMaterialLayerSetusage</td><td width="1%"> : </td><td>SIZEOF (QUERY(temp &lt;* USEDIN(SELF, 'IFCKERNEL.IFCRELASSOCIATES.RELATEDOBJECTS') |
+              ('IFCPRODUCTEXTENSION.IFCRELASSOCIATESMATERIAL' IN TYPEOF(temp)) AND
+              ('IFCMATERIALRESOURCE.IFCMATERIALLAYERSETUSAGE' IN TYPEOF(temp.RelatingMaterial))
+              )) = 1;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">HasMaterialLayerSetusage</span></td><td width="1%"> : </td><td>
+A valid instance of <span class="self-ref">IfcSlabStandardCase</span> relies on the provision of an <a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>.
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcSlabStandardCase
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDeclaredBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">IsTypedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectPlacement</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>;</td></tr>
+<tr valign="top"><td width="20%">Representation</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ReferencedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a> <span class="keyword">FOR</span> RelatingProduct;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Tag</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">FillsVoids</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a> <span class="keyword">FOR</span> RelatedBuildingElement;</td></tr>
+<tr valign="top"><td width="20%">ConnectedTo</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a> <span class="keyword">FOR</span> RelatingElement;</td></tr>
+<tr valign="top"><td width="20%">IsInterferedByElements</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelinterfereselements.htm">IfcRelInterferesElements</a> <span class="keyword">FOR</span> RelatedElement;</td></tr>
+<tr valign="top"><td width="20%">InterferesElements</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelinterfereselements.htm">IfcRelInterferesElements</a> <span class="keyword">FOR</span> RelatingElement;</td></tr>
+<tr valign="top"><td width="20%">HasProjections</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelprojectselement.htm">IfcRelProjectsElement</a> <span class="keyword">FOR</span> RelatingElement;</td></tr>
+<tr valign="top"><td width="20%">ReferencedInStructures</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelreferencedinspatialstructure.htm">IfcRelReferencedInSpatialStructure</a> <span class="keyword">FOR</span> RelatedElements;</td></tr>
+<tr valign="top"><td width="20%">HasOpenings</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelvoidselement.htm">IfcRelVoidsElement</a> <span class="keyword">FOR</span> RelatingBuildingElement;</td></tr>
+<tr valign="top"><td width="20%">IsConnectionRealization</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelconnectswithrealizingelements.htm">IfcRelConnectsWithRealizingElements</a> <span class="keyword">FOR</span> RealizingElements;</td></tr>
+<tr valign="top"><td width="20%">ProvidesBoundaries</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a> <span class="keyword">FOR</span> RelatedBuildingElement;</td></tr>
+<tr valign="top"><td width="20%">ConnectedFrom</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a> <span class="keyword">FOR</span> RelatedElement;</td></tr>
+<tr valign="top"><td width="20%">ContainedInStructure</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a> <span class="keyword">FOR</span> RelatedElements;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasCoverings</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcsharedbldgelements/lexical/ifcrelcoversbldgelements.htm">IfcRelCoversBldgElements</a> <span class="keyword">FOR</span> RelatingBuildingElement;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcsharedbldgelements/lexical/ifcslab.htm">IfcSlab</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgelements/lexical/ifcslabtypeenum.htm">IfcSlabTypeEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcsharedbldgelements/lexical/ifcslabstandardcase.htm">IfcSlabStandardCase</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcslabstandardcase.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

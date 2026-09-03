@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <title>Object Typing</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-4.htm#4.2.1");
+//-->
+</script>
+
+<h3 class="std">4.2.1 Object Typing</h3>
+<p>Object occurrences can be
+ defined by a particular object type, using the <i>Object Typing</i> concept. A pair of entities are defined for most semantic objects - an
+ object occurrence entity and a corresponding object type entity.</p> 
+<blockquote class="example">EXAMPLE&nbsp; The <a href="../ifchvacdomain/lexical/ifctank.htm">IfcTank</a>
+ is the object occurrence entity that has a corresponding
+ <a href="../ifchvacdomain/lexical/ifctanktype.htm">IfcTankType</a> being the object type entity.
+</blockquote>
+
+ 
+<p>On instance level, an
+ object occurrence instance may have:</p>
+<ul>
+<li>similar state as its object
+ type instance by applying all characteristics defined at the type;</li>
+<li>overridden state for particular characteristics;</li>
+<li>no defined object type instance.</li>
+
+</ul>
+
+
+<p>Characteristics defined at the object type level may include:</p>
+<ul>
+<li>common naming and predefined type;</li>
+<li>common properties within a type driven property set;</li>
+<li>common geometry representations, applied as mapped representation to each occurences;</li>
+<li>common material assignments (with exception of material set usages);</li>
+<li>common definition of a decomposition structure.</li>
+</ul>
+<p>
+Many object occurrence and object type entities have an
+ attribute named <i>PredefinedType</i> consisting of a specific
+ enumeration. Such predefined
+ type essentially provides another level of inheritance to
+ further differentiate objects without the need for
+ additional entities. Predefined types are not
+ just informational; various rules apply such as applicable
+ property
+ sets, part composition, and distribution ports.
+</p>
+<blockquote class="example">
+EXAMPLE&nbsp; 
+For scenarios of object types having part compositions,
+such parts may be reflected at object occurrences having
+ separate state. For example, a <i>wall type</i> may define
+ a particular arrangement of studs, a <i>wall occurrence</i>
+ may reflect the same arrangement of studs, and studs within
+  the wall occurrence may participate in specific
+ relationships that do not exist at the type such as being
+ connected to an electrical junction box.</blockquote>
+
+ 
+<blockquote class="note">
+NOTE&nbsp; If the object type has aggregated elements, such objects are reflected at the object occurrence using the <a href="../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> relationship.</blcokquote><p>Figure 9 illustrates an instance diagram.</p>
+<table><tr><td><img alt="Object Typing" src="./diagrams/object-typing.png" usemap="#f9"><map name="f9"><area shape="rect" coords="8,8,176,212" href="../ifckernel/lexical/ifcobject.htm" alt="IfcObject" /><area shape="rect" coords="208,8,376,92" href="../ifckernel/lexical/ifcreldefinesbytype.htm" alt="IfcRelDefinesByType" /><area shape="rect" coords="408,8,576,188" href="../ifckernel/lexical/ifctypeobject.htm" alt="IfcTypeObject" /></map></td></tr><tr><td><p class="figure">Figure 9 &mdash; Object Typing</p></td></tr></table>
+
+<p><a href="../../link/object-typing.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

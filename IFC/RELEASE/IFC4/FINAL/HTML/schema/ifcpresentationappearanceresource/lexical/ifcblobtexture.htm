@@ -1,0 +1,219 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcBlobTexture</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.12.3.1");
+//-->
+</script>
+
+<h4 class="std">8.12.3.1 IfcBlobTexture</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Blob de texture</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Textur - als Binärformat eingefügt</b></td></tr>
+</table>
+
+
+<p>An <span class="self-ref">IfcBlobTexture</span> provides a 2-dimensional distribution of the lighting parameters of a surface onto which it is mapped. The texture itself is given as a single binary blob, representing the content of a pixel format file. The file format of the pixel file is given by the <i>RasterFormat</i> attribute and allowable formats are guided by where rule <i>SupportedRasterFormat</i>.</p>
+
+<blockquote class="note">
+NOTE&nbsp; Toolbox specific implementations of the binary datatype may restrict the maximum length of the binary blob to capture the raster file content.
+</blockquote>
+
+<p>For interpretation of the texture nodes see <a href="../../ifcpresentationappearanceresource/lexical/ifcimagetexture.htm">IfcImageTexture</a> definition.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x3.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Data type of <i>RasterCode</i> has been corrected to BINARY.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcBlobTexture&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcblobtexture.htm">IfcBlobTexture</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacetexture.htm">IfcSurfaceTexture</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcBlobTexture&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacetexture.htm">IfcSurfaceTexture</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RasterCode&quot; type=&quot;ifc:hexBinary&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RasterFormat&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBlobTexture
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacetexture.htm">IfcSurfaceTexture</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RasterFormat</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">RasterCode</td><td width="1%"> : </td><td><span class="self-ref">BINARY</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">SupportedRasterFormat</td><td width="1%"> : </td><td>SELF.RasterFormat IN ['BMP', 'JPG', 'GIF', 'PNG'];</td></tr>  <tr valign="top"><td width="20%">RasterCodeByteStream</td><td width="1%"> : </td><td>BLENGTH(RasterCode) MOD 8 = 0;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationappearanceresource/diagram_0009.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">RasterFormat</span></td><td width="1%"> : </td><td>
+The format of the <i>RasterCode</i> often using a compression.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RasterCode</span></td><td width="1%"> : </td><td>
+Blob, given as a single binary, to capture the texture within one popular file (compression) format. The file format is provided by the <i>RasterFormat</i> attribute.
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">SupportedRasterFormat</span></td><td width="1%"> : </td><td>
+Currently the formats of bmp, jpg, gif and pgn, shall be supported.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RasterCodeByteStream</span></td><td width="1%"> : </td><td>
+The size of the raster code shall be a multiple of 8 bits. 
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBlobTexture
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationdefinitionresource/lexical/ifcpresentationitem.htm">IfcPresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacetexture.htm">IfcSurfaceTexture</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RepeatS</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+<tr valign="top"><td width="20%">RepeatT</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+<tr valign="top"><td width="20%">Mode</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">TextureTransform</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometryresource/lexical/ifccartesiantransformationoperator2d.htm">IfcCartesianTransformationOperator2D</a>;</td></tr>
+<tr valign="top"><td width="20%">Parameter</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsMappedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:?] <span class="keyword">OF</span> <a href="../../ifcpresentationappearanceresource/lexical/ifctexturecoordinate.htm">IfcTextureCoordinate</a> <span class="keyword">FOR</span> Maps;</td></tr>
+<tr valign="top"><td width="20%">UsedInStyles</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:?] <span class="keyword">OF</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacestylewithtextures.htm">IfcSurfaceStyleWithTextures</a> <span class="keyword">FOR</span> Textures;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcblobtexture.htm">IfcBlobTexture</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RasterFormat</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">RasterCode</td><td width="1%"> : </td><td><span class="self-ref">BINARY</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcblobtexture.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

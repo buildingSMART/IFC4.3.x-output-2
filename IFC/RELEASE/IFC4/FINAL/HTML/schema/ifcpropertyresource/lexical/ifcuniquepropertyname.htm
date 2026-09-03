@@ -1,0 +1,51 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcUniquePropertyName</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.16.4.1");
+//-->
+</script>
+
+<h4 class="std">8.16.4.1 IfcUniquePropertyName</h4>
+<p>
+
+<p> The function gets the set of
+names, used by elements in a set (e.g. by individual properties
+in the set of a property set. It verifies that no name appears
+twice.</p>
+<blockquote><small><font color="#0000FF">HISTORY  New function in
+Release IFC2x2</font></small></blockquote>
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcUniquePropertyName<br/>
+
+(Properties : SET [1:?] OF IfcProperty)<br/>:LOGICAL;<br/><br/>LOCAL<br/>&nbsp;&nbsp;Names : SET OF IfcIdentifier := [];<br/>END_LOCAL;<br/><br/>REPEAT i:=1 TO HIINDEX(Properties);<br/>&nbsp;&nbsp;Names := Names + Properties[i].Name;<br/>END_REPEAT;<br/>RETURN (SIZEOF(Names) = SIZEOF(Properties)); 
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifcuniquepropertyname.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

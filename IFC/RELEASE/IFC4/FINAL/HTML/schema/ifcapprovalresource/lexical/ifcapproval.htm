@@ -1,0 +1,246 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcApproval</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.2.2.1");
+//-->
+</script>
+
+<h4 class="std">8.2.2.1 IfcApproval</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Approbation</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Genehmigung</b></td></tr>
+</table>
+
+
+<p>An <span class="self-ref">IfcApproval</span> represents information about approval processes such as for a plan, a design, a proposal, or a change order in a construction or facilities management project. <span class="self-ref">IfcApproval</span> is referenced by <a href="../../ifccontrolextension/lexical/ifcrelassociatesapproval.htm">IfcRelAssociatesApproval</a> in <i>IfcControlExtension</i> schema, and thereby can be related to all subtypes of <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>. An approval may also be given to resource objects using <a href="../../ifcapprovalresource/lexical/ifcresourceapprovalrelationship.htm">IfcResourceApprovalRelationship</a>
+</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2.0
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Attributes Identifier and Name made optional, where rule added to require at least one of them being asserted. Inverse attributes ApprovedObjects, ApprovedResources and HasExternalReferences added. Inverse attribute Properties deleted (more general relationship via inverse ApprovedResources to be used instead).
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcApproval&quot; type=&quot;ifc:<a href="../../ifcapprovalresource/lexical/ifcapproval.htm">IfcApproval</a>&quot; substitutionGroup=&quot;ifc:Entity&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcApproval&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:Entity&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RequestingApproval&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;GivingApproval&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Identifier&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Name&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Description&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TimeOfApproval&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Status&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Level&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Qualifier&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcApproval<b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Identifier</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+<tr valign="top"><td width="20%">TimeOfApproval</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">Status</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Level</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Qualifier</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+<tr valign="top"><td width="20%">RequestingApproval</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">GivingApproval</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReferences</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+<tr valign="top"><td width="20%">ApprovedObjects</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifccontrolextension/lexical/ifcrelassociatesapproval.htm">IfcRelAssociatesApproval</a> <span class="keyword">FOR</span> RelatingApproval;</td></tr>
+<tr valign="top"><td width="20%">ApprovedResources</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcapprovalresource/lexical/ifcresourceapprovalrelationship.htm">IfcResourceApprovalRelationship</a> <span class="keyword">FOR</span> RelatingApproval;</td></tr>
+<tr valign="top"><td width="20%">IsRelatedWith</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcapprovalresource/lexical/ifcapprovalrelationship.htm">IfcApprovalRelationship</a> <span class="keyword">FOR</span> RelatedApprovals;</td></tr>
+<tr valign="top"><td width="20%">Relates</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcapprovalresource/lexical/ifcapprovalrelationship.htm">IfcApprovalRelationship</a> <span class="keyword">FOR</span> RelatingApproval;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">HasIdentifierOrName</td><td width="1%"> : </td><td>EXISTS (Identifier) OR EXISTS (Name);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcapprovalresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Identifier</span></td><td width="1%"> : </td><td>A computer interpretable identifier by which the approval is known.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Name</span></td><td width="1%"> : </td><td>A human readable name given to an approval.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Description</span></td><td width="1%"> : </td><td>A general textual description of a design, work task, plan, etc. that is being approved for. 
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">TimeOfApproval</span></td><td width="1%"> : </td><td>
+Date and time when the result of the approval process is produced.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute data type changed to <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a> using ISO 8601 representation, renamed from ApprovalDateTime and made OPTIONAL.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Status</span></td><td width="1%"> : </td><td>The result or current status of the approval, e.g. Requested, Processed, Approved, Not Approved.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Level</span></td><td width="1%"> : </td><td>Level of the approval e.g. Draft v.s. Completed design.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Qualifier</span></td><td width="1%"> : </td><td>Textual description of special constraints or conditions for the approval.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RequestingApproval</span></td><td width="1%"> : </td><td>
+The actor that is acting in the role specified at <a href="../../ifcactorresource/lexical/ifcorganization.htm">IfcOrganization</a> or individually at <a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a> and requesting an approval.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New attribute for approval request replacing IfcApprovalActorRelationship (being deleted).</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">GivingApproval</span></td><td width="1%"> : </td><td>
+The actor that is acting in the role specified at <a href="../../ifcactorresource/lexical/ifcorganization.htm">IfcOrganization</a> or individually at <a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a> and giving an approval.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New attribute for approval provision replacing IfcApprovalActorRelationship (being deleted).</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">HasExternalReferences</span></td><td width="1%"> : </td><td>
+Reference to external references, e.g. library, classification, or document information, that are associated to the Approval.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New inverse attribute.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ApprovedObjects</span></td><td width="1%"> : </td><td>Reference to the <a href="../../ifccontrolextension/lexical/ifcrelassociatesapproval.htm">IfcRelAssociatesApproval</a> instances associating this approval to objects (subtypes of <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a></td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ApprovedResources</span></td><td width="1%"> : </td><td>The set of relationships by which resource objects that are are approved by this approval are known.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">IsRelatedWith</span></td><td width="1%"> : </td><td>The set of relationships by which this approval is related to others.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Relates</span></td><td width="1%"> : </td><td>The set of relationships by which other approvals are related to this one.</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">HasIdentifierOrName</span></td><td width="1%"> : </td><td>Either Identifier or Name (or both) by which the approval is known shall be given.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcApproval
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcapprovalresource/lexical/ifcapproval.htm">IfcApproval</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Identifier</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+<tr valign="top"><td width="20%">TimeOfApproval</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;</td></tr>
+<tr valign="top"><td width="20%">Status</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Level</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Qualifier</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+<tr valign="top"><td width="20%">RequestingApproval</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">GivingApproval</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasExternalReferences</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcexternalreferenceresource/lexical/ifcexternalreferencerelationship.htm">IfcExternalReferenceRelationship</a> <span class="keyword">FOR</span> RelatedResourceObjects;</td></tr>
+<tr valign="top"><td width="20%">ApprovedObjects</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifccontrolextension/lexical/ifcrelassociatesapproval.htm">IfcRelAssociatesApproval</a> <span class="keyword">FOR</span> RelatingApproval;</td></tr>
+<tr valign="top"><td width="20%">ApprovedResources</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcapprovalresource/lexical/ifcresourceapprovalrelationship.htm">IfcResourceApprovalRelationship</a> <span class="keyword">FOR</span> RelatingApproval;</td></tr>
+<tr valign="top"><td width="20%">IsRelatedWith</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcapprovalresource/lexical/ifcapprovalrelationship.htm">IfcApprovalRelationship</a> <span class="keyword">FOR</span> RelatedApprovals;</td></tr>
+<tr valign="top"><td width="20%">Relates</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcapprovalresource/lexical/ifcapprovalrelationship.htm">IfcApprovalRelationship</a> <span class="keyword">FOR</span> RelatingApproval;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcapproval.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

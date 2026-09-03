@@ -1,0 +1,405 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcDistributionPort</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.2.3.8");
+//-->
+</script>
+
+<h4 class="std">6.2.3.8 IfcDistributionPort</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Port de distribution</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Anschluss / Port</b></td></tr>
+</table>
+
+ 
+<p>A distribution port is an inlet or outlet of a product through which a particular substance may flow.</p>
+ 
+<p>Distribution ports are used for passage of solid, liquid, or gas substances, as well as electricity for power or communications.  Flow segments (pipes, ducts, cables) may be used to connect ports across products.  Distribution ports are defined by system type and flow direction such that for two ports to be connected, they must share the same system type and have opposite flow directions (one side being a <i>SOURCE</i> and the other being a <i>SINK</i>).  Ports are similar to openings in that they do not have any visible geometry; such geometry is captured at the shape representation of the enclosing element or element type.  Ports may have placement that indicates the position and orientation of the connection.</p>
+ 
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x2</blockquote>
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Ports are now related to products and product types using the <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> relationship; use of <a href="../../ifcproductextension/lexical/ifcrelconnectsporttoelement.htm">IfcRelConnectsPortToElement</a> is now reserved for dynamically attached ports (such as drilling a hole in a tank).</blockquote>
+ 
+ 
+<hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcdistributionport.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="property-sets-for-objects" />
+<p class="use-head">Property Sets for Objects</p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept applies to this entity as shown in Table 219.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>Name</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionporttypeenum.htm">NOTDEFINED</a></td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionportcommon.htm">Pset_DistributionPortCommon</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionporttypeenum.htm">CABLE</a></td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionportphistorycable.htm">Pset_DistributionPortPHistoryCable</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionporttypeenum.htm">DUCT</a></td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionportphistoryduct.htm">Pset_DistributionPortPHistoryDuct</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionporttypeenum.htm">PIPE</a></td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionportphistorypipe.htm">Pset_DistributionPortPHistoryPipe</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionporttypeenum.htm">CABLE</a></td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionporttypecable.htm">Pset_DistributionPortTypeCable</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionporttypeenum.htm">DUCT</a></td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionporttypeduct.htm">Pset_DistributionPortTypeDuct</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionporttypeenum.htm">PIPE</a></td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionporttypepipe.htm">Pset_DistributionPortTypePipe</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 219 &mdash; IfcDistributionPort Property Sets for Objects</td></tr></table>
+
+
+<br/><br/>
+
+<a name="port-nesting" />
+<p class="use-head">Port Nesting</p>
+<p>The <a href="../../templates/port-nesting.htm">Port Nesting</a> concept applies to this entity.</p><p>Distribution ports are indicated on products and product types using the <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> relationship where <i>RelatingObject</i> refers to the enclosing <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> or <a href="../../ifcproductextension/lexical/ifcdistributionelementtype.htm">IfcDistributionElementType</a> respectively.  The order of ports indicates logical ordering such within outlets, junction boxes, or communications equipment.</p>
+
+<p>Ports may be further nested into sub-ports, for indicating specific connections on components or pins.</p>
+
+</ul>
+
+
+<br/><br/>
+
+<a name="product-assignment" />
+<p class="use-head">Product Assignment</p>
+<p>The <a href="../../templates/product-assignment.htm">Product Assignment</a> concept applies to this entity as shown in Table 220.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a></td><td>Indicates a system that is hosted by the port, as the origination.</td></tr>
+<tr><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncircuit.htm">IfcDistributionCircuit</a></td><td>Indicates a circuit that is switched by the port, as the origination.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 220 &mdash; IfcDistributionPort Product Assignment</td></tr></table>
+
+<p> The <b>IfcDistributionPort</b> may be assigned to the following entities using relationships as indicated:</p>
+<ul>
+<li><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a> (<a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a>): Indicates a system containing interconnected devices.</li>
+<li><a href="../../ifccontrolextension/lexical/ifcperformancehistory.htm">IfcPerformanceHistory</a> (<a href="../../ifckernel/lexical/ifcrelassignstocontrol.htm">IfcRelAssignsToControl</a>): Indicates realtime or historical infomation captured for the device.</li>
+</ul>
+
+
+
+<br/><br/>
+
+<a name="port-connectivity" />
+<p class="use-head">Port Connectivity</p>
+<p>The <a href="../../templates/port-connectivity.htm">Port Connectivity</a> concept applies to this entity.</p><p><b>IfcDistributionPort</b> may be connected to other objects as follows using the indicated relationship:</p>
+
+
+<ul>
+
+
+
+<li><b>IfcDistributionPort</b> (<a href="../../ifcproductextension/lexical/ifcrelconnectsports.htm">IfcRelConnectsPorts</a>) : Indicates a connection to another port having the same type and opposite flow direction.  
+For port connections between elements, the <i>RelatingPort</i> is set to a port having <i>FlowDirection=SOURCE</i> and the <i>RelatedPort</i> is set to a port having <i>FlowDirection=SINK</i>.  
+For aggregation scenarios, ports on a device may be mapped to aggregated devices within, in which case ports on the outer device indicate a single <i>FlowDirection</i> but have an additional connection internally to a port on an aggregated inner device.  
+Refer to <a href="../../ifchvacdomain/lexical/ifcunitaryequipment.htm">IfcUnitaryEquipment</a> for an example.</li>
+
+
+
+<li><a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> (<a href="../../ifcproductextension/lexical/ifcrelconnectsporttoelement.htm">IfcRelConnectsPortToElement</a>): For dynamic ports, indicates the containing element.
+
+</li>
+</ul>
+
+
+
+<p>Figure 236 illustrates distribution port connectivity.</p>
+
+
+
+<table>
+<tr><td><img alt="Connection Use Definition" src="../../../figures/IfcDistributionPort-Connection.png"></td></tr>
+<tr><td><p class="figure">Figure 236 &mdash; Distribution port connectivity</p></td></tr>
+</table>
+ 
+
+<br/><br/>
+
+<a name="product-placement" />
+<p class="use-head">Product Placement</p>
+<p>The <a href="../../templates/product-placement.htm">Product Placement</a> concept applies to this entity.</p><p>The placement of a port indicates the position and orientation of how it may connect to a compatible port on another product.  
+The placement shall be relative to the nesting <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a>, <a href="../../ifcproductextension/lexical/ifcdistributionelementtype.htm">IfcDistributionElementType</a>, or enclosing <span class="self-ref">IfcDistributionPort</span>.</p>
+
+<p>
+The <i>Location</i> is the midpoint of the physical connection, unless otherwise indicated by cardinal point on a material profile.<p>
+
+<p>The <i>Axis</i> points in the direction of the physical connection away from the product if <i>FlowDirection</i> equals <i>SOURCE</i> (or <i>SOURCEANDSINK</i> or <i>NOTDEFINED</i>), or points opposite direction (to the product) if the <i>FlowDirection</i> equals <i>SINK</i>. </p>
+<blockquote class="note">NOTE&nbsp; The rationale for positioning the <i>Axis</i> in the direction of flow is to allow for the same geometry to be used, such as for connectors with polarized cross-section.</blockquote>
+
+<p>The <i>RefDirection</i> points in the direction of the local X axis of the material profile, where the local Y axis points up if looking towards the <i>Axis</i> where the local X axis points right.</p>
+
+<p>Upon connecting elements through ports with rigid connections, each object shall be aligned such that the effective <i>Location</i>, <i>Axis</i>, and <i>RefDirection</i> of each port is aligned to be equal (with exception for circular profiles where the <i>RefDirection</i> need not be equal).</p>
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcDistributionPort&quot; type=&quot;ifc:<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcport.htm">IfcPort</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcDistributionPort&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcport.htm">IfcPort</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;FlowDirection&quot; type=&quot;ifc:<a href="../../ifcsharedbldgserviceelements/lexical/ifcflowdirectionenum.htm">IfcFlowDirectionEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionporttypeenum.htm">IfcDistributionPortTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SystemType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">IfcDistributionSystemEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcDistributionPort
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcproductextension/lexical/ifcport.htm">IfcPort</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">FlowDirection</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcflowdirectionenum.htm">IfcFlowDirectionEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionporttypeenum.htm">IfcDistributionPortTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">SystemType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">IfcDistributionSystemEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgserviceelements/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">FlowDirection</span></td><td width="1%"> : </td><td>Enumeration that identifies if this port is a Sink (inlet), a Source (outlet) or both a SinkAndSource.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SystemType</span></td><td width="1%"> : </td><td>Enumeration that identifies the system type.  If a system type is defined, the port may only be connected to other ports having the same system type.</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcDistributionPort
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDeclaredBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">IsTypedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectPlacement</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>;</td></tr>
+<tr valign="top"><td width="20%">Representation</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ReferencedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a> <span class="keyword">FOR</span> RelatingProduct;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcport.htm">IfcPort</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ContainedIn</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelconnectsporttoelement.htm">IfcRelConnectsPortToElement</a> <span class="keyword">FOR</span> RelatingPort;</td></tr>
+<tr valign="top"><td width="20%">ConnectedFrom</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelconnectsports.htm">IfcRelConnectsPorts</a> <span class="keyword">FOR</span> RelatedPort;</td></tr>
+<tr valign="top"><td width="20%">ConnectedTo</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelconnectsports.htm">IfcRelConnectsPorts</a> <span class="keyword">FOR</span> RelatingPort;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">FlowDirection</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcflowdirectionenum.htm">IfcFlowDirectionEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionporttypeenum.htm">IfcDistributionPortTypeEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">SystemType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">IfcDistributionSystemEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="spec-head">Examples:</p>
+<ul>
+<li><a href="../../../annex/annex-e/air-terminal-element.htm">Air terminal element</a></li>
+<li><a href="../../../annex/annex-e/air-terminal-library-object.htm">Air terminal library object</a></li>
+</ul>
+<p><a href="../../../link/ifcdistributionport.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

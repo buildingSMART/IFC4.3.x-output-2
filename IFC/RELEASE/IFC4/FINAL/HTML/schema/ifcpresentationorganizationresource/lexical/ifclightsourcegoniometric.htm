@@ -1,0 +1,218 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcLightSourceGoniometric</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.14.3.6");
+//-->
+</script>
+
+<h4 class="std">8.14.3.6 IfcLightSourceGoniometric</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Lichtquelle - goniometrisch</b></td></tr>
+</table>
+ 
+
+<p><span class="self-ref">IfcLightSourceGoniometric</span> defines a light source for which exact lighting data is available. It specifies the type of a light emitter, defines the position and orientation of a light distribution curve and the data concerning lamp and photometric information.</p> 
+
+<p>Figure 350 shows an example of a light emitter having two light sources (of type <span class="self-ref">IfcLightSourceGoniometric</span>).</p> 
+
+<table>
+<tr><td><img src="../../../figures/IfcLightSourceGoniometric_Fig1.gif" alt="Example" width="587" height="366" border="0"></td></tr>
+<tr><td><p class="figure">Figure 350 &mdash; Light source goniometric</p></td></tr>
+</table>
+
+
+<blockquote class="history"> 
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcLightSourceGoniometric&quot; type=&quot;ifc:<a href="../../ifcpresentationorganizationresource/lexical/ifclightsourcegoniometric.htm">IfcLightSourceGoniometric</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpresentationorganizationresource/lexical/ifclightsource.htm">IfcLightSource</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcLightSourceGoniometric&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpresentationorganizationresource/lexical/ifclightsource.htm">IfcLightSource</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Position&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ColourAppearance&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifccolourrgb.htm">IfcColourRgb</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;LightDistributionDataSource&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributiondatasourceselect.htm">IfcLightDistributionDataSourceSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ColourTemperature&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LuminousFlux&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcluminousfluxmeasure.htm">IfcLuminousFluxMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LightEmissionSource&quot; type=&quot;ifc:<a href="../../ifcpresentationorganizationresource/lexical/ifclightemissionsourceenum.htm">IfcLightEmissionSourceEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLightSourceGoniometric
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpresentationorganizationresource/lexical/ifclightsource.htm">IfcLightSource</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Position</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>;</td></tr>
+<tr valign="top"><td width="20%">ColourAppearance</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcpresentationappearanceresource/lexical/ifccolourrgb.htm">IfcColourRgb</a>;</td></tr>
+<tr valign="top"><td width="20%">ColourTemperature</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">LuminousFlux</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcluminousfluxmeasure.htm">IfcLuminousFluxMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">LightEmissionSource</td><td width="1%"> : </td><td><a href="../../ifcpresentationorganizationresource/lexical/ifclightemissionsourceenum.htm">IfcLightEmissionSourceEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">LightDistributionDataSource</td><td width="1%"> : </td><td><a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributiondatasourceselect.htm">IfcLightDistributionDataSourceSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationorganizationresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Position</span></td><td width="1%"> : </td><td>The position of the light source. It is used to orientate the light distribution curves.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ColourAppearance</span></td><td width="1%"> : </td><td>Artificial light sources are classified in terms of their color appearance. To the human eye they all appear to be white; the difference can only be detected by direct comparison. Visual performance is not directly affected by differences in color appearance.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ColourTemperature</span></td><td width="1%"> : </td><td>The color temperature of any source of radiation is defined as the temperature (in Kelvin) of a black-body or Planckian radiator whose radiation has the same chromaticity as the source of radiation. Often the values are only approximate color temperatures as the black-body radiator cannot emit radiation of every chromaticity value. The color temperatures of the commonest artificial light sources range from less than 3000K (warm white) to 4000K (intermediate) and over 5000K (daylight).
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">LuminousFlux</span></td><td width="1%"> : </td><td>Luminous flux is a photometric measure of radiant flux, i.e. the volume of light emitted from a light source. Luminous flux is measured either for the interior as a whole or for a part of the interior (partial luminous flux for a solid angle). All other photometric parameters are derivatives of luminous flux. Luminous flux is measured in lumens (lm). The luminous flux is given as a nominal value for each lamp.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">LightEmissionSource</span></td><td width="1%"> : </td><td>Identifies the types of light emitter from which the type required may be set.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">LightDistributionDataSource</span></td><td width="1%"> : </td><td>The data source from which light distribution data is obtained.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLightSourceGoniometric
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationorganizationresource/lexical/ifclightsource.htm">IfcLightSource</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">LightColour</td><td width="1%"> : </td><td><a href="../../ifcpresentationappearanceresource/lexical/ifccolourrgb.htm">IfcColourRgb</a>;</td></tr>
+<tr valign="top"><td width="20%">AmbientIntensity</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">Intensity</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationorganizationresource/lexical/ifclightsourcegoniometric.htm">IfcLightSourceGoniometric</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Position</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>;</td></tr>
+<tr valign="top"><td width="20%">ColourAppearance</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcpresentationappearanceresource/lexical/ifccolourrgb.htm">IfcColourRgb</a>;</td></tr>
+<tr valign="top"><td width="20%">ColourTemperature</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">LuminousFlux</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcluminousfluxmeasure.htm">IfcLuminousFluxMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">LightEmissionSource</td><td width="1%"> : </td><td><a href="../../ifcpresentationorganizationresource/lexical/ifclightemissionsourceenum.htm">IfcLightEmissionSourceEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">LightDistributionDataSource</td><td width="1%"> : </td><td><a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributiondatasourceselect.htm">IfcLightDistributionDataSourceSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifclightsourcegoniometric.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

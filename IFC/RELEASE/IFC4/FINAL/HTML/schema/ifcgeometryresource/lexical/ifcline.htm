@@ -1,0 +1,246 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcLine</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.30");
+//-->
+</script>
+
+<h4 class="std">8.9.3.30 IfcLine</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Ligne</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Linie</b></td></tr>
+</table>
+ 
+<p>The <span class="self-ref">IfcLine</span> is an unbounded line parameterized by an <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a> and an <a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>.
+The magnitude of the <a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a> affects the parameterization of the line, but it does not bound the line.</p>
+<blockquote class="note">NOTE&nbsp; A line segment is defined using either the <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a> with two
+<i>Points</i>, or the <a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a> with <i>BasisCurve</i> being an <span class="self-ref">IfcLine</span>.</blockquote>
+<blockquote class="example">EXAMPLE&nbsp; Figure 320 illustrates an unbounded <span class="self-ref">IfcLine</span> and a bounded <a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a>. A bounded line starting at
+0.,0. and ending at 0.,2. can be defined by:</blockquote>
+<blockquote><ol>
+<li class="small"><span class="self-ref">IfcLine</span> with <a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>.<i>Magnitude</i>: 2.0 AND <a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a> with <i>Trim1</i>:
+0. and <i>Trim2</i>: 1. (and trimming preference being parameter);</li>
+<li class="small"><span class="self-ref">IfcLine</span> with <a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>.<i>Magnitude</i>: 1.0 AND <a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a> with <i>Trim1</i>:
+0. and <i>Trim2</i>: 2. (and trimming preference being parameter);</li>
+<li class="small"><span class="self-ref">IfcLine</span> AND <a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a> with <i>Trim1</i>::<a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a> [0.,0.] and
+<i>Trim2</i>::<a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a> [0.,2.] (and trimming preference being Cartesian) - the <a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>.<i>Magnitude</i> has no effect;</li>
+<li class="small"><a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a> with <i>Points[1]</i> being 0.,0. and <i>Points[2]</i> being 0.,2.</li>
+</ol></blockquote>
+<table summary="illustration">
+<tr>
+<td style="vertical-align:top;"><img src="../../../figures/IfcLine-fig1.png" alt="line examples"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 320 &mdash; Unbounded <span class="self-ref">IfcLine</span> and bounded <a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a></p>
+</td>
+</tr>
+</table>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+A line is an unbounded curve with constant tangent direction. A line is defined by a point and a direction. The
+positive direction of the line is in the direction of the dir vector. The curve is parameterized as follows:
+<blockquote style=" font-size:inherit;"><b>P</b> = Pnt<br>
+<b>V</b> = Dir<br>
+&lambda;(<i>u</i>) = <b>P</b> + <i>u</i><b>V</b></blockquote>
+and the parametric range is: -&infin; &lt; <i>u</i> &lt; &infin;</blockquote>
+<blockquote class="extDef">NOTE&nbsp; Entity adapted from <strong>line</strong> defined in ISO 10303-42</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcLine&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcline.htm">IfcLine</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcLine&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Pnt&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Dir&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLine
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Pnt</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>;</td></tr>
+<tr valign="top"><td width="20%">Dir</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">SameDim</td><td width="1%"> : </td><td>Dir.Dim = Pnt.Dim;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Pnt</span></td><td width="1%"> : </td><td>
+The location of the <span class="self-ref">IfcLine</span>.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Dir</span></td><td width="1%"> : </td><td>
+The direction of the <span class="self-ref">IfcLine</span>, the magnitude and units of <i>Dir</i> affect the parameterization of the line.
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">SameDim</span></td><td width="1%"> : </td><td>
+The dimensionality of the <i>Pnt</i>, provided by <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>, shall be the same as the dimensionality of the <i>Dir</i>, provided by <a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>.
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLine
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := IfcCurveDim(SELF);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcline.htm">IfcLine</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Pnt</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>;</td></tr>
+<tr valign="top"><td width="20%">Dir</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcline.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

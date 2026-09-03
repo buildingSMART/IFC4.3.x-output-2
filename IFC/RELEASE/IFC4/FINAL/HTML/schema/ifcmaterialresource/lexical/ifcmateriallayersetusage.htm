@@ -1,0 +1,252 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcMaterialLayerSetUsage</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.10.3.8");
+//-->
+</script>
+
+<h4 class="std">8.10.3.8 IfcMaterialLayerSetUsage</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Mise en place d'un ensemble de couches de matériau homogène</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Gruppe von Materialschichten - Verwendung</b></td></tr>
+</table>
+
+<p>The <span class="self-ref">IfcMaterialLayerSetUsage</span> determines the usage of <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a> in terms of its location and
+orientation relative to the associated element geometry. The location of material layer set shall be compatible with the
+building element geometry (that is, material layers shall fit inside the element geometry). The rules to ensure the compatibility 
+depend on the type of the building element.</p>
+
+<blockquote class="example">EXAMPLE&nbsp; For a cavity brick wall with shape representation SweptSolid, the <i>IfcMaterialLayerSet.TotalThickness</i> 
+shall be equal to the wall thickness. Also the <i>OffsetFromReferenceLine</i> shall match the exact positions between the two shape representations
+of <a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a>, that is the <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>'s with <i>RepresentationIdentifier</i>="Axis" and
+<i>RepresentationIdentifier</i>="Body".</blockquote>
+
+<blockquote class="note">NOTE&nbsp; Model view definitions or implementer agreements may provide more instructions on matching between building element geometry and material layer set usage.</blockquote>
+
+<p>The <span class="self-ref">IfcMaterialLayerSetUsage</span> is always assigned to an individual occurrence object (and only to relevant subtypes of
+<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>). The <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>, referenced by <i>ForLayerSet</i>, can however be shared among several occurrence
+objects. If the element type is available (in other words, an instance of the relevant subtype of <a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a> exists), then the
+<a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a> can be assigned to the element type. The assignment between a subtype of <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a> and the
+<span class="self-ref">IfcMaterialLayerSetUsage</span> is handled by <a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a>.</p>
+
+<p class="use-head">Attribute use definition</p>
+<p>The <span class="self-ref">IfcMaterialLayerSetUsage</span> is primarily intended to be associated with planar building elements having a constant
+thickness. With further agreements on the interpretation of <i>LayerSetDirection</i>, the usage can be extended also to other
+cases, for example to curved building elements, provided that the material layer thicknesses are constant.</p>
+
+<p>Generally, an element may be layered in any of its primary directions, denoted by its x, y or z axis. The geometry use
+definitions at each specific type of building element will determine the applicable <i>LayerSetDirection</i>.</p>
+
+<p>The following examples illustrate how the <span class="self-ref">IfcMaterialLayerSetUsage</span> attributes (<i>LayerSetDirection</i>, <i>DirectionSense</i>, 
+<i>OffsetFromReferenceLine</i>) can be used in different cases. Normative material use definitions are documented at each element 
+(how these shall be used).</p>
+
+<p>Figure 328 shows an example of the use of <span class="self-ref">IfcMaterialLayerSetUsage</span> aligned to the axis of a wall.</p>
+
+<blockquote class="example">EXAMPLE&nbsp; For a standard wall with extruded geometric representation (vertical extrusion), the layer set
+direction will be perpendicular to extrusion direction, and can be derived from the direction of the wall axis. With the<i>DirectionSense</i> (positive in this example) the individual <i>IfcMaterialLayers</i> are assigned consecutively right-to-left or left-to-right. For a curved wall, 
+"direction denoting the wall thickness" can be derived from the direction of the wall axis, and it will remain perpendicular to the wall path. 
+The <i>DirectionSense</i> applies as well.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; According to the <a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a> material use definition the <i>LayerSetDirection</i> for
+<a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a> is always AXIS2 (that is, along the y-axis), as shown in this example.</small></blockquote>
+
+<table>
+<tr><td><img src="../../../figures/IfcMaterialLayerSetUsage_Wall-01.png" alt="Mls usage"border="0"></td></tr>
+<tr><td><p class="figure">Figure 328 &mdash; Material layer set usage for wall</p></td></tr>
+</table>
+
+<p>Figure 329 shows an example of the use of <span class="self-ref">IfcMaterialLayerSetUsage</span> aligned to a slab.</p>
+
+<blockquote class="example">EXAMPLE&nbsp; For a slab with perpendicular extruded geometric representation, the <i>LayerSetDirection</i>
+will coincide with the extrusion direction (in positive or negative sense). In this example, the material layer set base is
+the extruded profile and consistent with the <i>IfcExtrudedAreaSolid.Position</i>, with the <i>DirectionSense</i> being positive, the
+individual <i>IfcMaterialLayers</i> are built up from the base towards the positive z direction in this case.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; According to the <a href="../../ifcsharedbldgelements/lexical/ifcslabstandardcase.htm">IfcSlabStandardCase</a> material use definition the <i>LayerSetDirection</i> for
+<a href="../../ifcsharedbldgelements/lexical/ifcslabstandardcase.htm">IfcSlabStandardCase</a> is always AXIS3 (that is, along the z-axis).</blockquote>
+
+<table>
+<tr><td><img src="../../../figures/IfcMaterialLayerSetUsage_Slab-01.png" alt="Mls usage" border="0" height="320" width="601"></td></tr>
+<tr><td><p class="figure">Figure 329 &mdash; Material layer set usage for slab</p></td></tr>
+</table>
+
+<p>Figure 330 shows an example of the use of <span class="self-ref">IfcMaterialLayerSetUsage</span> aligned to a roof slab with non-perpendicular extrusion.</p>
+
+<blockquote class="example">EXAMPLE&nbsp; For a slab with non-perpendicular extruded geometric representation, the guidelines above apply as
+well</small><small>. The material layer thickness and the <i>OffsetFromReferenceLine</i> are always measured
+perpendicularly, even if the extrusion direction is not perpendicular. Therefore the total material layer thickness is
+not equal to the extrusion depth of the geometry.</blockquote>
+
+<table>
+<tr><td><img src="../../../figures/IfcMaterialLayerSetUsage_RoofSlab-01.png" alt="Mls usage" border="0"></td></tr>
+<tr><td><p class="figure">Figure 330 &mdash; Material layer set usage for roof slab</p></td></tr>
+</table>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcMaterialLayerSetUsage&quot; type=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcmaterialusagedefinition.htm">IfcMaterialUsageDefinition</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcMaterialLayerSetUsage&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcmaterialusagedefinition.htm">IfcMaterialUsageDefinition</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ForLayerSet&quot; type=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LayerSetDirection&quot; type=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifclayersetdirectionenum.htm">IfcLayerSetDirectionEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;DirectionSense&quot; type=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcdirectionsenseenum.htm">IfcDirectionSenseEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;OffsetFromReferenceLine&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ReferenceExtent&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcMaterialLayerSetUsage
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcmaterialresource/lexical/ifcmaterialusagedefinition.htm">IfcMaterialUsageDefinition</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ForLayerSet</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>;</td></tr>
+<tr valign="top"><td width="20%">LayerSetDirection</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifclayersetdirectionenum.htm">IfcLayerSetDirectionEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">DirectionSense</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifcdirectionsenseenum.htm">IfcDirectionSenseEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">OffsetFromReferenceLine</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ReferenceExtent</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcmaterialresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">ForLayerSet</span></td><td width="1%"> : </td><td>
+The <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a> set to which the usage is applied.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">LayerSetDirection</span></td><td width="1%"> : </td><td>
+Orientation of the material layer set relative to element reference geometry. The meaning of the value of this attribute shall be specified in the geometry use section for each element. For extruded shape representation, direction can be given along the extrusion path (e.g. for slabs) or perpendicular to it (e.g. for walls).
+
+<blockquote class="note">NOTE&nbsp; The <i>LayerSetDirection</i> for <a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a> shall be AXIS2 (i.e. the y-axis) and for <a href="../../ifcsharedbldgelements/lexical/ifcslabstandardcase.htm">IfcSlabStandardCase</a> and <a href="../../ifcsharedbldgelements/lexical/ifcplatestandardcase.htm">IfcPlateStandardCase</a> it shall be AXIS3 (i.e. the z-axis).</blockquote>
+
+<blockquote class="note">NOTE&nbsp; Whether the material layers of the set being used shall 'grow' into the positive or negative direction of the given axis, shall be defined by <i>DirectionSense</i> attribute.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">DirectionSense</span></td><td width="1%"> : </td><td>
+Denotes whether the material layer set is oriented in positive or negative sense along the specified axis (defined by LayerSetDirection). "Positive" means that the consecutive layers (the <a href="../../ifcmaterialresource/lexical/ifcmateriallayer.htm">IfcMaterialLayer</a> instances in the list of <i> IfcMaterialLayerSet.MaterialLayers</i>) are placed face-by-face in the direction of the positive axis as established by LayerSetDirection: for AXIS2 it would be in +y, for AXIS3 it would be +z. "Negative" means that the layers are placed face-by-face in the direction of the negative LayerSetDirection. In both cases,  starting at the material layer set base line.
+<blockquote class="note">NOTE&nbsp; the material layer set base line (MlsBase) is located by OffsetFromReferenceLine, and may be on the positive or negative side of the element reference line (or plane); positive or negative for MlsBase placement does not depend on the DirectionSense attribute, but on the relevant element axis.</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">OffsetFromReferenceLine</span></td><td width="1%"> : </td><td>
+Offset of the material layer set base line (MlsBase) from reference geometry (line or plane) of element. The offset can be positive or negative, unless restricted for a particular building element type in its use definition or by implementer agreement. A positive value means, that the MlsBase is placed on the positive side of the reference line or plane, on the axis established by LayerSetDirection (in case of AXIS2 into the direction of +y, or in case of AXIS2 into the direction of +z). A negative value means that the MlsBase is placed on the negative side, as established by LayerSetDirection (in case of AXIS2 into the direction of -y). <blockquote class="note">NOTE&nbsp; the positive or negative sign in the offset only affects the MlsBase placement, it does not have any effect on the application of DirectionSense for orientation of the material layers; also DirectionSense does not change the MlsBase placement.</small></blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ReferenceExtent</span></td><td width="1%"> : </td><td>
+Extent of the extrusion of the elements body shape representation to which the <span class="self-ref">IfcMaterialLayerSetUsage</span> applies. It is used as the reference value for the upper <i>OffsetValues[2]</i> provided by the <i>IfcMaterialLayerSetWithOffsets</i> subtype for included material layers.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New attribute added to the end of attribute list.</blockquote>
+<blockquote class="note">NOTE&nbsp; The attribute <i>ReferenceExtent</i> shall be asserted, if an <i>IfcMaterialLayerSetWithOffsets</i> is included in the <i>ForLayerSet.MaterialLayers</i> list of material layers.</blockquote>
+<blockquote class="note">NOTE&nbsp; The <i>ReferenceExtent</i> for <a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a> is the reference height starting at z=0 being the XY plane of the object coordinate system.</blockquote>
+
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcMaterialLayerSetUsage
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcmaterialresource/lexical/ifcmaterialusagedefinition.htm">IfcMaterialUsageDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">AssociatedTo</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a> <span class="keyword">FOR</span> RelatingMaterial;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ForLayerSet</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>;</td></tr>
+<tr valign="top"><td width="20%">LayerSetDirection</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifclayersetdirectionenum.htm">IfcLayerSetDirectionEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">DirectionSense</td><td width="1%"> : </td><td><a href="../../ifcmaterialresource/lexical/ifcdirectionsenseenum.htm">IfcDirectionSenseEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">OffsetFromReferenceLine</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ReferenceExtent</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcmateriallayersetusage.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

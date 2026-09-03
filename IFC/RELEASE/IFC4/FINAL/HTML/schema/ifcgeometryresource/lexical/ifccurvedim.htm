@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcCurveDim</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.4.6");
+//-->
+</script>
+
+<h4 class="std">8.9.4.6 IfcCurveDim</h4>
+<p>
+
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+This function checks the dimensionality of various subtypes of curve. It returns the
+dimensionality of the basic points and directions used at the instance
+of curve.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; This specification allows for mixed dimensionality within the same
+geometric representation context.</blockquote>
+
+<blockquote class="history">HISTORY&nbsp; New function in IFC2x</blockquote>
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcCurveDim<br/>
+
+(Curve : IfcCurve)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: IfcDimensionCount;<br/><br/>&nbsp;&nbsp;IF ('IFCGEOMETRYRESOURCE.IFCLINE' IN TYPEOF(Curve))<br/>&nbsp;&nbsp;&nbsp;&nbsp;THEN RETURN(Curve\IfcLine.Pnt.Dim);<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;IF ('IFCGEOMETRYRESOURCE.IFCCONIC' IN TYPEOF(Curve))<br/>&nbsp;&nbsp;&nbsp;&nbsp;THEN RETURN(Curve\IfcConic.Position.Dim);<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;IF ('IFCGEOMETRYRESOURCE.IFCPOLYLINE' IN TYPEOF(Curve))<br/>&nbsp;&nbsp;&nbsp;&nbsp;THEN RETURN(Curve\IfcPolyline.Points[1].Dim);<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;IF ('IFCGEOMETRYRESOURCE.IFCTRIMMEDCURVE' IN TYPEOF(Curve))<br/>&nbsp;&nbsp;&nbsp;&nbsp;THEN RETURN(IfcCurveDim(Curve\IfcTrimmedCurve.BasisCurve));<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;IF ('IFCGEOMETRYRESOURCE.IFCCOMPOSITECURVE' IN TYPEOF(Curve))<br/>&nbsp;&nbsp;&nbsp;&nbsp;THEN RETURN(Curve\IfcCompositeCurve.Segments[1].Dim);<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;IF ('IFCGEOMETRYRESOURCE.IFCBSPLINECURVE' IN TYPEOF(Curve))<br/>&nbsp;&nbsp;&nbsp;&nbsp;THEN RETURN(Curve\IfcBSplineCurve.ControlPointsList[1].Dim);<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;IF ('IFCGEOMETRYRESOURCE.IFCOFFSETCURVE2D' IN TYPEOF(Curve))<br/>&nbsp;&nbsp;&nbsp;&nbsp;THEN RETURN(2); <br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;IF ('IFCGEOMETRYRESOURCE.IFCOFFSETCURVE3D' IN TYPEOF(Curve))<br/>&nbsp;&nbsp;&nbsp;&nbsp;THEN RETURN(3);<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;IF ('IFCGEOMETRYRESOURCE.IFCPCURVE' IN TYPEOF(Curve))<br/>&nbsp;&nbsp;&nbsp;&nbsp;THEN RETURN(3);<br/>&nbsp;&nbsp;END_IF;<br/>RETURN (?);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifccurvedim.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

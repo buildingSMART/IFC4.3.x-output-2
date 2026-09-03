@@ -1,0 +1,98 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <title>Construction scheduling task</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-e.htm");
+//-->
+</script>
+
+<h4 class="std">E.9.1 Construction scheduling task</h4>
+     <p>
+        The focus point of this example is linking building elements to the task of a construction schedule to enable
+        construction scheduling.
+      </p>
+      <p>
+        The example includes a hierarchy of tasks assigned to  building elements. One task is assigned to pour a concrete
+        slab, and four tasks are assigned to construct respective walls. The tasks are sequenced, where the walls are
+        constructed in serial, following completion of the slab. The walls are nested into summary tasks for the slab and
+        walls.
+      </p>
+      <p>
+        The slabs and walls in the example have a local placement, a body shape representation, and a material assignment.
+      </p>
+      <ul class="std">
+        <li class="std">
+          <a class="listing-link" href="ifc/construction_scheduling_task.ifc.htm" target=
+          "info">Building elements linked to tasks of a construction schedule with hyperlinks</a>
+        </li>
+        <li class="std">
+          <a class="listing-link" href="ifc/construction_scheduling_task.ifc" target=
+          "info">Building elements linked to tasks of a construction schedule source file</a>
+        </li>
+      </ul>
+<p>The Figure E25 shows a GANTT chart representing the tasks of the construction schedule.</p>
+<p>&nbsp;</p>
+<table>
+  <tr>
+    <td><img src="fig/construction_scheduling_task-1.png" width="800" alt="construction_scheduling_fig-1.png 26,0 KB">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="figure">Figure E25 &mdash; Task occurrences</p>
+      <p>&nbsp;</p>
+     </td>
+  </tr>
+</table>
+<p>
+The project consists of a site aggregating a building which aggregates a building storey. The building storey contains
+a slab and four walls, each physically connected using <a href="../../schema/ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a> where the <i>RelatingElement</i> anchors the <i>RelatedElement</i>. The slab and walls have standard shape that is expressed parametrically using <i>ifcMaterialLayerSetUsage</i> 
+and <a href="../../schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm">IfcExtrudedAreaSolid</a> geometry. Therefore the slab and the walls are expressed as <a href="../../schema/ifcsharedbldgelements/lexical/ifcslabstandardcase.htm">IfcSlabStandardCase</a> and <a href="../../schema/ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a>. See Figure E26 for the geometric representation of the construction elements assigned to the tasks of the 
+construction schedule.
+</p>
+<table>
+  <tr>
+    <td><img src="fig/construction_scheduling_task-2.png" width="800" alt="construction_scheduling_fig-2.png 41,1 KB">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="figure">Figure E26 &mdash; Task products</p>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<p>
+Each task is assigned to a resulting product produced by the task using the <a href="../../schema/ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a>
+relationship. The root task and the construction tasks form a hierachical task - subtask relationship provided
+by <a href="../../schema/ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a>. The time related information (start time, end time) is added to each <a href="../../schema/ifcprocessextension/lexical/ifctask.htm">IfcTask</a> by
+<a href="../../schema/ifcdatetimeresource/lexical/ifctasktime.htm">IfcTaskTime</a>. See Figure E27 for an instantiation diagram.
+</p>
+<table>
+  <tr>
+    <td><img src="fig/construction_scheduling_task-3.png" width="800" alt="construction_scheduling_fig-3.png 38,8 KB">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="figure">Figure E27 &mdash; Task assignment graph</p>
+    </td>
+   </tr>
+</table>
+<p><a href="../../link/construction-scheduling-task.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

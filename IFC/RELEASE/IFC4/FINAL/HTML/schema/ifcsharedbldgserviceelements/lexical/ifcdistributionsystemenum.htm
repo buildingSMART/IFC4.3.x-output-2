@@ -1,0 +1,195 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcDistributionSystemEnum</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.2.2.3");
+//-->
+</script>
+
+<h4 class="std">6.2.2.3 IfcDistributionSystemEnum</h4>
+
+    <p>This enumeration identifies different types of distribution systems.  It is used to designate systems by their function as well as ports of devices within such systems to restrict connectivity to compatible connections.</p>
+
+    <blockquote class="history">
+        HISTORY&nbsp; New enumeration in IFC4.
+    </blockquote>
+<p class="spec-head">Enumerated Item Definitions:</p>
+    <h4>Pipe-based systems and ports</h4>
+    <p>Ports for pipes may be connected using <a href="../../ifchvacdomain/lexical/ifcpipesegment.htm">IfcPipeSegment</a> and <a href="../../ifchvacdomain/lexical/ifcpipefitting.htm">IfcPipeFitting</a>.  Type objects for pipe segments and fittings (<a href="../../ifchvacdomain/lexical/ifcpipesegmenttype.htm">IfcPipeSegmentType</a> and <a href="../../ifchvacdomain/lexical/ifcpipefittingtype.htm">IfcPipeFittingType</a>) that are not specific to a particular system type may have ports with <i>PredefinedType</i> of NOTDEFINED which indicates that occurrences of such objects may connect to any other pipe-based port (but not cable-based or duct-based).  Upon connection to a device within a system, then such port should have its PredefinedType set to that of the connecting port.</p>
+    <blockquote class="example">
+        EXAMPLE&nbsp; An <a href="../../ifchvacdomain/lexical/ifcpipesegmenttype.htm">IfcPipeSegmentType</a> may be designated as NOTDEFINED, as it may support hot water, cold water, or any other fluid. When an instance of a pipe is instantiated in a building, then it may be connected to any other pipe-based port (using either a pipe-based enumeration or NOTDEFINED). Upon connection within a building, then such port should be marked according to its use such as DOMESTICCOLDWATER. 
+    </blockquote>
+<p>Valid enumerations for pipes and related elements include:</p>
+        <ul>
+                  <li><b>CHEMICAL</b>: Arbitrary chemical further qualified by property set, such as for medical or industrial use.</li>
+                  <li><b>CHILLEDWATER</b>: Nonpotable chilled water, such as circulated through an evaporator.</li>
+                  <li><b>COMPRESSEDAIR</b>: Compressed air system.</li>
+                  <li><b>CONDENSERWATER</b>: Nonpotable water, such as circulated through a condenser.</li>
+                  <li><b>CONVEYING</b>: Arbitrary supply of substances.</li>
+                  <li><b>DISPOSAL</b>: Arbitrary disposal of substances.</li>
+                  <li><b>DOMESTICCOLDWATER</b>: Unheated potable water distribution system.</li>
+                  <li><b>DOMESTICHOTWATER</b>: Heated potable water distribution system.</li>
+                  <li><b>DRAINAGE</b>: Drainage collection system.</li>
+                  <li><b>FIREPROTECTION</b>: Fire protection sprinkler system.</li>
+                  <li><b>FUEL</b>: Arbitrary supply of fuel.</li>
+                  <li><b>GAS</b>: Gas-phase materials such as methane or natural gas.</li>
+                  <li><b>HAZARDOUS</b>: Hazardous material or fluid collection system.</li>
+                  <li><b>HEATING</b>:  Water or steam heated from a boiler and circulated through radiators.</li>
+                  <li><b>MUNICIPALSOLIDWASTE</b>: Items consumed and discarded, commonly known as trash or garbage.</li>
+                  <li><b>OIL</b>: Oil distribution system.</li>
+                  <li><b>OPERATIONAL</b>: Operating supplies system.</li>
+                  <li><b>RAINWATER</b>: Rainwater resulting from precipitation which directly falls on a parcel.</li>
+                  <li><b>REFRIGERATION</b>: Refrigerant distribution system for purposes of fulfilling all or parts of a refrigeration cycle.</li>
+                  <li><b>SEWAGE</b>: Sewage collection system.</li>
+                  <li><b>STORMWATER</b>: Stormwater resulting from precipitation which runs off or travels over the ground surface.</li>
+                  <li><b>VACUUM</b>: Vacuum distribution system.</li>
+                  <li><b>VENT</b>: Vent system for wastewater piping systems.</li>
+                  <li><b>WASTEWATER</b>: Water adversely affected in quality by anthropogenic influence, possibly originating from sewage, drainage, or other source.</li>
+                  <li><b>WATERSUPPLY</b>: Arbitrary water supply.</li>
+        </ul>
+    <blockquote class="note">
+        NOTE&nbsp; Drainage systems that receive sources from multiple types should be designated according to priority in the following order: RAINWATER, STORMWATER, DRAINAGE, SEWAGE, WASTEWATER, HAZARDOUS. For example, a WASTEWATER system may have SEWAGE as a source but not HAZARDOUS (in the absense of treatment equipment in between).
+    </blockquote>
+
+    <h4>Duct-based systems and ports</h4>
+    <p>Ports for ducts may be connected using <a href="../../ifchvacdomain/lexical/ifcductsegment.htm">IfcDuctSegment</a> and <a href="../../ifchvacdomain/lexical/ifcductfitting.htm">IfcDuctFitting</a>.  Type objects for duct segments and fittings (<a href="../../ifchvacdomain/lexical/ifcductsegmenttype.htm">IfcDuctSegmentType</a> and <a href="../../ifchvacdomain/lexical/ifcductfittingtype.htm">IfcDuctFittingType</a> that are not specific to a particular system type may have ports with <i>PredefinedType</i> of NOTDEFINED which indicates that occurrences of such objects may connect to any other duct-based port (but not pipe-based or cable-based).  Upon connection to a device within a system, then such port should have its PredefinedType set to that of the connecting port.</p>
+    <blockquote class="example">
+        EXAMPLE&nbsp; An <a href="../../ifchvacdomain/lexical/ifcductsegmenttype.htm">IfcDuctSegmentType</a> may be designated as NOTDEFINED, as it may support air conditioning, recirculation, or exhaust. When an instance of a duct is instantiated in a building, then it may be connected to any other duct-based port (using either a duct-based enumeration or NOTDEFINED). Upon connection within a building, then such port should be marked according to its use such as AIRCONDITIONING. 
+    </blockquote>
+<p>Valid enumerations for ducts and related elements include:</p>
+        <ul>
+                  <li><b>AIRCONDITIONING</b>: Conditioned air distribution system for purposes of maintaining a temperature range within one or more spaces.</li>
+                  <li><b>EXHAUST</b>: Exhaust air collection system for removing stale or noxious air from one or more spaces.</li>
+                  <li><b>VENTILATION</b>: Ventilation air distribution system involved in either the exchange of air to the outside as well as circulation of air within a building.</li>
+        </ul>
+    <blockquote class="note">
+        NOTE&nbsp; Ducts, equipment, and diffusers on the supply side (whether for heating, cooling, and/or air circulation) are considered AIRCONDITIONING; return air terminals, outside air intakes, ducts, and equipment for air that may be recirculated or exhausted are considered VENTILATION; return air terminals, ducts, and equipment for air that must be exhausted are considered EXHAUST.
+    </blockquote>
+
+    <h4>Cable-based systems and ports</h4>
+    <p>Ports for cables may be connected using <a href="../../ifcelectricaldomain/lexical/ifccablesegment.htm">IfcCableSegment</a> and <a href="../../ifcelectricaldomain/lexical/ifccablefitting.htm">IfcCableFitting</a>.  Type objects for cable segments and fittings (<a href="../../ifcelectricaldomain/lexical/ifccablesegmenttype.htm">IfcCableSegmentType</a> and <a href="../../ifcelectricaldomain/lexical/ifccablefittingtype.htm">IfcCableFittingType</a> that are not specific to a particular system type may have ports with <i>PredefinedType</i> of NOTDEFINED which indicates that occurrences of such objects may connect to any other cable-based port (but not pipe-based or duct-based).  Upon connection to a device within a system, then such port should have its PredefinedType set to that of the connecting port.</p>
+    <blockquote class="example">
+        EXAMPLE&nbsp; An <a href="../../ifcelectricaldomain/lexical/ifccablesegmenttype.htm">IfcCableSegmentType</a> for CAT-5 wiring may be designated as NOTDEFINED, as it may support transporting telephone, audio-visual, generic data, or even power.  When an instance of a cable is instantiated in a building, then it may be connected to any other cable-based port (using either a cable-based enumeration or NOTDEFINED). Upon connection within a building, then such port should be marked according to its use such as DATA. 
+    </blockquote>
+<p>Valid enumerations for cables and related elements include:</p>
+        <ul>
+                  <li><b>AUDIOVISUAL</b>:  A transport of a single media source, having audio and/or video streams.</li>
+                  <li><b>CONTROL</b>:  A transport or network dedicated to control system usage.</li>
+                  <li><b>DATA</b>: A network having general-purpose usage.</li>
+                  <li><b>EARTHING</b>: A path for equipotential bonding, conducting current to the ground.</li>
+                  <li><b>ELECTRICAL</b>: A circuit for delivering electrical power.</li>
+                  <li><b>ELECTROACCOUSTIC</b>: An amplified audio signal such as for loudspeakers.</li>
+                  <li><b>LIGHTING</b>: A circuit dedicated for lighting, such as a fixture having sockets for lamps.</li>
+                  <li><b>LIGHTNINGPROTECTION</b>: A path for conducting lightning current to the ground.</li>
+                  <li><b>POWERGENERATION</b>: A path for power generation.</li>
+                  <li><b>SECURITY</b>: A transport or network dedicated to security system usage.</li>
+                  <li><b>SIGNAL</b>: A raw analog signal, such as modulated data or measurements from sensors.</li>
+                  <li><b>TELEPHONE</b>: A transport or network dedicated to telephone system usage.</li>
+                  <li><b>TV</b>: A transport of multiple media sources such as analog cable TV, satellite TV, or over-the-air TV.</li>
+        </ul>
+    <blockquote class="note">
+        NOTE&nbsp; Cable ports used for communication do not necessarily require physical connection; they may also take the form of wireless radio transmission.
+    </blockquote>
+
+    <h4>Cable Carriers</h4>
+    <p>Ports for cable carriers may be connected using <a href="../../ifcelectricaldomain/lexical/ifccablecarriersegment.htm">IfcCableCarrierSegment</a> and <a href="../../ifcelectricaldomain/lexical/ifccablecarrierfitting.htm">IfcCableCarrierFitting</a>.  Type objects for cable carrier segments and fittings (<a href="../../ifcelectricaldomain/lexical/ifccablecarriersegmenttype.htm">IfcCableCarrierSegmentType</a> and <a href="../../ifcelectricaldomain/lexical/ifccablecarrierfittingtype.htm">IfcCableCarrierFittingType</a> that are not specific to a particular system type may have ports with <i>PredefinedType</i> of NOTDEFINED which indicates that occurrences of such objects may connect to ports of any other cable-carrier based port.  Valid enumerations for cable carriers are the same as that for cables, and may be asserted if ports of the contained cables are all of the same type.</p>
+
+
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:simpleType name=&quot;IfcDistributionSystemEnum&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;airconditioning&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;audiovisual&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;chemical&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;chilledwater&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;communication&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;compressedair&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;condenserwater&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;control&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;conveying&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;data&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;disposal&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;domesticcoldwater&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;domestichotwater&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;drainage&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;earthing&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;electrical&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;electroacoustic&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;exhaust&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;fireprotection&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;fuel&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;gas&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;hazardous&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;heating&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;lighting&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;lightningprotection&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;municipalsolidwaste&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;oil&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;operational&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;powergeneration&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;rainwater&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;refrigeration&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;security&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;sewage&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;signal&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;stormwater&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;telephone&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;tv&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;vacuum&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;vent&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;ventilation&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;wastewater&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;watersupply&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;userdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;notdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">TYPE</span> IfcDistributionSystemEnum = <span class="keyword">ENUMERATION OF</span> (
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+AIRCONDITIONING, <br/>AUDIOVISUAL, <br/>CHEMICAL, <br/>CHILLEDWATER, <br/>COMMUNICATION, <br/>COMPRESSEDAIR, <br/>CONDENSERWATER, <br/>CONTROL, <br/>CONVEYING, <br/>DATA, <br/>DISPOSAL, <br/>DOMESTICCOLDWATER, <br/>DOMESTICHOTWATER, <br/>DRAINAGE, <br/>EARTHING, <br/>ELECTRICAL, <br/>ELECTROACOUSTIC, <br/>EXHAUST, <br/>FIREPROTECTION, <br/>FUEL, <br/>GAS, <br/>HAZARDOUS, <br/>HEATING, <br/>LIGHTING, <br/>LIGHTNINGPROTECTION, <br/>MUNICIPALSOLIDWASTE, <br/>OIL, <br/>OPERATIONAL, <br/>POWERGENERATION, <br/>RAINWATER, <br/>REFRIGERATION, <br/>SECURITY, <br/>SEWAGE, <br/>SIGNAL, <br/>STORMWATER, <br/>TELEPHONE, <br/>TV, <br/>VACUUM, <br/>VENT, <br/>VENTILATION, <br/>WASTEWATER, <br/>WATERSUPPLY, <br/>USERDEFINED, <br/>NOTDEFINED);  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_TYPE;</span>
+  </td>
+ </tr>
+</table>
+  </td>
+ </tr>
+</table>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgserviceelements/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</span>
+<p><a href="../../../link/ifcdistributionsystemenum.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

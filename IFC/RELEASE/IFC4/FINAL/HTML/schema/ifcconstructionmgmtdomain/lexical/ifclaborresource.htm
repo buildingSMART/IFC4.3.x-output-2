@@ -1,0 +1,381 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcLaborResource</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.3.3.11");
+//-->
+</script>
+
+<h4 class="std">7.3.3.11 IfcLaborResource</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Ressource en main d'œuvre</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Arbeit - Ressource</b></td></tr>
+</table>
+ 
+
+<p>An <span class="self-ref">IfcLaborResource</span> is used in construction with particular skills or crafts required to perform certain types of construction or management related work. </p> 
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2.0.
+</blockquote> 
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; The attribute <i>Skillset</i> has been deleted; use LongDescription to describe the skillset.
+</blockquote>
+
+<p>The purpose of an <span class="self-ref">IfcLaborResource</span> is to identify a skillset that may be required or used. The skillset identified may be (for instance) charge-hand, foreman, labourer, plumbers mate etc. and provides a designation of a particular level of skill. It can be used to identify the generic type of labour resource that is required for a purpose without having to be specific about the actor (person or organization) providing the resource occurrence. It may be particularly useful when creating an overall plan for a process or processes. For instance, within maintenance or work planning there may be a known task that needs to be done which is planned to require a 'chargehand pipe fitter'. There may be several such labour resources available and so the need to identify which will be used is not necessary at the planning stage.</p>
+
+<p>At a later stage, individual actors can be determined for the labour resources. This is achieved through specifying the actor through <a href="../../ifckernel/lexical/ifcactor.htm">IfcActor</a>. The actor is then identified as the labour resource occurrence through the <i>IfcRelAssignsToResource.RelatedResource</i> attribute. The <span class="self-ref">IfcLaborResource</span> provides the <a href="../../ifckernel/lexical/ifcrelassignstoresource.htm">IfcRelAssignsToResource</a>.<i>RelatingResource</i> attribute. </p>
+
+<hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+<li><a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresource.htm">IfcConstructionResource</a>: <a href="../../templates/object-documentation.htm">Object Documentation</a>, <a href="../../templates/object-constraint.htm">Object Constraint</a>, <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a>, <a href="../../templates/object-nesting.htm">Object Nesting</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifclaborresource.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="object-typing" />
+<p class="use-head">Object Typing</p>
+<p>The <a href="../../templates/object-typing.htm">Object Typing</a> concept applies to this entity as shown in Table 307.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th></tr>
+<tr><td><a href="../../ifcconstructionmgmtdomain/lexical/ifclaborresourcetype.htm">IfcLaborResourceType</a></td></tr>
+<tr><td><a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresourcetype.htm">IfcConstructionResourceType</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 307 &mdash; IfcLaborResource Object Typing</td></tr></table>
+
+
+<br/><br/>
+
+<a name="quantity-sets" />
+<p class="use-head">Quantity Sets</p>
+<p>The <a href="../../templates/quantity-sets.htm">Quantity Sets</a> concept applies to this entity as shown in Table 308.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Name</b></th></tr>
+<tr><td><a href="../../ifcconstructionmgmtdomain/qset/qto_laborresourcebasequantities.htm">Qto_LaborResourceBaseQuantities</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 308 &mdash; IfcLaborResource Quantity Sets</td></tr></table>
+
+
+<br/><br/>
+
+<a name="resource-assignment" />
+<p class="use-head">Resource Assignment</p>
+<p>The <a href="../../templates/resource-assignment.htm">Resource Assignment</a> concept applies to this entity as shown in Table 309.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcactor.htm">IfcActor</a></td><td>Indicates specific people manifesting the resource such as laborers.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 309 &mdash; IfcLaborResource Resource Assignment</td></tr></table>
+
+
+
+<br/><br/>
+
+<a name="resource-cost" />
+<p class="use-head">Resource Cost</p>
+<p>The <a href="../../templates/resource-cost.htm">Resource Cost</a> concept applies to this entity as shown in Table 310.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>CostType</b></th><th><b>CostName</b></th><th><b>ValueType</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a></td><td>Standard</td><td><a href="../../ifcmeasureresource/lexical/ifcmonetarymeasure.htm">IfcMonetaryMeasure</a></td><td>Wages incurred for work during standard hours.</td></tr>
+<tr><td><a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a></td><td>Overtime</td><td><a href="../../ifcmeasureresource/lexical/ifcmonetarymeasure.htm">IfcMonetaryMeasure</a></td><td>Wages incurred for work during overtime hours.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 310 &mdash; IfcLaborResource Resource Cost</td></tr></table>
+
+
+<br/><br/>
+
+<a name="resource-quantity" />
+<p class="use-head">Resource Quantity</p>
+<p>The <a href="../../templates/resource-quantity.htm">Resource Quantity</a> concept applies to this entity as shown in Table 311.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>QuantityType</b></th><th><b>QuantityName</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcquantityresource/lexical/ifcquantitytime.htm">IfcQuantityTime</a></td><td>Labor</td><td>Quantity of labor, typically per hour.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 311 &mdash; IfcLaborResource Resource Quantity</td></tr></table>
+
+
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcLaborResource&quot; type=&quot;ifc:<a href="../../ifcconstructionmgmtdomain/lexical/ifclaborresource.htm">IfcLaborResource</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresource.htm">IfcConstructionResource</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcLaborResource&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresource.htm">IfcConstructionResource</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcconstructionmgmtdomain/lexical/ifclaborresourcetypeenum.htm">IfcLaborResourceTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLaborResource
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresource.htm">IfcConstructionResource</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcconstructionmgmtdomain/lexical/ifclaborresourcetypeenum.htm">IfcLaborResourceTypeEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">CorrectPredefinedType</td><td width="1%"> : </td><td>NOT(EXISTS(PredefinedType)) OR 
+ (PredefinedType &lt;&gt; IfcLaborResourceTypeEnum.USERDEFINED) OR 
+ ((PredefinedType = IfcLaborResourceTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcconstructionmgmtdomain/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">PredefinedType</span></td><td width="1%"> : </td><td>
+Defines types of labour resources.
+<blockquote class="change-ifc2x4">IFC4 New attribute.</blockquote>
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcLaborResource
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDeclaredBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">IsTypedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcresource.htm">IfcResource</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Identification</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;</td></tr>
+<tr valign="top"><td width="20%">LongDescription</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ResourceOf</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstoresource.htm">IfcRelAssignsToResource</a> <span class="keyword">FOR</span> RelatingResource;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresource.htm">IfcConstructionResource</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Usage</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcresourcetime.htm">IfcResourceTime</a>;</td></tr>
+<tr valign="top"><td width="20%">BaseCosts</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifccostresource/lexical/ifcappliedvalue.htm">IfcAppliedValue</a>;</td></tr>
+<tr valign="top"><td width="20%">BaseQuantity</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcquantityresource/lexical/ifcphysicalquantity.htm">IfcPhysicalQuantity</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcconstructionmgmtdomain/lexical/ifclaborresource.htm">IfcLaborResource</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcconstructionmgmtdomain/lexical/ifclaborresourcetypeenum.htm">IfcLaborResourceTypeEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifclaborresource.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

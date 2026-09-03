@@ -1,0 +1,323 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcDoorPanelProperties</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.1.3.2");
+//-->
+</script>
+
+<h4 class="std">7.1.3.2 IfcDoorPanelProperties</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Propriétés du panneau de porte</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Festdefinierte Merkmale der Türfüllung / des Türflügels</b></td></tr>
+</table>
+ 
+<p>A door panel is normally a door leaf that opens to allow people or
+goods to pass. The parameters of the door panel define the
+geometrically relevant parameter of the panel,</p>
+
+<p>The <span class="self-ref">IfcDoorPanelProperties</span> are used to parametrically
+describe the shape and operation of door panels. The parametric
+definition can be added solely or additionally to the explicit
+shape representation of the door.</p>
+
+<p>The <a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a> can define doors consisting of more
+then one panel. In this case, one instance of
+<span class="self-ref">IfcDoorPanelProperties</span> has to be included for each door
+panel. The <i>PanelPosition</i> attribute, in conjunction with
+the <i>IfcDoorStyle.OperationType</i> attribute, determines to
+which panel the <span class="self-ref">IfcDoorPanelProperties</span> apply.</p>
+<p>The <span class="self-ref">IfcDoorPanelProperties</span> are included in the list of
+properties , given by attribute <i>HasPropertySets</i> of the
+<a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a>. More information about the door panel can be
+included in the same list of the <a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a> using the
+<a href="../../ifckernel/lexical/ifcpropertyset.htm">IfcPropertySet</a> for dynamic extensions.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2.0.
+</blockquote>
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Supertype changed to new <a href="../../ifckernel/lexical/ifcpredefinedpropertyset.htm">IfcPreDefinedPropertySet</a>.
+</blockquote>
+
+<p class="use-head">Geometry use definitions</p>
+
+<p>The <span class="self-ref">IfcDoorPanelProperties</span> does not hold a geometric representation. However it defines parameters which can be used to create the shape of the door style (which is inserted by the <a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a> into the spatial context of the project) as shown in Figure 258.</p>
+<p>The parameters of the <span class="self-ref">IfcDoorPanelProperties</span> define a standard door panel, including (if given) a proportional width to define non-uniform double swing (or sliding, or folding) doors. The outer boundary of the panel is determined by the occurrence parameter assigned to the <a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a>, which inserts the <a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a>. It has to take the lining parameter into account as well.</p>
+
+<table>
+ <tr>
+  <td>
+   <table border="1" cellpadding="2" cellspacing="2">
+    <tr valign="top">
+     <td align="left" valign="top"><img src="../../../figures/IfcDoorPanelProperties-Fig01.gif" alt="panel 1" border="0" height="187" width="266"></td>
+     <td align="left" valign="top">The depth of the panel (swinging, double-acting, and sliding panels) is defined by the <i>PanelDepth</i> parameter.
+      <ul>
+       <li><i>PanelDepth</i></li>
+      </ul>
+     </td>
+    </tr>
+    <tr valign="top">
+     <td align="left" valign="top"><img src="../../../figures/IfcDoorPanelProperties-Fig02.gif" alt="panel 2" border="0" height="259" width="304"></td>
+     <td align="left" valign="top">For door operation types that include more than one panel, the width of (at least) one panel is
+      given by a normalised ratio measure. It determines the width of that panel, which is defined as a ratio of the overall width of the door opening.
+      <ul>
+       <li><i>PanelWidth</i></li>
+      </ul>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td><p class="figure">Figure 258 &mdash; Door panel properties</p></td>
+ </tr>
+</table>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcDoorPanelProperties&quot; type=&quot;ifc:<a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelproperties.htm">IfcDoorPanelProperties</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcpredefinedpropertyset.htm">IfcPreDefinedPropertySet</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcDoorPanelProperties&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcpredefinedpropertyset.htm">IfcPreDefinedPropertySet</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ShapeAspectStyle&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcshapeaspect.htm">IfcShapeAspect</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PanelDepth&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PanelOperation&quot; type=&quot;ifc:<a href="../../ifcarchitecturedomain/lexical/ifcdoorpaneloperationenum.htm">IfcDoorPanelOperationEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PanelWidth&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PanelPosition&quot; type=&quot;ifc:<a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelpositionenum.htm">IfcDoorPanelPositionEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcDoorPanelProperties
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifcpredefinedpropertyset.htm">IfcPreDefinedPropertySet</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PanelDepth</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">PanelOperation</td><td width="1%"> : </td><td><a href="../../ifcarchitecturedomain/lexical/ifcdoorpaneloperationenum.htm">IfcDoorPanelOperationEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">PanelWidth</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">PanelPosition</td><td width="1%"> : </td><td><a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelpositionenum.htm">IfcDoorPanelPositionEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">ShapeAspectStyle</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcshapeaspect.htm">IfcShapeAspect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">ApplicableToType</td><td width="1%"> : </td><td>(EXISTS(SELF\IfcPropertySetDefinition.DefinesType[1])) 
+AND 
+(
+ ('IFCSHAREDBLDGELEMENTS.IFCDOORTYPE' IN TYPEOF(SELF\IfcPropertySetDefinition.DefinesType[1]))
+  OR
+ ('IFCARCHITECTUREDOMAIN.IFCDOORSTYLE' IN TYPEOF(SELF\IfcPropertySetDefinition.DefinesType[1]))
+);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcarchitecturedomain/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">PanelDepth</span></td><td width="1%"> : </td><td>
+Depth of the door panel, measured perpendicular to the plane of the door leaf.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PanelOperation</span></td><td width="1%"> : </td><td>
+The <i>PanelOperation</i> defines the way of operation of that panel. The <i>PanelOperation</i> of the door panel has to correspond with the <i>OperationType</i> of the <a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a> by which it is referenced.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PanelWidth</span></td><td width="1%"> : </td><td>
+Width of this panel, given as ratio relative to the total clear opening width of the door. If omited, it defaults to 1. A value has to be provided for all doors with <i>OperationType</i>'s at <a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a> defining a door with more then one panel.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PanelPosition</span></td><td width="1%"> : </td><td>
+Position of this panel within the door. The <i>PanelPosition</i> of the door panel has to correspond with the <i>OperationType</i> of the <a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a> by which it is referenced.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ShapeAspectStyle</span></td><td width="1%"> : </td><td>
+Pointer to the shape aspect, if given. The shape aspect reflects the part of the door shape, which represents the door panel.
+<blockquote class="deprecated">DEPRECATION&nbsp; The attribute is deprecated and shall no longer be used, i.e. the value shall be NIL ($).</blockquote>
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">ApplicableToType</span></td><td width="1%"> : </td><td>
+The <span class="self-ref">IfcDoorPanelProperties</span> shall only be used in the context of an <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>.
+<blockquote class="note">NOTE&nbsp; The deprecated entity <a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a> is applicable as well.
+</blockquote>
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcDoorPanelProperties
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcpropertydefinition.htm">IfcPropertyDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcpropertysetdefinition.htm">IfcPropertySetDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">DefinesType</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifctypeobject.htm">IfcTypeObject</a> <span class="keyword">FOR</span> HasPropertySets;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbytemplate.htm">IfcRelDefinesByTemplate</a> <span class="keyword">FOR</span> RelatedPropertySets;</td></tr>
+<tr valign="top"><td width="20%">DefinesOccurrence</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatingPropertyDefinition;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcpredefinedpropertyset.htm">IfcPreDefinedPropertySet</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelproperties.htm">IfcDoorPanelProperties</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PanelDepth</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">PanelOperation</td><td width="1%"> : </td><td><a href="../../ifcarchitecturedomain/lexical/ifcdoorpaneloperationenum.htm">IfcDoorPanelOperationEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">PanelWidth</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">PanelPosition</td><td width="1%"> : </td><td><a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelpositionenum.htm">IfcDoorPanelPositionEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">ShapeAspectStyle</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcshapeaspect.htm">IfcShapeAspect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcdoorpanelproperties.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

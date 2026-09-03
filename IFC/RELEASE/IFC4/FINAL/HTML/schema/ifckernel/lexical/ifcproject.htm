@@ -1,0 +1,366 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcProject</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.1.3.11");
+//-->
+</script>
+
+<h4 class="std">5.1.3.11 IfcProject</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Projet</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Projekt</b></td></tr>
+</table>
+ 
+
+<p><span class="self-ref">IfcProject</span> indicates the undertaking of some design, engineering, construction, or
+maintenance activities leading towards a product. The project establishes the context for information to be exchanged or shared, and it may represent a construction project but does not have to.  The <span class="self-ref">IfcProject</span>'s main purpose in an exchange structure is to provide the root instance and the context for all other information items included.</p>
+<p>The context provided by the <span class="self-ref">IfcProject</span> includes:</p>
+<ul>
+<li>the default units</li>
+<li>the geometric representation context for exchange structures including shape representations
+<ul>
+<li>the world coordinate system</li>
+<li>the coordinate space dimension</li>
+<li>the precision used within the geometric representations, and</li>
+<li>optionally the indication of the true north relative to the world coordinate system</li>
+</ul>
+</li>
+</ul>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; The attributes <i>RepresentationContexts</i> and <i>UnitsInContext</i> are made optional and are promoted to supertype <a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a>.
+</blockquote>
+
+
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>There shall only be one project within the exchange context. This is enforced by the global rule <a href="../../ifckernel/lexical/ifcsingleprojectinstance.htm">IfcSingleProjectInstance</a>.</li>
+</ol>
+
+<hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcproject.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="project-declaration" />
+<p class="use-head">Project Declaration</p>
+<p>The <a href="../../templates/project-declaration.htm">Project Declaration</a> concept applies to this entity as shown in Table 4.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcprojectlibrary.htm">IfcProjectLibrary</a></td><td>Referenced projects incorporated into this project.</td></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcpropertysettemplate.htm">IfcPropertySetTemplate</a></td><td>Property set templates defined by this project.</td></tr>
+<tr><td><a href="../../ifckernel/lexical/ifctypeobject.htm">IfcTypeObject</a></td><td>Type definition defined by this project.</td></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcactor.htm">IfcActor</a></td><td>Actors participating in this project.</td></tr>
+<tr><td><a href="../../ifckernel/lexical/ifccontrol.htm">IfcControl</a></td><td>Controls issued within this project.</td></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a></td><td>Groups defined by this project.</td></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcprocess.htm">IfcProcess</a></td><td>Processes defined by this project.</td></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcresource.htm">IfcResource</a></td><td>Resources defined by this project.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 4 &mdash; IfcProject Project Declaration</td></tr></table>
+
+<p>The <span class="self-ref">IfcProject</span> is also the context for other information about the construction project such as a work plan. Non-product structures are assigned by their first level object to <span class="self-ref">IfcProject</span> using the <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> relationship.</p>
+
+<p>The <span class="self-ref">IfcProject</span> provides the context for spatial elements and the associated products, and for work plans (or other non-product based) descriptions of the construction project. It is handled by two distinct relationship objects as shown in Figure 95.</p>
+
+<blockquote class="note">NOTE&nbsp; The spatial structure and the schedule structure can be decomposed. For example the <a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a> can be decomposed into <a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a>'s, and the <a href="../../ifcprocessextension/lexical/ifcworkplan.htm">IfcWorkPlan</a> can be decomposed into <a href="../../ifcprocessextension/lexical/ifcworkschedule.htm">IfcWorkSchedule</a>'s.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; The products and tasks can be decomposed further. For example the <a href="../../ifcsharedbldgelements/lexical/ifccurtainwall.htm">IfcCurtainWall</a> can be decomposed into <a href="../../ifcsharedbldgelements/lexical/ifcmember.htm">IfcMember</a> and <a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a>, the <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a> can be decomposed into other <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a>'s.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; The products and tasks can have direct linking relationships. For example the <a href="../../ifcsharedbldgelements/lexical/ifccurtainwall.htm">IfcCurtainWall</a> can be assigned to a <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a> as an input or output for a construction schedule.</blockquote
+>
+<blockquote class="note">NOTE&nbsp; The anomaly to use the composition structure through <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> for assigning the uppermost spatial container to <span class="self-ref">IfcProject</span> is due to upward compatibility reasons with earlier releases of this standard.</blockquote>
+
+
+<p>Figure 94 illustrates the context for project libraries that in return provide a context to the library items assigned to it. Product types are an example for items that can be included in a project library.</p>
+
+
+<table summary="project relationships">
+<tr valign="top"><td><img src="../../../figures/IfcProject_fig-1.png" alt="project relationships" /></td></tr>
+<tr valign="top"><td colspan="2">
+<p class="figure">Figure 94 &mdash; Project spatial and work plan structure</p></td></tr>
+</table>
+
+
+<p>Figure 95 illustrates project relationships with spatial structures, products, and type libraries.</p>
+
+
+<table summary="project relationships">
+<tr><td><img src="../../../figures/IfcProject_fig-2.png" alt="project relationships" /></td></tr>
+<tr><td><p class="figure">Figure 95 &mdash; Project spatial structure, products and product type library</p></td></tr>
+</table>
+
+
+<br/><br/>
+
+<a name="spatial-decomposition" />
+<p class="use-head">Spatial Decomposition</p>
+<p>The <a href="../../templates/spatial-decomposition.htm">Spatial Decomposition</a> concept applies to this entity as shown in Table 5.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Spatial Parts</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></td><td>If referenced, the site is the root of the spatial structure.</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>If referenced, the building is the root of the spatial structure (no explicit site information included).</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspatialzone.htm">IfcSpatialZone</a></td><td>If referenced, the spatial zone is the root of the spatial structure (to be used as a stub for non-building related projects).</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 5 &mdash; IfcProject Spatial Decomposition</td></tr></table>
+
+<p>The <span class="self-ref">IfcProject</span> is used to reference the root of the spatial structure of a building or other construction project (that serves as the primary project breakdown and is required to be hierarchical). The spatial structure elements are linked together, and to the <span class="self-ref">IfcProject</span>, by using the objectified relationship <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>. 
+
+<br/><br/>
+
+<a name="project-units" />
+<p class="use-head">Project Units</p>
+<p>The <a href="../../templates/project-units.htm">Project Units</a> concept applies to this entity as shown in Table 6.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>NamedUnitType</b></th><th><b>DerivedUnitType</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">LENGTHUNIT</a></td><td>&nbsp;</td><td>Length unit as meters, millimeters, or inches.</td></tr>
+<tr><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">PLANEANGLEUNIT</a></td><td>&nbsp;</td><td>Angle unit as degrees or radians.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 6 &mdash; IfcProject Project Units</td></tr></table>
+
+
+<br/><br/>
+
+<a name="project-context" />
+<p class="use-head">Project Context</p>
+<p>The <a href="../../templates/project-context.htm">Project Context</a> concept applies to this entity as shown in Table 7.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>ContextIdentifier</b></th><th><b>ContextType</b></th><th><b>Description</b></th></tr>
+<tr><td>Model</td><td>3D</td><td>Context for all 3D geometry.</td></tr>
+<tr><td>Plan</td><td>2D</td><td>Context for all 2D annotations.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 7 &mdash; IfcProject Project Context</td></tr></table>
+
+
+<br/><br/>
+
+<a name="project-classification-information" />
+<p class="use-head">Project Classification Information</p>
+<p>The <a href="../../templates/project-classification-information.htm">Project Classification Information</a> concept applies to this entity.</p><br/><br/>
+
+<a name="project-document-information" />
+<p class="use-head">Project Document Information</p>
+<p>The <a href="../../templates/project-document-information.htm">Project Document Information</a> concept applies to this entity.</p><br/><br/>
+
+<a name="project-library-information" />
+<p class="use-head">Project Library Information</p>
+<p>The <a href="../../templates/project-library-information.htm">Project Library Information</a> concept applies to this entity.</p><br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcProject&quot; type=&quot;ifc:<a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcProject&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcProject
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">HasName</td><td width="1%"> : </td><td>EXISTS(SELF\IfcRoot.Name);</td></tr>  <tr valign="top"><td width="20%">CorrectContext</td><td width="1%"> : </td><td>NOT(EXISTS(SELF\IfcContext.RepresentationContexts)) OR
+(SIZEOF(QUERY(Temp &lt;* SELF\IfcContext.RepresentationContexts |
+ 'IFCREPRESENTATIONRESOURCE.IFCGEOMETRICREPRESENTATIONSUBCONTEXT' IN TYPEOF(Temp)
+  )) = 0);</td></tr>  <tr valign="top"><td width="20%">NoDecomposition</td><td width="1%"> : </td><td>SIZEOF(SELF\IfcObjectDefinition.Decomposes) = 0;</td></tr>  <tr valign="top"><td width="20%">HasOwnerHistory</td><td width="1%"> : </td><td>EXISTS(SELF\IfcRoot.OwnerHistory);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifckernel/diagram_0012.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">HasName</span></td><td width="1%"> : </td><td>
+The <i>Name</i> attribute has to be provided for <span class="self-ref">IfcProject</span>. It is the short name for the project.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CorrectContext</span></td><td width="1%"> : </td><td>
+If a <i>RepresentationContexts</i> relation is provided then there shall be no instance of <a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a> directly included in the set of <i>RepresentationContexts</i>.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">NoDecomposition</span></td><td width="1%"> : </td><td>
+The <span class="self-ref">IfcProject</span> represents the root of the any decomposition tree. It shall therefore not be used to decompose any other object definition.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">HasOwnerHistory</span></td><td width="1%"> : </td><td>
+The <i>OwnerHistory</i> attribute has to be provided for <span class="self-ref">IfcProject</span>. It provides the minimum of owner information for the project data set and the last change action, that applied to the whole data set.
+<blockquote class="note">NOTE&nbsp; Each individual data item, that derives from <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a> may have an individual <i>OwnerHistory</i>. It then overrides the common ownership and chance action information provided at the single  <span class="self-ref">IfcProject</span> instance in an IFC data set.</blockquote>
+  <blockquote class="change-ifc2x4">IFC4 CHANGE  New where rule.</blockquote>
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcProject
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">LongName</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Phase</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">RepresentationContexts</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcrepresentationresource/lexical/ifcrepresentationcontext.htm">IfcRepresentationContext</a>;</td></tr>
+<tr valign="top"><td width="20%">UnitsInContext</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:?] <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatingContext;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcproject.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

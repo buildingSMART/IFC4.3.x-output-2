@@ -1,0 +1,262 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcOrientedEdge</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.20.3.13");
+//-->
+</script>
+
+<h4 class="std">8.20.3.13 IfcOrientedEdge</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Arête orientée</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Gerichtete Kante - Topologie</b></td></tr>
+</table>
+ 
+
+<p> </p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+An oriented edge is an edge constructed from another edge and contains a BOOLEAN direction flag to indicate whether or not the orientation of the constructed edge agrees with the orientation of the original edge. Except for perhaps orientation, the oriented edge is equivalent to the original edge. 
+<br><br>
+A common practice is solid modelling systems is to have an entity that represents the "use" or "traversal" of an edge. This "use" entity explicitly represents the requirement in a manifold solid that each edge must be traversed exactly twice, once in each direction. The "use" functionality is provided by the edge subtype oriented edge.
+</blockquote> 
+
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>oriented_edge</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2.0.</blockquote> 
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:complexType name=&quot;IfcOrientedEdge-temp&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:restriction base=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&lt;xs:element name=&quot;IfcOrientedEdge&quot; type=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcorientededge.htm">IfcOrientedEdge</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcOrientedEdge&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<span class="self-ref">IfcOrientedEdge-temp</span>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;EdgeElement&quot; type=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Orientation&quot; type=&quot;xs:boolean&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcOrientedEdge
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">EdgeElement</td><td width="1%"> : </td><td><a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>;</td></tr>
+<tr valign="top"><td width="20%">Orientation</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%"><span class="keyword">SELF</span>\IfcEdge.EdgeStart</td><td width="1%"> : </td><td><a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a> := IfcBooleanChoose 
+(Orientation, EdgeElement.EdgeStart, EdgeElement.EdgeEnd);</td></tr>
+<tr valign="top"><td width="20%"><span class="keyword">SELF</span>\IfcEdge.EdgeEnd</td><td width="1%"> : </td><td><a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a> := IfcBooleanChoose 
+(Orientation, EdgeElement.EdgeEnd, EdgeElement.EdgeStart);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">EdgeElementNotOriented</td><td width="1%"> : </td><td>NOT('IFCTOPOLOGYRESOURCE.IFCORIENTEDEDGE' IN TYPEOF(EdgeElement));</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifctopologyresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">EdgeElement</span></td><td width="1%"> : </td><td>Edge entity used to construct this oriented edge.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Orientation</span></td><td width="1%"> : </td><td>BOOLEAN, If TRUE the topological orientation as used coincides with the orientation from start vertex to end vertex of the edge element. If FALSE otherwise.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">EdgeStart</span></td><td width="1%"> : </td><td>The start vertex of the oriented edge. It derives from the vertices of the edge element after taking account of the orientation.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">EdgeEnd</span></td><td width="1%"> : </td><td>The end vertex of the oriented edge. It derives from the vertices of the edge element after taking account of the orientation.
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">EdgeElementNotOriented</span></td><td width="1%"> : </td><td>The edge element shall not be an oriented edge.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcOrientedEdge
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifcorientededge.htm">IfcOrientedEdge</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">EdgeElement</td><td width="1%"> : </td><td><a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>;</td></tr>
+<tr valign="top"><td width="20%">Orientation</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">EdgeStart</td><td width="1%"> : </td><td><a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a> := IfcBooleanChoose 
+(Orientation, EdgeElement.EdgeStart, EdgeElement.EdgeEnd);</td></tr>
+<tr valign="top"><td width="20%">EdgeEnd</td><td width="1%"> : </td><td><a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a> := IfcBooleanChoose 
+(Orientation, EdgeElement.EdgeEnd, EdgeElement.EdgeStart);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcorientededge.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

@@ -1,0 +1,600 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcGrid</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.24");
+//-->
+</script>
+
+<h4 class="std">5.4.3.24 IfcGrid</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Grille</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Raster</b></td></tr>
+</table>
+
+    <p>
+      <span class="self-ref">IfcGrid</span> ia a planar design grid defined in 3D space
+      used as an aid in locating structural and design elements.
+      The position of the grid (<i>ObjectPlacement</i>) is defined
+      by a 3D coordinate system (and thereby the design grid can be
+      used in plan, section or in any position relative to the
+      world coordinate system). The position can be relative to the
+      object placement of other products or grids. The XY plane of
+      the 3D coordinate system is used to place the grid axes,
+      which are 2D curves (for example, line, circle, arc,
+      polyline).
+    </p>
+    <p>
+      The inherited attributes <i>Name</i> and <i>Description</i>
+      can be used to define a descriptive name of the grid and to
+      indicate the grid's purpose. A grid is defined by (normally)
+      two, or (in case of a triangular grid) three lists of grid
+      axes. The following figures shows some examples.
+    </p>
+    <p>
+      A grid may support a rectangular layout as shown in Figure 119, a radial
+      layout as shown in Figure 120, or a triangular layout as shown in Figure 121.
+    </p>
+    <blockquote class="note">
+      NOTE&nbsp; The <i>PredefinedType</i> denotes the type of
+      grid that is represented by <span class="self-ref">IfcGrid</span>. The
+      instantiation of <a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>'s has to agree to the
+      <i>PredefinedType</i>, if provided.
+    </blockquote>
+    <blockquote class="note">
+      NOTE&nbsp; The grid axes, defined within the design grid, are
+      those elements to which project objects will be placed
+      relatively using the <a href="../../ifcgeometricconstraintresource/lexical/ifcgridplacement.htm">IfcGridPlacement</a>.
+    </blockquote>
+    <table cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td width="320">
+            <img src="../../../figures/IfcDesignGrid-Type1.gif" alt="1"
+            border="0" height="211" width="306">
+          </td>
+          <td width="320">
+            <img src="../../../figures/IfcDesignGrid-Type2.gif" alt="2"
+            border="0" height="211" width="306">
+          </td>
+          <td width="320">
+            <img src="../../../figures/IfcDesignGrid-Type3.gif" alt="3"
+            border="0" height="211" width="306">
+          </td>
+        </tr>
+        <tr>
+          <td width="320">
+            <p class="figure">Figure 119 &mdash; Grid rectangular layout</p>
+          </td>
+          <td width="320">
+            <p class="figure">Figure 120 &mdash; Grid radial layout</p>
+          </td>
+          <td width="320">
+            <p class="figure">Figure 121 &mdash; Grid triangular layout</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC1.0.
+    </blockquote>
+    <blockquote class="change-ifc2x4">
+      IFC4 CHANGE&nbsp; The attribute <i>PredefinedType</i> has
+      been added at the end of the attribute list.
+    </blockquote>
+    <p>
+      &nbsp;
+    </p>
+    <p class="spec-head">Informal Propositions:</p>
+    <table summary="IP">
+      <tr>
+        <td width="640">
+          <ol>
+            <li>Grid axes, which are referenced in different lists
+            of axes (UAxes, VAxes, WAxes) shall not be parallel.
+            </li>
+            <li>Grid axes should be defined such as there are no
+            two grid axes which intersect twice (see Figure 189).
+            </li>
+          </ol>
+          <blockquote class="note">
+            NOTE&nbsp; Left side: ambiguous intersections A1 and
+            A2, a grid containing such grid axes is not a valid
+            design grid;&nbsp; Right side: the conflict can be
+            resolved by splitting one grid axis in a way, such as
+            no ambiguous intersections exist.
+          </blockquote>
+        </td>
+        <td align="right" valign="top" width="320">
+          <img src="../../../figures/IfcDesignGrid-IP2.gif" alt="IP2"
+          border="0" height="97" width="306">
+          <p class="figure">Figure 122 &mdash; Grid intersections</p>
+        </td>
+      </tr>
+    </table>
+<hr />
+<h2>Common Use Definitions</h2><p>The following concepts are inherited at supertypes:</p>
+<ul>
+<li><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>: <a href="../../templates/identity.htm">Identity</a>, <a href="../../templates/revision-control.htm">Revision Control</a></li>
+</ul>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcgrid.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><a name="product-placement" />
+<p class="use-head">Product Placement</p>
+<p>The <a href="../../templates/product-placement.htm">Product Placement</a> concept applies to this entity.</p>    <p>
+      The local placement for <span class="self-ref">IfcGrid</span> is defined in its
+      supertype <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>. It is defined by the
+      <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a>, which defines the local coordinate
+      system that is referenced by all geometric representations.
+    </p>
+    <ul>
+      <li>The <i>PlacementRelTo</i> relationship of
+      <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a> shall point (if given) to the local
+      placement of the same <a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>,
+      which is used in the <i>ContainedInStructure</i> inverse
+      attribute, or to a spatial structure element at a higher
+      level, referenced by that.
+      </li>
+      <li>If the relative placement is not used, the absolute
+      placement is defined within the world coordinate system.
+      </li>
+    </ul>
+
+<br/><br/>
+
+<a name="footprint-geometry" />
+<p class="use-head">FootPrint Geometry</p>
+<p>The <a href="../../templates/footprint-geometry.htm">FootPrint Geometry</a> concept applies to this entity as shown in Table 53.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Identifier</b></th><th><b>Type</b></th><th><b>Items</b></th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 53 &mdash; IfcGrid FootPrint Geometry</td></tr></table>
+
+    <p>
+      The 2D geometric representation of <span class="self-ref">IfcGrid</span> is defined
+      using the 'GeometricCurveSet' geometry. The following
+      attribute values should be inserted
+    </p>
+    <ul>
+      <li>
+        <i>IfcShapeRepresentation.RepresentationIdentifier</i> =
+        'FootPrint'.
+      </li>
+      <li>
+        <i>IfcShapeRepresentation.RepresentationType</i> =
+        'GeometricCurveSet' .
+      </li>
+    </ul>
+    <p>
+      The following constraints apply to the 2D representation:
+    </p>
+    <ul>
+      <li>The <a href="../../ifcgeometricmodelresource/lexical/ifcgeometriccurveset.htm">IfcGeometricCurveSet</a> shall be an (and the
+      only) <i>Item</i> of the <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>. It
+      should contain an <a href="../../ifcgeometricmodelresource/lexical/ifcgeometriccurveset.htm">IfcGeometricCurveSet</a> containing
+      subtypes of <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>, each representing a grid axis.
+      Applicable subtypes of <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a> are:
+      <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a>, <a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a>, <a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a>
+      (based on <i>BaseCurve</i> referencing <a href="../../ifcgeometryresource/lexical/ifcline.htm">IfcLine</a> or <i>
+        IfcCircle</i>), and <a href="../../ifcgeometryresource/lexical/ifcoffsetcurve2d.htm">IfcOffsetCurve2D</a>.
+      </li>
+      <li>Each subtype of <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a> may have a curve style
+      assigned, using <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> referencing
+      <a href="../../ifcpresentationappearanceresource/lexical/ifccurvestyle.htm">IfcCurveStyle</a>.
+      </li>
+      <li>Optionally the grid axis labels may be added as
+      <a href="../../ifcpresentationdefinitionresource/lexical/ifctextliteral.htm">IfcTextLiteral</a>, and they may have text styles
+      assigned, using <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> referencing
+      <a href="../../ifcpresentationappearanceresource/lexical/ifctextstyle.htm">IfcTextStyle</a>.
+      </li>
+    </ul>
+    <table cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td width="510">
+            <img src="../../../figures/IfcDesignGrid-Layout1.gif" alt=
+            "design grid" border="0" height="300" width="400">
+          </td>
+          <td>
+            <blockquote>
+              As shown in Figure 31, the <span class="self-ref">IfcGrid</span> defines a
+              placement coordinate system using the
+              <i>ObjectPlacement</i>. The XY plane of the
+              coordinate system is used to place the 2D grid axes.
+              The <i>Representation</i> of <span class="self-ref">IfcGrid</span> is
+              defined using <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>,
+              referencing an <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>, that
+              includes&nbsp;<a href="../../ifcgeometricmodelresource/lexical/ifcgeometriccurveset.htm">IfcGeometricCurveSet</a> as
+              <i>Items</i>. All grid axes are added as
+              <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a> to the
+              <a href="../../ifcgeometricmodelresource/lexical/ifcgeometriccurveset.htm">IfcGeometricCurveSet</a>.
+            </blockquote>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="figure">Figure 123 &mdash; Grid layout</p>
+          </td>
+          <td>
+            &nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      &nbsp;
+    </p>
+    <table cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td width="510">
+            <img src="../../../figures/IfcGrid-Representation.png" alt=
+            "representation of a design grid" width="501" height=
+            "621" border="0">
+          </td>
+          <td>
+            <blockquote>
+              As shown in Figure 32, the attributes <i>UAxes</i>
+              and <i>VAxes</i> define lists of <a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>
+              within the context of the&nbsp;grid. Each instance of
+              <a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a> refers to the same instance of
+              <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a> (here the subtype <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a>)
+              that is contained within the
+              <a href="../../ifcgeometricmodelresource/lexical/ifcgeometriccurveset.htm">IfcGeometricCurveSet</a> that represents the
+              <span class="self-ref">IfcGrid</span>.
+            </blockquote>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="figure">Figure 124 &mdash; Grid representation</p>
+          </td>
+          <td>
+            &nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+<br/><br/>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcGrid&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcgrid.htm">IfcGrid</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcGrid&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;UAxes&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;list-unique&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;VAxes&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;list-unique&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;WAxes&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;list-unique&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcgridtypeenum.htm">IfcGridTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcGrid
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">UAxes</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="keyword">UNIQUE</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>;</td></tr>
+<tr valign="top"><td width="20%">VAxes</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="keyword">UNIQUE</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>;</td></tr>
+<tr valign="top"><td width="20%">WAxes</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="keyword">UNIQUE</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>;</td></tr>
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcgridtypeenum.htm">IfcGridTypeEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ContainedInStructure</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a> <span class="keyword">FOR</span> RelatedElements;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">HasPlacement</td><td width="1%"> : </td><td>EXISTS(SELF\IfcProduct.ObjectPlacement);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">UAxes</span></td><td width="1%"> : </td><td>List of grid axes defining the first row of grid lines.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">VAxes</span></td><td width="1%"> : </td><td>List of grid axes defining the second row of grid lines.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">WAxes</span></td><td width="1%"> : </td><td>List of grid axes defining the third row of grid lines. It may be given in the case of a triangular grid.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PredefinedType</span></td><td width="1%"> : </td><td>
+Predefined types to define the particular type of the grid.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New attribute.
+</blockquote>
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ContainedInStructure</span></td><td width="1%"> : </td><td>
+Relationship to a spatial structure element, to which the grid is primarily associated.
+<blockquote class="change-ifc2x">IFC2x CHANGE&nbsp; The inverse relationship has been added to <span class="self-ref">IfcGrid</span> with upward compatibility</blockquote>
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">HasPlacement</span></td><td width="1%"> : </td><td>The placement for the grid has to be given.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcGrid
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Nests</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsNestedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">IsDecomposedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">Decomposes</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">IsDeclaredBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">Declares</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a> <span class="keyword">FOR</span> RelatingObject;</td></tr>
+<tr valign="top"><td width="20%">IsTypedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ObjectPlacement</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>;</td></tr>
+<tr valign="top"><td width="20%">Representation</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ReferencedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a> <span class="keyword">FOR</span> RelatingProduct;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcgrid.htm">IfcGrid</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">UAxes</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="keyword">UNIQUE</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>;</td></tr>
+<tr valign="top"><td width="20%">VAxes</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="keyword">UNIQUE</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>;</td></tr>
+<tr valign="top"><td width="20%">WAxes</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="keyword">UNIQUE</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcgridaxis.htm">IfcGridAxis</a>;</td></tr>
+<tr valign="top"><td width="20%">PredefinedType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcgridtypeenum.htm">IfcGridTypeEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ContainedInStructure</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a> <span class="keyword">FOR</span> RelatedElements;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcgrid.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

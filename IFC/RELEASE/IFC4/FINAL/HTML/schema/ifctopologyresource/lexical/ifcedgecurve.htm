@@ -1,0 +1,209 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcEdgeCurve</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.20.3.5");
+//-->
+</script>
+
+<h4 class="std">8.20.3.5 IfcEdgeCurve</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Kante - Topologie mit expliziter Geometrie</b></td></tr>
+</table>
+
+<p>An <span class="self-ref">IfcEdgeCurve</span> defines two vertices being connected topologically including the geometric representation of the connection.</p>
+<p>&nbsp;</p>
+<table>
+<tr><td><br><img src="../../../figures/IfcEdgeCurve.png" width="600" height="220" alt="example"></td>
+<td><blockquote class="example">EXAMPLE&nbsp; Figure 389 illustrates an example where the edge geometry is given by an unbounded curve, here <a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a>. The bounds are provided by the <i>EdgeStart</i> and <i>EdgeEnd</i>, the topological direction of the <span class="self-ref">IfcEdgeCurve</span> opposes the direction of the <a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a> by <i>SameSense</i> = FALSE.</blockquote></td>
+</tr>
+<tr><td><p class="figure">Figure 389 &mdash; Edge curve</p></td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p>&nbsp;</p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+An edge curve is a special subtype of edge which has its geometry fully defined. The geometry is defined by associating the edge with a curve
+which may be unbounded. As the topological and geometric directions may be opposed, an indicator (same sense) is used to
+identify whether the edge and curve directions agree or are opposed. The Boolean value indicates whether the curve direction
+agrees with (TRUE) or is in the opposite direction (FALSE) to the edge direction. Any geometry associated with the vertices of the
+edge shall be consistent with the edge geometry. Multiple edges can reference the same curve.
+</blockquote>
+
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>edge_curve</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x.</blockquote>
+
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>The domain of the edge curve is formally defined to be the domain of its edge geometry as trimmed by the vertices. This domain does not include the vertices.</li>
+<li>An edge curve has non-zero finite extent.</li>
+<li>An edge curve is a manifold.</li>
+<li>An edge curve is arcwise connected.</li>
+<li>The edge start is not a part of the edge domain.</li>
+<li>The edge end is not a part of the edge domain.</li>
+<li>Vertex geometry shall be consistent with edge geometry.</li>
+</ol>
+
+<hr />
+<p>Figure 390 illustrates edge curve usage.</p>
+<table><tr><td><img src="../../../figures/ifcedgecurve.png" alt="usage"></td></tr><tr><td><p class="figure">Figure 390 &mdash; Edge curve usage</p></td></tr></table>
+
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcEdgeCurve&quot; type=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcedgecurve.htm">IfcEdgeCurve</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcEdgeCurve&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;EdgeGeometry&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SameSense&quot; type=&quot;xs:boolean&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcEdgeCurve
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">EdgeGeometry</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>;</td></tr>
+<tr valign="top"><td width="20%">SameSense</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifctopologyresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">EdgeGeometry</span></td><td width="1%"> : </td><td>The curve which defines the shape and spatial location of the edge. This curve may be unbounded and is implicitly trimmed by the vertices of the edge; this defines the edge domain. Multiple edges can reference the same curve.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SameSense</span></td><td width="1%"> : </td><td>This logical flag indicates whether (TRUE), or not (FALSE) the senses of the edge and the curve defining the edge geometry are the same. The sense of an edge is from the edge start vertex to the edge end vertex; the sense of a curve is in the direction of increasing parameter. </td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcEdgeCurve
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">EdgeStart</td><td width="1%"> : </td><td><a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a>;</td></tr>
+<tr valign="top"><td width="20%">EdgeEnd</td><td width="1%"> : </td><td><a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifctopologyresource/lexical/ifcedgecurve.htm">IfcEdgeCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">EdgeGeometry</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>;</td></tr>
+<tr valign="top"><td width="20%">SameSense</td><td width="1%"> : </td><td><span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcedgecurve.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

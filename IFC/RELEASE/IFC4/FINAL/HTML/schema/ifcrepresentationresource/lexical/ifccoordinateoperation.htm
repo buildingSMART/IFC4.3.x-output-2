@@ -1,0 +1,183 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcCoordinateOperation</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.3.1");
+//-->
+</script>
+
+<h4 class="std">8.18.3.1 IfcCoordinateOperation</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Opération entre systèmes de coordonnées de référence</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>(Rechen-)Operation zwischen Koordinatensystemen</b></td></tr>
+</table>
+
+    <p>
+      The coordinate operation is an
+      abstract supertype to handle any operation (transformation
+      or conversion) between two coordinate reference systems. It
+      is meant to provide expandability for future versions,
+      since currently only the conversion of a local engineering
+      coordinate system into a map coordinate reference system is
+      dealt with by the subtype <a href="../../ifcrepresentationresource/lexical/ifcmapconversion.htm">IfcMapConversion</a>.
+    </p>
+    <p>
+      By convention, a coordinate operation is given between the
+      <i>SourceCRS</i> being the more local, or child coordinate
+      reference system, and the <i>TargetCRS</i> being the more
+      remote or parent coordinate reference system, in
+      the special case the coordinate operation between the local
+      engineering coordinate system of the construction project
+      and any map or other coordinate reference system.
+    </p>
+    <blockquote class="extDef">
+		<p style="font-size:inherit;" >
+      NOTE&nbsp; Definition from OpenGIS Abstract Specification,
+      Topic 2:<br> If the relationship between any two coordinate
+      reference systems is known, coordinates can be transformed
+      or converted to another coordinate reference system.
+      Coordinate operations are divided into two subtypes:
+    </p>
+    <ul style="font-size:inherit;" >
+      <li style="font-size:inherit;" >
+        <i>Coordinate conversion</i> &ndash; mathematical
+        operation on coordinates that does not include any change
+        of datum. The best-known example of a coordinate
+        conversion is a map projection. The parameters describing
+        coordinate conversions are defined rather than
+        empirically derived. Note that some conversions have no
+        parameters.
+      </li>
+      <li style="font-size:inherit;" >
+        <i>Coordinate transformation</i> &ndash; mathematical
+        operation on coordinates that usually includes a change
+        of datum. The parameters of a coordinate transformation
+        are empirically derived from data containing the
+        coordinates of a series of points in both coordinate
+        reference systems. This computational process is usually
+        &lsquo;over-determined&rsquo;, allowing derivation of
+        error (or accuracy) estimates for the transformation.
+        Also, the stochastic nature of the parameters may result
+        in multiple (different) versions of the same coordinate
+        transformation. Because of this several transformations
+        may exist for a given pair of coordinate reference
+        systems, differing in their transformation method,
+        parameter values and accuracy characteristics.
+      </li>
+    </ul>
+		</blockquote>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC4.
+    </blockquote>
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcCoordinateOperation&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifccoordinateoperation.htm">IfcCoordinateOperation</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:Entity&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcCoordinateOperation&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:Entity&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;SourceCRS&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystemselect.htm">IfcCoordinateReferenceSystemSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;TargetCRS&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystem.htm">IfcCoordinateReferenceSystem</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCoordinateOperation
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcrepresentationresource/lexical/ifcmapconversion.htm">IfcMapConversion</a>)<b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">SourceCRS</td><td width="1%"> : </td><td><a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystemselect.htm">IfcCoordinateReferenceSystemSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">TargetCRS</td><td width="1%"> : </td><td><a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystem.htm">IfcCoordinateReferenceSystem</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcrepresentationresource/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">SourceCRS</span></td><td width="1%"> : </td><td>Source coordinate reference system for the operation.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">TargetCRS</span></td><td width="1%"> : </td><td>Target coordinate reference system for the operation.</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCoordinateOperation
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcrepresentationresource/lexical/ifccoordinateoperation.htm">IfcCoordinateOperation</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">SourceCRS</td><td width="1%"> : </td><td><a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystemselect.htm">IfcCoordinateReferenceSystemSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">TargetCRS</td><td width="1%"> : </td><td><a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystem.htm">IfcCoordinateReferenceSystem</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifccoordinateoperation.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

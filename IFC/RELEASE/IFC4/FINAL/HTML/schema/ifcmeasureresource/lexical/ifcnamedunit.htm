@@ -1,0 +1,157 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcNamedUnit</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.11.3.9");
+//-->
+</script>
+
+<h4 class="std">8.11.3.9 IfcNamedUnit</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Unité nommée</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Benannte Einheit</b></td></tr>
+</table>
+
+
+<blockquote class="extDef">
+NOTE&nbsp; Definition according to ISO/CD 10303-41:1992<br>
+A named unit is a unit quantity associated with the word, or group of words, by which the unit is identified.</blockquote>
+
+<blockquote class="note">
+NOTE&nbsp; Corresponding ISO 10303 name: named_unit, please refer to ISO/IS 10303-41 for the final definition of the formal standard.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New type in IFC1.5.1.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcNamedUnit&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcnamedunit.htm">IfcNamedUnit</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:Entity&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcNamedUnit&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:Entity&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Dimensions&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcdimensionalexponents.htm">IfcDimensionalExponents</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;UnitType&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">IfcUnitEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcNamedUnit
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcmeasureresource/lexical/ifccontextdependentunit.htm">IfcContextDependentUnit</a>, <a href="../../ifcmeasureresource/lexical/ifcconversionbasedunit.htm">IfcConversionBasedUnit</a>, <a href="../../ifcmeasureresource/lexical/ifcsiunit.htm">IfcSIUnit</a>))<b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dimensions</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcdimensionalexponents.htm">IfcDimensionalExponents</a>;</td></tr>
+<tr valign="top"><td width="20%">UnitType</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">IfcUnitEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">WR1</td><td width="1%"> : </td><td>IfcCorrectDimensions (SELF.UnitType, SELF.Dimensions);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcmeasureresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Dimensions</span></td><td width="1%"> : </td><td>The dimensional exponents of the SI base units by which the named unit is defined.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">UnitType</span></td><td width="1%"> : </td><td>The type of the unit.</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">WR1</span></td><td width="1%"> : </td><td>Correct dimensions of the unit are established through the function IfcCorrectDimensions.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcNamedUnit
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcmeasureresource/lexical/ifcnamedunit.htm">IfcNamedUnit</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dimensions</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcdimensionalexponents.htm">IfcDimensionalExponents</a>;</td></tr>
+<tr valign="top"><td width="20%">UnitType</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">IfcUnitEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcnamedunit.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

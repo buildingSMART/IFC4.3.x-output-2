@@ -1,0 +1,247 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcCylindricalSurface</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.25");
+//-->
+</script>
+
+<h4 class="std">8.9.3.25 IfcCylindricalSurface</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Surface cylindrique</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Zylindrische Fläche</b></td></tr>
+</table>
+
+<p>The cylindrical surface is a surface unbounded in the direction of <i>z</i>. Bounded cylindrical surfaces are
+defined by using a subtype of <a href="../../ifcgeometryresource/lexical/ifcboundedsurface.htm">IfcBoundedSurface</a> with <i>BasisSurface</i> being a cylindrical surface.</p>
+<blockquote class="note">NOTE 1&nbsp; A bounded cylindrical surface can be defined by an
+<a href="../../ifcgeometryresource/lexical/ifcrectangulartrimmedsurface.htm">IfcRectangularTrimmedSurface</a> with <i>BasisSurface</i> being the cylindrical surface and <i>U1</i> =
+0&deg;, <i>U2</i> = 360&deg; and <i>V1</i> = lower bound in <b>z</b>, <i>V2</i> = upper bound in <b>z</b> (if the
+plane angle measure is degree). A bounded cylindrical arc surface is provided with |U1 - U2| &lt; 360&deg; (assuming
+the Usense and Vsense agree to the sense of the basis surface).</blockquote>
+<blockquote class="note">NOTE 2&nbsp; A non-rectangular bounded cylindrical surface, e.g. the surface of a round wall
+underneath a sloped roof, cab be defined by an <a href="../../ifcgeometryresource/lexical/ifccurveboundedsurface.htm">IfcCurveBoundedSurface</a> with <a href="../../ifcgeometryresource/lexical/ifcboundarycurve.htm">IfcBoundaryCurve</a>'s, being
+a collection of p-curve segments. A p-curve is curve which lies on the basis of a surface and is defined in the
+parameter space of that surface.</blockquote>
+<p>The inherited attributes are interpreted as</p>
+<ul>
+<li><i>SELF\IfcElementarySurface.Position</i> defines the location and orientation of the cylindrical surface.</li>
+<li><i>SELF\IfcElementarySurface.Position.Location</i> definesd a point on the axis of the cylindrical surface.</li>
+<li><i>SELF\IfcElementarySurface.Position.P[3]</i> defines the direction of the axis of the cylindrical surface.</li>
+</ul>
+<blockquote class="extDef">
+<p style="font-size:inherit">NOTE Definition according to ISO/CD 10303-42:1992<br>
+A cylindrical surface is a surface at a constant distance (the radius) from a straight line. A cylindrical surface is
+defined by its radius and its orientation and location. The data is to be interpreted as follows:</p>
+<blockquote style="font-size:inherit">
+<pre style=" font-size:x-small;">
+C = Position.Location
+x = Position.P[1]
+y = Position.P[2]
+z = Position.P[3]
+<i>R</i> = Radius
+</pre></blockquote>
+<p style="font-size:inherit">and the surface is parameterized as:</p>
+<blockquote><img src="../../../figures/IfcCylindricalSurface-Math1.gif" alt="formula" width="300" height="25"></blockquote>
+<p style="font-size:inherit">where the parametric range is -&infin; &lt; <i>u,v</i> &lt; &infin; .</p>
+<p style="font-size:inherit">In the above parameterization the length unit for the unit vectors <b>z</b> is equal to
+that of the radius <b><i>R</i></b>. In the placement coordinate system defined above, the surface is represented by
+the equation <i>S</i> = 0, where</p>
+<blockquote><img src="../../../figures/IfcCylindricalSurface-Math2.gif" alt="formula" width="200" height="25"></blockquote>
+<p style="font-size:inherit">The positive direction of the normal to the surface at any point on the surface is given
+by</p>
+<blockquote>
+<p style="font-size:inherit"><img src="../../../figures/IfcCylindricalSurface-Math3.gif" alt="formula" width="100" height="25">,
+or as unit normal by</p>
+<p style="font-size:inherit"><img src="../../../figures/IfcCylindricalSurface-Math4.gif" alt="formula" width="220" height=
+"25"></p>
+</blockquote>
+<p style="font-size:inherit">The direction of the normal is away from the axis of the cylinder.</p>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>cylindrical_surface</strong> defined in ISO
+10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcCylindricalSurface&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccylindricalsurface.htm">IfcCylindricalSurface</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcCylindricalSurface&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Radius&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCylindricalSurface
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Radius</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0008.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Radius</span></td><td width="1%"> : </td><td>
+The radius of the cylindrical surface.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCylindricalSurface
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := 3;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Position</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifccylindricalsurface.htm">IfcCylindricalSurface</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Radius</td><td width="1%"> : </td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifccylindricalsurface.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

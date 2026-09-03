@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcCurveWeightsPositive</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 9 index3 4 index4 6 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.4.7");
+//-->
+</script>
+
+<h4 class="num">IfcCurveWeightsPositive</h4>
+<section>
+<h5 class="num">Semantic definitions at the function</h5>
+<details open="open"><summary>Function Definition</summary><p>
+<p>This function checks whether the curve weights of a b-spline are positive.</p>
+
+<blockquote class="note">NOTE&nbsp; Function adapted from <strong>curve_weights_positive</strong> defined in ISO 10303-42.</blockquote>
+
+<blockquote class="history">HISTORY&nbsp; New function in IFC2x</blockquote></p>
+</details>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<details open="open"><summary>EXPRESS Specification</summary><span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcCurveWeightsPositive<br/>
+
+( B: IfcRationalBSplineCurveWithKnots)<br/>: BOOLEAN;<br/><br/>&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;Result : BOOLEAN := TRUE;<br/>&nbsp;&nbsp;END_LOCAL;<br/><br/>&nbsp;&nbsp;REPEAT i := 0 TO B.UpperIndexOnControlPoints;<br/>&nbsp;&nbsp;&nbsp;&nbsp;IF B.Weights[i] &lt;= 0.0&nbsp;&nbsp;THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FALSE;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Result);<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;END_REPEAT;<br/>&nbsp;&nbsp;RETURN(Result);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+</details>
+</section>
+<p><a href="../../../link/ifccurveweightspositive.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

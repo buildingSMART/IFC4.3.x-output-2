@@ -1,0 +1,101 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>Pset_SoundAttenuation</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.2.4.22");
+//-->
+</script>
+
+<h4 class="std">6.2.4.22 Pset_SoundAttenuation</h4>
+<p><span class="self-ref">PSET_TYPEDRIVENOVERRIDE</span>
+/
+<a href="../../ifcproductextension/lexical/ifcannotation.htm">IfcAnnotation</a>
+ / <span class="self-ref">SOUND</span>
+</p><table>
+<tr><td><image src="../../../img/locale-en.png" /></td><td> Common definition to capture sound pressure at a point on behalf of a device typically used within the context of building services and flow distribution systems.   To indicate sound values from an instance of IfcDistributionFlowElement at a particular location, IfcAnnotation instance(s) should be assigned to the IfcDistributionFlowElement through the IfcRelAssignsToProduct relationship. The IfcAnnotation should specify ObjectType of 'Sound' and geometric representation of 'Annotation Point' consisting of a single IfcPoint subtype as described at IfcAnnotation.  This property set is instantiated multiple times on an object for each frequency band.  HISTORY: New property set in IFC Release 2x4.<br /></td></tr>
+<tr><td><image src="../../../img/locale-ja.png" /></td><td> 建物管理・空気の搬送システムに関連する設備の音圧の性能指標。特定位置からあるIfcDistributionFlowElement設備の音性能値を表すために、IfcRelAssignsToProduct を通してIfcDistributionFlowElementに IfcAnnotation注釈属性値を付ける。 IfcAnnotation属性値は音の種別（ObjectType） と幾何的な代表位置注釈ポイントで構成され、注釈ポイントは IfcAnnotation注釈を入れたIfcPoint一点とする。このPsetは周波数バンド（帯域幅）１HZにおけるある音の強さの倍数で表示する。履歴：IFC２ｘ４に新たに定義された。</td></tr>
+</table>
+<p><a href="http://lookup.bsdd.buildingsmart.com/api/4.0/IfdPSet/1kJVQ0qWWHuO00025QrE$V/ifcVersion/2x4" target="ifd"><img border="0" src="../../../img/external.png" title="Link to IFD"/> buildingSMART Data Dictionary</a></p>
+
+<p><a href="../../../psd/Pset_SoundAttenuation.xml"><img border="0" src="../../../img/diagram.png" title="Link to PSD-XML"/> PSD-XML</a></p>
+
+
+<ul>
+
+<li><b>SoundScale</b><br/>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+<span class="self-ref">PEnum_SoundScale: DBA, DBB, DBC, NC, NR</span>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>SoundScale</b>: The reference sound scale.  
+
+DBA: Decibels in an A-weighted scale
+DBB: Decibels in an B-weighted scale
+DBC: Decibels in an C-weighted scale
+NC: Noise criteria
+NR: Noise rating<br /></td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ja.png" /></td><td><b>騒音の単位</b>: 騒音の単位：
+
+- DBA: dB(A)
+- DBB: dB(B)
+- DBC:dB(C)
+- NC:騒音基準
+- NR:騒音評価</td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ko.png" /></td><td><b>소음단위</b>: 소음 단위. DBA : dB (A) DBB : dB (B) DBC : dB (C) NC : 소음 기준 NR : 소음 평가</td></tr>
+</table>
+<ul>
+
+</ul>
+
+<li><b>SoundFrequency</b><br/>
+<span class="self-ref">P_LISTVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcfrequencymeasure.htm">IfcFrequencyMeasure</a>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>SoundFrequency</b>: List of nominal sound frequencies, correlated to the SoundPressure time series values (IfcTimeSeries.ListValues)<br /></td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ja.png" /></td><td><b>音の周波数</b>: 代表的な周波数リスト、時系列音圧値と関連する。（IfcTimeSeriesにリストされた値）</td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ko.png" /></td><td><b>소리의 주파수</b>: 대표적인 주파수 목록 시계열 소리 圧値과 관련된다. (IfcTimeSeries에 나열된 값)</td></tr>
+</table>
+<ul>
+
+</ul>
+
+<li><b>SoundPressure</b><br/>
+<span class="self-ref">P_REFERENCEVALUE</span>
+/
+<a href="../../ifcdatetimeresource/lexical/ifctimeseries.htm">IfcTimeSeries</a>
+/
+<a href="../../ifcmeasureresource/lexical/ifcsoundpressuremeasure.htm">IfcSoundPressureMeasure</a>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>SoundPressure</b>: A time series of sound pressure values measured in decibels at a reference pressure of 20 microPascals for the referenced octave band frequency.  Each value in IfcTimeSeries.ListValues is correlated to the sound frequency at the same position within SoundFrequencies.<br /></td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ja.png" /></td><td><b>音圧</b>: 時系列の音圧、単位はデシベル。オクターブバンドの音の強さ20mPaを基準する。IfcTimeSeriesにリストされた各値は同じ場所で、同じ周波数バントでの温の周波数と関連する。</td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ko.png" /></td><td><b>음압</b>: 시계열의 음압 단위는 dB. 옥타브 밴드 소리의 강도 20mPa을 기준한다. IfcTimeSeries에 나열된 각 값은 같은 장소에서 같은 주파수 번트에서 온도의 주파수와 관련.</td></tr>
+</table>
+<ul>
+
+</ul>
+
+</ul>
+
+<p><a href="../../../link/pset_soundattenuation.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

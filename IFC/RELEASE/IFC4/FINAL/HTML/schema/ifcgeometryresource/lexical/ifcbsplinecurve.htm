@@ -1,0 +1,351 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcBSplineCurve</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.7");
+//-->
+</script>
+
+<h4 class="std">8.9.3.7 IfcBSplineCurve</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Courbe Bspline</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Bézier-Spline-Kurve</b></td></tr>
+</table>
+
+<p>The <span class="self-ref">IfcBSplineCurve</span> is a spline curve parameterized by spline functions.</p>
+<p>Figure 315 illustrates a B-spline curve.</p>
+<blockquote class="note">NOTE&nbsp; Figure quoted from ISO 10303-42.</blockquote>
+<table summary="illustration">
+<tr>
+<td><img src="../../../figures/IfcBSplineCurve-Fig1.gif" alt="control points" width="520" height="200" border="0"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 315 &mdash; B-spline curve</p>
+</td>
+</tr>
+</table>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+A B-spline curve is a piecewise parametric polynomial or rational curve described in terms of control points and basis
+functions. The B-spline curve has been selected as the most stable format to represent all types of polynomial or
+rational parametric curves. With appropriate attribute values it is capable of representing single span or spline
+curves of explicit polynomial, rational, Bezier or B-spline type.<br>
+<br>
+Interpretation of the data is as follows:
+<ol style=" font-size:inherit;">
+<li style=" font-size:inherit;">
+<p style=" font-size:inherit;">All weights shall be positive and the curve is given by</p>
+<img src="../../../figures/IfcBSplineCurve-Math1.gif" alt="equation" width="183" height="115" border="0">
+<table summary="illustration" style=" font-size:inherit;">
+<tr style=" font-size:inherit;">
+<td align="right" width="100" style=" font-size:inherit;"><i>k</i>+1</td>
+<td style=" font-size:inherit;">= number of control points</td>
+</tr>
+<tr style=" font-size:inherit;">
+<td align="right" width="100" style=" font-size:inherit;">P<sub><i>i</i></sub></td>
+<td style=" font-size:inherit;">= control points</td>
+</tr>
+<tr style=" font-size:inherit;">
+<td align="right" width="100" style=" font-size:inherit;"><i>w</i><sub><i>i</i></sub></td>
+<td>= weights</td>
+</tr>
+<tr style=" font-size:inherit;">
+<td align="right" width="100" style=" font-size:inherit;"><i>d</i></td>
+<td>= degree</td>
+</tr>
+</table>
+<p style=" font-size:inherit;">The knot array is an array of (<i>k</i>+<i>d</i>+2) real numbers
+[<i>u</i><sub>-<i>d</i></sub> ... <i>u</i><sub><i>k</i>+1</sub>], such that for all indices j in
+[-<i>d</i>,<i>k</i>], <i>u</i><sub>j</sub> &lt;= <i>u</i><sub>j+1</sub>. This array is obtained from the knot
+data list by repeating each multiple knot according to the multiplicity. <i>N <sup>d</sup><sub>i</sub></i>, the
+<i>i</i>th normalized B-spline basis function of degree <i>d</i>, is defined on the subset
+[<i>u<sub>i-d</sub></i>, ... , <i>u<sub>i+1</sub></i>] of this array.</p>
+</li>
+<li style=" font-size:inherit;">
+<p style=" font-size:inherit;">Let <i>L</i> denote the number of distinct values among the <i>d</i>+<i>k</i>+2
+knots in the knot array; <i>L</i> will be referred to as the 'upper index on knots'. Let <i>m<sub>j</sub></i>
+denote the multiplicity (number of repetitions) of the <i>j</i>th distinct knot. Then</p>
+<img src="../../../figures/IfcBSplineCurve-Math2.gif" alt="equation" width="149" height="59" border="0">
+<p style=" font-size:inherit;">All knot multiplicities except the first and the last shall be in the range 1 ...
+degree; the first and last may have a maximum value of degree + 1. In evaluating the basis functions, a knot <i>u</i>
+of e.g. multiplicity 3 is interpreted as a string <i>u, u, u,</i> in the knot array. The B-spline curve has 3 special
+subtypes (<i>Note: only 1, Bezier curve, included in this IFC release</i>) where the knots and knot multiplicities
+are derived to provide simple default capabilities.</p>
+</li>
+<li style=" font-size:inherit;">Logical flag is provided to indicate whether the curve self intersects or not.</li>
+</ol>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>b_spline_curve</strong> defined in
+ISO10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x2.</blockquote>
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcBSplineCurve&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcbsplinecurve.htm">IfcBSplineCurve</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcBSplineCurve&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ControlPointsList&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>&quot; minOccurs=&quot;2&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;list&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Degree&quot; type=&quot;xs:long&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;CurveForm&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcbsplinecurveform.htm">IfcBSplineCurveForm</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ClosedCurve&quot; type=&quot;ifc:logical&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SelfIntersect&quot; type=&quot;ifc:logical&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBSplineCurve
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcgeometryresource/lexical/ifcbsplinecurvewithknots.htm">IfcBSplineCurveWithKnots</a>)
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Degree</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span>;</td></tr>
+<tr valign="top"><td width="20%">ControlPointsList</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveForm</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcbsplinecurveform.htm">IfcBSplineCurveForm</a>;</td></tr>
+<tr valign="top"><td width="20%">ClosedCurve</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+<tr valign="top"><td width="20%">SelfIntersect</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">UpperIndexOnControlPoints</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := (SIZEOF(ControlPointsList) - 1);</td></tr>
+<tr valign="top"><td width="20%">ControlPoints</td><td width="1%"> : </td><td><span class="keyword">ARRAY</span> [0:UpperIndexOnControlPoints] OF <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a> := IfcListToArray(ControlPointsList,0,UpperIndexOnControlPoints);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">SameDim</td><td width="1%"> : </td><td>SIZEOF(QUERY(Temp &lt;* ControlPointsList |
+  Temp.Dim &lt;&gt; ControlPointsList[1].Dim))
+= 0;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0007.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Degree</span></td><td width="1%"> : </td><td>The algebraic degree of the basis functions.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ControlPointsList</span></td><td width="1%"> : </td><td>The list of control points for the curve.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CurveForm</span></td><td width="1%"> : </td><td>Used to identify particular types of curve; it is for information only.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ClosedCurve</span></td><td width="1%"> : </td><td>Indication of whether the curve is closed; it is for information only.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SelfIntersect</span></td><td width="1%"> : </td><td>Indication whether the curve self-intersects or not; it is for information only.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">UpperIndexOnControlPoints</span></td><td width="1%"> : </td><td>The upper index on the array of control points; the lower index is 0.
+This value is derived from the control points list.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ControlPoints</span></td><td width="1%"> : </td><td>The array of control points used to define the geometry of the curve. This is derived from the list of control points.</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">SameDim</span></td><td width="1%"> : </td><td>All control points shall have the same dimensionality.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBSplineCurve
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := IfcCurveDim(SELF);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcbsplinecurve.htm">IfcBSplineCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Degree</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span>;</td></tr>
+<tr valign="top"><td width="20%">ControlPointsList</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [2:?] <span class="keyword">OF</span> <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveForm</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcbsplinecurveform.htm">IfcBSplineCurveForm</a>;</td></tr>
+<tr valign="top"><td width="20%">ClosedCurve</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+<tr valign="top"><td width="20%">SelfIntersect</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">UpperIndexOnControlPoints</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := (SIZEOF(ControlPointsList) - 1);</td></tr>
+<tr valign="top"><td width="20%">ControlPoints</td><td width="1%"> : </td><td><span class="keyword">ARRAY</span> [0:UpperIndexOnControlPoints] OF <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a> := IfcListToArray(ControlPointsList,0,UpperIndexOnControlPoints);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcbsplinecurve.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

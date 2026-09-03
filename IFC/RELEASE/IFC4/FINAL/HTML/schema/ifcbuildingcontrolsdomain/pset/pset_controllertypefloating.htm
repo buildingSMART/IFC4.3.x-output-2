@@ -1,0 +1,156 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>Pset_ControllerTypeFloating</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.2.4.12");
+//-->
+</script>
+
+<h4 class="std">7.2.4.12 Pset_ControllerTypeFloating</h4>
+<p><span class="self-ref">PSET_TYPEDRIVENOVERRIDE</span>
+/
+<a href="../../ifcbuildingcontrolsdomain/lexical/ifccontroller.htm">IfcController</a>
+ / <span class="self-ref">FLOATING</span>
+</p><table>
+<tr><td><image src="../../../img/locale-en.png" /></td><td> Properties for signal handling for an analog controller taking disparate valued multiple inputs and creating a single valued output.  HISTORY: IFC4 adapted from Pset_ControllerTypeCommon and applicable predefined type made specific to FLOATING; ACCUMULATOR and PULSECONVERTER types added; additional properties added to replace Pset_AnalogInput and Pset_AnalogOutput.<br /></td></tr>
+</table>
+<p><a href="http://lookup.bsdd.buildingsmart.com/api/4.0/IfdPSet/0fyJK0qSqHuO00025QrE$V/ifcVersion/2x4" target="ifd"><img border="0" src="../../../img/external.png" title="Link to IFD"/> buildingSMART Data Dictionary</a></p>
+
+<p><a href="../../../psd/Pset_ControllerTypeFloating.xml"><img border="0" src="../../../img/diagram.png" title="Link to PSD-XML"/> PSD-XML</a></p>
+
+
+<ul>
+
+<li><b>ControlType</b><br/>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+<span class="self-ref">PEnum_ControllerTypeFloating: CONSTANT, MODIFIER, ABSOLUTE, INVERSE, HYSTERESIS, RUNNINGAVERAGE, DERIVATIVE, INTEGRAL, BINARY, ACCUMULATOR, PULSECONVERTER, LOWERLIMITCONTROL, UPPERLIMITCONTROL, SUM, SUBTRACT, PRODUCT, DIVIDE, AVERAGE, MAXIMUM, MINIMUM, REPORT, SPLIT, INPUT, OUTPUT, VARIABLE, OTHER, NOTKNOWN, UNSET</span>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>ControlType</b>: The type of signal modification effected and applicable ports: 
+
+CONSTANT: No inputs; SignalOffset is written to the output value.
+MODIFIER: Single analog input is read, added to SignalOffset, multiplied by SignalFactor, and written to the output value.
+ABSOLUTE: Single analog input is read and absolute value is written to the output value.
+INVERSE: Single analog input is read, 1.0 is divided by the input value and written to the output value.
+HYSTERISIS: Single analog input is read, delayed according to SignalTime, and written to the output value.
+RUNNINGAVERAGE: Single analog input is read, averaged over SignalTime, and written to the output value.
+DERIVATIVE: Single analog input is read and the rate of change during the SignalTime is written to the output value.
+INTEGRAL: Single analog input is read and the average value during the SignalTime is written to the output value.
+BINARY: Single binary input is read and SignalOffset is written to the output value if True.
+ACCUMULATOR: Single binary input is read, and for each pulse the SignalOffset is added to the accumulator, and while the accumulator is greater than the SignalFactor, the accumulator is decremented by SignalFactor and the integer result is incremented by one.
+PULSECONVERTER: Single integer input is read, and for each increment the SignalMultiplier is added and written to the output value.
+SUM: Two analog inputs are read, added, and written to the output value.
+SUBTRACT: Two analog inputs are read, subtracted, and written to the output value.
+PRODUCT: Two analog inputs are read, multiplied, and written to the output value.
+DIVIDE: Two analog inputs are read, divided, and written to the output value.
+AVERAGE: Two analog inputs are read and the average is written to the output value.
+MAXIMUM: Two analog inputs are read and the maximum is written to the output value.
+MINIMUM: Two analog inputs are read and the minimum is written to the output value..
+INPUT: Controller element is a dedicated input.
+OUTPUT: Controller element is a dedicated output.
+VARIABLE: Controller element is an in-memory variable.<br /></td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ko.png" /></td><td><b>FLOATING 유형</b>: 컨트롤러는 항상 하나의 출력 포트와 가변 입력 포트 유형에 따라있는 한결 : output = SignalOffset 수정자 : output = input * SignalFactor + SignalOffset 절대치 : output = | input | 역수 : output = 1.0 / input 지연 : output = 지연 (input, SignalTime 후) 이동 평균 : output = 평균 (inputN, SignalTime 사이) 미분 : output = 미분 (inputN, SignalTime 사이) 적분 : output = 적분 (inputN, SignalTime 사이) 바이너리 : output = SignalOffset ※ input = TRUE의 경우 누적 : output = accumulator       ※ accumulator = 펄스 카운트 * SignalOffset       ※ if (accumulator> SignalFactor) accumulator - = SignalFactor       ??? 펄스 카운터 : output = input * SignalMultiplier       ※ input 펄스 카운트, SignalMultiplier은 원인 불명       ??? 총 : output = input1 + input2 뺄셈 : output = input1 - input2 적립 : output = input1 * input2 나누기 : output = input1 / input2 평균 : output = (input1 + input2) / 2 최대 : output = input1 or input2 ※보다 큰 최소 : output = input1 or input2 ※보다 작은</td></tr>
+</table>
+<ul>
+
+</ul>
+
+<li><b>Labels</b><br/>
+<span class="self-ref">P_TABLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>Labels</b>: Table mapping values to labels, where such labels indicate transition points such as 'Hi', 'Lo', 'HiHi', or 'LoLo'.<br /></td></tr>
+</table>
+<ul>
+
+</ul>
+
+<li><b>Range</b><br/>
+<span class="self-ref">P_BOUNDEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>Range</b>: The physical range of values supported by the device.<br /></td></tr>
+</table>
+<ul>
+
+</ul>
+
+<li><b>Value</b><br/>
+<span class="self-ref">P_BOUNDEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>Value</b>: The expected range and default value.  While the property data type is IfcReal (to support all cases including when the units are unknown), a unit may optionally be provided to indicate the measure and unit.  The LowerLimitValue and UpperLimitValue must fall within the physical Range and may be used to determine extents when charting Pset_ControllerPHistory.Value.<br /></td></tr>
+</table>
+<ul>
+
+</ul>
+
+<li><b>SignalOffset</b><br/>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>SignalOffset</b>: Offset constant added to modfied signal.<br /></td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ko.png" /></td><td><b>옵셋</b>: 오프셋 상수 변경 신호에 추가됨</td></tr>
+</table>
+<ul>
+
+</ul>
+
+<li><b>SignalFactor</b><br/>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>SignalFactor</b>: Factor multiplied onto offset signal.<br /></td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ko.png" /></td><td><b>요소</b>: 인자는 오프셋 신호 곱셈</td></tr>
+</table>
+<ul>
+
+</ul>
+
+<li><b>SignalTime</b><br/>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifctimemeasure.htm">IfcTimeMeasure</a>
+<br/>
+<table>
+<tr valign="top"><td><image src="../../../img/locale-en.png" /></td><td><b>SignalTime</b>: Time factor used for integral and running average controllers.<br /></td></tr>
+<tr valign="top"><td><image src="../../../img/locale-ko.png" /></td><td><b>시간 요소</b>: 시간 요소는 INTEGRAL (적분)과 AVERAGE ((이동) 평균) 컨트롤러에 사용됨</td></tr>
+</table>
+<ul>
+
+</ul>
+
+</ul>
+
+<p><a href="../../../link/pset_controllertypefloating.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

@@ -1,0 +1,195 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcBooleanClippingResult</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.4");
+//-->
+</script>
+
+<h4 class="std">8.8.3.4 IfcBooleanClippingResult</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Résultat d'opération booléen</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Boolesches Ergebnis - Abkappen</b></td></tr>
+</table>
+
+<p>A clipping result is defined as a special subtype of the general <a href="../../ifcgeometricmodelresource/lexical/ifcbooleanresult.htm">IfcBooleanResult</a>. It constrains the
+operands and the operator of the Boolean result.</p>
+<p>A clipping result is the Boolean difference between a swept solid and a half space solid, or between the result of
+the Boolean difference and a half space solid. Hence more than one difference operation can be applied to achieve the
+final Boolean result.</p>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x.</blockquote>
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcBooleanClippingResult&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcbooleanclippingresult.htm">IfcBooleanClippingResult</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcbooleanresult.htm">IfcBooleanResult</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcBooleanClippingResult&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcbooleanresult.htm">IfcBooleanResult</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBooleanClippingResult
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometricmodelresource/lexical/ifcbooleanresult.htm">IfcBooleanResult</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">FirstOperandType</td><td width="1%"> : </td><td>('IFCGEOMETRICMODELRESOURCE.IFCSWEPTAREASOLID' IN TYPEOF(FirstOperand)) OR 
+('IFCGEOMETRICMODELRESOURCE.IFCSWEPTDISCSOLID' IN TYPEOF(FirstOperand)) OR
+('IFCGEOMETRICMODELRESOURCE.IFCBOOLEANCLIPPINGRESULT' IN TYPEOF(FirstOperand));</td></tr>  <tr valign="top"><td width="20%">SecondOperandType</td><td width="1%"> : </td><td>('IFCGEOMETRICMODELRESOURCE.IFCHALFSPACESOLID' IN TYPEOF(SecondOperand));</td></tr>  <tr valign="top"><td width="20%">OperatorType</td><td width="1%"> : </td><td>Operator = DIFFERENCE;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">FirstOperandType</span></td><td width="1%"> : </td><td>The first operand of the Boolean clipping operation shall be either an <a href="../../ifcgeometricmodelresource/lexical/ifcsweptareasolid.htm">IfcSweptAreaSolid</a>, an <a href="../../ifcgeometricmodelresource/lexical/ifcsweptdisksolid.htm">IfcSweptDiskSolid</a>, or (in case of more than one clipping) an <span class="self-ref">IfcBooleanClippingResult</span>. </td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SecondOperandType</span></td><td width="1%"> : </td><td>The second operand of the Boolean clipping operation shall be an IfcHalfSpaceSolid.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">OperatorType</span></td><td width="1%"> : </td><td>The Boolean operator for clipping is always "Difference".</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcBooleanClippingResult
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometricmodelresource/lexical/ifcbooleanresult.htm">IfcBooleanResult</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Operator</td><td width="1%"> : </td><td><a href="../../ifcgeometricmodelresource/lexical/ifcbooleanoperator.htm">IfcBooleanOperator</a>;</td></tr>
+<tr valign="top"><td width="20%">FirstOperand</td><td width="1%"> : </td><td><a href="../../ifcgeometricmodelresource/lexical/ifcbooleanoperand.htm">IfcBooleanOperand</a>;</td></tr>
+<tr valign="top"><td width="20%">SecondOperand</td><td width="1%"> : </td><td><a href="../../ifcgeometricmodelresource/lexical/ifcbooleanoperand.htm">IfcBooleanOperand</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := FirstOperand.Dim;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometricmodelresource/lexical/ifcbooleanclippingresult.htm">IfcBooleanClippingResult</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcbooleanclippingresult.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

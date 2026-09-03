@@ -1,0 +1,235 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcGridPlacement</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.7.3.8");
+//-->
+</script>
+
+<h4 class="std">8.7.3.8 IfcGridPlacement</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Positionnement de grille</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Rasterplatzierung</b></td></tr>
+</table>
+ 
+
+<p><span class="self-ref">IfcGridPlacement</span> provides a specialization of <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a> in which
+the placement and axis direction of the object coordinate system is defined by a reference to the design grid as defined in <a href="../../ifcproductextension/lexical/ifcgrid.htm">IfcGrid</a>.</p>
+<p>The location of the object coordinate system is given by the attribute <i>PlacementLocation</i>. It is defined as an
+<a href="../../ifcgeometricconstraintresource/lexical/ifcvirtualgridintersection.htm">IfcVirtualGridIntersection</a>, that is, an intersection between two grid axes with optional offsets.</p>
+<p>The axis direction of the x-axis of the object coordinate
+system is given either:</p>
+<ul>
+<li><i>PlacementRefDirection</i> = NIL: by the tangent of the first grid axis (<i>PlacementLocation.IntersectingAxes[1]</i>) at the virtual intersection (maybe using the offset curve, if <i>PlacementLocation.OffsetDistances</i> is given);</li>
+<li><i>PlacementRefDirection</i> = <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>: by the explicitly provided direction information;</li>
+<li><i>PlacementRefDirection</i> = <a href="../../ifcgeometricconstraintresource/lexical/ifcvirtualgridintersection.htm">IfcVirtualGridIntersection</a>: by the tangent between the virtual grid intersection of <i>PlacementLocation</i> and the virtual grid intersection of <i>PlacementRefDirection</i>. Offsets as potentially provided in the <a href="../../ifcgeometricconstraintresource/lexical/ifcvirtualgridintersection.htm">IfcVirtualGridIntersection</a>'s of <i>PlacementLocation</i> and <i>PlacementRefDirection</i> have to be taken into account.</li>
+</ul>
+<p>The direction of the y-axis of the <span class="self-ref">IfcGridPlacement</span> is the orthogonal complement to the x-axis. The plane defined by the x and y axis shall be co-planar to the xy plane of the local placement of the <a href="../../ifcproductextension/lexical/ifcgrid.htm">IfcGrid</a>. </p> 
+<p>The direction of the z-axis is the orientation of the cross product of the x-axis and the y-axis, i.e. the z-axis of the <span class="self-ref">IfcGridPlacement</span> shall be co-linear to the z-axis of the local placement of the <a href="../../ifcproductextension/lexical/ifcgrid.htm">IfcGrid</a>.</p>
+
+<blockquote class="note">
+NOTE&nbsp; The <a href="../../ifcproductextension/lexical/ifcgrid.htm">IfcGrid</a> local placement, that can be provided relative to the local placement of another spatial structure element, has to be taken into account for calculating the absolute placement of the virtual grid intersection.
+</blockquote>
+<blockquote class="note">
+NOTE&nbsp; The <i>PlacementLocation.OffsetDistances[3]</i> and the <i>PlacementRefDirection.OffsetDistances[3]</i> shall either not be assigned or should have the same z offset value.
+</blockquote>
+
+<p>The following figures show the usage of placement location and direction for an <span class="self-ref">IfcGridPlacement</span>.</p>
+
+<table cellpadding="2" cellspacing="2" summary="Geometry use definition">
+<tr><td align="left" valign="top"><img src="../../../figures/IfcGridPlacement-Layout1.png" alt="without ref direction" border="0" height="300" width="400"></td>
+<td style="vertical-align:bottom">
+<p>Figure 275 illustrates the case where <i>PlacementRefDirection</i> is <u>not</u> given - the object coordinate system is defined by:</p>
+<ul>
+<li><u>its location</u>: given by the virtual grid intersection of <i>PlacementLocation</i></li>
+<li><u>its x-axis direction</u>: given by the tangent of the first intersecting axis in the offset location of the virtual grid intersection</li>
+</ul>
+</td>
+</tr>
+<tr><td><p class="figure">Figure 275 &mdash; Grid placement</p></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<table cellpadding="2" cellspacing="2" summary="Geometry use definition">
+<tr>
+<td align="left" valign="top"><img src="../../../figures/IfcGridPlacement-Layout3.png" alt="with ref direction" border="0" height="300" width="400"></td>
+<td style="vertical-align:bottom">
+<p>Figure 276 illustrates the case where <i>PlacementRefDirection</i> is given as an <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>- the object coordinate system is defined by:
+<ul>
+<li><u>its location</u>: given by the virtual grid intersection of <i>PlacementLocation</i></li>
+<li><u>its x-axis direction</u>: given by the <i>DirectionRatios</i> of the <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>, only the ratios for x and y are taken into account,</li>
+</ul>
+</td>
+</tr>
+<tr><td><p class="figure">Figure 276 &mdash; Grid placement with direction</p></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<table cellpadding="2" cellspacing="2" summary="Geometry use definition">
+<tr><td align="left" valign="top"><img src="../../../figures/IfcGridPlacement-Layout2.png" alt="with ref direction" border="0" height="300" width="400"></td>
+<td style="vertical-align:bottom">
+<p>Figure 277 illustrates the case where <i>PlacementRefDirection</i> is given as an <a href="../../ifcgeometricconstraintresource/lexical/ifcvirtualgridintersection.htm">IfcVirtualGridIntersection</a>- the object coordinate system is defined by:
+<ul>
+<li><u>its location</u>: given by the virtual grid intersection of <i>PlacementLocation</i></li>
+<li><u>its x-axis direction</u>: given by the tangent of the line between the virtual grid intersection of the <i>PlacementLocation</i> and the virtual grid intersection of the <i>PlacementRefDirection</i>.</li>
+</ul>
+</td>
+</tr>
+<tr><td><p class="figure">Figure 277 &mdash; Grid placement with intersection</p></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<blockquote class="history">
+HISTORY  New entity in IFC1.5. The entity name was changed from IfcConstrainedPlacement in IFC2x.
+</blockquote>
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE Attribute data type of <i>PlacementRefDirection</i> has been changed to <a href="../../ifcgeometricconstraintresource/lexical/ifcgridplacementdirectionselect.htm">IfcGridPlacementDirectionSelect</a>.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcGridPlacement&quot; type=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcgridplacement.htm">IfcGridPlacement</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcGridPlacement&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;PlacementLocation&quot; type=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcvirtualgridintersection.htm">IfcVirtualGridIntersection</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;PlacementRefDirection&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcgridplacementdirectionselect.htm">IfcGridPlacementDirectionSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcGridPlacement
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PlacementLocation</td><td width="1%"> : </td><td><a href="../../ifcgeometricconstraintresource/lexical/ifcvirtualgridintersection.htm">IfcVirtualGridIntersection</a>;</td></tr>
+<tr valign="top"><td width="20%">PlacementRefDirection</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcgridplacementdirectionselect.htm">IfcGridPlacementDirectionSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricconstraintresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">PlacementLocation</span></td><td width="1%"> : </td><td>
+Placement of the object coordinate system defined by the intersection of two grid axes.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PlacementRefDirection</span></td><td width="1%"> : </td><td>
+Reference to either an explicit direction, or a second grid axis intersection, which defines the orientation of the grid placement.
+<blockquote class="change-ifc2x4">IFC4 CHANGE  The select of an explict direction has been added.</blockquote>
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcGridPlacement
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PlacesObject</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:?] <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a> <span class="keyword">FOR</span> ObjectPlacement;</td></tr>
+<tr valign="top"><td width="20%">ReferencedByPlacements</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a> <span class="keyword">FOR</span> PlacementRelTo;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcgridplacement.htm">IfcGridPlacement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">PlacementLocation</td><td width="1%"> : </td><td><a href="../../ifcgeometricconstraintresource/lexical/ifcvirtualgridintersection.htm">IfcVirtualGridIntersection</a>;</td></tr>
+<tr valign="top"><td width="20%">PlacementRefDirection</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcgridplacementdirectionselect.htm">IfcGridPlacementDirectionSelect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcgridplacement.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

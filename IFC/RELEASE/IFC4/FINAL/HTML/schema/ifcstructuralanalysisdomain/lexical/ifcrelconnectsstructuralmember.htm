@@ -1,0 +1,227 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcRelConnectsStructuralMember</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.7.3.2");
+//-->
+</script>
+
+<h4 class="std">7.7.3.2 IfcRelConnectsStructuralMember</h4>
+<table>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Verbindet idealisierte Tragelemente - Relation</b></td></tr>
+</table>
+
+
+<p>The entity <span class="self-ref">IfcRelConnectsStructuralMember</span> defines all needed properties describing the connection between structural members and structural connection objects (nodes or supports).</p>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x2.</blockquote>
+
+<p><b>Use Definition</b></p>
+
+<p><i>Point Connection</i><br>
+Instances of the entity <span class="self-ref">IfcRelConnectsStructuralMember</span> shall be used to describe a connection between an instance of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralpointconnection.htm">IfcStructuralPointConnection</a> and either an instance of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemember.htm">IfcStructuralCurveMember</a> or <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfacemember.htm">IfcStructuralSurfaceMember</a>.  The <i>RelatedStructuralConnection</i> for point connections has to be of type <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralpointconnection.htm">IfcStructuralPointConnection</a>.</p>
+
+<p><i>Curve Connection</i><br>
+Instances of the entity <span class="self-ref">IfcRelConnectsStructuralMember</span> shall be used to describe a connection between an instance of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveconnection.htm">IfcStructuralCurveConnection</a> and an instance of either <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemember.htm">IfcStructuralCurveMember</a> or <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfacemember.htm">IfcStructuralSurfaceMember</a>.  The <i>RelatedStructuralConnection</i> for curve connections has to be of type <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveconnection.htm">IfcStructuralCurveConnection</a>.</p>
+
+<p><i>Surface Connection</i><br>
+Instances of the entity <span class="self-ref">IfcRelConnectsStructuralMember</span> shall be used to describe a connection between an instance of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfaceconnection.htm">IfcStructuralSurfaceConnection</a> and an instance of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfacemember.htm">IfcStructuralSurfaceMember</a>.  The <i>RelatedStructuralConnection</i> for curve connections has to be of type <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfaceconnection.htm">IfcStructuralSurfaceConnection</a>.</p>
+
+<p><i>Coordinate System for Applied Conditions</i><br>
+All values defined by <i>AppliedCondition</i> or <i>AdditionalConditions</i> are given within the coordinate system provided by <i>ConditionCoordinateSystem</i>, which is defined relative to the local coordinate system of the structural member.  If the <i>ConditionCoordinateSystem</i> is not defined, the local coordinate system of the structural member is used instead.</p>
+
+<p><i>Supported Length</i><br>
+Optionally a supported length can be given, which specifies the length (or width) of the physical connection along a curve connection.</p>
+
+<p>Figure 271 illustrates the appropriate definition of support lengths.</p>
+
+<table border="0" cellpadding="2" cellspacing="0">
+  <tr>
+    <td>
+      <p><img src="../../../figures/IfcRelConnectsStructuralMember-Fig1.gif" alt="supported length" style="border: 0px solid ; width: 600px; height: 368px;" align="left"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="figure">Figure 271 &mdash; Structural member support lengths</p>
+    </td>
+  </tr>
+</table>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcRelConnectsStructuralMember&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectsstructuralmember.htm">IfcRelConnectsStructuralMember</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcRelConnectsStructuralMember&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatingStructuralMember&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralmember.htm">IfcStructuralMember</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatedStructuralConnection&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralconnection.htm">IfcStructuralConnection</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;AppliedCondition&quot; type=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcboundarycondition.htm">IfcBoundaryCondition</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;AdditionalConditions&quot; type=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcstructuralconnectioncondition.htm">IfcStructuralConnectionCondition</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ConditionCoordinateSystem&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SupportedLength&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelConnectsStructuralMember
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectswitheccentricity.htm">IfcRelConnectsWithEccentricity</a>)
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingStructuralMember</td><td width="1%"> : </td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralmember.htm">IfcStructuralMember</a>;</td></tr>
+<tr valign="top"><td width="20%">RelatedStructuralConnection</td><td width="1%"> : </td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralconnection.htm">IfcStructuralConnection</a>;</td></tr>
+<tr valign="top"><td width="20%">AppliedCondition</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralloadresource/lexical/ifcboundarycondition.htm">IfcBoundaryCondition</a>;</td></tr>
+<tr valign="top"><td width="20%">AdditionalConditions</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralloadresource/lexical/ifcstructuralconnectioncondition.htm">IfcStructuralConnectionCondition</a>;</td></tr>
+<tr valign="top"><td width="20%">SupportedLength</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ConditionCoordinateSystem</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralanalysisdomain/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">RelatingStructuralMember</span></td><td width="1%"> : </td><td>Reference to an instance of IfcStructuralMember (or its subclasses) which is connected to the specified structural connection. </td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RelatedStructuralConnection</span></td><td width="1%"> : </td><td>Reference to an instance of IfcStructuralConnection (or its subclasses) which is connected to the specified structural member.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">AppliedCondition</span></td><td width="1%"> : </td><td>Conditions which define the connections properties.  Connection conditions are often called &quot;release&quot; but are not only used to define mechanisms like hinges but also rigid, elastic, and other conditions.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">AdditionalConditions</span></td><td width="1%"> : </td><td>Describes additional connection properties.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SupportedLength</span></td><td width="1%"> : </td><td>Defines the 'supported length' of this structural connection. See Fig. for more detail. </td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ConditionCoordinateSystem</span></td><td width="1%"> : </td><td>
+
+Defines a coordinate system used for the description of the connection properties in <i>ConnectionCondition</i> relative to the local coordinate system of <i>RelatingStructuralMember</i>.  If left unspecified, the placement <a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>((x,y,z), ?, ?) is implied with x,y,z being the local member coordinates where the connection is made and the default axes directions being in parallel with the local axes of <i>RelatingStructuralMember</i>.
+
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelConnectsStructuralMember
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcrelationship.htm">IfcRelationship</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectsstructuralmember.htm">IfcRelConnectsStructuralMember</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingStructuralMember</td><td width="1%"> : </td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralmember.htm">IfcStructuralMember</a>;</td></tr>
+<tr valign="top"><td width="20%">RelatedStructuralConnection</td><td width="1%"> : </td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralconnection.htm">IfcStructuralConnection</a>;</td></tr>
+<tr valign="top"><td width="20%">AppliedCondition</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralloadresource/lexical/ifcboundarycondition.htm">IfcBoundaryCondition</a>;</td></tr>
+<tr valign="top"><td width="20%">AdditionalConditions</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralloadresource/lexical/ifcstructuralconnectioncondition.htm">IfcStructuralConnectionCondition</a>;</td></tr>
+<tr valign="top"><td width="20%">SupportedLength</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ConditionCoordinateSystem</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="spec-head">Examples:</p>
+<ul>
+<li><a href="../../../annex/annex-e/structural-curve-member.htm">Structural curve member</a></li>
+</ul>
+<p><a href="../../../link/ifcrelconnectsstructuralmember.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

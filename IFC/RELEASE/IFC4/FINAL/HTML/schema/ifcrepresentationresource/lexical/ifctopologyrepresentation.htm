@@ -1,0 +1,237 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcTopologyRepresentation</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.3.17");
+//-->
+</script>
+
+<h4 class="std">8.18.3.17 IfcTopologyRepresentation</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Représentation topologique</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Topologische Repräsentation</b></td></tr>
+</table>
+ 
+
+<p><span class="self-ref">IfcTopologyRepresentation</span>
+represents the concept of a particular topological representation of a
+product or a product component within a representation context. This
+representation context does not need to be (but may be) a geometric
+representation context. Several representation types for shape
+representation are included as predefined types: </p>
+<table>
+  <tbody>
+    <tr>
+      <td><b>Vertex</b></td>
+      <td>topological vertex
+representation (with or without assigned geometry)</td>
+    </tr>
+    <tr>
+      <td><b>Edge</b></td>
+      <td>topological edge
+representation (with or without assigned geometry)</td>
+    </tr>
+    <tr>
+      <td><b>Path</b></td>
+      <td>topological path
+representation (with or without assigned geometry)</td>
+    </tr>
+    <tr>
+      <td><b>Face</b></td>
+      <td>topological face
+representation (with or without assigned geometry)</td>
+    </tr>
+    <tr>
+      <td><b>Shell</b></td>
+      <td>topological shell
+representation (with or without assigned geometry)</td>
+    </tr>
+    <tr>
+      <td><b>Undefined</b></td>
+      <td>no constraints imposed</td>
+    </tr>
+  </tbody>
+</table>
+<p>The representation type is
+given as a string value at the inherited attribute '<i>RepresentationType</i>'.<br>
+</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcTopologyRepresentation&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifctopologyrepresentation.htm">IfcTopologyRepresentation</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcshapemodel.htm">IfcShapeModel</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcTopologyRepresentation&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcshapemodel.htm">IfcShapeModel</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcTopologyRepresentation
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcrepresentationresource/lexical/ifcshapemodel.htm">IfcShapeModel</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">WR21</td><td width="1%"> : </td><td>SIZEOF(QUERY(temp &lt;* SELF\IfcRepresentation.Items | 
+  NOT('IFCTOPOLOGYRESOURCE.IFCTOPOLOGICALREPRESENTATIONITEM' IN TYPEOF(temp))
+)) = 0
+
+;</td></tr>  <tr valign="top"><td width="20%">WR22</td><td width="1%"> : </td><td>EXISTS(SELF\IfcRepresentation.RepresentationType);</td></tr>  <tr valign="top"><td width="20%">WR23</td><td width="1%"> : </td><td>IfcTopologyRepresentationTypes(SELF\IfcRepresentation.RepresentationType, SELF\IfcRepresentation.Items);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcrepresentationresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">WR21</span></td><td width="1%"> : </td><td>Only topological representation items should be used.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">WR22</span></td><td width="1%"> : </td><td>A representation type should be given to the topology representation.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">WR23</span></td><td width="1%"> : </td><td>Checks the proper use of Items according to the RepresentationType.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcTopologyRepresentation
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ContextOfItems</td><td width="1%"> : </td><td><a href="../../ifcrepresentationresource/lexical/ifcrepresentationcontext.htm">IfcRepresentationContext</a>;</td></tr>
+<tr valign="top"><td width="20%">RepresentationIdentifier</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">RepresentationType</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Items</td><td width="1%"> : </td><td><span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RepresentationMap</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcgeometryresource/lexical/ifcrepresentationmap.htm">IfcRepresentationMap</a> <span class="keyword">FOR</span> MappedRepresentation;</td></tr>
+<tr valign="top"><td width="20%">LayerAssignments</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">OfProductRepresentation</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a> <span class="keyword">FOR</span> Representations;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcrepresentationresource/lexical/ifcshapemodel.htm">IfcShapeModel</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">OfShapeAspect</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcrepresentationresource/lexical/ifcshapeaspect.htm">IfcShapeAspect</a> <span class="keyword">FOR</span> ShapeRepresentations;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcrepresentationresource/lexical/ifctopologyrepresentation.htm">IfcTopologyRepresentation</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="spec-head">Examples:</p>
+<ul>
+<li><a href="../../../annex/annex-e/structural-curve-member.htm">Structural curve member</a></li>
+</ul>
+<p><a href="../../../link/ifctopologyrepresentation.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

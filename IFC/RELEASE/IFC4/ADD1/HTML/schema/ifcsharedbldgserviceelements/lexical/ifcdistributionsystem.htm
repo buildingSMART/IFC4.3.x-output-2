@@ -1,0 +1,279 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcDistributionSystem</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 2 index3 3 index4 8 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.2.3.9");
+//-->
+</script>
+
+<h4 class="num">IfcDistributionSystem</h4>
+<details>
+<summary>Natural language names</summary>
+<table>
+<tr><td><img alt="de" src="../../../img/locale-de.png" /></td><td><b>haustechnische Anlage</b></td></tr>
+<tr><td><img alt="en" src="../../../img/locale-en.png" /></td><td><b>Distribution System</b></td></tr>
+<tr><td><img alt="fr" src="../../../img/locale-fr.png" /></td><td><b>Système de distribution</b></td></tr>
+</table>
+</details>
+<details>
+<summary>Change log</summary>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+</details>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<details open="open"><summary>Entity definition</summary><p>A distribution system is a network designed to receive, store, maintain, distribute, or control the flow of a distribution media. A common example is a heating hot water system that consists of a pump, a tank, and an interconnected piping system for distributing hot water to terminals.</p>
+
+<p>The group <span class="self-ref">IfcDistributionSystem</span>
+defines the occurrence of a specialized system for use within the context of building services.</p>
+
+
+<p>Important functionalities for the description of a distribution system are derived from existing IFC entities:</p>
+
+<ul><li>From <a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a> it inherits the ability to couple the distribution system via <a href="../../ifcproductextension/lexical/ifcrelservicesbuildings.htm">IfcRelServicesBuildings</a> to one or more <a href="../../ifcproductextension/lexical/ifcspatialelement.htm">IfcSpatialElement</a> subtypes as necessary.</li></ul>
+
+<ul><li>From <a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a> it inherits the inverse attribute <i>IsGroupedBy</i>, pointing to the relationship entity <a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a>. This allows to group distribution elements (instances of <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> subtypes), and in special cases ports directly (instances of <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a>).</li></ul>
+
+<ul><li>From <a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a> it inherits the inverse attribute <i>IsDecomposedBy</i> pointing to the relationship entity <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>. It provides the hierarchy between the separate (partial) distribution systems.  For example, an electrical main circuit may be aggregated into branch circuits.</li></ul>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; For electrical power systems, <i>IfcElectricalCircuit</i> has been used for low-voltage (12-1000 V) power circuits and has been replaced by <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncircuit.htm">IfcDistributionCircuit</a> in IFC4; <span class="self-ref">IfcDistributionSystem</span> with PredefinedType 'ELECTRICAL' should be used for overall power systems, and <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncircuit.htm">IfcDistributionCircuit</a> with PredefinedType 'ELECTRICAL' should be used for each switched circuit.
+</blockquote>
+
+</details>
+<details open="open"><summary>Attribute definitions</summary><table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>C</th></tr>
+<tr><td>6</td><td>LongName</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>[0:1]</td><td>
+Long name for a distribution system, used for informal purposes. It should be used, if available, in conjunction with the inherited <i>Name</i> attribute.
+<blockquote class="note">NOTE&nbsp; In many scenarios the <i>Name</i> attribute refers to the short name or number of a distribution system or branch circuit, and the <i>LongName</i> refers to a descriptive name.
+</blockquote></td><td>X</td></tr>
+<tr><td>7</td><td>PredefinedType</td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">IfcDistributionSystemEnum</a></td><td>[0:1]</td><td>
+Predefined types of distribution systems.</td><td>X</td></tr>
+</table>
+</details>
+</section>
+<section>
+<h5 class="num">Inherited definitions from supertypes</h5>
+<details open="open"><summary>Entity inheritance</summary><img src="../../../diagrams/ifcdistributionsystem.png" usemap="#f"/>
+<map name="f">
+<area shape="rect" coords="78,150,266,162" href="../../../schema/ifcsharedbldgserviceelements/lexical/ifcdistributioncircuit.htm" alt="IfcDistributionCircuit" />
+<area shape="rect" coords="54,102,290,114" href="../../../schema/ifcproductextension/lexical/ifcsystem.htm" alt="IfcSystem" />
+<area shape="rect" coords="42,78,302,90" href="../../../schema/ifckernel/lexical/ifcgroup.htm" alt="IfcGroup" />
+<area shape="rect" coords="30,54,314,66" href="../../../schema/ifckernel/lexical/ifcobject.htm" alt="IfcObject" />
+<area shape="rect" coords="18,30,326,42" href="../../../schema/ifckernel/lexical/ifcobjectdefinition.htm" alt="IfcObjectDefinition" />
+<area shape="rect" coords="6,6,338,18" href="../../../schema/ifckernel/lexical/ifcroot.htm" alt="IfcRoot" />
+</map>
+</details>
+<details><summary>Attribute inheritance</summary><table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th><th>C</th></tr>
+<tr><td colspan="6"><i><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a></i></td></tr>
+<tr><td>1</td><td>GlobalId</td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a></td><td>[1:1]</td><td>
+Assignment of a globally unique identifier within the entire software world.
+</td><td>X</td></tr>
+<tr><td>2</td><td>OwnerHistory</td><td><a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a></td><td>[0:1]</td><td>
+Assignment of the information about the current ownership of that object, including owning actor, application, local identification and information captured about the recent changes of the object, 
+
+<blockquote class="note">NOTE&nbsp; only the last modification in stored - either as addition, deletion or modification.</blockquote>
+</td><td>X</td></tr>
+<tr><td>3</td><td>Name</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>[0:1]</td><td>
+Optional name for use by the participating software systems or users. For some subtypes of IfcRoot the insertion of the Name attribute may be required. This would be enforced by a where rule.
+</td><td>X</td></tr>
+<tr><td>4</td><td>Description</td><td><a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a></td><td>[0:1]</td><td>
+Optional description, provided for exchanging informative comments.</td><td>X</td></tr>
+<tr><td colspan="6"><i><a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a></i></td></tr>
+<tr><td></td><td><i>HasAssignments</i></td><td><a href="../../ifckernel/lexical/ifcrelassigns.htm">IfcRelAssigns</a><br/>@RelatedObjects</td><td>S[0:?]</td><td>Reference to the relationship objects, that assign (by an association relationship) other subtypes of IfcObject to this object instance. Examples are the association to products, processes, controls, resources or groups.</td><td>X</td></tr>
+<tr><td></td><td><i>Nests</i></td><td><a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a><br/>@RelatedObjects</td><td>S[0:1]</td><td>References to the decomposition relationship being a nesting. It determines that this object definition is a part within an ordered whole/part decomposition relationship. An object occurrence or type can only be part of a single decomposition (to allow hierarchical strutures only).
+
+
+</td><td>X</td></tr>
+<tr><td></td><td><i>IsNestedBy</i></td><td><a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a><br/>@RelatingObject</td><td>S[0:?]</td><td>References to the decomposition relationship being a nesting. It determines that this object definition is the whole within an ordered whole/part decomposition relationship. An object or object type can be nested by several other objects (occurrences or types).
+
+
+</td><td>X</td></tr>
+<tr><td></td><td><i>HasContext</i></td><td><a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a><br/>@RelatedDefinitions</td><td>S[0:1]</td><td>References to the context providing context information such as project unit or representation context. It should only be asserted for the uppermost non-spatial object.
+
+</td><td>X</td></tr>
+<tr><td></td><td><i>IsDecomposedBy</i></td><td><a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a><br/>@RelatingObject</td><td>S[0:?]</td><td>References to the decomposition relationship being an aggregation. It determines that this object definition is whole within an unordered whole/part decomposition relationship. An object definitions can be aggregated by several other objects (occurrences or parts).
+
+
+</td><td>X</td></tr>
+<tr><td></td><td><i>Decomposes</i></td><td><a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a><br/>@RelatedObjects</td><td>S[0:1]</td><td>References to the decomposition relationship being an aggregation. It determines that this object definition is a part within an unordered whole/part decomposition relationship. An object definitions can only be part of a single decomposition (to allow hierarchical strutures only).
+
+
+</td><td>X</td></tr>
+<tr><td></td><td><i>HasAssociations</i></td><td><a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a><br/>@RelatedObjects</td><td>S[0:?]</td><td>Reference to the relationship objects, that associates external references or other resource definitions to the object.. Examples are the association to library, documentation or classification.</td><td>X</td></tr>
+<tr><td colspan="6"><i><a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a></i></td></tr>
+<tr><td>5</td><td>ObjectType</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>[0:1]</td><td>
+The type denotes a particular type that indicates the object further. The use has to be established at the level of instantiable subtypes. In particular it holds the user defined type, if the enumeration of the attribute <i>PredefinedType</i> is set to USERDEFINED. 
+<br></td><td>X</td></tr>
+<tr><td></td><td><i>IsDeclaredBy</i></td><td><a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a><br/>@RelatedObjects</td><td>S[0:1]</td><td>Link to the relationship object pointing to the declaring object that provides the object definitions for this object occurrence. The declaring object has to be part of an object type decomposition. The associated <span class="self-ref">IfcObject</span>, or its subtypes, contains the specific information (as part of a type, or style, definition), that is common to all reflected instances of the declaring <span class="self-ref">IfcObject</span>, or its subtypes. 
+</td><td>X</td></tr>
+<tr><td></td><td><i>Declares</i></td><td><a href="../../ifckernel/lexical/ifcreldefinesbyobject.htm">IfcRelDefinesByObject</a><br/>@RelatingObject</td><td>S[0:?]</td><td>Link to the relationship object pointing to the reflected object(s) that receives the object definitions. The reflected object has to be part of an object occurrence decomposition. The associated <span class="self-ref">IfcObject</span>, or its subtypes, provides the specific information (as part of a type, or style, definition), that is common to all reflected instances of the declaring <span class="self-ref">IfcObject</span>, or its subtypes. 
+</td><td>X</td></tr>
+<tr><td></td><td><i>IsTypedBy</i></td><td><a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a><br/>@RelatedObjects</td><td>S[0:1]</td><td>Set of relationships to the object type that provides the type definitions for this object occurrence. The then associated <a href="../../ifckernel/lexical/ifctypeobject.htm">IfcTypeObject</a>, or its subtypes, contains the specific information (or type, or style), that is common to all instances of <span class="self-ref">IfcObject</span>, or its subtypes, referring to the same type. 
+</td><td>X</td></tr>
+<tr><td></td><td><i>IsDefinedBy</i></td><td><a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a><br/>@RelatedObjects</td><td>S[0:?]</td><td>Set of relationships to property set definitions attached to this object. Those statically or dynamically defined properties contain alphanumeric information content that further defines the object. 
+</td><td>X</td></tr>
+<tr><td colspan="6"><a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a></td></tr>
+<tr><td></td><td><i>IsGroupedBy</i></td><td><a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a><br/>@RelatingGroup</td><td>S[0:?]</td><td>Reference to the relationship <a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a> that assigns the one to many group members to the <span class="self-ref">IfcGroup</span> object.
+</td><td>X</td></tr>
+<tr><td colspan="6"><a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a></td></tr>
+<tr><td></td><td><i>ServicesBuildings</i></td><td><a href="../../ifcproductextension/lexical/ifcrelservicesbuildings.htm">IfcRelServicesBuildings</a><br/>@RelatingSystem</td><td>S[0:1]</td><td>Reference to the <strike>building</strike> spatial structure via the objectified relationship <a href="../../ifcproductextension/lexical/ifcrelservicesbuildings.htm">IfcRelServicesBuildings</a>, which is serviced by the system.
+</td><td>X</td></tr>
+<tr><td colspan="6"><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a></td></tr>
+<tr><td>6</td><td>LongName</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>[0:1]</td><td>
+Long name for a distribution system, used for informal purposes. It should be used, if available, in conjunction with the inherited <i>Name</i> attribute.
+<blockquote class="note">NOTE&nbsp; In many scenarios the <i>Name</i> attribute refers to the short name or number of a distribution system or branch circuit, and the <i>LongName</i> refers to a descriptive name.
+</blockquote></td><td>X</td></tr>
+<tr><td>7</td><td>PredefinedType</td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">IfcDistributionSystemEnum</a></td><td>[0:1]</td><td>
+Predefined types of distribution systems.</td><td>X</td></tr>
+</table>
+</details>
+<section>
+<h5 class="num">Definitions applying to Common Use Definitions</h5>
+<p><a href="../../../annex/annex-d/common-use-definitions/ifcdistributionsystem.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<details>
+<summary>Concept usage</summary>
+<a id="property-sets-for-objects" />
+<p class="use-head">Property Sets for Objects</p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept applies to this entity as shown in Table 219.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>Name</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgserviceelements/pset/pset_distributionsystemcommon.htm">Pset_DistributionSystemCommon</a></td><td><a href="../../templates/single-value.htm">Single Value</a><br/><table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Value</b></th></tr>
+<tr><td>Reference</td><td>IfcIdentifier</td></tr>
+</table>
+</td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_servicelifefactors.htm">Pset_ServiceLifeFactors</a></td><td><a href="../../templates/bounded-value.htm">Bounded Value</a><br/><table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Value</b></th><th><b>Value</b></th></tr>
+<tr><td>QualityOfComponents</td><td>IfcPositiveRatioMeasure</td><td>IfcPositiveRatioMeasure</td></tr>
+<tr><td>DesignLevel</td><td>IfcPositiveRatioMeasure</td><td>IfcPositiveRatioMeasure</td></tr>
+<tr><td>WorkExecutionLevel</td><td>IfcPositiveRatioMeasure</td><td>IfcPositiveRatioMeasure</td></tr>
+<tr><td>IndoorEnvironment</td><td>IfcPositiveRatioMeasure</td><td>IfcPositiveRatioMeasure</td></tr>
+<tr><td>OutdoorEnvironment</td><td>IfcPositiveRatioMeasure</td><td>IfcPositiveRatioMeasure</td></tr>
+<tr><td>InUseConditions</td><td>IfcPositiveRatioMeasure</td><td>IfcPositiveRatioMeasure</td></tr>
+<tr><td>MaintenanceLevel</td><td>IfcPositiveRatioMeasure</td><td>IfcPositiveRatioMeasure</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 219 &mdash; IfcDistributionSystem Property Sets for Objects</td></tr></table>
+
+
+<br/><br/>
+
+<a id="aggregation" />
+<p class="use-head">Aggregation</p>
+<p>The <a href="../../templates/aggregation.htm">Aggregation</a> concept applies to this entity as shown in Table 220.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>RelatedObjects</b></th><th><b>Description</b></th></tr>
+<tr><td>ELECTRICAL</td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a></td><td>Indicates electrical subsystems within the system.</td></tr>
+<tr><td>ELECTRICAL</td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncircuit.htm">IfcDistributionCircuit</a></td><td>Indicates electrical circuits within the system.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 220 &mdash; IfcDistributionSystem Aggregation</td></tr></table>
+
+
+<br/><br/>
+
+<a id="group-assignment" />
+<p class="use-head">Group Assignment</p>
+<p>The <a href="../../templates/group-assignment.htm">Group Assignment</a> concept applies to this entity as shown in Table 221.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedType</b></th><th><b>Description</b></th></tr>
+<tr><td></td><td>Indicates devices that are part of the system, where any ports of the same PredefinedType are considered part of the system implicitly.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 221 &mdash; IfcDistributionSystem Group Assignment</td></tr></table>
+
+
+
+<p>For the most common case of an <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> subtype containing ports of a particular <i>PredefinedType</i> that all belong to the same distribution system, the <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> is assigned to the <span class="self-ref">IfcDistributionSystem</span> via the <a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a> relationship, where <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a>'s are implied as part of the corresponding system based on their <i>PredefinedType</i>.  An <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> may belong to multiple systems, however only one <span class="self-ref">IfcDistributionSystem</span> of a particular <i>PredefinedType</i>.</p>
+
+<p>For rare cases where an <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> subtype contains ports of the same <i>PredefinedType</i> yet different ports belong to different systems, alternatively each <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a> may be directly assigned to a single <span class="self-ref">IfcDistributionSystem</span> via the <a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a> relationship, where the <i>PredefinedType</i> must match.  Such assignment indicates that the <span class="self-ref">IfcDistributionSystem</span> assigned from the <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a> overrides any such system of the same <i>PredefinedType</i> assigned from the containing <a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a>, if any.</p>
+
+<p>Additionally, an <span class="self-ref">IfcDistributionSystem</span> may in turn be assigned to an <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a> indicating the host or origination of the system using <a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a>.</p>
+
+<blockquote class="example">
+EXAMPLE&nbsp; A gas-powered hot water heater may have three ports: GAS, DOMESTICCOLDWATER, and DOMESTICHOTWATER.  The heater is a member of two systems (GAS and DOMESTICCOLDWATER), and hosts one system (DOMESTICHOTWATER) at the corresponding port.
+</blockquote>
+
+<p>Figure 262 illustrates a distribution system for an electrical circuit.</p>
+
+<table>
+<tr><td><img alt="Instance diagram for electrical circuit" src="../../../figures/ifcdistributionsystem-01.png" ></td></tr>
+<tr><td><p class="figure">Figure 262 &mdash; Distribution system assignment</p></td></tr>
+</table>
+
+
+<br/><br/>
+
+</details>
+<section>
+<details>
+<summary>Concept inheritance</summary>
+<p><table class="attributes">
+<tr><th><b>#</b></th><th><b>Concept</b></td><th><b>Model View</b></th></tr>
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcroot.htm"><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcroot.htm#software-identity">Software Identity</a></td><td>Common Use Definitions</td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcroot.htm#revision-control">Revision Control</a></td><td>Common Use Definitions</td></tr>
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobject.htm"><a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#object-occurrence-predefined-type">Object Occurrence Predefined Type</a></td><td>Common Use Definitions</td></tr>
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a></td></tr>
+<tr><td colspan="3"><a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a></td></tr>
+<tr><td colspan="3"><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a></td></tr><tr><td> </td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm#property-sets-for-objects">Property Sets for Objects</a></td><td>Common Use Definitions</td></tr><tr><td> </td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm#aggregation">Aggregation</a></td><td>Common Use Definitions</td></tr><tr><td> </td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm#group-assignment">Group Assignment</a></td><td>Common Use Definitions</td></tr>
+</table>
+</details>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<details><summary>XSD Specification</summary><div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;IfcDistributionSystem&quot; type=&quot;ifc:<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcDistributionSystem&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LongName&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">IfcDistributionSystemEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div></details>
+<details><summary>EXPRESS Specification</summary><div class="express"><code class="express">
+<span class="keyword">ENTITY</span> IfcDistributionSystem<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncircuit.htm">IfcDistributionCircuit</a>)<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a>)<b>;</b><br/>
+&nbsp;&nbsp;LongName : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;&nbsp;PredefinedType : <span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionsystemenum.htm">IfcDistributionSystemEnum</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgserviceelements/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+</details>
+</section>
+<p><a href="../../../link/ifcdistributionsystem.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

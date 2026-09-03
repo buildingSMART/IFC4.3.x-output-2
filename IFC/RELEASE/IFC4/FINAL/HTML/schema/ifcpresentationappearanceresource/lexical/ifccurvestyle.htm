@@ -1,0 +1,221 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcCurveStyle</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.12.3.5");
+//-->
+</script>
+
+<h4 class="std">8.12.3.5 IfcCurveStyle</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Style de courbe</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Linienstil</b></td></tr>
+</table>
+
+
+<p>An <span class="self-ref">IfcCurveStyle</span> provides the style table for presentation information assigned to geometric curves. The style is defined by a color, a font and a width. The <span class="self-ref">IfcCurveStyle</span> defines curve patterns as model patterns, that is, the distance between visible and invisible segments of curve patterns are given in model space dimensions (that have to be scaled using the target plot scale).</p>
+
+<p>Styles are intended to be shared by multiple <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a>'s, assigning the style to occurrences of (subtypes of) <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>'s. Measures given to a font pattern or a curve width are given in global drawing length units.</p>
+
+<blockquote class="note">
+NOTE&nbsp; global units are defined at the single <a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a> instance, given by <i>UnitsInContext:IfcUnitAssignment</i>, the same units are used for the geometric representation items and for the style definitions.
+</blockquote>
+
+<p>The measure values for font pattern and curve width apply to the model space with a target plot scale provided for the correct appearance in the default plot scale.. For different scale and projection dependent curve styles a different instance of <span class="self-ref">IfcCurveStyle</span> needs to be used by <a href="../../ifcpresentationappearanceresource/lexical/ifcpresentationstyleassignment.htm">IfcPresentationStyleAssignment</a> for different <a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a> dependent representations.</p>
+
+<blockquote class="note">NOTE&nbsp; the target plot scale is given by <i>IfcGeometricRepresentationSubContext.TargetScale</i>.
+</blockquote>
+
+<p>An <span class="self-ref">IfcCurveStyle</span> can be assigned to <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>'s via the <a href="../../ifcpresentationappearanceresource/lexical/ifcpresentationstyleassignment.htm">IfcPresentationStyleAssignment</a> through an intermediate <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> or <i>IfcAnnotationCurveOccurrence</i>.</p>
+
+<blockquote class="extDef">
+NOTE&nbsp; Definition according to ISO/CD 10303-46:1992<br>
+A curve style specifies the visual appearance of curves.</blockquote>
+<blockquote class="note">
+NOTE&nbsp; Corresponding ISO 10303 name: curve_style. Please refer to ISO/IS 10303-46:1994 for the final definition of the formal standard.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.</small> </font>
+</blockquote>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcCurveStyle&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifccurvestyle.htm">IfcCurveStyle</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcpresentationstyle.htm">IfcPresentationStyle</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcCurveStyle&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcpresentationstyle.htm">IfcPresentationStyle</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;CurveFont&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifccurvefontorscaledcurvefontselect.htm">IfcCurveFontOrScaledCurveFontSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;CurveWidth&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcsizeselect.htm">IfcSizeSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;CurveColour&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifccolour.htm">IfcColour</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ModelOrDraughting&quot; type=&quot;xs:boolean&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCurveStyle
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcpresentationstyle.htm">IfcPresentationStyle</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">CurveFont</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcpresentationappearanceresource/lexical/ifccurvefontorscaledcurvefontselect.htm">IfcCurveFontOrScaledCurveFontSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveWidth</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcsizeselect.htm">IfcSizeSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveColour</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcpresentationappearanceresource/lexical/ifccolour.htm">IfcColour</a>;</td></tr>
+<tr valign="top"><td width="20%">ModelOrDraughting</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">MeasureOfWidth</td><td width="1%"> : </td><td>(NOT(EXISTS(CurveWidth))) OR
+('IFCMEASURERESOURCE.IFCPOSITIVELENGTHMEASURE' IN TYPEOF(CurveWidth)) OR 
+ (('IFCMEASURERESOURCE.IFCDESCRIPTIVEMEASURE' IN TYPEOF(CurveWidth)) AND
+ (CurveWidth = 'by layer'));</td></tr>  <tr valign="top"><td width="20%">IdentifiableCurveStyle</td><td width="1%"> : </td><td>EXISTS(CurveFont) OR EXISTS(CurveWidth) OR EXISTS(CurveColour);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationappearanceresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">CurveFont</span></td><td width="1%"> : </td><td>A curve style font which is used to present a curve. It can either be a predefined curve font, or an explicitly defined curve font. Both may be scaled. If not given, then the curve font should be taken from the layer assignment with style, if that is not given either, then the default curve font applies.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CurveWidth</span></td><td width="1%"> : </td><td>A positive length measure in units of the presentation area for the width of a presented curve. If not given, then the style should be taken from the layer assignment with style, if that is not given either, then the default style applies.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">CurveColour</span></td><td width="1%"> : </td><td>The colour of the visible part of the curve. If not given, then the colour should be taken from the layer assignment with style, if that is not given either, then the default colour applies.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ModelOrDraughting</span></td><td width="1%"> : </td><td>
+Indication whether the length measures provided for the presentation style are model based, or draughting based.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New attribute.
+</blockquote>
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">MeasureOfWidth</span></td><td width="1%"> : </td><td>
+The curve width, if provided, shall be given by an <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a> representing the curve width in the default measure unit, or by an <a href="../../ifcmeasureresource/lexical/ifcdescriptivemeasure.htm">IfcDescriptiveMeasure</a> with the value 'by layer' representing the curve width by the default curve width at the associated layer.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">IdentifiableCurveStyle</span></td><td width="1%"> : </td><td>
+At minimum one of the three attribute values have to be provided, <i>CurveFont</i>, <i>CurveWidth</i>, <i>CurveColour</i>.
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCurveStyle
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcpresentationstyle.htm">IfcPresentationStyle</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcpresentationappearanceresource/lexical/ifccurvestyle.htm">IfcCurveStyle</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">CurveFont</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcpresentationappearanceresource/lexical/ifccurvefontorscaledcurvefontselect.htm">IfcCurveFontOrScaledCurveFontSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveWidth</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcsizeselect.htm">IfcSizeSelect</a>;</td></tr>
+<tr valign="top"><td width="20%">CurveColour</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcpresentationappearanceresource/lexical/ifccolour.htm">IfcColour</a>;</td></tr>
+<tr valign="top"><td width="20%">ModelOrDraughting</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <span class="self-ref">BOOLEAN</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifccurvestyle.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

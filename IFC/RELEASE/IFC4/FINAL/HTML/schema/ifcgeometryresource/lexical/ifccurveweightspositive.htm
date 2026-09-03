@@ -1,0 +1,50 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcCurveWeightsPositive</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.4.7");
+//-->
+</script>
+
+<h4 class="std">8.9.4.7 IfcCurveWeightsPositive</h4>
+<p>
+
+<p>This function checks whether the curve weights of a b-spline are positive.</p>
+
+<blockquote class="note">NOTE&nbsp; Function adapted from <strong>curve_weights_positive</strong> defined in ISO 10303-42.</blockquote>
+
+<blockquote class="history">HISTORY&nbsp; New function in IFC2x</blockquote>
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcCurveWeightsPositive<br/>
+
+( B: IfcRationalBSplineCurveWithKnots)<br/>: BOOLEAN;<br/><br/>&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;Result : BOOLEAN := TRUE;<br/>&nbsp;&nbsp;END_LOCAL;<br/><br/>&nbsp;&nbsp;REPEAT i := 0 TO B.UpperIndexOnControlPoints;<br/>&nbsp;&nbsp;&nbsp;&nbsp;IF B.Weights[i] &lt;= 0.0&nbsp;&nbsp;THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FALSE;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Result);<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;END_REPEAT;<br/>&nbsp;&nbsp;RETURN(Result);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifccurveweightspositive.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

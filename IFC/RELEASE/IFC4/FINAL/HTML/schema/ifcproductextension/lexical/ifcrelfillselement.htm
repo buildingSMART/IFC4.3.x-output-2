@@ -1,0 +1,185 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcRelFillsElement</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.35");
+//-->
+</script>
+
+<h4 class="std">5.4.3.35 IfcRelFillsElement</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Relation de remplissage</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Element als Füllung einer Öffnung - Relation</b>: Relation zwischen einer Tür / Fenster und der Öffnung</td></tr>
+</table>
+ 
+
+<p><span class="self-ref">IfcRelFillsElement</span> is an objectified relationship between an opening element and an element that fills (or partially fills) the opening element. It is an one-to-one relationship.</p>
+
+<blockquote class="note">
+NOTE&nbsp; View definitions or implementer agreements may restrict an opening to be filled by one filling element only.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC1.0
+</blockquote>
+
+<p>As shown in Figure 131, the insertion of a door into a wall is represented by two separate relationships. First the door opening is created within the wall by <i>IfcWall(StandardCase) o-- IfcRelVoidsElement --o IfcOpeningElement</i>, then the door is inserted within the opening by <i>IfcOpeningElement o-- IfcRelFillsElement --o IfcDoor</i>.</p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="502" summary="example for filling">
+<tr><td><img src="../../../figures/IfcRelFillsElements-Fig1.png" alt="relationships for filling" width="501" height="401" border="0"></td></tr>
+<tr><td><p class="figure">Figure 131 &mdash; Relationships for element filling</p></td></tr>
+</table>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcRelFillsElement&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcRelFillsElement&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatingOpeningElement&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatedBuildingElement&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelFillsElement
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingOpeningElement</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>;</td></tr>
+<tr valign="top"><td width="20%">RelatedBuildingElement</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0008.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">RelatingOpeningElement</span></td><td width="1%"> : </td><td>Opening Element being filled by virtue of this relationship.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">RelatedBuildingElement</span></td><td width="1%"> : </td><td>
+Reference to <strike>building</strike> element that occupies fully or partially the associated opening.
+<blockquote class="change-ifc2x">IFC2x CHANGE&nbsp; The data type has been changed from <a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a> to <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a> with upward compatibility for file based exchange.</blockquote>
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelFillsElement
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcrelationship.htm">IfcRelationship</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingOpeningElement</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>;</td></tr>
+<tr valign="top"><td width="20%">RelatedBuildingElement</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="spec-head">Examples:</p>
+<ul>
+<li><a href="../../../annex/annex-e/wall-with-opening-and-window.htm">Wall with opening and window</a></li>
+</ul>
+<p><a href="../../../link/ifcrelfillselement.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

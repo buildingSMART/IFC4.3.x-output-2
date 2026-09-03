@@ -1,0 +1,334 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcCompositeCurve</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.18");
+//-->
+</script>
+
+<h4 class="std">8.9.3.18 IfcCompositeCurve</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Courbe composite</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Zusammengesetzte Kurve</b></td></tr>
+</table>
+ 
+<p>An <span class="self-ref">IfcCompositeCurve</span> is a continuous curve composed of curve segments.</p>
+<p>Figure 317 illustrates an example of a composite curve.</p>
+<table summary="illustration">
+<tr>
+<td><img src="../../../figures/IfcCompositeCurve.png" alt="formula" width="600" height="260"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 317 &mdash; Composite curve</p>
+</td>
+</tr>
+</table>
+<p>Consider an <span class="self-ref">IfcCompositeCurve</span> having line segment and an arc segment. The line should be parameterized:</p>
+<ul>
+<li><a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a> with start= 0.,0. end= 0.,1., <i>SameSense</i>= TRUE, parametric length = 1.</li>
+</ul>
+<p>The arch should be parameterized:</p>
+<ul>
+<li><a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a> with start= 180', end= 90', <i>SameSense</i>= FALSE, parametric length = 90.</li>
+</ul>
+<p>Then the parameterization of the composite curve is:</p>
+<ul>
+<li><span class="self-ref">IfcCompositeCurve</span> with 0. &le; T &le; 1. (line segment) and 1. &le; T &le; 91. (arc segment), parametric
+length = 91.</li>
+</ul>
+<p>&nbsp;</p>
+<blockquote class="extDef">
+<p style="font-size:inherit">NOTE Definition according to ISO 10303-42:<br>
+A composite curve is a collection of curves joined end-to-end. The individual segments of the curve are themselves
+defined as composite curve segments. The parameterization of the composite curve is an accumulation of the parametric
+ranges of the referenced bounded curves. The first segment is parameterized from <i>0</i> to
+<i>l<sub><small>1</small></sub></i> and for <i>i</i> <i>&le;</i> <i>2</i>, the
+<i>i<sup><small>th</small></sup></i> segment is parameterized from:</p>
+<blockquote><img src="../../../figures/IfcCompositeCurve-Math1.gif" alt="formula" width="140" height="60"></blockquote>
+<p style="font-size:inherit">where <i>l<sub><small>k</small></sub></i> is the parametric length (i.e., difference
+between maximum and minimum parameter values) of the curve underlying the <i>k<sup><small>th</small></sup></i>
+segment. Let <i>T</i> denote the parameter for the composite curve. Then, if the <i>i</i>th segment is not a
+reparameterised composite curve segment, <i>T</i> is related to the parameter <i>t<sub>i</sub></i>;
+<i>t<sub>i0</sub></i> <i>&le;</i> <i>t<sub>i</sub></i> <i>&le;</i> <i>t<sub>i1</sub></i>; for the
+<i>i</i>th segment by the equation:</p>
+<blockquote><img src="../../../figures/IfcCompositeCurve-Math2.gif" alt="formula" width="140" height="60"> if
+<i>Segments[i].SameSense</i> = TRUE;</blockquote>
+<p style="font-size:inherit">or by the equation:</p>
+<blockquote><img src="../../../figures/IfcCompositeCurve-Math3.gif" alt="formula" width="140" height="60"> if
+<i>Segments[i].SameSense</i> = FALSE;</blockquote>
+<p style="font-size:inherit">If the segments[i] is of type reparameterised composite curve segment,</p>
+<blockquote><img src="../../../figures/IfcCompositeCurve-Math4.gif" alt="formula" width="140" height="60"> where <i>&tau;</i>
+is defined at reparameterized composite curve segment (see
+<i>IfcReparameterizedCompositeCurveSegment</i>).</blockquote>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>composite_curve</strong>  defined in ISO
+10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote>
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>The <i>SameSense</i> attribute of each segment correctly specifies the senses of the component curves. When
+traversed in the direction indicated by <i>SameSense</i>, the segments shall join end-to-end.</li>
+</ol>
+
+<hr />
+<p>Figure 318 illustrates composite curve usage.</p>
+<table><tr><td><img src="../../../figures/ifccompositecurve.png" alt="usage"></td></tr><tr><td><p class="figure">Figure 318 &mdash; Composite curve usage</p></td></tr></table>
+
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcCompositeCurve&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccompositecurve.htm">IfcCompositeCurve</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcCompositeCurve&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Segments&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccompositecurvesegment.htm">IfcCompositeCurveSegment</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccompositecurvesegment.htm">IfcCompositeCurveSegment</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;list&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SelfIntersect&quot; type=&quot;ifc:logical&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCompositeCurve
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcgeometryresource/lexical/ifccompositecurveonsurface.htm">IfcCompositeCurveOnSurface</a>)
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Segments</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcgeometryresource/lexical/ifccompositecurvesegment.htm">IfcCompositeCurveSegment</a>;</td></tr>
+<tr valign="top"><td width="20%">SelfIntersect</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">NSegments</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := SIZEOF(Segments);</td></tr>
+<tr valign="top"><td width="20%">ClosedCurve</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span> := Segments[NSegments].Transition <> Discontinuous;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">CurveContinuous</td><td width="1%"> : </td><td>((NOT ClosedCurve) AND (SIZEOF(QUERY(Temp &lt;* Segments | Temp.Transition = Discontinuous)) = 1)) OR ((ClosedCurve) AND (SIZEOF(QUERY(Temp &lt;* Segments | Temp.Transition = Discontinuous)) = 0));</td></tr>  <tr valign="top"><td width="20%">SameDim</td><td width="1%"> : </td><td>SIZEOF( QUERY( Temp &lt;* Segments | Temp.Dim &lt;&gt; Segments[1].Dim)) = 0;</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0006.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">Segments</span></td><td width="1%"> : </td><td>The component bounded curves, their transitions and senses. The transition attribute for the last segment defines the transition between the end of the last segment and the start of the first; this transition attribute may take the value discontinuous, which indicates an open curve. </td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SelfIntersect</span></td><td width="1%"> : </td><td>Indication of whether the curve intersects itself or not; this is for information only.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">NSegments</span></td><td width="1%"> : </td><td>The number of component curves.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ClosedCurve</span></td><td width="1%"> : </td><td>Indication whether the curve is closed or not; this is derived from the transition code of the last segment.</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">CurveContinuous</span></td><td width="1%"> : </td><td>No transition code should be Discontinuous, except for the last code of an open curve.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">SameDim</span></td><td width="1%"> : </td><td>Ensures, that all segments used in the curve have the same dimensionality.</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcCompositeCurve
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">LayerAssignment</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;</td></tr>
+<tr valign="top"><td width="20%">StyledByItem</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> <span class="keyword">FOR</span> Item;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Dim</td><td width="1%"> : </td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := IfcCurveDim(SELF);</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcgeometryresource/lexical/ifccompositecurve.htm">IfcCompositeCurve</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Segments</td><td width="1%"> : </td><td><span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcgeometryresource/lexical/ifccompositecurvesegment.htm">IfcCompositeCurveSegment</a>;</td></tr>
+<tr valign="top"><td width="20%">SelfIntersect</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">DERIVE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">NSegments</td><td width="1%"> : </td><td><span class="self-ref">INTEGER</span> := SIZEOF(Segments);</td></tr>
+<tr valign="top"><td width="20%">ClosedCurve</td><td width="1%"> : </td><td><span class="self-ref">LOGICAL</span> := Segments[NSegments].Transition <> Discontinuous;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifccompositecurve.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

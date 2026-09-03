@@ -1,0 +1,292 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcRelSpaceBoundary2ndLevel</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.42");
+//-->
+</script>
+
+<h4 class="std">5.4.3.42 IfcRelSpaceBoundary2ndLevel</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Limites d'espace de deuxième niveau</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Raumgrenzen 2. Ebene - Relation</b></td></tr>
+</table>
+
+<p>The 2nd level space boundary defines the physical or virtual delimiter of a space by the relationship <span class="self-ref">IfcRelSpaceBoundary2ndLevel</span> to the surrounding elements. 2nd level space boundaries are characterized by:</p>
+<ul>
+<li>2nd level space boundaries still represent building elements that bound the space, but are more granular in that they are subdivided in any of the following cases:
+<ul>
+<li>Differences in materials and/or material assemblies (for example, a wainscot or paneling on the lower portion of a wall).</li>
+<li>Differences in spaces or zones on the other side of the building element (or virtual boundary) represented by the space boundary (for example, two different spaces on the other side of a wall)</li>
+</ul>
+</li>
+<li>2nd level space boundaries are differentiated in two ways: virtual or physical and internal or external, whereby any space boundary that is both internal and external has to be split into segments being either or.</li>
+<li>2nd level space boundaries represent both sides of a heat transfer surface separated by the thickness of the building element. They can be further differentiated in:
+<ul>
+<li>Type 2a that occurs when there is a space on the opposite side of the building element providing the space boundary</li>
+<li>Type 2b occurs if there is a building element on the opposite side of the building element providing the space boundary.</li>
+</ul>
+</li>
+<li>The connection geometry of 2nd level space boundaries is restricted to planar surfaces only. This means that curved surfaces must be segmented.</li>
+</ul>
+<p>2nd level space boundaries define the heat transfer surfaces on both sides of building elements that separate spaces. The generation of 2nd level space boundaries has to take building elements and spaces on the other side into account.</p>
+<blockquote class="note">NOTE&nbsp; 2nd level space boundaries are used by many analysis packages that require a surface view of the building that can be transformed into the various simple topological models. Examples of such analysis packages include: (1) energy analysis, (2) lighting analysis, (3) fluid dynamics</blockquote>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4.</font></small></blockquote>
+
+<p class="use-head">Relationship Use Definitions</p>
+<p>As shown in Figure 140, the attribute <i>ParentBoundary</i> with inverse <i>InnerBoundaries</i> is provided to link the space boundaries of doors, windows, and openings to the parent boundary, such as of a wall or slab.</p>
+<blockquote class="note">NOTE&nbsp; The space boundary of the parent is not cut by the inner boundary - both overlap.</blockquote>
+<p>The attribute <i>CorrespondingBoundary</i> with inverse <i>Corresponds</i> is provided to link the pair of space boundaries on the opposite sides of the building element.</p>
+<blockquote class="note">NOTE&nbsp; Only 2nd level space boundaries of type A have corresponding boundaries.</blockquote>
+
+<table border="0" cellpadding="2" cellspacing="2" summary="parent/inner boundaries">
+<tr><td><img src="../../../figures/IfcRelSpaceBoundary2ndLevel-fig1.png" alt="IfcRelSpaceBoundary2ndLevel" height="650" width="600"></td></tr>
+<tr><td><p class="figure">Figure 140 &mdash; Space boundary second level relationships</p></td></tr>
+</table>
+
+<p class="use-head">Geometry Use Definitions</p>
+<p>See the definition at the supertype <a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a>
+for guidance on using the connection geometry for second level
+space boundaries.</p>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcRelSpaceBoundary2ndLevel&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelspaceboundary2ndlevel.htm">IfcRelSpaceBoundary2ndLevel</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcRelSpaceBoundary2ndLevel&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;CorrespondingBoundary&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelspaceboundary2ndlevel.htm">IfcRelSpaceBoundary2ndLevel</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelSpaceBoundary2ndLevel
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">CorrespondingBoundary</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary2ndlevel.htm">IfcRelSpaceBoundary2ndLevel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Corresponds</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelspaceboundary2ndlevel.htm">IfcRelSpaceBoundary2ndLevel</a> <span class="keyword">FOR</span> CorrespondingBoundary;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0007.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">CorrespondingBoundary</span></td><td width="1%"> : </td><td>
+Reference to the other space boundary of the pair of two space boundaries on either side of a space separating thermal boundary element.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">Corresponds</span></td><td width="1%"> : </td><td>
+Reference to the other space boundary of the pair of two space boundaries on either side of a space separating thermal boundary element.
+</td></tr>
+</table>
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcRelSpaceBoundary2ndLevel
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcrelationship.htm">IfcRelationship</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">RelatingSpace</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcspaceboundaryselect.htm">IfcSpaceBoundarySelect</a>;</td></tr>
+<tr valign="top"><td width="20%">RelatedBuildingElement</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>;</td></tr>
+<tr valign="top"><td width="20%">ConnectionGeometry</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcgeometricconstraintresource/lexical/ifcconnectiongeometry.htm">IfcConnectionGeometry</a>;</td></tr>
+<tr valign="top"><td width="20%">PhysicalOrVirtualBoundary</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcphysicalorvirtualenum.htm">IfcPhysicalOrVirtualEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">InternalOrExternalBoundary</td><td width="1%"> : </td><td><a href="../../ifcproductextension/lexical/ifcinternalorexternalenum.htm">IfcInternalOrExternalEnum</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">ParentBoundary</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">InnerBoundaries</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a> <span class="keyword">FOR</span> ParentBoundary;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary2ndlevel.htm">IfcRelSpaceBoundary2ndLevel</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">CorrespondingBoundary</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary2ndlevel.htm">IfcRelSpaceBoundary2ndLevel</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">Corresponds</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifcproductextension/lexical/ifcrelspaceboundary2ndlevel.htm">IfcRelSpaceBoundary2ndLevel</a> <span class="keyword">FOR</span> CorrespondingBoundary;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcrelspaceboundary2ndlevel.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

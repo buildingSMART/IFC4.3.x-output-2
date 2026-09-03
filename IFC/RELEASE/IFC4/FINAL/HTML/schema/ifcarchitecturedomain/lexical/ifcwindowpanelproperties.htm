@@ -1,0 +1,292 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcWindowPanelProperties</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.1.3.6");
+//-->
+</script>
+
+<h4 class="std">7.1.3.6 IfcWindowPanelProperties</h4>
+<table>
+<tr><td><image src="../../../img/locale-fr.png" /></td><td><b>Propriétés des panneaux de fenêtre</b></td></tr>
+<tr><td><image src="../../../img/locale-de.png" /></td><td><b>Festdefinierte Merkmale der Fensterfüllung / des Fensterflügels</b></td></tr>
+</table>
+ 
+<p>A window panel is a casement, that is, a component, fixed or opening, consisting essentially of a frame and the infilling. The
+infilling of a window panel is normally glazing. The way of operation is defined in the operation type.</p>
+<p>The <span class="self-ref">IfcWindowPanelProperties</span> are used to parametrically describe the shape and operation of window panels. The parametric
+definition can be added solely or additionally to the explicit shape representation of the window.</p>
+<p>The <a href="../../ifcarchitecturedomain/lexical/ifcwindowstyle.htm">IfcWindowStyle</a> can define windows consisting of more then one panel. In this case, one instance of
+<span class="self-ref">IfcWindowPanelProperties</span> has to be included for each window panel. The <i>PanelPosition</i> attribute, in conjunction
+with the <i>IfcWindowStyle.OperationType</i> attribute, determines to which panel the <span class="self-ref">IfcWindowPanelProperties</span>apply.</p>
+<p>The <span class="self-ref">IfcWindowPanelProperties</span> are included in the list of properties (<i>HasPropertySets</i>) of the
+<a href="../../ifcarchitecturedomain/lexical/ifcwindowstyle.htm">IfcWindowStyle</a>. More information about the window panel can be included in the same list of the <a href="../../ifcarchitecturedomain/lexical/ifcwindowstyle.htm">IfcWindowStyle</a>
+using the <a href="../../ifckernel/lexical/ifcpropertyset.htm">IfcPropertySet</a> for dynamic extensions.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2.0, it had been renamed from IfcWindowPanel in IFC2x.</blockquote>
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Supertype changed to new <a href="../../ifckernel/lexical/ifcpredefinedpropertyset.htm">IfcPreDefinedPropertySet</a>.
+</blockquote>
+
+<p class="use-head">Geometry use definitions</p>
+<p>The <span class="self-ref">IfcWindowPanelProperties</span> does not hold an own geometric representation. However it defines parameter, which can
+be used to create the shape of the <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a> (which is inserted by the <a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a> into the spatial context of
+the project).</p>
+<p>The parameters at the <span class="self-ref">IfcWindowPanelProperties</span> define a standard window panel. The outer boundary of the panel is
+determined by the occurrence parameter assigned to the IfcWindow, which inserts the IfcWindowStyle. It has to take the lining
+parameter into account as well. The position of the window panel within the overall window is determined by the
+<i>PanelPosition</i> attribute.</p>
+
+<p>As shown in Figure 261, the panel is applied to the position within the lining as defined by the panel position attribute. 
+The following parameter apply to that panel: <i>FrameDepth</i>, <i>FrameThickness</i>.</p>
+
+<table border="0">
+ <tr>
+  <td><img src="../../../figures/IfcWindowPanelProperties-Fig01.gif" alt="panel 1" width="239" height="129" border="0"></td>
+ </tr>
+ <tr>
+  <td><p class="figure">Figure 261 &mdash; Window panel properties</p></td>
+ </tr>
+</table>
+
+<hr />
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:element name=&quot;IfcWindowPanelProperties&quot; type=&quot;ifc:<a href="../../ifcarchitecturedomain/lexical/ifcwindowpanelproperties.htm">IfcWindowPanelProperties</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcpredefinedpropertyset.htm">IfcPreDefinedPropertySet</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;IfcWindowPanelProperties&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcpredefinedpropertyset.htm">IfcPreDefinedPropertySet</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ShapeAspectStyle&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcshapeaspect.htm">IfcShapeAspect</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;OperationType&quot; type=&quot;ifc:<a href="../../ifcarchitecturedomain/lexical/ifcwindowpaneloperationenum.htm">IfcWindowPanelOperationEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PanelPosition&quot; type=&quot;ifc:<a href="../../ifcarchitecturedomain/lexical/ifcwindowpanelpositionenum.htm">IfcWindowPanelPositionEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;FrameDepth&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;FrameThickness&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcWindowPanelProperties
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">SUBTYPE OF</span> <a href="../../ifckernel/lexical/ifcpredefinedpropertyset.htm">IfcPreDefinedPropertySet</a><b>;</b>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">OperationType</td><td width="1%"> : </td><td><a href="../../ifcarchitecturedomain/lexical/ifcwindowpaneloperationenum.htm">IfcWindowPanelOperationEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">PanelPosition</td><td width="1%"> : </td><td><a href="../../ifcarchitecturedomain/lexical/ifcwindowpanelpositionenum.htm">IfcWindowPanelPositionEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">FrameDepth</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">FrameThickness</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ShapeAspectStyle</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcshapeaspect.htm">IfcShapeAspect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">WHERE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr valign="top"><td width="20%">ApplicableToType</td><td width="1%"> : </td><td>(EXISTS(SELF\IfcPropertySetDefinition.DefinesType[1])) 
+AND 
+(
+ ('IFCSHAREDBLDGELEMENTS.IFCWINDOWTYPE' IN TYPEOF(SELF\IfcPropertySetDefinition.DefinesType[1]))
+  OR
+ ('IFCARCHITECTUREDOMAIN.IFCWINDOWSTYLE' IN TYPEOF(SELF\IfcPropertySetDefinition.DefinesType[1]))
+);</td></tr></table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p class="std"><a href="../../../annex/annex-d/ifcarchitecturedomain/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p class="spec-head">Attribute Definitions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">OperationType</span></td><td width="1%"> : </td><td>Types of window panel operations. Also used to assign standard symbolic presentations according to national building standards.
+</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">PanelPosition</span></td><td width="1%"> : </td><td>Position of this panel within the overall window style.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">FrameDepth</span></td><td width="1%"> : </td><td>Depth of panel frame, measured from front face to back face horizontally (i.e. perpendicular to the window (elevation) plane.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">FrameThickness</span></td><td width="1%"> : </td><td>Width of panel frame, measured from inside of panel (at glazing) to outside of panel (at lining), i.e. parallel to the window (elevation) plane.</td></tr>
+<tr valign="top"><td width="21%"><span class="attr-name">ShapeAspectStyle</span></td><td width="1%"> : </td><td>
+Optional link to a shape aspect definition, which points to the part of the geometric representation of the window style, which is used to represent the panel.
+<blockquote class="deprecated">DEPRECATION&nbsp; The attribute is deprecated and shall no longer be used, i.e. the value shall be NIL ($).</blockquote>
+</td></tr>
+</table>
+<p class="spec-head">Formal Propositions:</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="21%"><span class="attr-name">ApplicableToType</span></td><td width="1%"> : </td><td>
+The <span class="self-ref">IfcWindowPanelProperties</span> shall only be used in the context of an <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>.
+<blockquote class="note">NOTE&nbsp; The deprecated entity <a href="../../ifcarchitecturedomain/lexical/ifcwindowstyle.htm">IfcWindowStyle</a> is applicable as well.
+</blockquote>
+</td></tr>
+</table>
+
+
+<p class="spec-head">Inheritance Graph:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">ENTITY</span> IfcWindowPanelProperties
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">GlobalId</td><td width="1%"> : </td><td><a href="../../ifcutilityresource/lexical/ifcgloballyuniqueid.htm">IfcGloballyUniqueId</a>;</td></tr>
+<tr valign="top"><td width="20%">OwnerHistory</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcutilityresource/lexical/ifcownerhistory.htm">IfcOwnerHistory</a>;</td></tr>
+<tr valign="top"><td width="20%">Name</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;</td></tr>
+<tr valign="top"><td width="20%">Description</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcpropertydefinition.htm">IfcPropertyDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">HasContext</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> <span class="keyword">FOR</span> RelatedDefinitions;</td></tr>
+<tr valign="top"><td width="20%">HasAssociations</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a> <span class="keyword">FOR</span> RelatedObjects;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcpropertysetdefinition.htm">IfcPropertySetDefinition</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">INVERSE</span>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">DefinesType</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifctypeobject.htm">IfcTypeObject</a> <span class="keyword">FOR</span> HasPropertySets;</td></tr>
+<tr valign="top"><td width="20%">IsDefinedBy</td><td width="1%"> : </td><td><span class="keyword">SET</span> <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcreldefinesbytemplate.htm">IfcRelDefinesByTemplate</a> <span class="keyword">FOR</span> RelatedPropertySets;</td></tr>
+<tr valign="top"><td width="20%">DefinesOccurrence</td><td width="1%"> : </td><td><span class="keyword">SET</span> [0:1] OF <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a> <span class="keyword">FOR</span> RelatingPropertyDefinition;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifckernel/lexical/ifcpredefinedpropertyset.htm">IfcPreDefinedPropertySet</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="1%">
+  <td>
+<span class="keyword">ENTITY</span> <a href="../../ifcarchitecturedomain/lexical/ifcwindowpanelproperties.htm">IfcWindowPanelProperties</a>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="20%">OperationType</td><td width="1%"> : </td><td><a href="../../ifcarchitecturedomain/lexical/ifcwindowpaneloperationenum.htm">IfcWindowPanelOperationEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">PanelPosition</td><td width="1%"> : </td><td><a href="../../ifcarchitecturedomain/lexical/ifcwindowpanelpositionenum.htm">IfcWindowPanelPositionEnum</a>;</td></tr>
+<tr valign="top"><td width="20%">FrameDepth</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">FrameThickness</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;</td></tr>
+<tr valign="top"><td width="20%">ShapeAspectStyle</td><td width="1%"> : </td><td><span class="keyword">OPTIONAL</span> <a href="../../ifcrepresentationresource/lexical/ifcshapeaspect.htm">IfcShapeAspect</a>;</td></tr>
+</table>
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_ENTITY;</span>
+  </td>
+ </tr>
+</table>
+</span>
+<p><a href="../../../link/ifcwindowpanelproperties.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

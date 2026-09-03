@@ -1,0 +1,53 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcCorrectUnitAssignment</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.11.4.2");
+//-->
+</script>
+
+<h4 class="std">8.11.4.2 IfcCorrectUnitAssignment</h4>
+<p>
+
+<p> The function returns
+true, if
+the set of <i>Units</i> within an <a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a>
+only include units with different <i>UnitType</i>'s (for <a href="../../ifcmeasureresource/lexical/ifcnamedunit.htm">IfcNamedUnit</a>
+and <a href="../../ifcmeasureresource/lexical/ifcderivedunit.htm">IfcDerivedUnit</a>), and a maximum of one <a href="../../ifcmeasureresource/lexical/ifcmonetaryunit.htm">IfcMonetaryUnit</a>.</p>
+<p>Argument definitions:<br>
+Units : (input) the set of <a href="../../ifcmeasureresource/lexical/ifcunit.htm">IfcUnit</a>'s.
+</p>
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcCorrectUnitAssignment<br/>
+
+&nbsp;&nbsp;(Units : SET [1:?] OF IfcUnit)<br/>&nbsp;&nbsp;&nbsp;: LOGICAL;<br/><br/>&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;NamedUnitNumber&nbsp;&nbsp;&nbsp;&nbsp;: INTEGER := 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;DerivedUnitNumber&nbsp;&nbsp;: INTEGER := 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;MonetaryUnitNumber : INTEGER := 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;NamedUnitNames&nbsp;&nbsp;&nbsp;&nbsp; : SET OF IfcUnitEnum := [];<br/>&nbsp;&nbsp;&nbsp;&nbsp;DerivedUnitNames&nbsp;&nbsp;&nbsp;: SET OF IfcDerivedUnitEnum := [];<br/>&nbsp;&nbsp;END_LOCAL;<br/><br/>&nbsp;&nbsp;NamedUnitNumber&nbsp;&nbsp;&nbsp;&nbsp;:= SIZEOF(QUERY(temp &lt;* Units | ('IFCMEASURERESOURCE.IFCNAMEDUNIT' IN TYPEOF(temp)) AND NOT(temp\IfcNamedUnit.UnitType = IfcUnitEnum.USERDEFINED)));<br/>&nbsp;&nbsp;DerivedUnitNumber&nbsp;&nbsp;:= SIZEOF(QUERY(temp &lt;* Units | ('IFCMEASURERESOURCE.IFCDERIVEDUNIT' IN TYPEOF(temp)) AND NOT(temp\IfcDerivedUnit.UnitType = IfcDerivedUnitEnum.USERDEFINED)));<br/>&nbsp;&nbsp;MonetaryUnitNumber := SIZEOF(QUERY(temp &lt;* Units |&nbsp;&nbsp;'IFCMEASURERESOURCE.IFCMONETARYUNIT' IN TYPEOF(temp)));<br/><br/>&nbsp;&nbsp;REPEAT i := 1 TO SIZEOF(Units);<br/>&nbsp;&nbsp;&nbsp;&nbsp;IF (('IFCMEASURERESOURCE.IFCNAMEDUNIT' IN TYPEOF(Units[i])) AND NOT(Units[i]\IfcNamedUnit.UnitType = IfcUnitEnum.USERDEFINED)) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NamedUnitNames := NamedUnitNames + Units[i]\IfcNamedUnit.UnitType;<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;&nbsp;&nbsp;IF (('IFCMEASURERESOURCE.IFCDERIVEDUNIT' IN TYPEOF(Units[i])) AND NOT(Units[i]\IfcDerivedUnit.UnitType = IfcDerivedUnitEnum.USERDEFINED)) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DerivedUnitNames := DerivedUnitNames + Units[i]\IfcDerivedUnit.UnitType;<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;END_REPEAT;<br/><br/>&nbsp;&nbsp;RETURN((SIZEOF(NamedUnitNames) = NamedUnitNumber) AND (SIZEOF(DerivedUnitNames) = DerivedUnitNumber) AND (MonetaryUnitNumber &lt;= 1));
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifccorrectunitassignment.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

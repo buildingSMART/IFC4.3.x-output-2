@@ -1,0 +1,47 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcTopologyRepresentationTypes</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.4.8");
+//-->
+</script>
+
+<h4 class="std">8.18.4.8 IfcTopologyRepresentationTypes</h4>
+<p>
+
+<p>The function gets the topology representation type and the assigned set of representation items as input and verifies whether the correct items are assigned according to the representation type given.</p>
+<blockquote class="history">HISTORY  New function in IFC2x3</blockquote>
+</p>
+<p><b><u>EXPRESS Specification</u></b></p>
+
+<span class="express">
+
+<p>
+<span class="keyword">FUNCTION</span> IfcTopologyRepresentationTypes<br/>
+
+(RepType : IfcLabel; Items : SET OF IfcRepresentationItem) : LOGICAL;<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count : INTEGER := 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_LOCAL;<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;CASE RepType OF <br/>&nbsp;&nbsp;&nbsp;&nbsp;'Vertex' :<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Items | <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('IFCTOPOLOGYRESOURCE.IFCVERTEX' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;'Edge' : <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Items | <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('IFCTOPOLOGYRESOURCE.IFCEDGE' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;'Path' : <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Items | <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('IFCTOPOLOGYRESOURCE.IFCPATH' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;'Face' : <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Items | <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('IFCTOPOLOGYRESOURCE.IFCFACE' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;'Shell' :<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEGIN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count := SIZEOF(QUERY(temp &lt;* Items | <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('IFCTOPOLOGYRESOURCE.IFCOPENSHELL' IN TYPEOF(temp))<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR ('IFCTOPOLOGYRESOURCE.IFCCLOSEDSHELL' IN TYPEOF(temp))));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br/>&nbsp;&nbsp;&nbsp;&nbsp;'Undefined': RETURN(TRUE);<br/>&nbsp;&nbsp;&nbsp;&nbsp; OTHERWISE : RETURN(?);<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_CASE;<br/>&nbsp;&nbsp;&nbsp;&nbsp;RETURN (Count = SIZEOF(Items));
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</span>
+
+<p><a href="../../../link/ifctopologyrepresentationtypes.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

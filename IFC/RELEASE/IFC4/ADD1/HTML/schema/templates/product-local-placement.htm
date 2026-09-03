@@ -1,0 +1,115 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Product Local Placement</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-4.htm#4.8.1.1");
+//-->
+</script>
+
+<h4 class="std">4.8.1.1 Product Local Placement</h4>
+<p>
+Product occurrences can be placed in 3D space relative to
+ where they are contained. Placement is defined by a
+ relative position (X, Y, Z coordinates), a horizontal
+ reference direction, and a vertical axis direction. At the
+ outermost level, relative directions are defined according
+ to representation context; for example, +X may point east,
+ +Y may point north, and +Z may point up.</p>
+
+
+<p>
+Placement follows aggregation and containment relationships
+ as follows:
+</p>
+
+
+<ul>
+
+ <li>at the outermost level, a site is globally
+ positioned according to latitude, longitude, and elevation;</li>
+
+
+ <li>for spatial structures, positioning is
+ relative to aggregation. For example, a site may aggregate
+ multiple buildings, each building may aggregate multiple
+ building storeys, and each building storey may aggregate
+ multiple spaces;</li>
+
+
+ <li>for building elements, positioning is
+ relative to the containing spatial structure. For example,
+ a building storey may contain slabs, walls, columns, and
+ beams;
+</li>
+
+ <li>for aggregated parts, positioning is
+ relative to aggregation. For example, a staircase may
+ aggregate one or more stair flights;</li>
+ <li>for feature elements, positioning is
+ relative to the affected building element. For example, an
+ opening element is positioned relative to the wall it
+ voids, which in turn is positioned relative to a building
+ storey;</li>
+
+ <li >for fillings, positioning is relative to
+ the filled opening. For example, a door is positioned
+ relative to an opening which in turn is positioned relative
+ to a wall;
+</li>
+
+
+ <li>for distribution ports, positioning is
+ relative to the containing distribution element. For
+ example, an air terminal may have a port connection for a
+ duct segment or fitting;</li>
+
+
+ <li>for distribution elements, positioning is
+ relative to the containing spatial structure, however may be constrained by port connections. For example, a
+ electrical junction box may fill an opening within a wall,
+ and the junction box may contain ports for contained
+ outlets or switches; the placement of such connected
+ elements is contrained relative to connected port of the
+  junction box. As another example, an air terminal may fill
+ a ceiling covering which is placed relative to a space; the
+ placement of a connecting duct fitting may be constrained
+ relative to the air terminal.
+</li>
+
+
+</ul>
+
+
+<p>If a containing spatial structure contains a grid, then
+ placement may also be based relative to grid coordinates.
+ In certain use cases, an absolute placement may be used by omiting the <a href="../ifcgeometricconstraintresource/lexical/ifcobjectplacement.htm">IfcObjectPlacement</a>. In this case, the shape representation is defined within the world coordinate system.
+</p>
+<p class="fig-ref">Figure 58 illustrates an instance diagram.</p>
+<table><tr><td><img alt="Product Local Placement" src="./diagrams/product-local-placement.png" usemap="#f58"><map name="f58"><area shape="rect" coords="8,8,176,248" href="../ifckernel/lexical/ifcproduct.htm" alt="IfcProduct" /><area shape="rect" coords="208,8,376,68" href="../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm" alt="IfcLocalPlacement" /><area shape="rect" coords="408,8,576,68" href="../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm" alt="IfcLocalPlacement" /><area shape="rect" coords="408,88,576,160" href="../ifcgeometryresource/lexical/ifcaxis2placement3d.htm" alt="IfcAxis2Placement3D" /></map></td></tr><tr><td><p class="figure">Figure 58 &mdash; Product Local Placement</p></td></tr></table>
+
+<p class="spec-head">Examples:</p>
+<ul>
+<li><a href="../../annex/annex-e/grid-placement.htm">Grid placement</a></li>
+</ul>
+<p><a href="../../link/product-local-placement.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

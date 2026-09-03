@@ -1,0 +1,95 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <title>IfcLoadGroupTypeEnum</title>
+
+  </head>
+
+  <body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.7.2.5");
+//-->
+</script>
+
+<h4 class="std">7.7.2.5 IfcLoadGroupTypeEnum</h4>
+
+
+<p>This enumeration is used to distinguish between different levels
+of load grouping.  It allows to differentiate between load groups, load cases, and load combinations.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New enumeration in IFC2x2.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; LOAD_COMBINATION_GROUP deprecated.  Load cases are directly assigned to load combinations with different factors for each load case&mdash;load combination pair by means of <a href="../../ifckernel/lexical/ifcrelassignstogroupbyfactor.htm">IfcRelAssignsToGroupByFactor</a>.
+</blockquote>
+
+<p class="spec-head">Enumerated Item Definitions:</p>
+
+<ul>
+  <li><b>LOAD_GROUP</b>: groups instances of subtypes of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a>.  It shall be used as a
+      container for loads grouped together for specific purposes, such as loads which are part of a
+      special load pattern.</li>
+  <li><b>LOAD_CASE</b>: groups LOAD_GROUPs and instances of subtypes of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a>.
+      It should be used as a container for loads with the same origin.</li>
+  <li><b>LOAD_COMBINATION_GROUP</b>: an intermediate level between LOAD_CASE and LOAD_COMBINATION.  This level is obsolete and deprecated.  Before the introduction of <a href="../../ifckernel/lexical/ifcrelassignstogroupbyfactor.htm">IfcRelAssignsToGroupByFactor</a>, the purpose of this level was to provide a factor with which one or more LOAD_CASEs occur in a LOAD_COMBINATION.
+  <li><b>LOAD_COMBINATION</b>: used to group load cases which act together into a load combination.</li>
+  <li><b>USERDEFINED</b>:  A grouping level which does not follow the standard hierarchy of load group types.</li>
+  <li><b>NOTDEFINED</b>: The grouping level is not yet known.</li>
+</ul>
+
+<p class="spec-head">XSD Specification:</p><span class="xsd">&nbsp;&lt;xs:simpleType name=&quot;IfcLoadGroupTypeEnum&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;load_group&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;load_case&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;load_combination&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;userdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;notdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</span><p class="spec-head">EXPRESS Specification:</p>
+<span class="express">
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">TYPE</span> IfcLoadGroupTypeEnum = <span class="keyword">ENUMERATION OF</span> (
+  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td width="2%">
+  <td>
+LOAD_GROUP, <br/>LOAD_CASE, <br/>LOAD_COMBINATION, <br/>USERDEFINED, <br/>NOTDEFINED);  </td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+ <tr valign="top">
+  <td>
+<span class="keyword">END_TYPE;</span>
+  </td>
+ </tr>
+</table>
+  </td>
+ </tr>
+</table>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralanalysisdomain/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</span>
+<p><a href="../../../link/ifcloadgrouptypeenum.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>
